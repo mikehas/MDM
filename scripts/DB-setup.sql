@@ -7,8 +7,8 @@ create table Specialty (
 	Title varchar(64),
 	Code varchar(10),
 	Description varchar(255),
-	constraint specialty_fk foreign key (ParentID) references Specialty(ID),
-   constraint unique_code unique (Code) 
+--	constraint specialty_fk foreign key (ParentID) references Specialty(ID),
+        constraint unique_code unique (Code) 
 );
 
 create table RawData (
@@ -96,8 +96,8 @@ create table MatchedMailingAddress (
 	SourceID int,
 	AddressType varchar(10),
 	Primary key (MasterID, SourceID, AddressType),
-	Constraint MA_MP foreign key (SourceID) references MedicalProvider(SourceID),
-	Constraint MA_MMP foreign key (SourceID, AddressType) references Address(SourceID, AddressType)
+	Constraint MMA_MP foreign key (SourceID) references MedicalProvider(SourceID),
+	Constraint MMA_MMP foreign key (SourceID, AddressType) references Address(SourceID, AddressType)
 );
 
 create table MatchedPracticeAddress (
@@ -105,8 +105,8 @@ create table MatchedPracticeAddress (
 	SourceID int,
 	AddressType varchar(10),
 	Primary key (MasterID, SourceID, AddressType),
-	Constraint MA_MP foreign key (SourceID) references MedicalProvider(SourceID),
-	Constraint MA_MMP foreign key (SourceID, AddressType) references Address(SourceID, AddressType)
+	Constraint MPA_MP foreign key (SourceID) references MedicalProvider(SourceID),
+	Constraint MPA_MMP foreign key (SourceID, AddressType) references Address(SourceID, AddressType)
 );
 
 create table MatchedPrimarySpecialities (
