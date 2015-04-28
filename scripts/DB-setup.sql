@@ -13,15 +13,29 @@ create table Specialty (
 
 create table RawData (
 	SourceID int primary key auto_increment,
+        ProviderID varchar(20),
 	ProviderType varchar(20) not null,
 	Name varchar(255) not null,
 	Gender char(1),
-	DateOfBirth varchar(255),
+	DateOfBirth varchar(25),
 	isSoleProprietor char(1),
-	MailAddress varchar(255),
-	PracticeAddress varchar(255),
-	Phone varchar(255),
-	Speciality varchar(255)
+	MailingStreet varchar(100),
+	MailingUnit varchar(10),
+	MailingCity varchar(100),
+	MailingRegion varchar(10),
+	MailingPostCode varchar(9),
+	MailingCounty varchar(45),
+	MailingCountry varchar(10),
+	PracticeStreet varchar(100),
+	PracticeUnit varchar(10),
+	PracticeCity varchar(100),
+	PracticeRegion varchar(10),
+	PracticePostCode varchar(9),
+	PracticeCounty varchar(45),
+	PracticeCountry varchar(10),
+	Phone varchar(15),
+	PrimarySpecialty varchar(15),
+	SecondarySpecialty varchar(15)
 );
 
 create table MedicalProvider (
