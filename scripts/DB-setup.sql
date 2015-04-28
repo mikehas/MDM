@@ -2,8 +2,12 @@
 -- CPE366-03
 
 create table Specialty (
-	Code varchar(10) primary key,
-	Description varchar(255)
+	ParentID int,
+	ID int primary key,
+	Title varchar(64),
+	Code varchar(10),
+	Description varchar(255),
+	constraint 'specialty_fk' foreign key (ParentID) references Specialty(ID)
 );
 
 create table RawData (
