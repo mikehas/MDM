@@ -5,9 +5,10 @@ create table Specialty (
 	ParentID int,
 	ID int primary key,
 	Title varchar(64),
-	Code varchar(10) unique,
+	Code varchar(10),
 	Description varchar(255),
-	constraint specialty_fk foreign key (ParentID) references Specialty(ID)
+	constraint specialty_fk foreign key (ParentID) references Specialty(ID),
+   constraint unique_code unique (Code) 
 );
 
 create table RawData (
@@ -54,11 +55,11 @@ create table Address (
 
 create table Phones (
 	SourceID int primary key,
-	Country int,
-	Area int,
-	Exchange int,
-	Subscriber int,
-	Ext int,
+	Country varchar(6),
+	Area varchar(6),
+	Exchange varchar(6),
+	Subscriber varchar(6),
+	Ext varchar(6),
 	Constraint P_MP foreign key (SourceID) references MedicalProvider(SourceID)
 );
 
