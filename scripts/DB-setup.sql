@@ -5,9 +5,9 @@ create table Specialty (
 	ParentID int,
 	ID int primary key,
 	Title varchar(64),
-	Code varchar(10),
+	Code varchar(10) unique,
 	Description varchar(255),
-	constraint 'specialty_fk' foreign key (ParentID) references Specialty(ID)
+	constraint specialty_fk foreign key (ParentID) references Specialty(ID)
 );
 
 create table RawData (
