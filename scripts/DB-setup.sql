@@ -91,7 +91,16 @@ create table MatchedPhone (
 	Constraint MPH_MMP foreign key (MasterID) references MasteredMedicalProvider(MasterID)
 );
 
-create table MatchedAddress (
+create table MatchedMailingAddress (
+	MasterID int,
+	SourceID int,
+	AddressType varchar(10),
+	Primary key (MasterID, SourceID, AddressType),
+	Constraint MA_MP foreign key (SourceID) references MedicalProvider(SourceID),
+	Constraint MA_MMP foreign key (SourceID, AddressType) references Address(SourceID, AddressType)
+);
+
+create table MatchedPracticeAddress (
 	MasterID int,
 	SourceID int,
 	AddressType varchar(10),
