@@ -33,7 +33,7 @@ create table RawData (
 	PracticeCounty varchar(16),
 	PracticeCountry varchar(16),
 	Phone varchar(32),
-	PrimarySpecialty char(10)
+	PrimarySpecialty char(10),
 	SecondarySpecialty char(10)
 );
 
