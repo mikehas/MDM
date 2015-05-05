@@ -25,7 +25,7 @@ while len(raw) > 0:
    raw = raw.replace('\n', '')
    raw = raw.replace('\r', '')
    raw = raw.replace('\'', '\\\'')
-   raw = raw.replace(',', '')
+   raw = raw.replace(',', '~~~')
    raw = raw.replace('\t',',')
 
    while ',,' in raw:
@@ -56,6 +56,7 @@ while len(raw) > 0:
    else:
       insert = insert + "\'" + param[4] + "\'),\n"
 
+   insert = insert.replace('~~~', ',')
    raw = f.readline()
 
    if len(raw) > 0:
