@@ -1,0 +1,29 @@
+COLUMN STATISTICS
+
+                    NULL   N_NULL MIN    MAX    AVG    UNIQUE_CHARS
+
+SourceID            0      60000  1      5      4      0123456789
+ProviderType        0      60000  10     12     10     IOadgilnortuvz
+Name                0      60000  4      48     17      &'(),-./0123456789;>ABCDEFGHIJKLMNOPQRSTUVWXYZ`abcdefghijklmnopqrstuvwxyz
+Gender              4756   55244  1      1      1      FM
+DateOfBirth         60000  0      0      0      0
+isSoleProprietor    4756   55244  1      1      1      NXY
+MailingStreet       6405   53595  1      57     15      #&-/0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ^_abcdefghijklmnopqrstuvwxyz{|}~
+MailingUnit         39712  20288  2      52     6       #&-/0123456789:ABCDEFGHIJKLMNOPQRSTUVWYZabcdefghijklmnopqrstuvwy
+MailingCity         6405   53595  3      32     8       -ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz
+MailingRegion       17261  42739  2      15     2       ABCDEFGHIJKLMNOPRSTUVWXYZ
+MailingPostCode     6405   53595  5      10     5       -0123456789EMNT
+MailingCounty       24680  35320  3      21     7       -ABCDEFGHIJKLMNOPQRSTUVWYabcdefghijklmnopqrstuvwxyz
+MailingCountry      6405   53595  2      3      2      ABCGMSUX
+PracticeStreet      6399   53601  3      54     16      #&-/0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ^abcdefghijklmnopqrstuvwxyz{|}~
+PracticeUnit        36508  23492  2      52     6       #&-/0123456789:ABCDEFGHIJKLMNOPQRSTUVWYZabcdefghijklmnopqrstuvwxyz
+PracticeCity        6398   53602  3      24     8       -ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz
+PracticeRegion      17189  42811  2      15     2       ABCDEFGHIJKLMNOPRSTUVWXYZ
+PracticePostCode    6398   53602  4      10     5       -0123456789EGMNOTX
+PracticeCounty      24845  35155  3      21     7       -ABCDEFGHIJKLMNOPQRSTUVWYZabcdefghijklmnopqrstuvwxyz
+PracticeCountry     6398   53602  2      3      2      ABCIMNRSUX
+Phone               30335  29665  10     15     12      ()-.0123456789
+PrimarySpecialty    3598   56402  10     10     10     0123456789ABCDEFGHIJKLMNPQRSTUVWXYZ
+SecondarySpecialty  44829  15171  10     10     10     0123456789ABCDEFGHIJKLMNPQRSTUVWXYZ
+
+

@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+{% block localhead %}
+  <script type="text/javascript"> 
+      $(document).ready(function() {
+        $('#dtable').DataTable();
+      });
+  </script>
+{% endblock %}
+{% block body %}
+  {% if session.logged_in %}
+  {% else %}
+    <p> You are not logged in. </p>
+	{% endif %}
+  </ul>
+{% endblock %}

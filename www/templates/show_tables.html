@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+{% block localhead %}
+{% endblock %}
+{% block body %}
+  {% if session.logged_in %}
+		<table id="dtable" class="display">
+        <thead>
+          <td>Table Name</td>
+          <td>Number of Entries</td>
+          <td>View Link</td>
+          </thead>
+          <tbody>    
+          {% for tab,tab_total in tables_data %}
+              <tr>
+                <td>{{ tab[0] }}</td> 
+                <td>{{ tab_total[0] }}</td> 
+                <td><a href="{{ url_for('show_entries', table=tab)}}">View Entries</a>
+              </tr>
+          {% endfor %}
+        </tbody>
+    </table>
+  {% else %}
+    <p> You are not logged in. </p>
+	{% endif %}
+  </ul>
+{% endblock %}

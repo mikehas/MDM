@@ -1,0 +1,2067 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://www.facebook.com/2008/fbml" xmlns:og="http://opengraphprotocol.org/schema/">
+
+<head>
+<TITLE>MedTerms - Alpha Index, T listing - Medical Dictionary</TITLE>
+<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+<meta name="y_key" content="2547cd0fb417c291"/>
+<meta name="robots" content="noodp"/>
+<meta http-equiv="refresh" content="900"/>
+<meta charset="UTF-8">
+
+<script type="text/javascript" src="http://img.webmd.com/dtmcms/live/webmd/PageBuilder_Assets/JS_static/api/oo_shim.min.js"></script>
+
+<link rel="shortcut icon" href="http://images.medicinenet.com/images/fav/MN.ico" />
+
+<link rel="stylesheet" href="http://images.medicinenet.com/css/medicinenet/html5/html5reset-1.6.1.css"/>
+<link rel="stylesheet" href="http://images.medicinenet.com/css/medicinenet/master/3.5/global.min.css"/>
+<link rel="stylesheet" href="http://images.medicinenet.com/css/medicinenet/master/3.5/master.min.css"/>
+
+<link rel="stylesheet" href="http://images.medicinenet.com/css/sponsorbox.min.css"/>
+<link type="text/css" rel="stylesheet" href="http://images.medicinenet.com/css/footer_layout.css">
+
+<script type="text/javascript" src="http://images.medicinenet.com/javascript/main.js"></script>
+<script type="text/javascript" src="http://images.medicinenet.com/javascript/jquery/plugins/jquery.cookie.js"></script>
+<script type="text/javascript" src="http://images.medicinenet.com/javascript/jquery/custom/mednet/1.4/custom.js"></script>
+<script type="text/javascript" src="http://images.medicinenet.com/javascript/common.js"></script>
+
+<!-- ie.css for IE less than 9 -->
+<!--[if lt IE 9]>
+<link rel="stylesheet" href="http://images.medicinenet.com/css/medicinenet/ie_fix/ie.css" />
+<![endif]-->
+
+<!-- html5.js for IE less than 9 -->
+<!--[if lt IE 9]>
+<script src="http://images.medicinenet.com/javascript/medicinenet/html5/html5.js"></script>
+<![endif]-->
+
+<link rel="alternate" type="application/rss+xml" title="Daily Health and Medical News" href="http://www.medicinenet.com/rss/dailyhealth.xml" />
+<link rel="alternate" type="application/rss+xml" title="Weekly Health and Medical News Digest" href="http://www.medicinenet.com/rss/weeklyhealth.xml" />
+<link rel="alternate" type="application/rss+xml" title="Health and Medical Slideshows" href="http://www.medicinenet.com/rss/medicinenet_slideshows.xml" />
+
+<script type="text/javascript">
+    var s_account = "webmdcom";
+var s_pagename="medicinenet.com/script/main/alphaidx.asp?p=t-dict";
+var s_bu="cns";
+var s_siteclass="od";
+var s_site="medicinenet";
+var s_server_type="MN";
+var s_channel_health="medicinenet";
+var s_refpath="medicinenet";
+var s_server_number="I23-NET";
+var s_asset="alpha_index_dict_t";
+var s_template_name="medicinenet_info.htm";
+var s_channel="1680";
+var s_asset_class="nav - a-z page";
+var s_articletype="nav - a-z page";
+var s_pagenum="1";
+var s_pub="";
+var s_user_group="unregistered";
+</script>
+
+  <meta name="keywords" content="medical definition index - t, medical terms, definitions, medication, medical dictionary, medical encyclopedia, glossary, terminology, jargon, defined, medical misspellings, misspelled, medterms" />
+  <meta name="Description" content="Online Medical Dictionary and glossary with medical definitions, t listing." />
+
+<link href="https://plus.google.com/117041701306844597651" rel="publisher" />
+<script type="text/javascript">(function(){var gps=document.createElement("script");gps.type="text/javascript";gps.async = true;gps.src="https://apis.google.com/js/plusone.js";var gpse=document.getElementsByTagName("script")[0];gpse.parentNode.insertBefore(gps, gpse);})();</script>
+
+
+
+<script type="text/javascript">    webmd.ads2.adTarget = ['consumer', 'mednet']; var bIsDFPAdTag = true;</script>
+</HEAD>
+
+
+<body>
+<div id="page-wrap">
+	<header>
+		<div class="inside">
+			
+            <!-- Start 728x90 Ad Tag -->
+<div id="bannerAd_rdr"><div id="bannerAd_fmt"><div id="ads2-pos-101" class="ad_placeholder"></div></div></div>
+<script>
+webmd.ads2Consumer.defineAd({
+    targets:{pvid: window.s_pageview_id || '',art: '178282',pt: '1680',uri: 'p%3Dt%5Fdict',app: '31'},blockCodes: '__',
+    id: 'ads2-pos-101',
+    pos: '101',
+    sizes: [[728, 90],[970, 90],[970, 250]]
+});
+</script>			
+<!-- End 728x90 Ad Tag -->
+
+			
+			<!-- Start Main Top -->
+<div class="mn_top_fmt">
+	<h1 id="logo">
+	<div itemscope itemtype="http://schema.org/Organization" >
+		<a itemprop="url" onclick="wmdTrack('tn-logo');" href="http://www.medicinenet.com/script/main/hp.asp">
+			<img itemprop="logo" alt="MedicineNet" src="http://images.medicinenet.com/images/medicinenet/header/medicinenet_logo.png"/>
+		</a>
+	</div>
+	</h1>
+	<div id="searchUnit" class="searchUnit_fmt">
+		<div id="searchSite" class="searchSite_fmt">
+			<form action="http://search.medicinenet.com/search/search_results/default.aspx?"  method="get" onsubmit="wmdTrack('srch-bar_top');">
+				<input type="hidden" name="Searchwhat" value="1"/>
+				<input type="text" name="query" id="query" size="35" class="SearchSite_box"/>
+				<input name="I1" type="submit" class="btn" title="Search" value=" "/>
+			</form>
+		</div>
+	</div>
+	<div id="header-links">
+		<div id="smallr" class="smallr_fmt"> 
+			<time>May 8, 2015</time>
+		</div>
+		<div class="social_links social_masthead">
+		    <ul>
+		    	<!--<li class="socTitle">Follow us on:</li>-->
+		        <li class="fb"><a class="tooltip" title="Follow us on Facebook. Click Like, and we'll send authoritative health and medical information to your News Feed." onclick="wmdPageLink('soc-fb'); popupWarning();" href="http://www.facebook.com/MedicineNet" target="_blank"><i></i>Like Us</a></li>
+		        <li class="tw"><a class="tooltip" title="Follow us on Twitter. Be the first to know the latest in health information." onclick="wmdPageLink('soc-tw'); popupWarning();" href="http://twitter.com/medicinenet" target="_blank"><i></i>Follow Us</a></li>
+		        <li class="au"><a class="tooltip" title="About MedicineNet.com" onclick="wmdTrack('soc-au');" href="http://www.medicinenet.com/script/main/art.asp?articlekey=12510" target="_blank"><i></i>About Us</a></li>
+		        <li class="news"><a class="tooltip" title="Stay informed with our free newsletters." onclick="wmdTrack('soc-news');"  href="https://www.medicinenet.com/newsletter/newsletter-signup.asp" target="_blank"><i></i>Newsletter</a></li>
+		    </ul>
+		</div>
+	</div>
+</div>
+<!-- End Main Top -->
+
+<div id="mainNav" class="mainNavNoDrop_fmt">
+	<ul>
+		<li><a onclick="wmdTrack('tn-home');" id="nav-home" class="nav-home_fmt" href="http://www.medicinenet.com/script/main/hp.asp">Home</a></li>
+		<li><a onclick="wmdTrack('tn-slide');" id="nav-slide" class="nav-slide_fmt break" href="http://www.medicinenet.com/slideshows/article.htm"><i>Slideshow<br/>Pictures</i></a></li>
+		<li><a onclick="wmdTrack('tn-ic');" id="nav-images" class="nav-images_fmt break" href="http://www.medicinenet.com/image_collection/article.htm"><i>Image<br/>Collection</i></a></li>
+		<li><a onclick="wmdTrack('tn-qz');" id="nav-quiz" class="nav-quiz_fmt" href="http://www.medicinenet.com/quizzes_a-z_list/article.htm"><i>Quizzes</i></a></li>
+		<li><a onclick="wmdTrack('tn-dc');" id="nav-disease" class="nav-disease_fmt break" href="http://www.medicinenet.com/diseases_and_conditions/article.htm"><i>Diseases <br/><span>&amp;</span> Conditions</i></a></li>
+		<li><a onclick="wmdTrack('tn-sym');" id="nav-symtoms" class="nav-symtoms_fmt break" href="http://www.medicinenet.com/symptoms_and_signs/article.htm">Symptom <br/>  Checker</a></li>
+		<li><a onclick="wmdTrack('tn-hl');" id="nav-health" class="nav-health_fmt break" href="http://www.medicinenet.com/health_and_living/focus.htm"><i>Health <br/><span>&amp;</span> Living</i></a></li>
+		<li><a onclick="wmdTrack('tn-pharm');" id="nav-medications" class="nav-medications_fmt" href="http://www.medicinenet.com/medications/article.htm"><i>Medications</i></a></li>
+		<li><a onclick="wmdTrack('tn-mt');" id="nav-medterms" class="nav-medterms_fmt on break" href="http://www.medicinenet.com/medterms-medical-dictionary/article.htm">MedTerms<br/> Dictionary</a></li>
+		<li class="last"><a onclick="wmdTrack('tn-ph');" id="nav-pet" class="nav-pet_fmt break" href="http://www.medicinenet.com/pets/pethealth/focus.htm">Pet<br/> Health</a></li>
+	</ul>
+	<div class="clear"></div>
+</div>
+<!-- Start Mega Menus -->
+<script type="text/javascript" src="http://images.medicinenet.com/javascript/medicinenet/main_nav/mednet_megamenu.js"></script>
+<script type="text/javascript">
+    //jkmegamenu.definemenu("anchorid", "menuid", "mouseover|click")
+    jkmegamenu.definemenu("nav-slide", "megaMenuSlide", "mouseover");
+    jkmegamenu.definemenu("nav-images", "megaMenuImages", "mouseover");
+    jkmegamenu.definemenu("nav-quiz", "megaMenuQuiz", "mouseover");
+    jkmegamenu.definemenu("nav-disease", "megaMenuDC", "mouseover");
+    jkmegamenu.definemenu("nav-health", "megaMenuHealth", "mouseover");
+    jkmegamenu.definemenu("nav-medications", "megaMenuMedications", "mouseover");
+</script>
+<!-- Start Slideshow Mega Menu -->
+<div id="megaMenuSlide" class="megamenu slide">
+	<a href="javascript:void(0);" class="megamenuCloseBtn"></a>
+	<div class="megamenuContent">
+		<div class="column picture">
+			<h3><a onclick="wmdTrack('tn-slide_1');" href="http://www.medicinenet.com/slideshows/article.htm">Slideshow Pictures</a></h3>
+			<ul>
+				<li><a onclick="wmdTrack('tn-slide_2');" href="http://www.medicinenet.com/slideshows/article.htm">All Slideshows</a></li>
+				<li><a onclick="wmdTrack('tn-slide_3');" href="http://www.medicinenet.com/slideshows-popular/article.htm">Newest Slideshows</a></li>
+				<li><a onclick="wmdTrack('tn-slide_4');" href="http://www.medicinenet.com/slideshows-picks/article.htm">Pet Health Slideshows</a></li>
+			</ul>
+		</div>
+		<i class="separator slide"></i>
+		<div class="featured slidehow">
+			<h3>Featured Slideshow</h3>
+			<a onclick="wmdTrack('tn-slide_feat');" href="http://www.medicinenet.com/script/main/art.asp?articlekey=122404" class="featuredThumb">
+				<img class="featuredImg" src="http://images.medicinenet.com/images/slideshow/thumb-10-surprising-health-benefits-of-sex.jpg" alt=""/>
+			</a>
+			<a onclick="wmdTrack('tn-slide_feat');" href="http://www.medicinenet.com/script/main/art.asp?articlekey=122404">	
+				<p class="title">Sexual Health</p>
+				<p class="desc">Surprising Health Benefits of Sex</p>
+				<p class="view">View Slideshow&nbsp;<span>&raquo;</span></p>
+			</a>
+		</div>
+		<div class="clear"></div>
+	</div>
+</div>
+<!-- End Slideshow Mega Menu -->
+
+<!-- Start Image Collection Mega Menu -->
+<div id="megaMenuImages" class="megamenu images">
+	<a href="javascript:void(0);" class="megamenuCloseBtn"></a>
+	<div class="megamenuContent">
+		<div class="column image">
+			<h3><a onclick="wmdTrack('tn-ic_1');" href="http://www.medicinenet.com/image_collection/article.htm">Image Collection <span>(categories)</span></a></h3>
+			<ol>
+				<li><a onclick="wmdTrack('tn-ic_2');" href="http://www.medicinenet.com/script/main/art.asp?articlekey=107517">Allergic Skin Disorders</a></li>
+				<li><a onclick="wmdTrack('tn-ic_3');" href="http://www.medicinenet.com/script/main/art.asp?articlekey=106753">Bacterial Skin Diseases</a></li>
+				<li><a onclick="wmdTrack('tn-ic_4');" href="http://www.medicinenet.com/script/main/art.asp?articlekey=120800">Bites and Infestations</a></li>
+				<li><a onclick="wmdTrack('tn-ic_5');" href="http://www.medicinenet.com/script/main/art.asp?articlekey=109861">Diseases of Pigment</a></li>
+				<li><a onclick="wmdTrack('tn-ic_6');" href="http://www.medicinenet.com/script/main/art.asp?articlekey=107837">Fungal Skin Diseases</a></li>
+				<li><a onclick="wmdTrack('tn-ic_7');" href="http://www.medicinenet.com/script/main/art.asp?articlekey=105631">Medical Anatomy and Illustrations</a></li>
+				<li><a onclick="wmdTrack('tn-ic_8');" href="http://www.medicinenet.com/script/main/art.asp?articlekey=107539">Noncancerous, Precancerous &amp; Cancerous Tumors</a></li>
+				<li><a onclick="wmdTrack('tn-ic_9');" href="http://www.medicinenet.com/script/main/art.asp?articlekey=120152">Oral Health Conditions</a></li>
+				<li><a onclick="wmdTrack('tn-ic_10');" href="http://www.medicinenet.com/script/main/art.asp?articlekey=107525">Papules, Scales, Plaques and Eruptions</a></li>
+				<li><a onclick="wmdTrack('tn-ic_11');" href="http://www.medicinenet.com/script/main/art.asp?articlekey=107851">Scalp, Hair and Nails</a></li>
+				<li><a onclick="wmdTrack('tn-ic_12');" href="http://www.medicinenet.com/script/main/art.asp?articlekey=120794">Sexually Transmitted Diseases (STDs)</a></li>
+				<li><a onclick="wmdTrack('tn-ic_13');" href="http://www.medicinenet.com/script/main/art.asp?articlekey=106752">Vascular, Lymphatic and Systemic Conditions</a></li>
+				<li><a onclick="wmdTrack('tn-ic_14');" href="http://www.medicinenet.com/script/main/art.asp?articlekey=107516">Viral Skin Diseases</a></li>
+				<li><a onclick="wmdTrack('tn-ic_15');" href="http://www.medicinenet.com/script/main/art.asp?articlekey=113903">Additional Skin Conditions</a></li>
+			</ol>
+		</div>
+		<i class="separator image"></i>
+		<div class="featured image">
+			<h3>Featured Image</h3>
+			<a onclick="wmdTrack('tn-ic_feat');" href="http://www.medicinenet.com/script/main/art.asp?articlekey=107525" class="featuredThumb">
+				<img class="featuredImg" src="http://images.medicinenet.com/images/slideshow/thumb_psoriasis.jpg" alt=""/>
+			</a>
+			<a onclick="wmdTrack('tn-ic_feat');" href="http://www.medicinenet.com/script/main/art.asp?articlekey=107525">	
+				<p class="title">Picture of Psoriasis</p>
+				<p class="desc">A reddish, scaly rash often located over the surfaces of the elbows, knees, scalp, and around or in the ears, navel, genitals or buttocks...</p>
+				<p class="view">View Image Gallery&nbsp;<span>&raquo;</span></p>
+			</a>
+		</div>
+		<div class="clear"></div>
+	</div>
+</div>
+<!-- End Image Collection Mega Menu -->
+
+<!-- Start Quiz Mega Menu -->
+<div id="megaMenuQuiz" class="megamenu quiz">
+	<a href="javascript:void(0);" class="megamenuCloseBtn"></a>
+	<div class="megamenuContent">
+		<div class="column picture quiz">
+			<h3><a onclick="wmdTrack('tn-qz_1');" href="http://www.medicinenet.com/quizzes_a-z_list/article.htm">See All Quizzes (130)</a></h3>
+			<ol>
+				<li><a onclick="wmdTrack('tn-qz_2');" href="http://www.medicinenet.com/happiness_quiz/quiz.htm"><b>Happiness</b> - Test your emotional IQ</a></li>
+				<li><a onclick="wmdTrack('tn-qz_3');" href="http://www.medicinenet.com/superfoods_quiz/quiz.htm"><b>Superfoods</b> - Are you eating enough?</a></li>
+				<li><a onclick="wmdTrack('tn-qz_4');" href="http://www.medicinenet.com/fat_and_fats_quiz/quiz.htm"><b>Fat and Fats</b> - What do you know about fat?</a></li>
+				<li><a onclick="wmdTrack('tn-qz_5');" href="http://www.medicinenet.com/skin_conditions_picture_quiz/quiz.htm"><b>Skin Pictures</b> - Can you identify these conditions?</a></li>
+				<li><a onclick="wmdTrack('tn-qz_6');" href="http://www.medicinenet.com/script/main/art.asp?articlekey=125353"><b>Chronic Fatigue Syndrome</b> &ndash; What do you know about CFS?</a></li>
+			</ol>
+		</div>
+		<i class="separator quiz"></i>
+		<div class="featured quiz">
+			<h3>Featured Quiz</h3>
+			<a onclick="wmdTrack('tn-qz_feat');" href="http://www.medicinenet.com/script/main/art.asp?articlekey=119180" class="featuredThumb">
+				<img class="featuredImg" src="http://images.medicinenet.com/images/quiz/sex_and_love/thumb-sex-and-love.jpg" alt=""/>
+			</a>
+			<a onclick="wmdTrack('tn-qz_feat');" href="http://www.medicinenet.com/script/main/art.asp?articlekey=119180">	
+				<p class="title">Take the Sex &amp; Love Quiz!</p>
+				<p class="desc">The brain. The body. The bedroom. What do you know?</p>
+				<p class="view">View Quiz&nbsp;<span>&raquo;</span></p>
+			</a>
+		</div>
+		<div class="clear"></div>
+	</div>
+</div>
+<!-- End Quiz Mega Menu -->
+
+<!-- Start DC Mega Menu -->
+<div id="megaMenuDC" class="megamenu dc">
+	<a href="javascript:void(0);" class="megamenuCloseBtn"></a>
+	<div class="megamenuContent">
+
+		<div class="column dc">
+			<h3><a onclick="wmdTrack('tn-dc_1');" href="http://www.medicinenet.com/diseases_and_conditions/article.htm">Topic Centers</a></h3>
+			<ul>
+				<li><a href="http://www.medicinenet.com/diseases_and_conditions/article.htm" onclick="wmdTrack('tn-dc_2');">Conditions A-Z</a></li>
+				<li><a href="http://www.medicinenet.com/procedures_and_tests/article.htm" onclick="wmdTrack('tn-dc_3');">Procedures A-Z</a></li>				
+				<li><a href="http://www.medicinenet.com/allergies/focus.htm" onclick="wmdTrack('tn-dc_4');">Allergies</a></li>
+				<li><a href="http://www.medicinenet.com/alzheimers/focus.htm" onclick="wmdTrack('tn-dc_5');">Alzheimer&#39;s</a></li>
+				<li><a href="http://www.medicinenet.com/arthritis/focus.htm" onclick="wmdTrack('tn-dc_6');">Arthritis</a></li>
+				<li><a href="http://www.medicinenet.com/asthma/focus.htm" onclick="wmdTrack('tn-dc_7');">Asthma</a></li>
+				<li><a href="http://www.medicinenet.com/high_blood_pressure/focus.htm" onclick="wmdTrack('tn-dc_8');">Blood Pressure</a></li>
+				<li><a href="http://www.medicinenet.com/cancer/focus.htm" onclick="wmdTrack('tn-dc_9');">Cancer</a></li>
+				<li><a href="http://www.medicinenet.com/cholesterol/focus.htm" onclick="wmdTrack('tn-dc_10');">Cholesterol</a></li>
+				<li><a href="http://www.medicinenet.com/chronic_pain/focus.htm" onclick="wmdTrack('tn-dc_11');">Chronic Pain</a></li>
+				<li><a href="http://www.medicinenet.com/cold_and_flu/focus.htm" onclick="wmdTrack('tn-dc_12');">Cold &amp; Flu</a></li>
+				<li><a href="http://www.medicinenet.com/depression/focus.htm" onclick="wmdTrack('tn-dc_13');">Depression</a></li>
+			</ul>
+		</div>
+		<div class="column dc">
+			<h3><a href="#"></a></h3>
+			<ul>
+				<li><a href="http://www.medicinenet.com/diabetes/focus.htm" onclick="wmdTrack('tn-dc_14');">Diabetes</a></li>
+				<li><a href="http://www.medicinenet.com/digestion/focus.htm" onclick="wmdTrack('tn-dc_15');">Digestion</a></li>
+				<li><a href="http://www.medicinenet.com/eyesight/focus.htm" onclick="wmdTrack('tn-dc_16');">Eyesight</a></li>
+				<li><a href="http://www.medicinenet.com/health_and_living/focus.htm" onclick="wmdTrack('tn-dc_17');">Health &amp; Living</a></li>
+				<li><a href="http://www.medicinenet.com/healthy_kids/focus.htm" onclick="wmdTrack('tn-dc_18');">Healthy Kids</a></li>
+				<li><a href="http://www.medicinenet.com/hearing/focus.htm" onclick="wmdTrack('tn-dc_19');">Hearing &amp; Ear</a></li>
+				<li><a href="http://www.medicinenet.com/heart/focus.htm" onclick="wmdTrack('tn-dc_20');">Heart</a></li>
+				<li><a href="http://www.medicinenet.com/hiv/focus.htm" onclick="wmdTrack('tn-dc_21');">HIV/AIDS</a></li>
+				<li><a href="http://www.medicinenet.com/infectious_disease/focus.htm" onclick="wmdTrack('tn-dc_22');">Infectious Disease</a></li>
+				<li><a href="http://www.medicinenet.com/lungs/focus.htm" onclick="wmdTrack('tn-dc_23');">Lung Conditions</a></li>
+				<li><a href="http://www.medicinenet.com/menopause/focus.htm" onclick="wmdTrack('tn-dc_24');">Menopause</a></li>
+				<li><a href="http://www.medicinenet.com/mens_health/focus.htm" onclick="wmdTrack('tn-dc_25');">Men&#39;s Health</a></li>
+			</ul>
+		</div>
+		<div class="column dc">
+			<h3><a href="#"></a></h3>
+			<ul>
+				<li><a href="http://www.medicinenet.com/mental_health/focus.htm" onclick="wmdTrack('tn-dc_26');">Mental Health</a></li>
+				<li><a href="http://www.medicinenet.com/migraine/focus.htm" onclick="wmdTrack('tn-dc_27');">Migraine</a></li>
+				<li><a href="http://www.medicinenet.com/neurology/focus.htm" onclick="wmdTrack('tn-dc_28');">Neurology</a></li>
+				<li><a href="http://www.medicinenet.com/oralhealth/focus.htm" onclick="wmdTrack('tn-dc_29');">Oral Health</a></li>
+				<li><a href="http://www.medicinenet.com/pregnancy/focus.htm" onclick="wmdTrack('tn-dc_30');">Pregnancy</a></li>
+				<li><a href="http://www.medicinenet.com/senior_health/focus.htm" onclick="wmdTrack('tn-dc_31');">Senior Health</a></li>
+				<li><a href="http://www.medicinenet.com/sexual_health/focus.htm" onclick="wmdTrack('tn-dc_32');">Sexual Health</a></li>
+				<li><a href="http://www.medicinenet.com/skin/focus.htm" onclick="wmdTrack('tn-dc_33');">Skin Problems</a></li>
+				<li><a href="http://www.medicinenet.com/sleep/focus.htm" onclick="wmdTrack('tn-dc_34');">Sleep</a></li>
+				<li><a href="http://www.medicinenet.com/thyroid/focus.htm" onclick="wmdTrack('tn-dc_35');">Thyroid</a></li>
+				<li><a href="http://www.medicinenet.com/travel_health/focus.htm" onclick="wmdTrack('tn-dc_36');">Travel Health</a></li>
+				<li><a href="http://www.medicinenet.com/womens_health/focus.htm" onclick="wmdTrack('tn-dc_37');">Women&#39;s Health</a></li>
+			</ul>
+		</div>
+		<div class="clear"></div>
+	</div>
+</div>
+<!-- End DC Mega Menu -->
+
+<!-- Start Health & Living Mega Menu -->
+<div id="megaMenuHealth" class="megamenu health">
+	<a href="javascript:void(0);" class="megamenuCloseBtn"></a>
+	<div class="megamenuContent">
+		<div class="column health">
+            <h3><a onclick="wmdTrack('tn-hl_1');" href="http://www.medicinenet.com/health_and_living/focus.htm">Health &amp; Living</a></h3>
+			<ul>
+				<li><a href="http://www.medicinenet.com/diet_and_weight_management/article.htm" onclick="wmdTrack('tn-hl_2');">Diet &amp; Weight Management</a></li>
+				<li><a href="http://www.medicinenet.com/exercise_and_fitness/article.htm" onclick="wmdTrack('tn-hl_3');">Exercise &amp; Fitness</a></li>
+				<li><a href="http://www.medicinenet.com/nutrition_food_and_recipes/article.htm" onclick="wmdTrack('tn-hl_4');">Nutrition, Food &amp; Recipes</a></li>
+				<li><a href="http://www.medicinenet.com/prevention_and_wellness/article.htm" onclick="wmdTrack('tn-hl_5');">Prevention &amp; Wellness</a></li>
+			</ul>
+		</div>
+		<i class="separator health"></i>
+		<div class="featured quiz">
+			<h3>Featured Topic</h3>
+			<a onclick="wmdTrack('tn-hl_feat');" href="http://www.medicinenet.com/weight_loss/article.htm" class="featuredThumb">
+				<img class="featuredImg" src="http://images.medicinenet.com/images/main_nav/health_living/hl_nav_weight_loss_2_feat.png" alt=""/>
+			</a>
+			<a onclick="wmdTrack('tn-hl_feat');" href="http://www.medicinenet.com/weight_loss/article.htm">	
+				<p class="title">Weight Loss</p>
+				<p class="desc">The No-Diet Approach</p>
+				<p class="view">Learn More <span>&raquo;</span></p>
+			</a>
+		</div>
+		<div class="clear"></div>
+	</div>	
+</div>
+<!-- End Health & Living Mega Menu -->
+
+<!-- Start Medications Mega Menu -->
+<div id="megaMenuMedications" class="megamenu medications">
+	<a href="javascript:void(0);" class="megamenuCloseBtn"></a>
+	<div class="megamenuContent">
+		<div class="column medications">
+            <h3><a onclick="wmdTrack('tn-pharm_1');" href="http://www.medicinenet.com/medications/article.htm">Medications</a></h3>
+			<h3><a onclick="wmdTrack('tn-pharm_2');" href="http://www.medicinenet.com/supplements-vitamins/article.htm">Supplements and Vitamins</a></h3>
+		</div>
+		<div class="clear"></div>
+	</div>	
+</div>
+<!-- End Medications Mega Menu -->
+<!-- End Mega Menus -->
+			
+			<!-- Start Breadcrumbs -->
+		    <div itemscope itemtype="http://schema.org/WebPage">
+				<div class="breadCrumb_fmt" itemprop="breadcrumb">
+					<i class="tla"></i><i class="tra"></i><i class="tls"></i><i class="trs"></i>
+					<p class="breadcrumbs"><a onclick="wmdTrack('brdcrmb_home')" href="/script/main/hp.asp">home</a>&nbsp;<span class="separator">&gt;</span>&nbsp;<a href="http://www.medterms.com/script/main/hp.asp"><b>medterms</b> medical dictionary a-z list-</a> t</p>
+				</div>
+		    </div>
+			<!-- End Breadcrumbs -->			
+		
+		</div>
+	</header>
+	<section id="main-content">
+		<div class="inside group">
+			<div id="stretch-top-content">
+				<div class="inside">
+				</div>
+			</div> 
+			<div style="margin:-25px 0 0 6px;" >
+<iframe class="slidermodule" frameborder="0" scrolling="no" width="990px" height="200px" src="http://www.medicinenet.com/htmlchunks/slideshow/slidermodule/top_slider/article/mednet_slider.htm"></iframe>
+</div>
+			<div id="center-content" class="group">
+				<div id="left-content">
+					<div id="stretch-column">
+						<div class="inside">
+                            <!--*LARGE_IMAGE*-->
+						</div>
+					</div>
+					<section id="center-column">
+						<div id="TopOfContent" class="inside">
+							<article>
+								
+								<table cellpadding="0" cellspacing="0" style="width: 100%">
+									<tbody>
+										<tr>
+											<td>
+<h2>MedTerms Medical Dictionary A-Z List - T</h2>
+<div id="A_Z">
+<ul>
+<li><a href="/script/main/alphaidx.asp?p=a_dict">A</a></li>
+<li><a href="/script/main/alphaidx.asp?p=b_dict">B</a></li>
+<li><a href="/script/main/alphaidx.asp?p=c_dict">C</a></li>
+<li><a href="/script/main/alphaidx.asp?p=d_dict">D</a></li>
+<li><a href="/script/main/alphaidx.asp?p=e_dict">E</a></li>
+<li><a href="/script/main/alphaidx.asp?p=f_dict">F</a></li>
+<li><a href="/script/main/alphaidx.asp?p=g_dict">G</a></li>
+<li><a href="/script/main/alphaidx.asp?p=h_dict">H</a></li>
+<li><a href="/script/main/alphaidx.asp?p=i_dict">I</a></li>
+<li><a href="/script/main/alphaidx.asp?p=j_dict">J</a></li>
+<li><a href="/script/main/alphaidx.asp?p=k_dict">K</a></li>
+<li><a href="/script/main/alphaidx.asp?p=l_dict">L</a></li>
+<li><a href="/script/main/alphaidx.asp?p=m_dict">M</a></li>
+<li><a href="/script/main/alphaidx.asp?p=n_dict">N</a></li>
+<li><a href="/script/main/alphaidx.asp?p=o_dict">O</a></li>
+<li><a href="/script/main/alphaidx.asp?p=p_dict">P</a></li>
+<li><a href="/script/main/alphaidx.asp?p=q_dict">Q</a></li>
+<li><a href="/script/main/alphaidx.asp?p=r_dict">R</a></li>
+<li><a href="/script/main/alphaidx.asp?p=s_dict">S</a></li>
+<li><a href="/script/main/alphaidx.asp?p=t_dict">T</a></li>
+<li><a href="/script/main/alphaidx.asp?p=u_dict">U</a></li>
+<li><a href="/script/main/alphaidx.asp?p=v_dict">V</a></li>
+<li><a href="/script/main/alphaidx.asp?p=w_dict">W</a></li>
+<li><a href="/script/main/alphaidx.asp?p=x_dict">X</a></li>
+<li><a href="/script/main/alphaidx.asp?p=y_dict">Y</a></li>
+<li><a href="/script/main/alphaidx.asp?p=z_dict">Z</a></li>
+
+</ul>
+</div>
+<div class="clearall"></div>
+<!-- Advanced Search Feature STARTS -->
+<div id="Adv_search_fmt">
+<form method="get" action="http://search.medicinenet.com/search/search_results/default.aspx" onSubmit="wmdTrack('srch-adv_1');">
+<div class="Adv_search_header">Advanced Search Option &raquo;
+<input type="hidden" name="sourceType" value="all"/>
+<select onchange="show('targetDIV',this.value);" name="navState">
+<option value="0" selected="selected">Search MedicineNet.com</option>
+<option value="6475">Slideshows, Images, Quizzes</option>
+<option value="6476">Diseases &amp; Conditions</option>
+<option value="6477">Symptoms &amp; Signs</option>
+<option value="6478">Health &amp; Living</option>
+<option value="6479">Medications &amp; Supplements</option>
+<option value="6480">Procedures &amp; Tests</option>
+<option value="6481">News &amp; Views</option>
+<option value="6482">Features, Tips &amp; Recipes</option>
+<option value="6483">MedTerms Dictionary</option>
+</select>
+</div>
+<div class="FormHelp"></div>
+<br />
+<div id="targetDIV">Search MedicineNet <span class="Orange">OR</span> select from the options above.</div>
+<div id="form_0" style="display:none;">Search MedicineNet <span class="Orange">OR</span> select from the options above.</div>
+<div id="6475" style="display:none;">Search Slideshows, Images, Quizzes</div>
+<div id="6476" style="display:none;">Search Diseases &amp; Conditions</div>
+<div id="6477" style="display:none;">Search Symptoms &amp; Signs</div>
+<div id="6478" style="display:none;">Search Health &amp; Living</div>
+<div id="6479" style="display:none;">Search Medications &amp; Supplements</div>
+<div id="6480" style="display:none;">Search Procedures &amp; Tests</div>
+<div id="6481" style="display:none;">Search News &amp; Views</div>
+<div id="6482" style="display:none;">Search Features, Tips &amp; Recipes</div>
+<div id="6483" style="display:none;">Search MedTerms Dictionary</div>
+<input type="text" size="40" name="query"/>
+<input type="image" value="Search" title="Search" src="http://images.medicinenet.com/images/btn_search.gif" align="top" name="I1"/>
+</form>
+</div>
+<!-- Advanced Search Feature ENDS -->
+
+<div style="clear: both;"></div>
+<div id="AZ_container">
+<div style="clear: both;"></div>
+<div class="AZ_results">
+
+<h4>T &rarr; <a href="#TaTa">Ta-Ta</a><a href="#TbTf">Tb-Tf</a><a href="#TgTh">Tg-Th</a><a href="#TiTn">Ti-Tn</a><a href="#ToTo">To-To</a><a href="#TpTr">Tp-Tr</a><a href="#TsTu">Ts-Tu</a><a href="#TvTy">Tv-Ty</a><a href="#TzTz" style="border: 0px;">Tz-Tz</a></h4>
+
+<h5><a name="TaTa">Ta-Ta</a></h5>
+<ul>
+<li><a href="/script/main/art.asp?articlekey=6657">T (thymine)</a></li>
+<li><a href="/script/main/art.asp?articlekey=11300">T cell</a></li>
+<li><a href="/script/main/art.asp?articlekey=11304">T cell, peripheral</a></li>
+<li><a href="/script/main/art.asp?articlekey=11307">T lymphocyte, cytotoxic</a></li>
+<li><a href="/script/main/art.asp?articlekey=11301">T-4 cell</a></li>
+<li><a href="/script/main/art.asp?articlekey=11302">T-4 count</a></li>
+<li><a href="/script/main/art.asp?articlekey=11305">T-8 cells</a></li>
+<li><a href="/script/main/art.asp?articlekey=24307">T-cell depletion</a></li>
+<li><a href="/script/main/art.asp?articlekey=39701">T-cell leukemia</a></li>
+<li><a href="/script/main/art.asp?articlekey=39700">T-cell lymphoma</a></li>
+<li><a href="/script/main/art.asp?articlekey=11303">T-cell receptor</a></li>
+<li><a href="/script/main/art.asp?articlekey=11306">T-helper cell</a></li>
+<li><a href="/script/main/art.asp?articlekey=5861">T-suppressor cell</a></li>
+<li><a href="/script/main/art.asp?articlekey=11728">T-suppressor cells</a></li>
+<li><a href="/script/main/art.asp?articlekey=11310">T-suppressor count</a></li>
+<li><a href="/script/main/art.asp?articlekey=6953">t.i.d. (on prescription)</a></li>
+<li><a href="/script/main/art.asp?articlekey=8767">T1-T12 (thoracic vertebrae)</a></li>
+<li><a href="/script/main/art.asp?articlekey=25663">T4</a></li>
+<li><a href="/script/main/art.asp?articlekey=25468">Tabes dorsalis</a></li>
+<li><a href="/script/main/art.asp?articlekey=18038">Table</a></li>
+<li><a href="/script/main/art.asp?articlekey=5696">Tablespoon</a></li>
+<li><a href="/script/main/art.asp?articlekey=40499">Tablet</a></li>
+<li><a href="/script/main/art.asp?articlekey=40496">Tablet splitter</a></li>
+<li><a href="/script/main/art.asp?articlekey=40493">Tablet splitting</a></li>
+<li><a href="/script/main/art.asp?articlekey=40072">Tabun</a></li>
+<li><a href="/script/main/art.asp?articlekey=20525">TACE</a></li>
+<li><a href="/script/main/art.asp?articlekey=5697">Tache noire</a></li>
+<li><a href="/script/main/art.asp?articlekey=5698">Tachycardia</a></li>
+<li><a href="/script/main/art.asp?articlekey=5699">Tachycardia, paroxysmal atrial</a></li>
+<li><a href="/script/main/art.asp?articlekey=9744">Tachycardia, sinus</a></li>
+<li><a href="/script/main/art.asp?articlekey=5701">Tachycardia, ventricular</a></li>
+<li><a href="/script/main/art.asp?articlekey=5702">Tachypnea</a></li>
+<li><a href="/script/main/art.asp?articlekey=5703">Tactile</a></li>
+<li><a href="/script/main/art.asp?articlekey=33106">Tactile device</a></li>
+<li><a href="/script/main/art.asp?articlekey=5704">Taenia</a></li>
+<li><a href="/script/main/art.asp?articlekey=26159">Taenia armata</a></li>
+<li><a href="/script/main/art.asp?articlekey=25618">Taenia asiatica</a></li>
+<li><a href="/script/main/art.asp?articlekey=26160">Taenia dentata</a></li>
+<li><a href="/script/main/art.asp?articlekey=5705">Taenia saginata</a></li>
+<li><a href="/script/main/art.asp?articlekey=5706">Taenia solium</a></li>
+<li><a href="/script/main/art.asp?articlekey=25617">Taeniasis</a></li>
+<li><a href="/script/main/art.asp?articlekey=5707">Tag, ear</a></li>
+<li><a href="/script/main/art.asp?articlekey=5708">Tag, preauricular</a></li>
+<li><a href="/script/main/art.asp?articlekey=7126">Tag, skin</a></li>
+<li><a href="/script/main/art.asp?articlekey=21416">Tail</a></li>
+<li><a href="/script/main/art.asp?articlekey=39748">Tailbone</a></li>
+<li><a href="/script/main/art.asp?articlekey=11314">Taint</a></li>
+<li><a href="/script/main/art.asp?articlekey=24162">Takayasu arteritis</a></li>
+<li><a href="/script/main/art.asp?articlekey=24160">Takayasu disease</a></li>
+<li><a href="/script/main/art.asp?articlekey=13003">Talc</a></li>
+<li><a href="/script/main/art.asp?articlekey=5709">Talipes</a></li>
+<li><a href="/script/main/art.asp?articlekey=5710">Talipes equinovarus</a></li>
+<li><a href="/script/main/art.asp?articlekey=7961">Talus</a></li>
+<li><a href="/script/main/art.asp?articlekey=13910">Tamoxifen (Nolvadex)</a></li>
+<li><a href="/script/main/art.asp?articlekey=7962">Tampon</a></li>
+<li><a href="/script/main/art.asp?articlekey=7963">Tamponade, balloon</a></li>
+<li><a href="/script/main/art.asp?articlekey=7964">Tamponade, cardiac</a></li>
+<li><a href="/script/main/art.asp?articlekey=7965">Tamponade, chronic</a></li>
+<li><a href="/script/main/art.asp?articlekey=7966">Tamponade, esophagogastric</a></li>
+<li><a href="/script/main/art.asp?articlekey=7967">Tamponade, pericardial</a></li>
+<li><a href="/script/main/art.asp?articlekey=26267">Tanapox</a></li>
+<li><a href="/script/main/art.asp?articlekey=25329">Tandem mass spectrometry</a></li>
+<li><a href="/script/main/art.asp?articlekey=25330">Tandem MS</a></li>
+<li><a href="/script/main/art.asp?articlekey=5711">Tandem repeat sequences</a></li>
+<li><a href="/script/main/art.asp?articlekey=7093">Tap, joint (aspiration)</a></li>
+<li><a href="/script/main/art.asp?articlekey=7056">Tap, spinal</a></li>
+<li><a href="/script/main/art.asp?articlekey=5712">Tapazol</a></li>
+<li><a href="/script/main/art.asp?articlekey=5713">Tapeworm</a></li>
+<li><a href="/script/main/art.asp?articlekey=18493">Tapeworm infection, pork</a></li>
+<li><a href="/script/main/art.asp?articlekey=5714">Tapeworm, African</a></li>
+<li><a href="/script/main/art.asp?articlekey=5715">Tapeworm, armed</a></li>
+<li><a href="/script/main/art.asp?articlekey=5716">Tapeworm, beef</a></li>
+<li><a href="/script/main/art.asp?articlekey=5717">Tapeworm, measly</a></li>
+<li><a href="/script/main/art.asp?articlekey=5718">Tapeworm, pork</a></li>
+<li><a href="/script/main/art.asp?articlekey=11719">Taphephobia</a></li>
+<li><a href="/script/main/art.asp?articlekey=5720">TAR syndrome</a></li>
+<li><a href="/script/main/art.asp?articlekey=10637">Tarantism</a></li>
+<li><a href="/script/main/art.asp?articlekey=38312">Tarantismo</a></li>
+<li><a href="/script/main/art.asp?articlekey=38313">Tarantismo</a></li>
+<li><a href="/script/main/art.asp?articlekey=24146">Tardive dyskinesia</a></li>
+<li><a href="/script/main/art.asp?articlekey=13506">Targeted radiation therapy</a></li>
+<li><a href="/script/main/art.asp?articlekey=5719">Tarsal cyst</a></li>
+<li><a href="/script/main/art.asp?articlekey=7173">Tarsal gland</a></li>
+<li><a href="/script/main/art.asp?articlekey=11564">Tarsal tunnel syndrome</a></li>
+<li><a href="/script/main/art.asp?articlekey=25072">Tarsus</a></li>
+<li><a href="/script/main/art.asp?articlekey=8984">Tarsus, bony</a></li>
+<li><a href="/script/main/art.asp?articlekey=5721">Tartar</a></li>
+<li><a href="/script/main/art.asp?articlekey=11311">Tassinari syndrome</a></li>
+<li><a href="/script/main/art.asp?articlekey=9659">Taste</a></li>
+<li><a href="/script/main/art.asp?articlekey=21654">Taste bud</a></li>
+<li><a href="/script/main/art.asp?articlekey=11312">Tattoo</a></li>
+<li><a href="/script/main/art.asp?articlekey=11313">Tattoo removal</a></li>
+<li><a href="/script/main/art.asp?articlekey=33890">Tattoos & permanent makeup</a></li>
+<li><a href="/script/main/art.asp?articlekey=6308">Tay-Sachs disease</a></li>
+</ul>
+<div class="backtop"><a href="#TopOfContent">Back to Top</a> &uarr;</div>
+<h5><a name="TbTf">Tb-Tf</a></h5>
+<ul>
+<li><a href="/script/main/art.asp?articlekey=8324">TB</a></li>
+<li><a href="/script/main/art.asp?articlekey=9391">TC-99 tetrofosmin scintimammography</a></li>
+<li><a href="/script/main/art.asp?articlekey=33521">TCM</a></li>
+<li><a href="/script/main/art.asp?articlekey=5722">Td</a></li>
+<li><a href="/script/main/art.asp?articlekey=5723">Td immunization</a></li>
+<li><a href="/script/main/art.asp?articlekey=26198">Tear</a></li>
+<li><a href="/script/main/art.asp?articlekey=23106">Tear film</a></li>
+<li><a href="/script/main/art.asp?articlekey=31476">Tear gas poisoning</a></li>
+<li><a href="/script/main/art.asp?articlekey=26200">Tear gland</a></li>
+<li><a href="/script/main/art.asp?articlekey=5724">Teaspoon</a></li>
+<li><a href="/script/main/art.asp?articlekey=9390">Technetium tetrofosmin scintimammography</a></li>
+<li><a href="/script/main/art.asp?articlekey=5726">Technology transfer</a></li>
+<li><a href="/script/main/art.asp?articlekey=5725">Technology, recombinant DNA</a></li>
+<li><a href="/script/main/art.asp?articlekey=11489">TEE</a></li>
+<li><a href="/script/main/art.asp?articlekey=64366">Teething</a></li>
+<li><a href="/script/main/art.asp?articlekey=32786">Telangiectasia perstans</a></li>
+<li><a href="/script/main/art.asp?articlekey=6658">Telangiectasia, hereditary hemorrhagic</a></li>
+<li><a href="/script/main/art.asp?articlekey=33620">Telemedicine</a></li>
+<li><a href="/script/main/art.asp?articlekey=14123">Teleological</a></li>
+<li><a href="/script/main/art.asp?articlekey=14125">Teleology</a></li>
+<li><a href="/script/main/art.asp?articlekey=33621">Telepathology</a></li>
+<li><a href="/script/main/art.asp?articlekey=18479">Telesurgery</a></li>
+<li><a href="/script/main/art.asp?articlekey=22609">Telogen effluvium</a></li>
+<li><a href="/script/main/art.asp?articlekey=9805">Telomerase</a></li>
+<li><a href="/script/main/art.asp?articlekey=5727">Telomere</a></li>
+<li><a href="/script/main/art.asp?articlekey=5728">Temperature</a></li>
+<li><a href="/script/main/art.asp?articlekey=10384">Temple</a></li>
+<li><a href="/script/main/art.asp?articlekey=24388">Temporal</a></li>
+<li><a href="/script/main/art.asp?articlekey=5729">Temporal arteritis</a></li>
+<li><a href="/script/main/art.asp?articlekey=10463">Temporal bone</a></li>
+<li><a href="/script/main/art.asp?articlekey=20829">Temporal lobe</a></li>
+<li><a href="/script/main/art.asp?articlekey=26725">Temporal lobe epilepsy</a></li>
+<li><a href="/script/main/art.asp?articlekey=18026">Temporal-lobe epilepsy</a></li>
+<li><a href="/script/main/art.asp?articlekey=7662">Temporary loss of consciousness</a></li>
+<li><a href="/script/main/art.asp?articlekey=5730">Temporomandibular joint (TMJ)</a></li>
+<li><a href="/script/main/art.asp?articlekey=5731">Temporomandibular joint disorder (TMJ)</a></li>
+<li><a href="/script/main/art.asp?articlekey=6278">Ten-day measles</a></li>
+<li><a href="/script/main/art.asp?articlekey=13023">Tendinitis</a></li>
+<li><a href="/script/main/art.asp?articlekey=5733">Tendo Achilles</a></li>
+<li><a href="/script/main/art.asp?articlekey=9698">Tendo calcaneus</a></li>
+<li><a href="/script/main/art.asp?articlekey=5732">Tendon</a></li>
+<li><a href="/script/main/art.asp?articlekey=5735">Tendon, Achilles</a></li>
+<li><a href="/script/main/art.asp?articlekey=34202">Tendon, patellar</a></li>
+<li><a href="/script/main/art.asp?articlekey=10613">Tendonitis, Achilles</a></li>
+<li><a href="/script/main/art.asp?articlekey=34205">Tendonitis, patellar</a></li>
+<li><a href="/script/main/art.asp?articlekey=34210">Tendonopathy</a></li>
+<li><a href="/script/main/art.asp?articlekey=34206">Tendonopathy, patellar</a></li>
+<li><a href="/script/main/art.asp?articlekey=11432">Tenesmus</a></li>
+<li><a href="/script/main/art.asp?articlekey=7045">Tenia</a></li>
+<li><a href="/script/main/art.asp?articlekey=25184">Tennis elbow</a></li>
+<li><a href="/script/main/art.asp?articlekey=25340">Tenormin</a></li>
+<li><a href="/script/main/art.asp?articlekey=16071">Tenosynovitis, De Quervain's</a></li>
+<li><a href="/script/main/art.asp?articlekey=5736">Tension</a></li>
+<li><a href="/script/main/art.asp?articlekey=25404">Tension pneumothorax</a></li>
+<li><a href="/script/main/art.asp?articlekey=5737">Tension, arterial</a></li>
+<li><a href="/script/main/art.asp?articlekey=5738">Tension, intraocular</a></li>
+<li><a href="/script/main/art.asp?articlekey=5739">Tension, intravenous</a></li>
+<li><a href="/script/main/art.asp?articlekey=14223">Tent, oxygen</a></li>
+<li><a href="/script/main/art.asp?articlekey=7629">Tenth cranial nerve</a></li>
+<li><a href="/script/main/art.asp?articlekey=13563">ter in die (on prescription)</a></li>
+<li><a href="/script/main/art.asp?articlekey=11315">Teratogen</a></li>
+<li><a href="/script/main/art.asp?articlekey=9269">Teratogen, coumadin as</a></li>
+<li><a href="/script/main/art.asp?articlekey=10975">Teratogen, Ecstasy as</a></li>
+<li><a href="/script/main/art.asp?articlekey=9267">Teratogen, warfarin as</a></li>
+<li><a href="/script/main/art.asp?articlekey=22266">Teratogenic</a></li>
+<li><a href="/script/main/art.asp?articlekey=9334">Teratogenic drugs</a></li>
+<li><a href="/script/main/art.asp?articlekey=39746">Teratoma</a></li>
+<li><a href="/script/main/art.asp?articlekey=5740">Teratoma, ovarian</a></li>
+<li><a href="/script/main/art.asp?articlekey=11716">Teratophobia</a></li>
+<li><a href="/script/main/art.asp?articlekey=8202">Teres minor muscle</a></li>
+<li><a href="/script/main/art.asp?articlekey=5741">Terminal ileitis</a></li>
+<li><a href="/script/main/art.asp?articlekey=15849">Termination codon</a></li>
+<li><a href="/script/main/art.asp?articlekey=9139">Test, allergy scratch</a></li>
+<li><a href="/script/main/art.asp?articlekey=5744">Test, allergy skin</a></li>
+<li><a href="/script/main/art.asp?articlekey=10754">Test, auditory brainstem response</a></li>
+<li><a href="/script/main/art.asp?articlekey=9718">Test, Brazelton</a></li>
+<li><a href="/script/main/art.asp?articlekey=8271">Test, CA 125</a></li>
+<li><a href="/script/main/art.asp?articlekey=8713">Test, carcinoembryonic antigen</a></li>
+<li><a href="/script/main/art.asp?articlekey=8714">Test, CEA</a></li>
+<li><a href="/script/main/art.asp?articlekey=9715">Test, child development</a></li>
+<li><a href="/script/main/art.asp?articlekey=9720">Test, Denver Developmental Screening</a></li>
+<li><a href="/script/main/art.asp?articlekey=8615">Test, EPO</a></li>
+<li><a href="/script/main/art.asp?articlekey=8616">Test, erythropoietin</a></li>
+<li><a href="/script/main/art.asp?articlekey=19794">Test, exercise</a></li>
+<li><a href="/script/main/art.asp?articlekey=10274">Test, exercise cardiac stress</a></li>
+<li><a href="/script/main/art.asp?articlekey=19798">Test, exercise treadmill</a></li>
+<li><a href="/script/main/art.asp?articlekey=8557">Test, eye chart</a></li>
+<li><a href="/script/main/art.asp?articlekey=8537">Test, eyedrop</a></li>
+<li><a href="/script/main/art.asp?articlekey=18287">Test, fecal occult blood</a></li>
+<li><a href="/script/main/art.asp?articlekey=5742">Test, Fisher's exact</a></li>
+<li><a href="/script/main/art.asp?articlekey=9846">Test, fluorescent treponemal antibody absorbed</a></li>
+<li><a href="/script/main/art.asp?articlekey=9848">Test, FTA-ABS</a></li>
+<li><a href="/script/main/art.asp?articlekey=9713">Test, Gesell Developmental</a></li>
+<li><a href="/script/main/art.asp?articlekey=5743">Test, glucose tolerance</a></li>
+<li><a href="/script/main/art.asp?articlekey=15152">Test, inkblot</a></li>
+<li><a href="/script/main/art.asp?articlekey=34037">Test, nerve conduction</a></li>
+<li><a href="/script/main/art.asp?articlekey=8730">Test, NSE</a></li>
+<li><a href="/script/main/art.asp?articlekey=8276">Test, ovarian cancer CA 125</a></li>
+<li><a href="/script/main/art.asp?articlekey=6279">Test, Pap</a></li>
+<li><a href="/script/main/art.asp?articlekey=10285">Test, pharmacologic stress</a></li>
+<li><a href="/script/main/art.asp?articlekey=10284">Test, physiologic stress</a></li>
+<li><a href="/script/main/art.asp?articlekey=7588">Test, prostate specific antigen</a></li>
+<li><a href="/script/main/art.asp?articlekey=7589">Test, PSA</a></li>
+<li><a href="/script/main/art.asp?articlekey=8559">Test, pupil dilation</a></li>
+<li><a href="/script/main/art.asp?articlekey=10278">Test, radionucleide stress</a></li>
+<li><a href="/script/main/art.asp?articlekey=9852">Test, rapid plasma reagin</a></li>
+<li><a href="/script/main/art.asp?articlekey=10520">Test, rapid strep</a></li>
+<li><a href="/script/main/art.asp?articlekey=11015">Test, Rorschach</a></li>
+<li><a href="/script/main/art.asp?articlekey=9226">Test, RPR</a></li>
+<li><a href="/script/main/art.asp?articlekey=18288">Test, stool occult blood</a></li>
+<li><a href="/script/main/art.asp?articlekey=10281">Test, stress echocardiography</a></li>
+<li><a href="/script/main/art.asp?articlekey=8216">Test, sweat</a></li>
+<li><a href="/script/main/art.asp?articlekey=8217">Test, sweat chloride</a></li>
+<li><a href="/script/main/art.asp?articlekey=9849">Test, syphilis (FTA-ABS)</a></li>
+<li><a href="/script/main/art.asp?articlekey=9228">Test, syphilis (RPR)</a></li>
+<li><a href="/script/main/art.asp?articlekey=9224">Test, syphilis (VDRL)</a></li>
+<li><a href="/script/main/art.asp?articlekey=10647">Test, ThinPrep Pap</a></li>
+<li><a href="/script/main/art.asp?articlekey=7718">Test, tilt-table</a></li>
+<li><a href="/script/main/art.asp?articlekey=19796">Test, treadmill</a></li>
+<li><a href="/script/main/art.asp?articlekey=8883">Test, triglyceride</a></li>
+<li><a href="/script/main/art.asp?articlekey=9222">Test, VDRL</a></li>
+<li><a href="/script/main/art.asp?articlekey=9854">Test, Venereal Disease Research Laboratory</a></li>
+<li><a href="/script/main/art.asp?articlekey=8550">Test, visual acuity</a></li>
+<li><a href="/script/main/art.asp?articlekey=8243">Test, visual field</a></li>
+<li><a href="/script/main/art.asp?articlekey=8974">Testes</a></li>
+<li><a href="/script/main/art.asp?articlekey=5745">Testicles</a></li>
+<li><a href="/script/main/art.asp?articlekey=8937">Testicular cancer</a></li>
+<li><a href="/script/main/art.asp?articlekey=14430">Testicular feminization syndrome</a></li>
+<li><a href="/script/main/art.asp?articlekey=11316">Testicular self-examination</a></li>
+<li><a href="/script/main/art.asp?articlekey=5746">Testing, anonymous</a></li>
+<li><a href="/script/main/art.asp?articlekey=8975">Testis</a></li>
+<li><a href="/script/main/art.asp?articlekey=5747">Testosterone</a></li>
+<li><a href="/script/main/art.asp?articlekey=11318">Testosterone replacement therapy</a></li>
+<li><a href="/script/main/art.asp?articlekey=5748">Tetanus</a></li>
+<li><a href="/script/main/art.asp?articlekey=13312">Tetany</a></li>
+<li><a href="/script/main/art.asp?articlekey=31444">Tetracycline</a></li>
+<li><a href="/script/main/art.asp?articlekey=40211">Tetraethyl lead</a></li>
+<li><a href="/script/main/art.asp?articlekey=40271">Tetraethylplumbane</a></li>
+<li><a href="/script/main/art.asp?articlekey=13445">Tetrafluoroethylene</a></li>
+<li><a href="/script/main/art.asp?articlekey=24862">Tetrahydrogestrinone</a></li>
+<li><a href="/script/main/art.asp?articlekey=19210">Tetralogy of Fallot</a></li>
+<li><a href="/script/main/art.asp?articlekey=39351">Tetranucleotide</a></li>
+<li><a href="/script/main/art.asp?articlekey=39557">Tetrapeptide</a></li>
+<li><a href="/script/main/art.asp?articlekey=5749">Tetraphocomelia-thrombocytopenia syndrome</a></li>
+</ul>
+<div class="backtop"><a href="#TopOfContent">Back to Top</a> &uarr;</div>
+<h5><a name="TgTh">Tg-Th</a></h5>
+<ul>
+<li><a href="/script/main/art.asp?articlekey=33048">TGA</a></li>
+<li><a href="/script/main/art.asp?articlekey=38301">TGF</a></li>
+<li><a href="/script/main/art.asp?articlekey=24315">Th1</a></li>
+<li><a href="/script/main/art.asp?articlekey=24316">Th2</a></li>
+<li><a href="/script/main/art.asp?articlekey=24317">Th3</a></li>
+<li><a href="/script/main/art.asp?articlekey=6280">Thai hemorrhagic fever</a></li>
+<li><a href="/script/main/art.asp?articlekey=5750">Thalassemia</a></li>
+<li><a href="/script/main/art.asp?articlekey=5752">Thalassemia major</a></li>
+<li><a href="/script/main/art.asp?articlekey=5753">Thalassemia minor</a></li>
+<li><a href="/script/main/art.asp?articlekey=7472">Thalassemia, alpha</a></li>
+<li><a href="/script/main/art.asp?articlekey=5751">Thalassemia, beta</a></li>
+<li><a href="/script/main/art.asp?articlekey=25600">Thalassiosira pseudonana</a></li>
+<li><a href="/script/main/art.asp?articlekey=11322">Thalidomide baby</a></li>
+<li><a href="/script/main/art.asp?articlekey=18758">Thallium</a></li>
+<li><a href="/script/main/art.asp?articlekey=20402">Thallium poisoning</a></li>
+<li><a href="/script/main/art.asp?articlekey=18757">Thallium scan</a></li>
+<li><a href="/script/main/art.asp?articlekey=38660">Thanatology</a></li>
+<li><a href="/script/main/art.asp?articlekey=24221">Thanatophobia</a></li>
+<li><a href="/script/main/art.asp?articlekey=9728">Thanatophoric dysplasia</a></li>
+<li><a href="/script/main/art.asp?articlekey=14853">The Lancet</a></li>
+<li><a href="/script/main/art.asp?articlekey=64059">The South Beach Diet</a></li>
+<li><a href="/script/main/art.asp?articlekey=13790">Thelarche</a></li>
+<li><a href="/script/main/art.asp?articlekey=10300">Theorem, Bayes</a></li>
+<li><a href="/script/main/art.asp?articlekey=18811">Therapeutic</a></li>
+<li><a href="/script/main/art.asp?articlekey=17777">Therapeutic abortion</a></li>
+<li><a href="/script/main/art.asp?articlekey=18428">Therapeutic cloning</a></li>
+<li><a href="/script/main/art.asp?articlekey=33524">Therapeutic touch</a></li>
+<li><a href="/script/main/art.asp?articlekey=18810">Therapeutics</a></li>
+<li><a href="/script/main/art.asp?articlekey=10897">Therapy</a></li>
+<li><a href="/script/main/art.asp?articlekey=6659">Therapy, adjuvant</a></li>
+<li><a href="/script/main/art.asp?articlekey=14371">Therapy, antiretroviral (ART)</a></li>
+<li><a href="/script/main/art.asp?articlekey=9966">Therapy, behavior</a></li>
+<li><a href="/script/main/art.asp?articlekey=7823">Therapy, biological</a></li>
+<li><a href="/script/main/art.asp?articlekey=17906">Therapy, cell</a></li>
+<li><a href="/script/main/art.asp?articlekey=13564">Therapy, constraint-induced movement</a></li>
+<li><a href="/script/main/art.asp?articlekey=22589">Therapy, electroconvulsive</a></li>
+<li><a href="/script/main/art.asp?articlekey=22590">Therapy, electroshock</a></li>
+<li><a href="/script/main/art.asp?articlekey=8963">Therapy, estrogen replacement (ERT)</a></li>
+<li><a href="/script/main/art.asp?articlekey=9831">Therapy, external beam radiation</a></li>
+<li><a href="/script/main/art.asp?articlekey=33208">Therapy, family</a></li>
+<li><a href="/script/main/art.asp?articlekey=8918">Therapy, fever</a></li>
+<li><a href="/script/main/art.asp?articlekey=5754">Therapy, gene</a></li>
+<li><a href="/script/main/art.asp?articlekey=26264">Therapy, grief</a></li>
+<li><a href="/script/main/art.asp?articlekey=8964">Therapy, hormone replacement (HRT)</a></li>
+<li><a href="/script/main/art.asp?articlekey=10896">Therapy, human gene</a></li>
+<li><a href="/script/main/art.asp?articlekey=32995">Therapy, interpersonal</a></li>
+<li><a href="/script/main/art.asp?articlekey=40384">Therapy, maintenance</a></li>
+<li><a href="/script/main/art.asp?articlekey=33206">Therapy, psychodynamic</a></li>
+<li><a href="/script/main/art.asp?articlekey=17903">Therapy, pulmonary</a></li>
+<li><a href="/script/main/art.asp?articlekey=31564">Therapy, PUVA</a></li>
+<li><a href="/script/main/art.asp?articlekey=17904">Therapy, respiratory</a></li>
+<li><a href="/script/main/art.asp?articlekey=9381">Therapy, salvage</a></li>
+<li><a href="/script/main/art.asp?articlekey=12863">Therapy, testosterone replacement</a></li>
+<li><a href="/script/main/art.asp?articlekey=6281">Thermally induced asthma</a></li>
+<li><a href="/script/main/art.asp?articlekey=12265">Thermometer</a></li>
+<li><a href="/script/main/art.asp?articlekey=10898">Thermometer, ear</a></li>
+<li><a href="/script/main/art.asp?articlekey=12214">Thermophobia</a></li>
+<li><a href="/script/main/art.asp?articlekey=12333">Thermostat</a></li>
+<li><a href="/script/main/art.asp?articlekey=24863">THG</a></li>
+<li><a href="/script/main/art.asp?articlekey=8694">Thiamine</a></li>
+<li><a href="/script/main/art.asp?articlekey=25315">Thiamine deficiency, infantile</a></li>
+<li><a href="/script/main/art.asp?articlekey=25205">Thiazolidinedione</a></li>
+<li><a href="/script/main/art.asp?articlekey=8759">Thigh</a></li>
+<li><a href="/script/main/art.asp?articlekey=8458">Thigh bone</a></li>
+<li><a href="/script/main/art.asp?articlekey=24201">Thimerosal</a></li>
+<li><a href="/script/main/art.asp?articlekey=10645">ThinPrep Pap test</a></li>
+<li><a href="/script/main/art.asp?articlekey=12000">Thioxanthene</a></li>
+<li><a href="/script/main/art.asp?articlekey=5755">Third and fourth pharyngeal pouch syndrome</a></li>
+<li><a href="/script/main/art.asp?articlekey=7570">Third cranial nerve</a></li>
+<li><a href="/script/main/art.asp?articlekey=38743">Third degree burn</a></li>
+<li><a href="/script/main/art.asp?articlekey=5756">Third stage of labor</a></li>
+<li><a href="/script/main/art.asp?articlekey=9165">Third ventricle</a></li>
+<li><a href="/script/main/art.asp?articlekey=188157">Thogotovirus (Bourbon virus)</a></li>
+<li><a href="/script/main/art.asp?articlekey=33397">Thomas Campion</a></li>
+<li><a href="/script/main/art.asp?articlekey=34419">Thomas Sydenham</a></li>
+<li><a href="/script/main/art.asp?articlekey=26140">Thomas, Lewis</a></li>
+<li><a href="/script/main/art.asp?articlekey=5768">Thoracentesis</a></li>
+<li><a href="/script/main/art.asp?articlekey=25402">Thoraces</a></li>
+<li><a href="/script/main/art.asp?articlekey=5758">Thoracic</a></li>
+<li><a href="/script/main/art.asp?articlekey=6119">Thoracic aneurysm</a></li>
+<li><a href="/script/main/art.asp?articlekey=8635">Thoracic aorta</a></li>
+<li><a href="/script/main/art.asp?articlekey=18064">Thoracic cage</a></li>
+<li><a href="/script/main/art.asp?articlekey=5759">Thoracic duct</a></li>
+<li><a href="/script/main/art.asp?articlekey=5760">Thoracic outlet syndrome</a></li>
+<li><a href="/script/main/art.asp?articlekey=8765">Thoracic vertebrae</a></li>
+<li><a href="/script/main/art.asp?articlekey=10393">Thoracolumbosacral orthosis (TLSO)</a></li>
+<li><a href="/script/main/art.asp?articlekey=5761">Thoracotomy</a></li>
+<li><a href="/script/main/art.asp?articlekey=5762">Thorax</a></li>
+<li><a href="/script/main/art.asp?articlekey=25401">Thoraxes</a></li>
+<li><a href="/script/main/art.asp?articlekey=34272">Thorn, George W.</a></li>
+<li><a href="/script/main/art.asp?articlekey=22851">Thr</a></li>
+<li><a href="/script/main/art.asp?articlekey=31324">Three day fever</a></li>
+<li><a href="/script/main/art.asp?articlekey=31323">Three-day fever</a></li>
+<li><a href="/script/main/art.asp?articlekey=22834">Threonine</a></li>
+<li><a href="/script/main/art.asp?articlekey=6282">Thrive, failure to (FTT)</a></li>
+<li><a href="/script/main/art.asp?articlekey=53392">Throat</a></li>
+<li><a href="/script/main/art.asp?articlekey=5763">Thrombectomy</a></li>
+<li><a href="/script/main/art.asp?articlekey=5757">Thrombi</a></li>
+<li><a href="/script/main/art.asp?articlekey=5764">Thrombin</a></li>
+<li><a href="/script/main/art.asp?articlekey=8389">Thrombinogen</a></li>
+<li><a href="/script/main/art.asp?articlekey=5766">Thrombocyte</a></li>
+<li><a href="/script/main/art.asp?articlekey=85651">Thrombocythemia</a></li>
+<li><a href="/script/main/art.asp?articlekey=97574">Thrombocytopenia</a></li>
+<li><a href="/script/main/art.asp?articlekey=14279">Thrombocytopenia, heparin-induced</a></li>
+<li><a href="/script/main/art.asp?articlekey=5769">Thrombocytopenia-absent radius syndrome</a></li>
+<li><a href="/script/main/art.asp?articlekey=6283">Thrombocytopenic purpura, acute</a></li>
+<li><a href="/script/main/art.asp?articlekey=85652">Thrombocytosis</a></li>
+<li><a href="/script/main/art.asp?articlekey=25032">Thromboembolism</a></li>
+<li><a href="/script/main/art.asp?articlekey=5770">Thrombolytic agent</a></li>
+<li><a href="/script/main/art.asp?articlekey=12155">Thrombophilia</a></li>
+<li><a href="/script/main/art.asp?articlekey=5771">Thrombophlebitis</a></li>
+<li><a href="/script/main/art.asp?articlekey=25023">Thrombosis</a></li>
+<li><a href="/script/main/art.asp?articlekey=9155">Thrombosis, cavernous sinus</a></li>
+<li><a href="/script/main/art.asp?articlekey=9179">Thrombosis, deep vein (DVT)</a></li>
+<li><a href="/script/main/art.asp?articlekey=12070">Thrombospondin</a></li>
+<li><a href="/script/main/art.asp?articlekey=5772">Thrombotic disease due to protein C deficiency</a></li>
+<li><a href="/script/main/art.asp?articlekey=13855">Thrombotic thrombocytopenic purpura (TTP)</a></li>
+<li><a href="/script/main/art.asp?articlekey=32482">Thromboxane</a></li>
+<li><a href="/script/main/art.asp?articlekey=32483">Thromboxane A2</a></li>
+<li><a href="/script/main/art.asp?articlekey=32500">Thromboxane B2</a></li>
+<li><a href="/script/main/art.asp?articlekey=5773">Thrombus</a></li>
+<li><a href="/script/main/art.asp?articlekey=10313">Thrush</a></li>
+<li><a href="/script/main/art.asp?articlekey=19099">Thumb</a></li>
+<li><a href="/script/main/art.asp?articlekey=5774">Thymine (T)</a></li>
+<li><a href="/script/main/art.asp?articlekey=38249">Thymoglobulin</a></li>
+<li><a href="/script/main/art.asp?articlekey=157655">Thymoma</a></li>
+<li><a href="/script/main/art.asp?articlekey=31618">Thymosin</a></li>
+<li><a href="/script/main/art.asp?articlekey=5775">Thymus</a></li>
+<li><a href="/script/main/art.asp?articlekey=5776">Thymus and parathyroids, hypoplasia of</a></li>
+<li><a href="/script/main/art.asp?articlekey=31561">Thymus gland</a></li>
+<li><a href="/script/main/art.asp?articlekey=16052">Thyrocalcitonin</a></li>
+<li><a href="/script/main/art.asp?articlekey=11324">Thyroglobulin</a></li>
+<li><a href="/script/main/art.asp?articlekey=5777">Thyroglossal cyst</a></li>
+<li><a href="/script/main/art.asp?articlekey=23950">Thyroglossal duct cyst</a></li>
+<li><a href="/script/main/art.asp?articlekey=19509">Thyroid</a></li>
+<li><a href="/script/main/art.asp?articlekey=11323">Thyroid binding globulin</a></li>
+<li><a href="/script/main/art.asp?articlekey=8693">Thyroid cancer</a></li>
+<li><a href="/script/main/art.asp?articlekey=15568">Thyroid cartilage</a></li>
+<li><a href="/script/main/art.asp?articlekey=5778">Thyroid gland</a></li>
+<li><a href="/script/main/art.asp?articlekey=38373">Thyroid hormone</a></li>
+<li><a href="/script/main/art.asp?articlekey=9055">Thyroid hormone organification defect IIb</a></li>
+<li><a href="/script/main/art.asp?articlekey=38374">Thyroid hormone receptor</a></li>
+<li><a href="/script/main/art.asp?articlekey=5780">Thyroid hormones</a></li>
+<li><a href="/script/main/art.asp?articlekey=31857">Thyroid insufficiency</a></li>
+<li><a href="/script/main/art.asp?articlekey=19048">Thyroid peroxidase test</a></li>
+<li><a href="/script/main/art.asp?articlekey=5779">Thyroid scan</a></li>
+<li><a href="/script/main/art.asp?articlekey=5781">Thyroid stimulating hormone</a></li>
+<li><a href="/script/main/art.asp?articlekey=5782">Thyroid stimulating immunoglobulin (TSI)</a></li>
+<li><a href="/script/main/art.asp?articlekey=77814">Thyroid storm</a></li>
+<li><a href="/script/main/art.asp?articlekey=5783">Thyroidectomy</a></li>
+<li><a href="/script/main/art.asp?articlekey=5784">Thyroiditis</a></li>
+<li><a href="/script/main/art.asp?articlekey=5785">Thyroiditis, autoimmune</a></li>
+<li><a href="/script/main/art.asp?articlekey=5786">Thyroiditis, Hashimoto</a></li>
+<li><a href="/script/main/art.asp?articlekey=5787">Thyroiditis, postpartum</a></li>
+<li><a href="/script/main/art.asp?articlekey=5788">Thyroiditis, subacute</a></li>
+<li><a href="/script/main/art.asp?articlekey=5789">Thyrolingual cyst</a></li>
+<li><a href="/script/main/art.asp?articlekey=12908">Thyroplasty</a></li>
+<li><a href="/script/main/art.asp?articlekey=5790">Thyrotropin</a></li>
+<li><a href="/script/main/art.asp?articlekey=5791">Thyroxine</a></li>
+</ul>
+<div class="backtop"><a href="#TopOfContent">Back to Top</a> &uarr;</div>
+<h5><a name="TiTn">Ti-Tn</a></h5>
+<ul>
+<li><a href="/script/main/art.asp?articlekey=85232">TIA</a></li>
+<li><a href="/script/main/art.asp?articlekey=8451">Tibia</a></li>
+<li><a href="/script/main/art.asp?articlekey=11325">Tibia vara</a></li>
+<li><a href="/script/main/art.asp?articlekey=11327">Tibial bowing</a></li>
+<li><a href="/script/main/art.asp?articlekey=23047">Tibial muscular dystrophy</a></li>
+<li><a href="/script/main/art.asp?articlekey=11329">Tic</a></li>
+<li><a href="/script/main/art.asp?articlekey=11330">Tic disorder</a></li>
+<li><a href="/script/main/art.asp?articlekey=26024">Tic douloureux</a></li>
+<li><a href="/script/main/art.asp?articlekey=23445">Tick</a></li>
+<li><a href="/script/main/art.asp?articlekey=11331">Tick bite</a></li>
+<li><a href="/script/main/art.asp?articlekey=5794">Tick fever</a></li>
+<li><a href="/script/main/art.asp?articlekey=5795">Tick typhus</a></li>
+<li><a href="/script/main/art.asp?articlekey=5796">Tick typhus, African</a></li>
+<li><a href="/script/main/art.asp?articlekey=5797">Tick typhus, Queensland</a></li>
+<li><a href="/script/main/art.asp?articlekey=22151">Tick, American dog</a></li>
+<li><a href="/script/main/art.asp?articlekey=22149">Tick, Rocky Mountain wood</a></li>
+<li><a href="/script/main/art.asp?articlekey=19180">Tick-borne disease</a></li>
+<li><a href="/script/main/art.asp?articlekey=5792">Tick-borne rickettsioses of the eastern hemisphere</a></li>
+<li><a href="/script/main/art.asp?articlekey=5793">Tick-borne rickettsiosis, north Asian</a></li>
+<li><a href="/script/main/art.asp?articlekey=107323">Ticks</a></li>
+<li><a href="/script/main/art.asp?articlekey=13557">tid (on prescription)</a></li>
+<li><a href="/script/main/art.asp?articlekey=7684">Tight foreskin</a></li>
+<li><a href="/script/main/art.asp?articlekey=7717">Tilt-table test</a></li>
+<li><a href="/script/main/art.asp?articlekey=8387">Time, prothrombin</a></li>
+<li><a href="/script/main/art.asp?articlekey=39495">Timothy syndrome</a></li>
+<li><a href="/script/main/art.asp?articlekey=12247">Tinea barbae</a></li>
+<li><a href="/script/main/art.asp?articlekey=12250">Tinea capitis</a></li>
+<li><a href="/script/main/art.asp?articlekey=30651">Tinea cruris</a></li>
+<li><a href="/script/main/art.asp?articlekey=15261">Tinea incognito</a></li>
+<li><a href="/script/main/art.asp?articlekey=5798">Tinea unguium</a></li>
+<li><a href="/script/main/art.asp?articlekey=16687">Tinel's sign</a></li>
+<li><a href="/script/main/art.asp?articlekey=5799">Tinnitus</a></li>
+<li><a href="/script/main/art.asp?articlekey=151025">Tipped Uterus</a></li>
+<li><a href="/script/main/art.asp?articlekey=17420">TIPS</a></li>
+<li><a href="/script/main/art.asp?articlekey=26113">Tired</a></li>
+<li><a href="/script/main/art.asp?articlekey=26114">Tiredness</a></li>
+<li><a href="/script/main/art.asp?articlekey=5800">Tissue</a></li>
+<li><a href="/script/main/art.asp?articlekey=40687">Tissue plasminogen activator</a></li>
+<li><a href="/script/main/art.asp?articlekey=10345">Tissue, connective</a></li>
+<li><a href="/script/main/art.asp?articlekey=10346">Tissue, lymphoid</a></li>
+<li><a href="/script/main/art.asp?articlekey=19155">Titer</a></li>
+<li><a href="/script/main/art.asp?articlekey=23048">Titin</a></li>
+<li><a href="/script/main/art.asp?articlekey=19156">Titre</a></li>
+<li><a href="/script/main/art.asp?articlekey=23499">TLR4</a></li>
+<li><a href="/script/main/art.asp?articlekey=10395">TLSO</a></li>
+<li><a href="/script/main/art.asp?articlekey=5801">TMA</a></li>
+<li><a href="/script/main/art.asp?articlekey=5802">TMJ</a></li>
+<li><a href="/script/main/art.asp?articlekey=5803">TMJ syndrome</a></li>
+<li><a href="/script/main/art.asp?articlekey=11079">TMR</a></li>
+<li><a href="/script/main/art.asp?articlekey=25020">TMS</a></li>
+<li><a href="/script/main/art.asp?articlekey=25459">TNF</a></li>
+<li><a href="/script/main/art.asp?articlekey=33846">TNFRSF6</a></li>
+</ul>
+<div class="backtop"><a href="#TopOfContent">Back to Top</a> &uarr;</div>
+<h5><a name="ToTo">To-To</a></h5>
+<ul>
+<li><a href="/script/main/art.asp?articlekey=120733">Toasted skin syndrome</a></li>
+<li><a href="/script/main/art.asp?articlekey=13294">Tobacco</a></li>
+<li><a href="/script/main/art.asp?articlekey=13426">Tobacco smoke, environmental</a></li>
+<li><a href="/script/main/art.asp?articlekey=13296">Tobacco smoking</a></li>
+<li><a href="/script/main/art.asp?articlekey=5804">Toc- (prefix)</a></li>
+<li><a href="/script/main/art.asp?articlekey=5805">Toco-</a></li>
+<li><a href="/script/main/art.asp?articlekey=5806">Tocolysis</a></li>
+<li><a href="/script/main/art.asp?articlekey=5807">Tocolytic</a></li>
+<li><a href="/script/main/art.asp?articlekey=5808">Tocolytic agent</a></li>
+<li><a href="/script/main/art.asp?articlekey=5809">Tocophobia</a></li>
+<li><a href="/script/main/art.asp?articlekey=5810">Tocus</a></li>
+<li><a href="/script/main/art.asp?articlekey=25877">Toddler</a></li>
+<li><a href="/script/main/art.asp?articlekey=25183">Toddler elbow</a></li>
+<li><a href="/script/main/art.asp?articlekey=25874">Toddler's fracture</a></li>
+<li><a href="/script/main/art.asp?articlekey=7190">Toe sign</a></li>
+<li><a href="/script/main/art.asp?articlekey=25066">Toe, turf</a></li>
+<li><a href="/script/main/art.asp?articlekey=7740">Toenail</a></li>
+<li><a href="/script/main/art.asp?articlekey=11332">Toenail, ingrown</a></li>
+<li><a href="/script/main/art.asp?articlekey=7758">Toes, six</a></li>
+<li><a href="/script/main/art.asp?articlekey=26357">Toilet</a></li>
+<li><a href="/script/main/art.asp?articlekey=5811">Tok-</a></li>
+<li><a href="/script/main/art.asp?articlekey=5812">Toko- (prefix)</a></li>
+<li><a href="/script/main/art.asp?articlekey=30764">Tolerance</a></li>
+<li><a href="/script/main/art.asp?articlekey=10100">Tolerance, immune</a></li>
+<li><a href="/script/main/art.asp?articlekey=22512">Toll receptor</a></li>
+<li><a href="/script/main/art.asp?articlekey=23500">Toll-like receptor 4</a></li>
+<li><a href="/script/main/art.asp?articlekey=16034">Toluidine</a></li>
+<li><a href="/script/main/art.asp?articlekey=39844">Tom-</a></li>
+<li><a href="/script/main/art.asp?articlekey=177308">Tommy John surgery</a></li>
+<li><a href="/script/main/art.asp?articlekey=39845">Tomo-</a></li>
+<li><a href="/script/main/art.asp?articlekey=39846">Tomogram</a></li>
+<li><a href="/script/main/art.asp?articlekey=39847">Tomograph</a></li>
+<li><a href="/script/main/art.asp?articlekey=39848">Tomography</a></li>
+<li><a href="/script/main/art.asp?articlekey=10350">Tomography, computerized</a></li>
+<li><a href="/script/main/art.asp?articlekey=10355">Tomography, computerized axial</a></li>
+<li><a href="/script/main/art.asp?articlekey=19459">Tone deafness</a></li>
+<li><a href="/script/main/art.asp?articlekey=9075">Tongue</a></li>
+<li><a href="/script/main/art.asp?articlekey=25693">Tongue base</a></li>
+<li><a href="/script/main/art.asp?articlekey=25683">Tongue cancer</a></li>
+<li><a href="/script/main/art.asp?articlekey=18465">Tongue tie</a></li>
+<li><a href="/script/main/art.asp?articlekey=25692">Tongue, anterior</a></li>
+<li><a href="/script/main/art.asp?articlekey=32956">Tonic-clonic seizure</a></li>
+<li><a href="/script/main/art.asp?articlekey=10016">Tonometry</a></li>
+<li><a href="/script/main/art.asp?articlekey=26070">Tonotopic</a></li>
+<li><a href="/script/main/art.asp?articlekey=26069">Tonotopy</a></li>
+<li><a href="/script/main/art.asp?articlekey=7470">Tonsil stone</a></li>
+<li><a href="/script/main/art.asp?articlekey=5813">Tonsillectomy</a></li>
+<li><a href="/script/main/art.asp?articlekey=5814">Tonsillitis</a></li>
+<li><a href="/script/main/art.asp?articlekey=7468">Tonsillolith</a></li>
+<li><a href="/script/main/art.asp?articlekey=5815">Tonsils</a></li>
+<li><a href="/script/main/art.asp?articlekey=11333">Tooth</a></li>
+<li><a href="/script/main/art.asp?articlekey=17699">Tooth and nail syndrome</a></li>
+<li><a href="/script/main/art.asp?articlekey=9564">Tooth erosion</a></li>
+<li><a href="/script/main/art.asp?articlekey=23966">Tooth numbering</a></li>
+<li><a href="/script/main/art.asp?articlekey=11335">Tooth root</a></li>
+<li><a href="/script/main/art.asp?articlekey=5817">Tooth root sensitivities</a></li>
+<li><a href="/script/main/art.asp?articlekey=5816">Tooth, cracked, syndrome</a></li>
+<li><a href="/script/main/art.asp?articlekey=11336">Tooth, wisdom</a></li>
+<li><a href="/script/main/art.asp?articlekey=25128">Toothache</a></li>
+<li><a href="/script/main/art.asp?articlekey=5819">Tophaceous gout</a></li>
+<li><a href="/script/main/art.asp?articlekey=5820">Tophi</a></li>
+<li><a href="/script/main/art.asp?articlekey=5821">Tophus</a></li>
+<li><a href="/script/main/art.asp?articlekey=9878">Topical</a></li>
+<li><a href="/script/main/art.asp?articlekey=5818">Topical chemotherapy</a></li>
+<li><a href="/script/main/art.asp?articlekey=32631">Topoisomerase</a></li>
+<li><a href="/script/main/art.asp?articlekey=11337">TORCH screen</a></li>
+<li><a href="/script/main/art.asp?articlekey=8159">Tornado supplies kit</a></li>
+<li><a href="/script/main/art.asp?articlekey=24814">Torpor</a></li>
+<li><a href="/script/main/art.asp?articlekey=38440">Torre syndrome</a></li>
+<li><a href="/script/main/art.asp?articlekey=5822">Torsion dystonia</a></li>
+<li><a href="/script/main/art.asp?articlekey=8077">Torsion fracture</a></li>
+<li><a href="/script/main/art.asp?articlekey=8251">Torticollis</a></li>
+<li><a href="/script/main/art.asp?articlekey=9264">Torticollis, congenital</a></li>
+<li><a href="/script/main/art.asp?articlekey=5823">Torticollis, spasmodic</a></li>
+<li><a href="/script/main/art.asp?articlekey=33912">Torture</a></li>
+<li><a href="/script/main/art.asp?articlekey=25875">Torus fracture</a></li>
+<li><a href="/script/main/art.asp?articlekey=18292">Total hip replacement</a></li>
+<li><a href="/script/main/art.asp?articlekey=5824">Total hysterectomy</a></li>
+<li><a href="/script/main/art.asp?articlekey=10422">Total knee replacement</a></li>
+<li><a href="/script/main/art.asp?articlekey=25443">Total laryngectomy</a></li>
+<li><a href="/script/main/art.asp?articlekey=19344">Total parenteral nutrition</a></li>
+<li><a href="/script/main/art.asp?articlekey=18261">Totipotent</a></li>
+<li><a href="/script/main/art.asp?articlekey=11338">Tourette syndrome</a></li>
+<li><a href="/script/main/art.asp?articlekey=26152">Toxaphene</a></li>
+<li><a href="/script/main/art.asp?articlekey=15914">Toxemia</a></li>
+<li><a href="/script/main/art.asp?articlekey=31915">Toxic agent syndrome</a></li>
+<li><a href="/script/main/art.asp?articlekey=15315">Toxic goiter, diffuse</a></li>
+<li><a href="/script/main/art.asp?articlekey=11926">Toxic hepatitis</a></li>
+<li><a href="/script/main/art.asp?articlekey=5826">Toxic multinodular goiter</a></li>
+<li><a href="/script/main/art.asp?articlekey=5825">Toxic shock</a></li>
+<li><a href="/script/main/art.asp?articlekey=5827">Toxic shock syndrome</a></li>
+<li><a href="/script/main/art.asp?articlekey=31916">Toxic syndrome</a></li>
+<li><a href="/script/main/art.asp?articlekey=34093">Toxicity</a></li>
+<li><a href="/script/main/art.asp?articlekey=30715">Toxicogenomics</a></li>
+<li><a href="/script/main/art.asp?articlekey=30714">Toxicology</a></li>
+<li><a href="/script/main/art.asp?articlekey=5828">Toxin</a></li>
+<li><a href="/script/main/art.asp?articlekey=18852">Toxin, anthrax</a></li>
+<li><a href="/script/main/art.asp?articlekey=25774">Toxin, botulinum</a></li>
+<li><a href="/script/main/art.asp?articlekey=14109">Toxo (toxoplasmosis)</a></li>
+<li><a href="/script/main/art.asp?articlekey=14110">Toxoplasma gondii</a></li>
+<li><a href="/script/main/art.asp?articlekey=14108">Toxoplasmosis (toxo)</a></li>
+</ul>
+<div class="backtop"><a href="#TopOfContent">Back to Top</a> &uarr;</div>
+<h5><a name="TpTr">Tp-Tr</a></h5>
+<ul>
+<li><a href="/script/main/art.asp?articlekey=40686">tPA</a></li>
+<li><a href="/script/main/art.asp?articlekey=33980">TPH2</a></li>
+<li><a href="/script/main/art.asp?articlekey=19345">TPN</a></li>
+<li><a href="/script/main/art.asp?articlekey=18039">Trabecula</a></li>
+<li><a href="/script/main/art.asp?articlekey=5829">Trachea</a></li>
+<li><a href="/script/main/art.asp?articlekey=12131">Trachelectomy</a></li>
+<li><a href="/script/main/art.asp?articlekey=5830">Tracheoesophageal puncture</a></li>
+<li><a href="/script/main/art.asp?articlekey=5831">Tracheostomy</a></li>
+<li><a href="/script/main/art.asp?articlekey=5832">Tracheostomy button</a></li>
+<li><a href="/script/main/art.asp?articlekey=5833">Tracheostomy tube</a></li>
+<li><a href="/script/main/art.asp?articlekey=11991">Trachoma</a></li>
+<li><a href="/script/main/art.asp?articlekey=11442">Traction</a></li>
+<li><a href="/script/main/art.asp?articlekey=11443">Traction, orthopedic</a></li>
+<li><a href="/script/main/art.asp?articlekey=33520">Traditional Chinese medicine</a></li>
+<li><a href="/script/main/art.asp?articlekey=40492">Traditional midwife</a></li>
+<li><a href="/script/main/art.asp?articlekey=10785">Traditional oriental medicine</a></li>
+<li><a href="/script/main/art.asp?articlekey=10804">Training, cross</a></li>
+<li><a href="/script/main/art.asp?articlekey=11705">Trait</a></li>
+<li><a href="/script/main/art.asp?articlekey=11706">Trait, dominant lethal</a></li>
+<li><a href="/script/main/art.asp?articlekey=11704">Trait, sickle cell</a></li>
+<li><a href="/script/main/art.asp?articlekey=5834">Tranquilizer</a></li>
+<li><a href="/script/main/art.asp?articlekey=11091">Trans fat</a></li>
+<li><a href="/script/main/art.asp?articlekey=13668">Trans fatty acid</a></li>
+<li><a href="/script/main/art.asp?articlekey=6284">Trans- (prefix)</a></li>
+<li><a href="/script/main/art.asp?articlekey=6285">Transaminase biochemistry</a></li>
+<li><a href="/script/main/art.asp?articlekey=6286">Transaminase clinical usage</a></li>
+<li><a href="/script/main/art.asp?articlekey=6287">Transaminase nomenclature</a></li>
+<li><a href="/script/main/art.asp?articlekey=11444">Transaminase, serum glutamic oxaloacetic</a></li>
+<li><a href="/script/main/art.asp?articlekey=6289">Transaminase, serum glutamic pyruvic (SGPT)</a></li>
+<li><a href="/script/main/art.asp?articlekey=25018">Transcranial</a></li>
+<li><a href="/script/main/art.asp?articlekey=25019">Transcranial magnetic stimulation</a></li>
+<li><a href="/script/main/art.asp?articlekey=5835">Transcription</a></li>
+<li><a href="/script/main/art.asp?articlekey=25194">Transcription factor</a></li>
+<li><a href="/script/main/art.asp?articlekey=23517">Transcriptome</a></li>
+<li><a href="/script/main/art.asp?articlekey=23518">Transcriptomics</a></li>
+<li><a href="/script/main/art.asp?articlekey=32439">Transdifferentiation</a></li>
+<li><a href="/script/main/art.asp?articlekey=12044">Transducer</a></li>
+<li><a href="/script/main/art.asp?articlekey=26563">Transesophageal echocardiography</a></li>
+<li><a href="/script/main/art.asp?articlekey=5838">Transfer RNA (tRNA)</a></li>
+<li><a href="/script/main/art.asp?articlekey=15591">Transferrin</a></li>
+<li><a href="/script/main/art.asp?articlekey=9804">Transformation, genetic</a></li>
+<li><a href="/script/main/art.asp?articlekey=38300">Transforming growth factor</a></li>
+<li><a href="/script/main/art.asp?articlekey=24824">Transforming principle</a></li>
+<li><a href="/script/main/art.asp?articlekey=5836">Transfusion</a></li>
+<li><a href="/script/main/art.asp?articlekey=8465">Transfusion medicine</a></li>
+<li><a href="/script/main/art.asp?articlekey=11295">Transgenic</a></li>
+<li><a href="/script/main/art.asp?articlekey=33047">Transient global amnesia</a></li>
+<li><a href="/script/main/art.asp?articlekey=17763">Transient insomnia</a></li>
+<li><a href="/script/main/art.asp?articlekey=15553">Transient ischemic attack (TIA, Mini-Stroke)</a></li>
+<li><a href="/script/main/art.asp?articlekey=15582">Transillumination</a></li>
+<li><a href="/script/main/art.asp?articlekey=8945">Transition, menopause</a></li>
+<li><a href="/script/main/art.asp?articlekey=5837">Transitional cell carcinoma</a></li>
+<li><a href="/script/main/art.asp?articlekey=13550">Transjugular intrahepatic portosystemic shunt</a></li>
+<li><a href="/script/main/art.asp?articlekey=17434">Transjugular, intrahepatic, portosystemic shunt</a></li>
+<li><a href="/script/main/art.asp?articlekey=5839">Translation</a></li>
+<li><a href="/script/main/art.asp?articlekey=19708">Translocation 11 childhood leukemia</a></li>
+<li><a href="/script/main/art.asp?articlekey=15922">Translocation, reciprocal</a></li>
+<li><a href="/script/main/art.asp?articlekey=15920">Translocation, Robertsonian</a></li>
+<li><a href="/script/main/art.asp?articlekey=21689">Transmissible spongiform encephalopathy</a></li>
+<li><a href="/script/main/art.asp?articlekey=32056">Transmission distortion</a></li>
+<li><a href="/script/main/art.asp?articlekey=7969">Transmission, perinatal</a></li>
+<li><a href="/script/main/art.asp?articlekey=7970">Transmission, vertical</a></li>
+<li><a href="/script/main/art.asp?articlekey=10907">Transmyocardial laser revascularization</a></li>
+<li><a href="/script/main/art.asp?articlekey=6290">Transplant</a></li>
+<li><a href="/script/main/art.asp?articlekey=6661">Transplant, bone marrow</a></li>
+<li><a href="/script/main/art.asp?articlekey=23125">Transplant, corneal</a></li>
+<li><a href="/script/main/art.asp?articlekey=12414">Transplant, hand and forearm</a></li>
+<li><a href="/script/main/art.asp?articlekey=6291">Transplant, heart</a></li>
+<li><a href="/script/main/art.asp?articlekey=6293">Transplant, kidney</a></li>
+<li><a href="/script/main/art.asp?articlekey=19487">Transplant, liver</a></li>
+<li><a href="/script/main/art.asp?articlekey=6292">Transplant, lung</a></li>
+<li><a href="/script/main/art.asp?articlekey=18547">Transplant, renal</a></li>
+<li><a href="/script/main/art.asp?articlekey=18549">Transplantation genetics</a></li>
+<li><a href="/script/main/art.asp?articlekey=13808">Transplantation, cross-species</a></li>
+<li><a href="/script/main/art.asp?articlekey=7101">Transplantation, peripheral blood stem cell</a></li>
+<li><a href="/script/main/art.asp?articlekey=8561">Transport defect</a></li>
+<li><a href="/script/main/art.asp?articlekey=8564">Transport disease, cystine</a></li>
+<li><a href="/script/main/art.asp?articlekey=23235">Transporter gene</a></li>
+<li><a href="/script/main/art.asp?articlekey=19485">Transposition, genetics</a></li>
+<li><a href="/script/main/art.asp?articlekey=6295">Transposon</a></li>
+<li><a href="/script/main/art.asp?articlekey=5840">Transsexual</a></li>
+<li><a href="/script/main/art.asp?articlekey=5841">Transsexualism</a></li>
+<li><a href="/script/main/art.asp?articlekey=38464">Transthyretin</a></li>
+<li><a href="/script/main/art.asp?articlekey=9901">Transudate</a></li>
+<li><a href="/script/main/art.asp?articlekey=5842">Transurethral resection</a></li>
+<li><a href="/script/main/art.asp?articlekey=5843">Transvaginal ultrasound</a></li>
+<li><a href="/script/main/art.asp?articlekey=9288">Transverse</a></li>
+<li><a href="/script/main/art.asp?articlekey=8081">Transverse fracture</a></li>
+<li><a href="/script/main/art.asp?articlekey=11604">Transverse myelitis</a></li>
+<li><a href="/script/main/art.asp?articlekey=5844">Transvestism</a></li>
+<li><a href="/script/main/art.asp?articlekey=5845">Transvestite</a></li>
+<li><a href="/script/main/art.asp?articlekey=46418">Transvestitism</a></li>
+<li><a href="/script/main/art.asp?articlekey=8171">Trauma</a></li>
+<li><a href="/script/main/art.asp?articlekey=8182">Trauma center</a></li>
+<li><a href="/script/main/art.asp?articlekey=9464">Traumatic alopecia</a></li>
+<li><a href="/script/main/art.asp?articlekey=22116">Traumatic brain injury</a></li>
+<li><a href="/script/main/art.asp?articlekey=8184">Traumatology</a></li>
+<li><a href="/script/main/art.asp?articlekey=10135">Travel medicine</a></li>
+<li><a href="/script/main/art.asp?articlekey=23864">Travel-related disease</a></li>
+<li><a href="/script/main/art.asp?articlekey=6874">Traveler's diarrhea</a></li>
+<li><a href="/script/main/art.asp?articlekey=156685">Treacher Collins syndrome</a></li>
+<li><a href="/script/main/art.asp?articlekey=14331">Treacle</a></li>
+<li><a href="/script/main/art.asp?articlekey=19799">Treadmill</a></li>
+<li><a href="/script/main/art.asp?articlekey=19797">Treadmill test</a></li>
+<li><a href="/script/main/art.asp?articlekey=5846">Treadmill, exercise</a></li>
+<li><a href="/script/main/art.asp?articlekey=10704">Treatment, palliative</a></li>
+<li><a href="/script/main/art.asp?articlekey=31565">Treatment, PUVA</a></li>
+<li><a href="/script/main/art.asp?articlekey=10702">Treatment, symptomatic</a></li>
+<li><a href="/script/main/art.asp?articlekey=5847">Tremor</a></li>
+<li><a href="/script/main/art.asp?articlekey=5848">Trench fever</a></li>
+<li><a href="/script/main/art.asp?articlekey=8608">Trench mouth</a></li>
+<li><a href="/script/main/art.asp?articlekey=5849">Treponema pallidum</a></li>
+<li><a href="/script/main/art.asp?articlekey=16736">Triage</a></li>
+<li><a href="/script/main/art.asp?articlekey=14262">Trial, clinical</a></li>
+<li><a href="/script/main/art.asp?articlekey=8711">Triceps</a></li>
+<li><a href="/script/main/art.asp?articlekey=24219">Trich- (prefix)</a></li>
+<li><a href="/script/main/art.asp?articlekey=12513">Trichina spiralis</a></li>
+<li><a href="/script/main/art.asp?articlekey=8176">Trichinella spiralis</a></li>
+<li><a href="/script/main/art.asp?articlekey=8145">Trichinellosis</a></li>
+<li><a href="/script/main/art.asp?articlekey=8144">Trichinosis</a></li>
+<li><a href="/script/main/art.asp?articlekey=13446">Trichloroethylene</a></li>
+<li><a href="/script/main/art.asp?articlekey=24218">Tricho- (prefix)</a></li>
+<li><a href="/script/main/art.asp?articlekey=8897">Trichobezoar</a></li>
+<li><a href="/script/main/art.asp?articlekey=24220">Trichoepithelioma</a></li>
+<li><a href="/script/main/art.asp?articlekey=31989">Trichomonas</a></li>
+<li><a href="/script/main/art.asp?articlekey=31991">Trichomonas vaginalis</a></li>
+<li><a href="/script/main/art.asp?articlekey=31990">Trichomoniasis</a></li>
+<li><a href="/script/main/art.asp?articlekey=24217">Trichotillomania</a></li>
+<li><a href="/script/main/art.asp?articlekey=12959">Trichuriasis</a></li>
+<li><a href="/script/main/art.asp?articlekey=12961">Trichuris trichiura</a></li>
+<li><a href="/script/main/art.asp?articlekey=6296">Tricuspid</a></li>
+<li><a href="/script/main/art.asp?articlekey=5850">Tricuspid valve</a></li>
+<li><a href="/script/main/art.asp?articlekey=9975">Tricyclic antidepressants</a></li>
+<li><a href="/script/main/art.asp?articlekey=7608">Trigeminal nerve</a></li>
+<li><a href="/script/main/art.asp?articlekey=26023">Trigeminal neuralgia</a></li>
+<li><a href="/script/main/art.asp?articlekey=30700">Trigger</a></li>
+<li><a href="/script/main/art.asp?articlekey=11729">Triglyceride test</a></li>
+<li><a href="/script/main/art.asp?articlekey=8880">Triglycerides</a></li>
+<li><a href="/script/main/art.asp?articlekey=5851">Triiodothyronine</a></li>
+<li><a href="/script/main/art.asp?articlekey=11446">Trimester</a></li>
+<li><a href="/script/main/art.asp?articlekey=169676">Trimethylamine-N-oxide (TMAO)</a></li>
+<li><a href="/script/main/art.asp?articlekey=5852">Trimethylaminuria (TMA)</a></li>
+<li><a href="/script/main/art.asp?articlekey=23403">Trimox</a></li>
+<li><a href="/script/main/art.asp?articlekey=39352">Trinucleotide</a></li>
+<li><a href="/script/main/art.asp?articlekey=25749">Trip</a></li>
+<li><a href="/script/main/art.asp?articlekey=22984">Trip-hammer pulse</a></li>
+<li><a href="/script/main/art.asp?articlekey=39556">Tripeptide</a></li>
+<li><a href="/script/main/art.asp?articlekey=23584">Triphalangeal</a></li>
+<li><a href="/script/main/art.asp?articlekey=33333">Triple C's</a></li>
+<li><a href="/script/main/art.asp?articlekey=39053">Triplet</a></li>
+<li><a href="/script/main/art.asp?articlekey=25211">Triptan</a></li>
+<li><a href="/script/main/art.asp?articlekey=25211">Triptans (Triptan)</a></li>
+<li><a href="/script/main/art.asp?articlekey=20283">Triskaidekaphobia</a></li>
+<li><a href="/script/main/art.asp?articlekey=40739">Trismus</a></li>
+<li><a href="/script/main/art.asp?articlekey=34475">Trismus and pseudocamptodactyly syndrome</a></li>
+<li><a href="/script/main/art.asp?articlekey=34474">Trismus-pseudocamptodactyly syndrome</a></li>
+<li><a href="/script/main/art.asp?articlekey=38317">Trisomy</a></li>
+<li><a href="/script/main/art.asp?articlekey=5853">Trisomy 13 syndrome</a></li>
+<li><a href="/script/main/art.asp?articlekey=5854">Trisomy 18 syndrome</a></li>
+<li><a href="/script/main/art.asp?articlekey=5855">Trisomy 21 syndrome</a></li>
+<li><a href="/script/main/art.asp?articlekey=26771">Tritiated</a></li>
+<li><a href="/script/main/art.asp?articlekey=26769">Tritium</a></li>
+<li><a href="/script/main/art.asp?articlekey=5856">tRNA</a></li>
+<li><a href="/script/main/art.asp?articlekey=20090">Trocar</a></li>
+<li><a href="/script/main/art.asp?articlekey=10448">Trochanter</a></li>
+<li><a href="/script/main/art.asp?articlekey=19526">Troche</a></li>
+<li><a href="/script/main/art.asp?articlekey=7603">Trochlear nerve</a></li>
+<li><a href="/script/main/art.asp?articlekey=38921">Tropical cyclone</a></li>
+<li><a href="/script/main/art.asp?articlekey=40316">Tropical diabetes</a></li>
+<li><a href="/script/main/art.asp?articlekey=18850">Tropical oil</a></li>
+<li><a href="/script/main/art.asp?articlekey=5857">Tropical typhus</a></li>
+<li><a href="/script/main/art.asp?articlekey=22852">Trp</a></li>
+<li><a href="/script/main/art.asp?articlekey=24994">True cramp</a></li>
+<li><a href="/script/main/art.asp?articlekey=8803">True rib</a></li>
+<li><a href="/script/main/art.asp?articlekey=39561">Truncate</a></li>
+<li><a href="/script/main/art.asp?articlekey=39562">Truncation</a></li>
+<li><a href="/script/main/art.asp?articlekey=8645">Trunk bones</a></li>
+<li><a href="/script/main/art.asp?articlekey=24369">Trunk, pulmonary</a></li>
+<li><a href="/script/main/art.asp?articlekey=11447">Trypanosoma cruzi</a></li>
+<li><a href="/script/main/art.asp?articlekey=24459">Trypanosomiasis, African</a></li>
+<li><a href="/script/main/art.asp?articlekey=23104">Trypanosomiasis, American</a></li>
+<li><a href="/script/main/art.asp?articlekey=22835">Tryptophan</a></li>
+</ul>
+<div class="backtop"><a href="#TopOfContent">Back to Top</a> &uarr;</div>
+<h5><a name="TsTu">Ts-Tu</a></h5>
+<ul>
+<li><a href="/script/main/art.asp?articlekey=33247">TSC1</a></li>
+<li><a href="/script/main/art.asp?articlekey=33354">TSC2</a></li>
+<li><a href="/script/main/art.asp?articlekey=24001">TSD</a></li>
+<li><a href="/script/main/art.asp?articlekey=22439">TSE</a></li>
+<li><a href="/script/main/art.asp?articlekey=5858">TSH</a></li>
+<li><a href="/script/main/art.asp?articlekey=24318">TSH receptor</a></li>
+<li><a href="/script/main/art.asp?articlekey=5859">TSI</a></li>
+<li><a href="/script/main/art.asp?articlekey=5860">Tsutsugamushi disease</a></li>
+<li><a href="/script/main/art.asp?articlekey=13904">TTP (thrombotic thrombocytopenic purpura)</a></li>
+<li><a href="/script/main/art.asp?articlekey=38466">TTR</a></li>
+<li><a href="/script/main/art.asp?articlekey=15302">Tubal occlusion procedure, selective (STOP)</a></li>
+<li><a href="/script/main/art.asp?articlekey=8601">Tubal pregnancy</a></li>
+<li><a href="/script/main/art.asp?articlekey=6297">Tube</a></li>
+<li><a href="/script/main/art.asp?articlekey=39510">Tube feeding</a></li>
+<li><a href="/script/main/art.asp?articlekey=8523">Tube, auditory</a></li>
+<li><a href="/script/main/art.asp?articlekey=6299">Tube, ear</a></li>
+<li><a href="/script/main/art.asp?articlekey=6300">Tube, endotracheal</a></li>
+<li><a href="/script/main/art.asp?articlekey=8524">Tube, Eustachian</a></li>
+<li><a href="/script/main/art.asp?articlekey=5862">Tube, Fallopian</a></li>
+<li><a href="/script/main/art.asp?articlekey=9350">Tube, nasogastric</a></li>
+<li><a href="/script/main/art.asp?articlekey=9352">Tube, NG</a></li>
+<li><a href="/script/main/art.asp?articlekey=8538">Tube, otopharyngeal</a></li>
+<li><a href="/script/main/art.asp?articlekey=25589">Tube, swallowing</a></li>
+<li><a href="/script/main/art.asp?articlekey=6301">Tube, tympanostomy</a></li>
+<li><a href="/script/main/art.asp?articlekey=6302">Tuber</a></li>
+<li><a href="/script/main/art.asp?articlekey=6303">Tubercle</a></li>
+<li><a href="/script/main/art.asp?articlekey=40047">Tubercular</a></li>
+<li><a href="/script/main/art.asp?articlekey=23027">Tuberculin</a></li>
+<li><a href="/script/main/art.asp?articlekey=6304">Tuberculosis</a></li>
+<li><a href="/script/main/art.asp?articlekey=23026">Tuberculosis treatment</a></li>
+<li><a href="/script/main/art.asp?articlekey=11452">Tuberculosis vaccination</a></li>
+<li><a href="/script/main/art.asp?articlekey=11448">Tuberculosis, active</a></li>
+<li><a href="/script/main/art.asp?articlekey=11449">Tuberculosis, antibiotic-resistant</a></li>
+<li><a href="/script/main/art.asp?articlekey=23029">Tuberculosis, avian</a></li>
+<li><a href="/script/main/art.asp?articlekey=23037">Tuberculosis, bovine</a></li>
+<li><a href="/script/main/art.asp?articlekey=23023">Tuberculosis, dormant</a></li>
+<li><a href="/script/main/art.asp?articlekey=19560">Tuberculosis, drug-resistant</a></li>
+<li><a href="/script/main/art.asp?articlekey=11450">Tuberculosis, extrapulmonary</a></li>
+<li><a href="/script/main/art.asp?articlekey=14281">Tuberculosis, genetic susceptibility to</a></li>
+<li><a href="/script/main/art.asp?articlekey=23025">Tuberculosis, MDR</a></li>
+<li><a href="/script/main/art.asp?articlekey=6120">Tuberculosis, miliary</a></li>
+<li><a href="/script/main/art.asp?articlekey=11451">Tuberculosis, pulmonary</a></li>
+<li><a href="/script/main/art.asp?articlekey=40048">Tuberculotic</a></li>
+<li><a href="/script/main/art.asp?articlekey=40046">Tuberculous</a></li>
+<li><a href="/script/main/art.asp?articlekey=11453">Tuberculous diskitis</a></li>
+<li><a href="/script/main/art.asp?articlekey=39968">Tuberculous meningitis</a></li>
+<li><a href="/script/main/art.asp?articlekey=31586">Tuberoeruptive xanthoma</a></li>
+<li><a href="/script/main/art.asp?articlekey=11454">Tuberous sclerosis</a></li>
+<li><a href="/script/main/art.asp?articlekey=33248">Tuberous sclerosis 1</a></li>
+<li><a href="/script/main/art.asp?articlekey=33355">Tuberous sclerosis 2</a></li>
+<li><a href="/script/main/art.asp?articlekey=8521">Tubes</a></li>
+<li><a href="/script/main/art.asp?articlekey=24516">Tubular vision</a></li>
+<li><a href="/script/main/art.asp?articlekey=6298">Tubule</a></li>
+<li><a href="/script/main/art.asp?articlekey=18873">Tularemia</a></li>
+<li><a href="/script/main/art.asp?articlekey=9424">Tumescent</a></li>
+<li><a href="/script/main/art.asp?articlekey=9432">Tumescent liposuction</a></li>
+<li><a href="/script/main/art.asp?articlekey=26125">Tummy</a></li>
+<li><a href="/script/main/art.asp?articlekey=5863">Tumor</a></li>
+<li><a href="/script/main/art.asp?articlekey=5864">Tumor debulking</a></li>
+<li><a href="/script/main/art.asp?articlekey=22501">Tumor grade</a></li>
+<li><a href="/script/main/art.asp?articlekey=5865">Tumor marker</a></li>
+<li><a href="/script/main/art.asp?articlekey=8722">Tumor marker, CEA</a></li>
+<li><a href="/script/main/art.asp?articlekey=8732">Tumor marker, NSE</a></li>
+<li><a href="/script/main/art.asp?articlekey=25458">Tumor necrosis factor</a></li>
+<li><a href="/script/main/art.asp?articlekey=5866">Tumor registry</a></li>
+<li><a href="/script/main/art.asp?articlekey=11940">Tumor suppressor gene</a></li>
+<li><a href="/script/main/art.asp?articlekey=15699">Tumor, carcinoid</a></li>
+<li><a href="/script/main/art.asp?articlekey=9379">Tumor, desmoid</a></li>
+<li><a href="/script/main/art.asp?articlekey=7971">Tumor, ear</a></li>
+<li><a href="/script/main/art.asp?articlekey=38230">Tumor, islet cell</a></li>
+<li><a href="/script/main/art.asp?articlekey=14066">Tumor, malignant giant cell</a></li>
+<li><a href="/script/main/art.asp?articlekey=38748">Tumor, primary</a></li>
+<li><a href="/script/main/art.asp?articlekey=8017">Tumor, sweat gland</a></li>
+<li><a href="/script/main/art.asp?articlekey=13509">Tumor, Wilms</a></li>
+<li><a href="/script/main/art.asp?articlekey=39682">Tuna</a></li>
+<li><a href="/script/main/art.asp?articlekey=5867">Tunica albuginea</a></li>
+<li><a href="/script/main/art.asp?articlekey=5869">Tunica albuginea of the testis</a></li>
+<li><a href="/script/main/art.asp?articlekey=24514">Tunnel vision</a></li>
+<li><a href="/script/main/art.asp?articlekey=26103">Turban tumor syndrome</a></li>
+<li><a href="/script/main/art.asp?articlekey=11216">Turbinate</a></li>
+<li><a href="/script/main/art.asp?articlekey=11217">Turbinectomy</a></li>
+<li><a href="/script/main/art.asp?articlekey=12671">Turcot syndrome</a></li>
+<li><a href="/script/main/art.asp?articlekey=22483">Turf toe</a></li>
+<li><a href="/script/main/art.asp?articlekey=90720">Turgor</a></li>
+<li><a href="/script/main/art.asp?articlekey=13573">Turmeric</a></li>
+<li><a href="/script/main/art.asp?articlekey=11455">Turner syndrome</a></li>
+<li><a href="/script/main/art.asp?articlekey=5870">Turner-Kieser  syndrome</a></li>
+</ul>
+<div class="backtop"><a href="#TopOfContent">Back to Top</a> &uarr;</div>
+<h5><a name="TvTy">Tv-Ty</a></h5>
+<ul>
+<li><a href="/script/main/art.asp?articlekey=14239">TVS</a></li>
+<li><a href="/script/main/art.asp?articlekey=7650">Twelfth cranial nerve</a></li>
+<li><a href="/script/main/art.asp?articlekey=23545">Twenty-twenty</a></li>
+<li><a href="/script/main/art.asp?articlekey=10221">Twilight sleep</a></li>
+<li><a href="/script/main/art.asp?articlekey=11428">Twin</a></li>
+<li><a href="/script/main/art.asp?articlekey=15504">Twin, vanishing</a></li>
+<li><a href="/script/main/art.asp?articlekey=25069">Twisted ankle</a></li>
+<li><a href="/script/main/art.asp?articlekey=97584">Twitch</a></li>
+<li><a href="/script/main/art.asp?articlekey=97583">Twitching</a></li>
+<li><a href="/script/main/art.asp?articlekey=25188">Two-animal rule</a></li>
+<li><a href="/script/main/art.asp?articlekey=14548">Two-faced twins</a></li>
+<li><a href="/script/main/art.asp?articlekey=32498">TXA2</a></li>
+<li><a href="/script/main/art.asp?articlekey=32499">TXB2</a></li>
+<li><a href="/script/main/art.asp?articlekey=23394">Tylenol</a></li>
+<li><a href="/script/main/art.asp?articlekey=25596">Tylosis</a></li>
+<li><a href="/script/main/art.asp?articlekey=25593">Tylosis with esophageal cancer</a></li>
+<li><a href="/script/main/art.asp?articlekey=33107">Tympanic</a></li>
+<li><a href="/script/main/art.asp?articlekey=33108">Tympanic cavity</a></li>
+<li><a href="/script/main/art.asp?articlekey=5871">Tympanic membrane</a></li>
+<li><a href="/script/main/art.asp?articlekey=7972">Tympanites</a></li>
+<li><a href="/script/main/art.asp?articlekey=7973">Tympano-</a></li>
+<li><a href="/script/main/art.asp?articlekey=7974">Tympanometry</a></li>
+<li><a href="/script/main/art.asp?articlekey=5872">Tympanoplasty</a></li>
+<li><a href="/script/main/art.asp?articlekey=6305">Tympanostomy tube</a></li>
+<li><a href="/script/main/art.asp?articlekey=5873">Tympanum</a></li>
+<li><a href="/script/main/art.asp?articlekey=5874">Tympany</a></li>
+<li><a href="/script/main/art.asp?articlekey=18056">Type 1 diabetes</a></li>
+<li><a href="/script/main/art.asp?articlekey=6662">Type 1 GM2-gangliosidosis</a></li>
+<li><a href="/script/main/art.asp?articlekey=18055">Type 2 diabetes</a></li>
+<li><a href="/script/main/art.asp?articlekey=39357">Type 2 myotonic dystrophy</a></li>
+<li><a href="/script/main/art.asp?articlekey=5875">Type I error</a></li>
+<li><a href="/script/main/art.asp?articlekey=5876">Type II error</a></li>
+<li><a href="/script/main/art.asp?articlekey=24004">Typhoid</a></li>
+<li><a href="/script/main/art.asp?articlekey=18536">Typhoid fever</a></li>
+<li><a href="/script/main/art.asp?articlekey=11285">Typhoid Mary</a></li>
+<li><a href="/script/main/art.asp?articlekey=38918">Typhoon</a></li>
+<li><a href="/script/main/art.asp?articlekey=8160">Typhoon supplies kit</a></li>
+<li><a href="/script/main/art.asp?articlekey=23867">Typhus</a></li>
+<li><a href="/script/main/art.asp?articlekey=23868">Typhus fever</a></li>
+<li><a href="/script/main/art.asp?articlekey=5878">Typhus, African tick</a></li>
+<li><a href="/script/main/art.asp?articlekey=5879">Typhus, classic</a></li>
+<li><a href="/script/main/art.asp?articlekey=5880">Typhus, endemic</a></li>
+<li><a href="/script/main/art.asp?articlekey=5881">Typhus, epidemic</a></li>
+<li><a href="/script/main/art.asp?articlekey=5882">Typhus, European</a></li>
+<li><a href="/script/main/art.asp?articlekey=5883">Typhus, louse-borne</a></li>
+<li><a href="/script/main/art.asp?articlekey=5884">Typhus, mite-borne</a></li>
+<li><a href="/script/main/art.asp?articlekey=5885">Typhus, murine</a></li>
+<li><a href="/script/main/art.asp?articlekey=5886">Typhus, Queensland tick</a></li>
+<li><a href="/script/main/art.asp?articlekey=5888">Typhus, rat-flea</a></li>
+<li><a href="/script/main/art.asp?articlekey=5887">Typhus, scrub</a></li>
+<li><a href="/script/main/art.asp?articlekey=5889">Typhus, tick</a></li>
+<li><a href="/script/main/art.asp?articlekey=5890">Typhus, tropical</a></li>
+<li><a href="/script/main/art.asp?articlekey=5891">Typhus, urban. of Malaya</a></li>
+<li><a href="/script/main/art.asp?articlekey=5877">Typist's cramp</a></li>
+<li><a href="/script/main/art.asp?articlekey=22853">Tyr</a></li>
+<li><a href="/script/main/art.asp?articlekey=22836">Tyrosine</a></li>
+<li><a href="/script/main/art.asp?articlekey=21238">Tyrosinemia</a></li>
+<li><a href="/script/main/art.asp?articlekey=30897">Tyrosinemia type I</a></li>
+<li><a href="/script/main/art.asp?articlekey=30898">Tyrosinemia type II</a></li>
+</ul>
+<div class="backtop"><a href="#TopOfContent">Back to Top</a> &uarr;</div>
+<h5><a name="TzTz">Tz-Tz</a></h5>
+<ul>
+<li><a href="/script/main/art.asp?articlekey=30719">Tzanck smear</a></li>
+<li><a href="/script/main/art.asp?articlekey=30718">Tzanck test</a></li>
+
+
+</ul></div></div><br style="clear:both;" />
+<h2>MedTerms Medical Dictionary A-Z List - T</h2>
+<div id="A_Z">
+<ul>
+<li><a href="/script/main/alphaidx.asp?p=a_dict">A</a></li>
+<li><a href="/script/main/alphaidx.asp?p=b_dict">B</a></li>
+<li><a href="/script/main/alphaidx.asp?p=c_dict">C</a></li>
+<li><a href="/script/main/alphaidx.asp?p=d_dict">D</a></li>
+<li><a href="/script/main/alphaidx.asp?p=e_dict">E</a></li>
+<li><a href="/script/main/alphaidx.asp?p=f_dict">F</a></li>
+<li><a href="/script/main/alphaidx.asp?p=g_dict">G</a></li>
+<li><a href="/script/main/alphaidx.asp?p=h_dict">H</a></li>
+<li><a href="/script/main/alphaidx.asp?p=i_dict">I</a></li>
+<li><a href="/script/main/alphaidx.asp?p=j_dict">J</a></li>
+<li><a href="/script/main/alphaidx.asp?p=k_dict">K</a></li>
+<li><a href="/script/main/alphaidx.asp?p=l_dict">L</a></li>
+<li><a href="/script/main/alphaidx.asp?p=m_dict">M</a></li>
+<li><a href="/script/main/alphaidx.asp?p=n_dict">N</a></li>
+<li><a href="/script/main/alphaidx.asp?p=o_dict">O</a></li>
+<li><a href="/script/main/alphaidx.asp?p=p_dict">P</a></li>
+<li><a href="/script/main/alphaidx.asp?p=q_dict">Q</a></li>
+<li><a href="/script/main/alphaidx.asp?p=r_dict">R</a></li>
+<li><a href="/script/main/alphaidx.asp?p=s_dict">S</a></li>
+<li><a href="/script/main/alphaidx.asp?p=t_dict">T</a></li>
+<li><a href="/script/main/alphaidx.asp?p=u_dict">U</a></li>
+<li><a href="/script/main/alphaidx.asp?p=v_dict">V</a></li>
+<li><a href="/script/main/alphaidx.asp?p=w_dict">W</a></li>
+<li><a href="/script/main/alphaidx.asp?p=x_dict">X</a></li>
+<li><a href="/script/main/alphaidx.asp?p=y_dict">Y</a></li>
+<li><a href="/script/main/alphaidx.asp?p=z_dict">Z</a></li>
+
+</ul>
+</div>
+<div class="clearall"></div>
+<!-- Advanced Search Feature STARTS -->
+<div id="Adv_search_fmt">
+<form method="get" action="http://search.medicinenet.com/search/search_results/default.aspx" onSubmit="wmdTrack('srch-adv_1');">
+<div class="Adv_search_header">Advanced Search Option &raquo;
+<input type="hidden" name="sourceType" value="all"/>
+<select onchange="show('targetDIVbottom',this.value);" name="navState">
+<option value="0" selected="selected">Search MedicineNet.com</option>
+<option value="6475">Slideshows, Images, Quizzes</option>
+<option value="6476">Diseases &amp; Conditions</option>
+<option value="6477">Symptoms &amp; Signs</option>
+<option value="6478">Health &amp; Living</option>
+<option value="6479">Medications &amp; Supplements</option>
+<option value="6480">Procedures &amp; Tests</option>
+<option value="6481">News &amp; Views</option>
+<option value="6482">Features, Tips &amp; Recipes</option>
+<option value="6483">MedTerms Dictionary</option>
+</select>
+</div>
+<div class="FormHelp"></div>
+<br />
+<div id="targetDIVbottom">Search MedicineNet <span class="Orange">OR</span> select from the options above.</div>
+<div id="form_0" style="display:none;">Search MedicineNet <span class="Orange">OR</span> select from the options above.</div>
+<div id="6475" style="display:none;">Search Slideshows, Images, Quizzes</div>
+<div id="6476" style="display:none;">Search Diseases &amp; Conditions</div>
+<div id="6477" style="display:none;">Search Symptoms &amp; Signs</div>
+<div id="6478" style="display:none;">Search Health &amp; Living</div>
+<div id="6479" style="display:none;">Search Medications &amp; Supplements</div>
+<div id="6480" style="display:none;">Search Procedures &amp; Tests</div>
+<div id="6481" style="display:none;">Search News &amp; Views</div>
+<div id="6482" style="display:none;">Search Features, Tips &amp; Recipes</div>
+<div id="6483" style="display:none;">Search MedTerms Dictionary</div>
+<input type="text" size="40" name="query"/>
+<input type="image" value="Search" title="Search" src="http://images.medicinenet.com/images/btn_search.gif" align="top" name="I1"/>
+</form>
+</div>
+<!-- Advanced Search Feature ENDS -->
+
+											</td>
+										</tr>
+									</tbody>
+								</table>
+								
+								<div class="end-of-article-stuff">								
+									<div class="sidebar-box"><!--*Sponsorbox TOKEN*--></div>
+									<div class="sidebar-box"></div>
+									<div class="sidebar-box"><div style="clear:both"></div>
+
+</div>															
+								</div>
+								
+							</article>
+						</div>
+					</section>
+					<aside id="left-column">
+						<div class="inside">
+							
+<div class="sidebar-box">
+   <!-- START US ONLY VISITOR LR -->
+	<div id="featured_nav">
+	   <div class="header">Featured on MedicineNet</div>
+		<div class="content">
+		  <ul>
+                   <li><a onclick="wmdTrack('lr-feat_1');" href="http://www.medicinenet.com/adhd_children_pictures_slideshow/article.htm">Childhood ADHD Symptoms</a></li>
+            <li><a onclick="wmdTrack('lr-feat_2');" href="http://www.medicinenet.com/habits_that_wreck_your_teeth_pictures_slideshow/article.htm">Habits That Wreck Your Teeth</a></li>
+            <li><a onclick="wmdTrack('lr-feat_3');" href="http://www.medicinenet.com/multiple_sclerosis_pictures_slideshow/article.htm">Multiple Sclerosis Slideshow</a></li>
+            <li><a onclick="wmdTrack('lr-feat_4');" href="http://www.medicinenet.com/urinary_incontinence_pictures_slideshow/article.htm">Make You Gotta Go Foods</a></li>
+	            <li><a onclick="wmdTrack('lr-feat_5');" href="http://www.medicinenet.com/rheumatoid_arthritis_pictures_slideshow/article.htm">Rheumatoid Arthritis Pictures</a></li>
+	            <li><a onclick="wmdTrack('lr-feat_6');" href="http://www.medicinenet.com/atrial_fibrillation_pictures_slideshow/article.htm">Atrial Fibrillation Slideshow</a></li>
+	         </ul>
+	      </div>
+            </div>
+<!-- END US ONLY VISITOR LR -->
+							</div>
+							<div class="sidebar-box"><!--DYNAMICLEFTNAV--></div>
+							<div class="sidebar-box"><!-- New on MedNet nav -->
+
+<div id="new_Nav">
+    <div class="new_header">
+        <div class="new_headerLink">New on MedicineNet</div>
+    </div>
+<ul id="backItems">
+	<li><a onclick="wmdTrack('lr-topics-mn_1');" href="http://www.medicinenet.com/rheumatoid_arthritis/article.htm">Does Gut Bacteria Cause RA?</a></li>
+	<li><a onclick="wmdTrack('lr-topics-mn_2');" href="http://www.medicinenet.com/diabetic_diet_for_type_2_diabetes/article.htm">Type 2 Diabetes Diet</a></li>
+	<li><a onclick="wmdTrack('lr-topics-mn_3');" href="http://www.medicinenet.com/heartburn_reflux/article.htm">Heartburn Relief!</a></li>
+	<li><a onclick="wmdTrack('lr-topics-mn_4');" href="http://www.medicinenet.com/atrial_fibrillation/article.htm">AFib Symptoms and Treatment</a></li>
+	<li><a onclick="wmdTrack('lr-topics-mn_5');" href="http://www.medicinenet.com/deoxycholic_acid_kybella/article.htm">Kybella to Dissolve Chin Fat</a></li>
+	<li><a onclick="wmdTrack('lr-topics-mn_6');" href="http://www.medicinenet.com/psoriasis/article.htm">Is Psoriasis Contagious?</a></li>
+
+
+					<li><a onclick="wmdTrack('lr-topics-mn_hl');" href="http://www.medicinenet.com/health_and_living/focus.htm"><img src="http://images.medicinenet.com/images/icon-apple.jpg" alt="Health and iving: Recipes, Nutrition, Exercise and More" width="20" height="20" style="border: 0px;vertical-align: middle;" /> Healthy Living Tips</a></li>
+</ul>
+    <div class="bottom"></div>
+</div>
+<!-- New on MedNet nav -->
+</div>
+							<div class="sidebar-box">
+								<div class="lrPromoSlider">
+									<a style="outline:none" onclick="wmdTrack('lr-ssp');" href="http://www.medicinenet.com/skin-problems-pictures-slideshow/article.htm" id="ssBanner1">
+                                        <img src="http://images.medicinenet.com/images/module/featured-slideshow-adult-skin-problems.jpg" id="adBanner1" border="0" width="180" height="100" alt="Adult Skin Problems Slideshow" />
+									</a>
+								</div>
+							</div>
+							<div class="sidebar-box"><div class="LftNews_rdr">
+<div class="News_list_top">
+<h3>Latest MedicineNet News</h3>
+</div>
+<div class="News_list_box">
+<ul>
+<li class="first"><a onclick="wmdTrack('lr-ltnews');" href="/script/main/art.asp?articlekey=188289">Mars-Bound Astronauts Face Danger From Cosmic Rays</a></li>
+<li><a onclick="wmdTrack('lr-ltnews');" href="/script/main/art.asp?articlekey=188291">Raplixa Approved to Control Surgical Bleeding</a></li>
+<li><a onclick="wmdTrack('lr-ltnews');" href="/script/main/art.asp?articlekey=188206">Doctor Salaries and Job Satisfaction: New Survey</a></li>
+<li><a onclick="wmdTrack('lr-ltnews');" href="/script/main/art.asp?articlekey=188017">Long-Term Illness in 9/11 Responders</a></li>
+<li><a onclick="wmdTrack('lr-ltnews');" href="/script/main/art.asp?articlekey=187938">Unauthorized Breaches of Medical Records Rise</a></li>
+<li><a onclick="wmdPageLink('newsletter-itn');" href="https://www.medicinenet.com/newsletter/newsletter-signup.asp">Want More News? Sign Up for MedicineNet Newsletters!</a></li>
+
+<li><a onclick="wmdTrack('lr-news_rss');" href="http://www.medicinenet.com/rss/dailyhealth.xml" target="_blank"><img alt="XML" src="http://images.medicinenet.com/images/RSSfeed-icon-16x16.gif" border="0" width="16" height="16" style="vertical-align: middle;" /> Health News Feed</a></li>
+</ul>
+</div>
+<div class="News_list_bot"></div>
+</div>
+
+</div>
+							<div class="sidebar-box"><!-- *Related Vitamins* --></div>
+							<div class="sidebar-box">
+                                								<!-- Start 160x600/120x600 Ad Unit -->
+								<div id="leftAd_rdr">
+									<div class="leftAd_top_fmt"></div>
+									<div id="leftAd_fmt" class="leftAd_BG_fmt">
+                                        <div id="ads2-pos-113" class="ad_placeholder"></div>
+									</div>
+									<div class="leftAd_bottom_fmt"></div>
+								</div>
+                                <script>
+                                webmd.ads2Consumer.defineAd({
+                                    targets:{pvid: window.s_pageview_id || '',art: '178282',pt: '1680',uri: 'p%3Dt%5Fdict',app: '31'},blockCodes: '__',
+                                    id: 'ads2-pos-113',
+                                    pos: '113',                                    
+                                    sizes: [160, 600] 
+                                });
+                                </script>
+								<!-- End 160x600/120x600 Ad Unit -->
+
+							</div>
+
+							<div class="sidebar-box">
+								<a style="margin:0; display:block;" onclick="wmdTrack('lr-sc');" href="http://www.medicinenet.com/symptoms_and_signs/article.htm">
+								<img alt="Symptom Checker: Pinpoint Your Pain - MedicineNet" src="http://images.medicinenet.com/images/module/mnet-lr-sc-promo2.png" border="0"/>
+								</a>
+							</div>
+							<div class="sidebar-box"><script>
+    var nl_tracking = 'lr-mnwl';
+    function adjustFormLR() {
+        $('#nl_module_lr iframe').contents().find('#email').css('width', '190px');
+        //$('#nl_module_lr iframe').contents().find('#lid').val('45494');
+    }
+</script>
+
+<div id="nl_module_lr" class="bg">
+	<h2><span class="envelope"></span>STAY INFORMED</h2>
+	<h4>Get the Latest health and medical information delivered direct to your inbox!</h4>
+	<div class="nl_bg_lr">
+		<iframe src="/script/main/nl-et-module-multiple-lr.asp" frameborder="0" scrolling="no" width="170" height="305" onload="adjustFormLR()" allowTransparency="true"></iframe>
+	</div>
+</div></div>
+							<div class="sidebar-box"><!-- Start RxList Promo -->
+
+<div id="pillPharmPromo">
+
+	<h2>RxList</h2>
+
+	<div class="pillPharmPromoContent">
+
+		<img class="pill_image" src="http://images.medicinenet.com/images/module/rxlist-pillimage.jpg" />
+
+		<div class="pill_ident">
+
+			<h4 class="pill">Pill Identifier</h4>
+
+			<p>Quick and easy pill identification</p>
+
+			<a class="try" href="http://www.rxlist.com/pill-identification-tool/article.htm" onclick="wmdTrack('lr-pid');" target="_blank">Use Pill Finder<span class="arrow"></span></a>
+
+		</div>
+
+		<div class="find_pharm">
+
+			<h4 class="pharm">Find a Pharmacy</h4>
+
+			<p>Includes 24 hour locations!</p>
+
+			<a class="find" href="http://www.rxlist.com/pharmacy/local_locations_pharmacies.htm" onclick="wmdTrack('lr-lrx');" target="_blank">Find it Now<span class="arrow"></span></a>
+
+		</div>
+
+
+                <div class="find_interaction">
+			<h4 class="pharm">Drug Interaction Checker</h4>
+
+			<p>See potential drug interactions</p>
+
+			<a class="find_inter" href="http://www.rxlist.com/drug-interaction-checker.htm" onclick="wmdTrack('lr-lrx');" target="_blank">Check Interactions<span class="arrow"></span></a>
+
+		</div>
+
+	</div>
+	
+</div>
+
+<!-- End RxList Promo -->
+
+<div class="clear"></div></div>
+							<div class="sidebar-box"><a href="http://www.webmd.com/news/breaking-news/future-of-health/default.htm" onclick="wmdPageLink('lr-foh-oo');" target="_blank"><img src="http://www.medicinenet.com/images/module/webmd-future-of-health-022615.jpg" /></a></div>
+						</div>
+					</aside>
+				</div>
+				<div id="right-content">
+					<div id="right-column">
+					
+						<div class="sidebar-box hide">
+							<!-- Consumer Alerts Div -->
+							<div id="ContentPane21" class="medNet"></div>
+						</div>
+						<div class="sidebar-box">
+							<div style="margin: 0">
+<a href="http://www.medicinenet.com/psoriasis_symptoms_treatment_pictures_slideshow/article.htm" onclick="wmdTrack('rr-promo');"><img src="http://images.medicinenet.com/images/module/featured-slideshow-psoriasis1.jpg" style="border: none;" /></a>
+</div>
+<br style="clear: both;" />
+						</div>
+						<div class="sidebar-box">
+                            						    <!-- Start 300x250 Ad Tag -->
+							<div id="rightAd_rdr">
+								<div class="rightAd_top_fmt"> </div>
+								<div id="rightAd_fmt" class="rightAd_BG_fmt">
+                                    <div id="ads2-pos-121" class="ad_placeholder">
+                                    </div>
+								</div>
+								<div class="rightAd_bottom_fmt"> </div>
+							</div>
+                            <script>
+                            webmd.ads2Consumer.defineAd({
+                                targets:{pvid: window.s_pageview_id || '',art: '178282',pt: '1680',uri: 'p%3Dt%5Fdict',app: '31'},blockCodes: '__',
+                                id: 'ads2-pos-121',
+                                pos: '121',
+                                sizes: [[300,250],[300,600],[300,1050]]
+                            });
+                            </script>
+							<!-- End 300x250 Ad Tag -->
+
+						</div>
+						    <div class="sidebar-box">
+	<div class="ss_guide">
+	<a href="http://www.medicinenet.com/skin_problems_pictures_slideshow/article.htm" onclick="wmdTrack('rr-promo2');" title="Adult Skin Problems Slideshow"><img src="http://images.medicinenet.com/images/module/adult-skin1-slideshow-1217.jpg" alt="Adult Skin Problems Slideshow" border="0" width="300" height="110"/></a>
+        </div>
+</div>
+
+
+<div class="clear"></div>
+						<div class="sidebar-box">
+							<!-- START US ONLY VISITOR RR2 -->
+<div class="from_webmd">
+    <h4>From WebMD</h4>
+    <div class="content"> 
+<h5>Healthy Resources</h5>
+<ul>
+<li><a onclick="wmdPageLink('rs-1680-1413_1');" href="http://www.webmd.com/multiple-sclerosis/multiple-sclerosis-assessment/default.htm" target="_blank" rel="nofollow">Assess Your MS Symptoms</a></li>
+<li><a onclick="wmdPageLink('rs-1680-2321_2');" href="http://www.webmd.com/allergies/features/food-allergy-myths" target="_blank" rel="nofollow">13 Most Common Food Allergies</a></li>
+<li><a onclick="wmdPageLink('rs-1680-1600_3');" href="http://www.webmd.com/smoking-cessation/ss/slideshow-tips-quit-smoking" target="_blank" rel="nofollow">No Smoking: Help for the First Hard Days</a></li>
+</ul>
+
+<h5>Featured Centers</h5>
+<ul>
+<li><a onclick="wmdPageLink('fc-6666_4');" href="http://www.webmd.com/heart-disease/atrial-fibrillation/afib-12/afib-assessment/default.htm" target="_blank" rel="nofollow">How Well Are You Living With AFib?</a></li>
+<li><a onclick="wmdPageLink('fc-1442_5');" href="http://www.webmd.com/multiple-sclerosis/live-thrive-15/your-terms/ms-stress-assessment/default.htm" target="_blank" rel="nofollow">Could Stress Be Making Your MS Worse?</a></li>
+<li><a onclick="wmdPageLink('fc-1600_6');" href="http://www.webmd.com/smoking-cessation/ss/slideshow-tips-quit-smoking" target="_blank" rel="nofollow">Ready to Stop Smoking?</a></li>
+</ul>
+
+	<h5>Health Solutions <span>From Our Sponsors</span></h5>
+        <ul>
+<li><a onclick="wmdPageLink('sp-6679_7');" href="http://www.webmd.com/manage-ibsc-cic-symptoms/how-treatment-works" target="_blank" rel="nofollow">Frequent Constipation?</a></li>
+        </ul>
+    </div>
+</div>
+<!-- END US ONLY VISITOR RR2 -->
+						</div>
+						<div class="sidebar-box">
+							<!-- Related Drugs -->
+						</div>
+						<div class="sidebar-box">
+							<!--*DAILYPICK*-->
+						</div>
+                        <div class="sidebar-box">
+                            
+						</div>
+						<div class="sidebar-box">
+							<iframe width="300" height="400" marginwidth="0" marginheight="0" style="margin:0;" frameborder="0" scrolling="no" src="http://www.medicinenet.com/htmlchunks/slideshow/slidermodule/rr_image_coll_slider_mednet_green.htm"></iframe>
+						</div>
+						<div class="sidebar-box">
+                            
+						</div>						
+						<div class="sidebar-box">		
+							<div class="exclusives_cont">
+	<h2 class="exclusives_title">Exclusives</h2>
+	<div class="exclusives_sep"></div>
+	<div class="exclusives_section">
+		<span class="exclusives_num1"></span>
+		<a onclick="wmdTrack('rr-excl_1');" class="exclusive_link" href="http://www.medicinenet.com/psoriasis/article.htm"><img class="exclusives_image" src="http://images.medicinenet.com/images/forum/featured-psoriasis.jpg" />
+		<p class="exclusives_desc">What Does Psoriasis Look Like?</p></a>
+	</div>
+	<div class="exclusives_sep"></div>
+	<div class="exclusives_section">
+		<span class="exclusives_num2"></span>
+		<a onclick="wmdTrack('rr-excl_2');" class="exclusive_link" href="http://www.medicinenet.com/muscle_cramps/article.htm"><img class="exclusives_image" src="http://images.medicinenet.com/images/forum/featured-muscle-cramps.jpg" />
+		<p class="exclusives_desc">How to Prevent Muscle Cramps</p></a>
+	</div>
+	<div class="exclusives_sep"></div>
+	<div class="exclusives_section">
+		<span class="exclusives_num3"></span>
+		<a onclick="wmdTrack('rr-excl_3');" class="exclusive_link" href="http://www.medicinenet.com/blood_clots/article.htm"><img class="exclusives_image" src="http://images.medicinenet.com/images/forum/featured-blood-clots.jpg" />
+		<p class="exclusives_desc">Blood Clot? Know the Signs and Symptoms</p></a>
+	</div>
+	<div class="exclusives_sep"></div>
+	<div class="exclusives_section">
+		<span  class="exclusives_num4"></span>
+		<a onclick="wmdTrack('rr-excl_4');" class="exclusive_link" href="http://www.medicinenet.com/vitamin_d_deficiency/article.htm"><img class="exclusives_image" src="http://images.medicinenet.com/images/forum/featured-vitamin-d-deficiency.jpg" />
+		<p class="exclusives_desc">Are You Getting Enough Vitamin D?</p></a>
+	</div>
+	<div class="exclusives_sep"></div>
+	<div class="clear"></div>
+</div>										
+						</div>
+					
+					</div>
+				</div>
+			</div>
+			<div id="stretch-bottom-content">
+				<div class="inside"></div>
+			</div> 
+		</div>
+		<div class="footer-box group">
+			<div class="footer-box-content">
+				<style>
+#sp_ft_rdr h3 {
+font-size: 200%;
+}
+</style>
+<div id="sp_ft_rdr">
+  <h3>Health Solutions <span>From Our Sponsors</span></h3>
+  <div class="hs_cols">
+<ul>
+<li><a rel="nofollow" target="_blank" href="http://www.webmd.com/women/pharmacist-14/video-sponsored-heart-disease " onclick="wmdPageLink('hicb f-hs_01');" title="Controlling Heart Disease">Controlling Heart Disease</a></li>
+<li><a rel="nofollow" target="_blank" href="http://www.webmd.com/women/pharmacist-14/video-sponsored-allergy" onclick="wmdPageLink('hicb f-hs_02');" title="Allergy Relief">Allergy Relief</a></li>
+<li><a rel="nofollow" target="_blank" href="http://www.webmd.com/digestive-disorders/lactose-intolerance-14/real-dairy-no-discomfort" onclick="wmdPageLink('hicb f-hs_03');" title="Lactose Intolerant?">Lactose Intolerant?</a></li>
+</ul><ul>
+<li><a rel="nofollow" target="_blank" href="http://www.webmd.com/manage-ibsc-cic-symptoms/default.htm" onclick="wmdPageLink('hicb f-hs_04');" title="IBS-C Symptoms?">IBS-C Symptoms?</a></li>
+<li><a rel="nofollow" target="_blank" href="http://www.webmd.com/oral-health/healthy-mouth-14/video-oral-health-routine" onclick="wmdPageLink('hicb f-hs_05');" title="Brush, Floss & Rinse">Brush, Floss & Rinse</a></li>
+<li><a rel="nofollow" target="_blank" href="http://www.webmd.com/tavr-for-severe-aortic-stenosis-caregiver" onclick="wmdPageLink('hicb f-hs_06');" title="Care for Aortic Stenosis?">Care for Aortic Stenosis?</a></li>
+</ul><ul>
+<li><a rel="nofollow" target="_blank" href="http://www.webmd.com/digestive-disorders/lactose-intolerance-14/real-dairy-no-discomfort" onclick="wmdPageLink('hicb f-hs_07');" title="Enjoy Dairy Everyday">Enjoy Dairy Everyday</a></li>
+<li><a rel="nofollow" target="_blank" href="http://www.webmd.com/women/pharmacist-14/video-sponsored-diabetes" onclick="wmdPageLink('hicb f-hs_08');" title="Managing Diabetes">Managing Diabetes</a></li>
+<li><a rel="nofollow" target="_blank" href="http://www.webmd.com/oral-health/healthy-mouth-14/video-oral-health-routine" onclick="wmdPageLink('hicb f-hs_9');" title="21 Days: A New Routine">21 Days: A New Routine</a></li>
+</ul><ul>
+<li><a rel="nofollow" target="_blank" href="http://www.webmd.com/osteoarthritis/knee-pain-14/treat-oa-knee-pain" onclick="wmdPageLink('hicb f-hs_10');" title="Knee Pain Relief">Knee Pain Relief</a></li>
+<li><a rel="nofollow" target="_blank" href="http://www.webmd.com/manage-ibsc-cic-symptoms/default.htm" onclick="wmdPageLink('hicb f-hs_11');" title="Managing IBS-C Symptoms">Managing IBS-C Symptoms</a></li>
+<li><a rel="nofollow" target="_blank" href="http://www.webmd.com/women/pharmacist-14/video-sponsored-child-meds" onclick="wmdPageLink('hicb f-hs_12');" title="Children's Medicine">Children's Medicine</a></li>
+</ul><ul>
+<li><a rel="nofollow" target="_blank" href="http://www.webmd.com/manage-ibsc-cic-symptoms/how-treatment-works" onclick="wmdPageLink('hicb f-hs_13');" title="Frequent Constipation?">Frequent Constipation?</a></li>
+<li><a rel="nofollow" target="_blank" href="http://www.webmd.com/tavr-for-severe-aortic-stenosis-patient" onclick="wmdPageLink('hicb f-hs_14');" title="Aortic Valve Stenosis?">Aortic Valve Stenosis?</a></li>
+<li><a rel="nofollow" target="_blank" href="http://www.webmd.com/digestive-disorders/lactose-intolerance-14/real-dairy-no-discomfort" onclick="wmdPageLink('hicb f-hs_15');" title="Replacing Milk">Replacing Milk</a></li>
+</ul>
+<div class="clearing"> </div>
+  </div>
+
+</div>
+			</div>
+		</div>
+	</section>
+	<footer>
+		<div class="inside group">
+			<!-- Start Footer -->
+
+<div id="footer">
+
+	<div class="footerLinks">
+
+		<div class="item1">
+
+			<h3>Health Categories:</h3>
+
+			<ul>
+
+				<li><a href="http://www.medicinenet.com/slideshows/article.htm" onclick="wmdTrack('f-hc_1');">Slideshow Pictures</a></li>
+
+				<li><a href="http://www.medicinenet.com/diseases_and_conditions/article.htm" onclick="wmdTrack('f-hc_2');">Diseases &amp; Conditions</a></li>
+
+				<li><a href="http://www.medicinenet.com/symptoms_and_signs/article.htm" onclick="wmdTrack('f-hc_3');">Symptoms &amp; Signs</a></li>
+
+				<li><a href="http://www.medicinenet.com/procedures_and_tests/article.htm" onclick="wmdTrack('f-hc_4');">Procedures &amp; Tests</a></li>
+
+				<li><a href="http://www.medicinenet.com/medications/article.htm" onclick="wmdTrack('f-hc_5');">Medications</a></li>
+
+				<li><a href="http://www.medicinenet.com/health_and_living/focus.htm" onclick="wmdTrack('f-hc_6');">Healthy Living</a></li>
+
+				<li><a href="http://www.medicinenet.com/supplements-vitamins/article.htm" onclick="wmdTrack('f-hc_7');">Vitamins &amp; Supplements</a></li>
+
+				<li><a href="http://www.medicinenet.com/image_collection/article.htm" onclick="wmdTrack('f-hc_8');">Image Collection</a></li>
+
+				<li><a href="http://www.medicinenet.com/quizzes_a-z_list/article.htm" onclick="wmdTrack('f-hc_9');">Quizzes</a></li>
+
+				<li><a href="http://www.medicinenet.com/medterms-medical-dictionary/article.htm" onclick="wmdTrack('f-hc_10');">MedTerms Dictionary</a></li>
+
+				<li><a class="last" href="http://www.medicinenet.com/pets/pethealth/focus.htm" onclick="wmdTrack('f-hc_11');">Pet Health</a></li>
+
+			</ul>
+
+			<div class="clear"></div>
+
+		</div>
+
+		<div class="item2">
+
+			<h3>Popular Health Centers:</h3>
+
+			<ul class="col1">
+
+				<li><a href="http://www.medicinenet.com/allergies/focus.htm" onclick="wmdTrack('f-phc_1');">Allergies</a></li>
+
+				<li><a href="http://www.medicinenet.com/arthritis/focus.htm" onclick="wmdTrack('f-phc_2');">Arthritis</a></li>
+
+				<li><a href="http://www.medicinenet.com/high_blood_pressure/focus.htm" onclick="wmdTrack('f-phc_3');">Blood Pressure</a></li>
+
+				<li><a href="http://www.medicinenet.com/cancer/focus.htm" onclick="wmdTrack('f-phc_4');">Cancer</a></li>
+
+				<li><a href="http://www.medicinenet.com/chronic_pain/focus.htm" onclick="wmdTrack('f-phc_5');">Chronic Pain</a></li>
+
+				<li><a href="http://www.medicinenet.com/cold_and_flu/focus.htm" onclick="wmdTrack('f-phc_6');">Cold &amp; Flu</a></li>
+
+				<li><a href="http://www.medicinenet.com/depression/focus.htm" onclick="wmdTrack('f-phc_7');">Depression</a></li>
+
+				<li><a href="http://www.medicinenet.com/diabetes/focus.htm" onclick="wmdTrack('f-phc_8');">Diabetes</a></li>
+
+				<li><a href="http://www.medicinenet.com/digestion/focus.htm" onclick="wmdTrack('f-phc_9');">Digestion</a></li>
+
+				<li><a href="http://www.medicinenet.com/health_and_living/focus.htm" onclick="wmdTrack('f-phc_10');">Health &amp; Living</a></li>
+
+				<li><a href="http://www.medicinenet.com/healthy_kids/focus.htm" onclick="wmdTrack('f-phc_11');">Healthy Kids</a></li>
+
+				<li><a href="http://www.medicinenet.com/hearing/focus.htm" onclick="wmdTrack('f-phc_12');">Hearing &amp; Ear</a></li>
+
+			</ul>
+
+			<ul class="col2">
+
+				<li><a href="http://www.medicinenet.com/heart/focus.htm" onclick="wmdTrack('f-phc_13');">Heart</a></li>
+
+				<li><a href="http://www.medicinenet.com/hiv/focus.htm" onclick="wmdTrack('f-phc_14');">HIV/AIDS</a></li>
+
+				<li><a href="http://www.medicinenet.com/infectious_disease/focus.htm" onclick="wmdTrack('f-phc_15');">Infectious Disease</a></li>
+
+				<li><a href="http://www.medicinenet.com/mens_health/focus.htm" onclick="wmdTrack('f-phc_16');">Men's Health</a></li>
+
+				<li><a href="http://www.medicinenet.com/mental_health/focus.htm" onclick="wmdTrack('f-phc_17');">Mental Health</a></li>
+
+				<li><a href="http://www.medicinenet.com/neurology/focus.htm" onclick="wmdTrack('f-phc_18');">Neurology</a></li>
+
+				<li><a href="http://www.medicinenet.com/pregnancy/focus.htm" onclick="wmdTrack('f-phc_19');">Pregnancy</a></li>
+
+				<li><a href="http://www.medicinenet.com/sexual_health/focus.htm" onclick="wmdTrack('f-phc_20');">Sexual Health</a></li>
+
+				<li><a href="http://www.medicinenet.com/skin/focus.htm" onclick="wmdTrack('f-phc_21');">Skin</a></li>
+
+				<li><a href="http://www.medicinenet.com/thyroid/focus.htm" onclick="wmdTrack('f-phc_22');">Thyroid</a></li>
+
+				<li><a href="http://www.medicinenet.com/womens_health/focus.htm" onclick="wmdTrack('f-phc_23');">Women's Health</a></li>
+                                <li><a href="http://www.medicinenet.com/diseases_and_conditions/article.htm" onclick="wmdTrack('f-phc_24');">More...</a></li>
+
+
+			</ul>
+
+			<div class="clear"></div>
+
+		</div>
+
+		<div class="item3">
+
+			<h3>MedicineNet:</h3>
+
+			<ul>
+
+				<li><a href="http://www.medicinenet.com/script/main/art.asp?articlekey=12507" onclick="wmdTrack('f-about_1');" rel="nofollow">Privacy Policy</a></li>
+
+				<li><a href="https://data.webmd.com/sdclive/SdcForm.aspx?FormId=MedNetContact" onclick="wmdPageLink('f-about_2');" rel="nofollow" target="_blank">Contact Us</a></li>
+
+				<li><a href="http://www.medicinenet.com/site_map/article.htm" onclick="wmdTrack('f-about_3');">Site Map</a></li>
+				<li><a href="http://www.wbmd.com/" onclick="wmdPageLink('f-about_4');" target="_blank">WebMD Corporate</a></li>
+				<li><a href="http://www.webmd.com/" onclick="wmdPageLink('f-about_5');" target="_blank">WebMD</a></li>
+				<li><a href="http://www.medscape.com/" onclick="wmdPageLink('f-about_6');" target="_blank">Medscape</a></li>
+				<li><a href="http://reference.medscape.com" onclick="wmdPageLink('f-about_7');" target="_blank">Medscape Reference</a></li>
+				<li><a href="http://www.emedicinehealth.com/script/main/hp.asp" onclick="wmdPageLink('f-about_8');" target="_blank">eMedicineHealth</a></li>
+				<li><a href="http://www.rxlist.com/script/main/hp.asp" onclick="wmdPageLink('f-about_9');" target="_blank">RxList</a></li>
+				<li><a href="http://www.webmd.boots.com/" onclick="wmdPageLink('f-about_10');" target="_blank">BootsWebMD</a></li>
+				<li><a href="http://www.medscape.fr/" onclick="wmdPageLink('f-about_11');" target="_blank">Medscape France</a></li>
+				<li><a class="last" href="http://www.medscapemedizin.de/" onclick="wmdPageLink('f-about_12');" target="_blank">Medscape Germany</a></li>
+
+			</ul>
+
+		        <div class="clear"></div>
+
+		</div>
+
+		<div class="item4">
+
+			<h3>Follow Us On:</h3>
+
+			<ul>
+
+				<li><a class="footer_FB tooltip" title="Follow us on Facebook. Click Like, and we'll send authoritative health and medical information to your News Feed." href="http://www.facebook.com/MedicineNet" onclick="wmdPageLink('f-soc_1');" rel="nofollow" target="_blank">Facebook</a></li>
+
+				<li><a class="footer_TW tooltip" title="Follow us on Twitter. Be the first to know the latest in health information." href="http://twitter.com/medicinenet" onclick="wmdPageLink('f-soc_2');" rel="nofollow" target="_blank">Twitter</a></li>
+
+				<li><a class="footer_GOG tooltip" title="Find us on Google+. Discover what your circle is saying and we&rsquo;ll keep you current on health information." href="https://plus.google.com/117041701306844597651" onclick="wmdPageLink('f-soc_3');" rel="nofollow" target="_blank">Google+</a></li>
+
+				<li><a class="footer_RSS tooltip" title="Subscribe to our RSS Feed so you don't miss any updates." href="http://www.medicinenet.com/rss/article.htm" onclick="wmdPageLink('f-soc_4');" rel="nofollow" target="_blank">RSS</a></li>
+
+			</ul>
+
+			<div class="clear"></div>
+
+		</div>
+
+		<div class="clear"></div>
+
+	</div>
+
+	<div class="footerBadges">
+
+<!--START ADCHOICE-->
+
+		<div class="adChoice">
+
+			<script type="text/javascript" src="http://preferences.truste.com/webservices/js?type=med&domain=webmd"></script>
+
+			<a style="cursor:pointer" onclick="TRUSTeWidget.Tab.link()">Ad Choices</a>
+
+		</div>
+
+<!--END ADCHOICE-->
+
+		<div class="trustE">
+
+			<div id="72bcb034-db72-4fe1-b681-ec2ea9414c98"> <script type="text/javascript" src="//privacy-policy.truste.com/privacy-seal/WebMD,-LLC/asc?rid=72bcb034-db72-4fe1-b681-ec2ea9414c98"></script><a href="//privacy.truste.com/privacy-seal/WebMD,-LLC/validation?rid=7b3bf16d-37b4-42e0-aec7-836ef1d3680d" title="TRUSTe online privacy certification" target="_blank"><img style="border: none" src="//privacy-policy.truste.com/privacy-seal/WebMD,-LLC/seal?rid=e803a0f5-c5db-4410-a160-aad40a5b35dc" alt="TRUSTe online privacy certification"/></a></div>
+		
+		</div>
+
+		<div class="honCode">
+
+			<a href="https://www.hon.ch/HONcode/Conduct.html?HONConduct594277" onclick="wmdPageLink('f-hon_1');" rel="nofollow" target="_blank"><img alt="This website is certified by Health On the Net Foundation. Click to verify." height="60" width="43" src="http://www.honcode.ch/HONcode/Seal/HONConduct594277_s1.gif" title="This website is certified by Health On the Net Foundation. Click to verify."/>
+</a>
+
+		</div>
+
+		<div class="clear"></div>
+
+	</div>
+
+	<div class="footerCopy">
+
+		<span>&copy;1996-2015 MedicineNet, Inc. All rights reserved.<a href="http://www.medicinenet.com/script/main/art.asp?articlekey=12596" onclick="wmdTrack('f-terms_1');" rel="nofollow">Terms of Use.</a><br/>MedicineNet does not provide medical advice, diagnosis or treatment.<a href="http://www.medicinenet.com/script/main/art.asp?articlekey=63261" onclick="wmdTrack('f-terms_2');" rel="nofollow">See additional information</a>.</span>
+
+	</div>
+	
+</div>
+
+<!-- End Footer -->
+		</div>
+	</footer>
+</div>
+<!-- WEBMD NETWORK -->
+
+<!-- Start WSS-->
+<script language="JavaScript1.2" type="text/javascript">
+function getDisplayNumber(iNumber) {
+   var sNumber = (iNumber <= 9) ? "0" + iNumber : "" + iNumber;
+   return sNumber;
+}
+function doBIScript() {
+  var s = '';
+  var date = new Date();
+  s += getDisplayNumber(date.getFullYear());
+  s += getDisplayNumber( date.getMonth()+1 );
+  s += getDisplayNumber(date.getDate());
+  document.write('<scr' + 'ipt language="javascript1.2" type="text/javascript" src="http://img.webmd.com/bi_common/bi_oocommon.js?d=' + s + '"><\/scr' + 'ipt>');
+}
+
+var s_account = "webmdcom";
+var s_pagename="medicinenet.com/script/main/alphaidx.asp?p=t-dict";
+var s_bu="cns";
+var s_siteclass="od";
+var s_site="medicinenet";
+var s_server_type="MN";
+var s_channel_health="medicinenet";
+var s_refpath="medicinenet";
+var s_server_number="I23-NET";
+var s_asset="alpha_index_dict_t";
+var s_template_name="medicinenet_info.htm";
+var s_channel="1680";
+var s_asset_class="nav - a-z page";
+var s_articletype="nav - a-z page";
+var s_pagenum="1";
+var s_pub="";
+var s_user_group="unregistered";
+
+
+
+doBIScript();
+
+</script>
+
+<!-- start ad 1x1 -->
+<div id="ads2-pos-901" class="ad_placeholder"></div>
+<script>
+webmd.ads2Consumer.defineAd({
+    targets:{pvid: window.s_pageview_id || '',art: '178282',pt: '1680',uri: 'p%3Dt%5Fdict',app: '31'},blockCodes: '__',
+    id: 'ads2-pos-901',
+    pos: '901',
+    sizes: [1,1] 
+});
+</script>
+<!-- end ad 1x1 -->
+
+
+
+
+<script language="javascript1.2" type="text/javascript">document.write('<img alt="" height="0" width="0" src="http://d.turn.com/r/dd/id/L21rdC83NC9jaWQvMTkyNDA3NTkvdC8x/cat/9" />')</script>
+
+
+<script language="javascript1.2" type="text/javascript">
+  document.write('<img src="http://bi.medscape.com/pi/global/mednet-1x1.gif?'+new Date().getTime()+'" alt="" height="1" width="1" border="0" />')
+</script>
+
+<script type="text/javascript">$.xLazyLoader({ js: ['http://tags.crwdcntrl.net/c/932/cc_af.js'] });</script>
+<script type="text/javascript">
+function s_before_pv(){var dtcb=new Date().getTime();$.xLazyLoader({image: ['http://b.scorecardresearch.com/b?c1=2&c2=6035829&c3=&c4=&c5=&c6=&c7=' + encodeURIComponent(document.location.href) + '&c9=' + encodeURIComponent(document.referrer) + '&c15=&cv=2.0&cj=1&cb='+dtcb]});}
+s_before_pv()
+</script>
+<script type="text/javascript">webmd.ads2Consumer.display();</script>
+</body>
+
+</html>
