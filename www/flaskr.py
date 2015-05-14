@@ -3,6 +3,8 @@ from flaskext.mysql import MySQL
 from flask import Flask, request, session, g, redirect, url_for, \
      abort, render_template, flash
 
+import mdm_schema
+
 # create application
 app = Flask(__name__)
 
@@ -21,8 +23,8 @@ def get_columns(table):
     return data
 
 @app.route("/")
-def hello():
-    return "Welcome to Python Flask App!"
+def home():
+    return render_template('home.html')
  
 @app.route("/view")
 def show_entries():
@@ -41,6 +43,56 @@ def show_entries():
     else:
       return render_template('show_rows.html', entries=data, \
         columns=get_columns(table))
+
+def get_all_tables():
+    cursor = mysql.connect().cursor()
+    cursor.execute("SHOW TABLES;")
+    data = cursor.fetchall()
+
+    table_totals = []
+    for i, table in enumerate(data):
+      cursor = mysql.connect().cursor()
+      cursor.execute("SELECT COUNT(*) FROM " + table[0])
+      total = cursor.fetchone()
+      table_totals.append(total)
+
+    return zip(data, table_totals)
+
+@app.route("/tables")
+def show_tables():
+    tables_data = get_all_tables()
+    if tables_data is None:
+      return "Unable to show tables..."
+    else:
+      return render_template('show_tables.html', tables_data=tables_data)
+
+@app.route("/schema/setup")
+def schema_setup():
+    mdm_schema.exec_sql('scripts/DB-setup.sql')
+    tables_data = get_all_tables()
+    return render_template('show_tables.html', tables_data=tables_data)
+
+@app.route("/schema/cleanup")
+def schema_cleanup():
+    mdm_schema.exec_sql('scripts/DB-cleanup.sql')
+    tables_data = get_all_tables()
+    return render_template('show_tables.html', tables_data=tables_data)
+
+@app.route("/schema/refresh")
+def schema_refresh():
+    mdm_schema.exec_sql('scripts/DB-cleanup.sql')
+    mdm_schema.exec_sql('scripts/DB-setup.sql')
+    tables_data = get_all_tables()
+    return render_template('show_tables.html', tables_data=tables_data)
+
+@app.route("/data/load")
+def data_load():
+    mdm_schema.exec_sql('scripts/Specialties.sql')
+    mdm_schema.exec_sql('scripts/RawData.sql')
+    tables_data = get_all_tables()
+    return render_template('show_tables.html', tables_data=tables_data)
+
+
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
