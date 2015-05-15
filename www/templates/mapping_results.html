@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+{% block localhead %}
+{% endblock %}
+{% block body %}
+  {% if session.logged_in %}
+  <p> Mapping Results </p>
+  {% else %}
+    <p> You are not logged in. </p>
+	{% endif %}
+  </ul>
+{% endblock %}

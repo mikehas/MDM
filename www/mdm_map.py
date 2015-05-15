@@ -1,5 +1,9 @@
 from mdm_mysql import get_cursor
 from pprint import pprint
+from mdm_db import Session
+from mdm_models import *
+from flaskr import app
+import time
 
 def map_specialty(specialty):
   pass
@@ -26,27 +30,23 @@ def nullify(row):
       row[i] = 'NULL'
   return row
 
-def map_medical_provider(app, mysql,  row):
-  cursor = mysql.connect().cursor()
-  row = nullify(row)
+def map_all():
 
-  # Insert Address 1
-  app.logger.debug("INSERT INTO address VALUES ("+str(row[0])+",'mailing',"+row[12]+"','"+row[11]+"','"+row[10]+"','"+row[9]+"','"+row[8]+"','"+row[7]+"','"+row[6])
+  session = Session()
+  rawdata = session.query(RawData).limit(10)
 
+  for i, row in enumerate(rawdata):
+    now = time.strftime('%Y-%m-%d %H:%M:%S') 
+    
+    provider = MedicalProvider(sourceid=row.sourceid, providertype=row.providertype, name=row.name, gender=row.gender, dateofbirth=row.dateofbirth, issoleproprietor=row.issoleproprietor, primaryspeciality=row.primaryspecialty, secondaryspeciality=row.secondaryspecialty, timestamp=now, message="basic mapping")
+    session.add(provider)
+    session.commit()
 
+    mail_addr = Address(sourceid=row.sourceid, addresstype='mailing',country=row.mailingcountry,region=row.mailingregion, county=row.mailingcounty, city=row.mailingcity, postalcode=row.mailingpostcode)
+    session.add(mail_addr)
+    session.commit()
 
-  #cursor.execute("INSERT INTO address VALUES (")
-   
-
-def map_all(app, mysql):
-
-  cursor = mysql.connect().cursor()
-  cursor.execute("SELECT * FROM rawdata LIMIT 10")
-
-  row = cursor.fetchone() 
-  while row != None:
-    app.logger.info("Mapping source_id = " + str(row[1]))
-    map_medical_provider(app, mysql, row)
-    row = cursor.fetchone() 
-
+    practice_addr = Address(sourceid=row.sourceid, addresstype='practice',country=row.practicecountry,region=row.practiceregion, county=row.practicecounty, city=row.practicecity, postalcode=row.practicepostcode)
+    session.add(practice_addr)
+    session.commit()
 

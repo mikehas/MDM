@@ -1,4 +1,3 @@
-import ConfigParser
 from flaskext.mysql import MySQL
 from flask import Flask, request, session, g, redirect, url_for, \
      abort, render_template, flash
@@ -6,11 +5,8 @@ import logging
 from logging.handlers import RotatingFileHandler 
 
 import mdm_schema
-from mdm_schema import RawData
 import mdm_map
-
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
+from mdm_db import engine
 
 # create application
 app = Flask(__name__)
@@ -18,11 +14,9 @@ app = Flask(__name__)
 # load configurations from os env variable
 app.config.from_envvar("FLASKR_SETTINGS", silent=False)
 
-engine = create_engine('mysql://'+app.config.get('MYSQL_DATABASE_USER')+':'+app.config.get('MYSQL_DATABASE_PASSWORD')+'@'+app.config.get('MYSQL_DATABASE_HOST')+':3306/'+app.config.get('MYSQL_DATABASE_DB'), echo=False)
-Session = sessionmaker(bind=engine)
-
-mysql = MySQL()
-mysql.init_app(app)
+@app.teardown_appcontext
+def shutdown_session(exception=None):
+      Session.remove()
 
 # app urls
 
@@ -47,7 +41,6 @@ def show_entries():
  
     connection = engine.connect()
     data = connection.execute("SELECT * from " + table + " limit " + limit )
-    data = data.fetchall()
     connection.close()
 
     if data is None:
@@ -116,18 +109,17 @@ def data_load():
 
 @app.route("/data/map")
 def data_map():
-
-    mdm_map.map_all(app, mysql)
+    mdm_map.map_all()
 
     return render_template('mapping_results.html')
-
+'''
 @app.route("/test/alchemy")
 def test_alchemy():
     session = Session()
     rows = session.query(RawData).filter(RawData.sourceid.in_([1,2,3])).all()
     for row in rows:
       app.logger.debug(row.sourceid)
-
+'''
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():

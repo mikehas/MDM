@@ -5,8 +5,3 @@ PASSWORD = 'admin'
 
 SECRET_KEY = 'asdfasdlfasodfiuweoriuweoir91028120948'
 
-MYSQL_DATABASE_USER = 'root'
-MYSQL_DATABASE_PASSWORD = ''
-MYSQL_DATABASE_DB = 'db_name'
-MYSQL_DATABASE_HOST = 'localhost'
-
