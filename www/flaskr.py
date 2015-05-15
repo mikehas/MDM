@@ -47,6 +47,7 @@ def show_entries():
  
     connection = engine.connect()
     data = connection.execute("SELECT * from " + table + " limit " + limit )
+    data = data.fetchall()
     connection.close()
 
     if data is None:
