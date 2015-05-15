@@ -70,12 +70,14 @@ def show_tables():
 def schema_setup():
     mdm_schema.exec_sql('scripts/DB-setup.sql')
     tables_data = get_all_tables()
+    flash('All tables created')
     return render_template('show_tables.html', tables_data=tables_data)
 
 @app.route("/schema/cleanup")
 def schema_cleanup():
     mdm_schema.exec_sql('scripts/DB-cleanup.sql')
     tables_data = get_all_tables()
+    flash('All tables deleted.')
     return render_template('show_tables.html', tables_data=tables_data)
 
 @app.route("/schema/refresh")
@@ -83,6 +85,7 @@ def schema_refresh():
     mdm_schema.exec_sql('scripts/DB-cleanup.sql')
     mdm_schema.exec_sql('scripts/DB-setup.sql')
     tables_data = get_all_tables()
+    flash('All tables recreated.')
     return render_template('show_tables.html', tables_data=tables_data)
 
 @app.route("/data/load")
@@ -90,6 +93,7 @@ def data_load():
     mdm_schema.exec_sql('scripts/Specialties.sql')
     mdm_schema.exec_sql('scripts/RawData.sql')
     tables_data = get_all_tables()
+    flash("Specialty and RawData tables loaded with rawdata.")
     return render_template('show_tables.html', tables_data=tables_data)
 
 
