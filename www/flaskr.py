@@ -2,7 +2,6 @@ import ConfigParser
 from flaskext.mysql import MySQL
 from flask import Flask, request, session, g, redirect, url_for, \
      abort, render_template, flash
-<<<<<<< HEAD
 import logging
 from logging.handlers import RotatingFileHandler 
 
@@ -13,28 +12,21 @@ import mdm_map
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
-=======
->>>>>>> d136d0ced97b5107744e8ceff87fe6e1cf30bac6
-
 # create application
 app = Flask(__name__)
 
 # load configurations from os env variable
 app.config.from_envvar("FLASKR_SETTINGS", silent=False)
 
-<<<<<<< HEAD
 engine = create_engine('mysql://'+app.config.get('MYSQL_DATABASE_USER')+':'+app.config.get('MYSQL_DATABASE_PASSWORD')+'@'+app.config.get('MYSQL_DATABASE_HOST')+':3306/'+app.config.get('MYSQL_DATABASE_DB'), echo=False)
 Session = sessionmaker(bind=engine)
 
-=======
->>>>>>> d136d0ced97b5107744e8ceff87fe6e1cf30bac6
 mysql = MySQL()
 mysql.init_app(app)
 
 # app urls
 
 def get_columns(table):
-<<<<<<< HEAD
     connection = engine.connect()
     result = connection.execute("show columns from " + table)
     connection.close()
@@ -43,16 +35,6 @@ def get_columns(table):
 @app.route("/")
 def home():
     return render_template('home.html')
-=======
-    cursor = mysql.connect().cursor()
-    cursor.execute("SHOW COLUMNS FROM " + table )
-    data = cursor.fetchall()
-    return data
-
-@app.route("/")
-def hello():
-    return "Welcome to Python Flask App!"
->>>>>>> d136d0ced97b5107744e8ceff87fe6e1cf30bac6
  
 @app.route("/view")
 def show_entries():
@@ -63,23 +45,16 @@ def show_entries():
     if limit == None:
       limit = '1000'
  
-<<<<<<< HEAD
     connection = engine.connect()
     data = connection.execute("SELECT * from " + table + " limit " + limit )
     connection.close()
 
-=======
-    cursor = mysql.connect().cursor()
-    cursor.execute("SELECT * from " + table + " limit " + limit )
-    data = cursor.fetchall()
->>>>>>> d136d0ced97b5107744e8ceff87fe6e1cf30bac6
     if data is None:
       return "Table ", table, "does not exist."
     else:
       return render_template('show_rows.html', entries=data, \
         columns=get_columns(table))
 
-<<<<<<< HEAD
 def get_all_tables():
     connection = engine.connect()
     data = connection.execute("SHOW TABLES;")
