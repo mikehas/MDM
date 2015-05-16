@@ -3,6 +3,7 @@ from pprint import pprint
 from mdm_db import Session
 from mdm_models import *
 from flaskr import app
+from sqlalchemy.exc import SQLAlchemyError, IntegrityError, InvalidRequestError, DBAPIError
 import time
 
 def map_specialty(specialty):
@@ -33,20 +34,44 @@ def nullify(row):
 def map_all():
 
   session = Session()
-  rawdata = session.query(RawData).limit(10)
+  #rawdata = session.query(RawData).limit(10)
+  rawdata = session.query(RawData).limit(1000)
 
   for i, row in enumerate(rawdata):
     now = time.strftime('%Y-%m-%d %H:%M:%S') 
-    
-    provider = MedicalProvider(sourceid=row.sourceid, providertype=row.providertype, name=row.name, gender=row.gender, dateofbirth=row.dateofbirth, issoleproprietor=row.issoleproprietor, primaryspeciality=row.primaryspecialty, secondaryspeciality=row.secondaryspecialty, timestamp=now, message="basic mapping")
-    session.add(provider)
-    session.commit()
+    app.logger.debug("Sourceid: " + str(row.sourceid) + " Processing...")
+   
+    try:
+      s2 = Session()
+      provider = MedicalProvider(sourceid=row.sourceid, providertype=row.providertype, name=row.name, gender=row.gender, dateofbirth=row.dateofbirth, issoleproprietor=row.issoleproprietor, primaryspeciality=row.primaryspecialty, secondaryspeciality=row.secondaryspecialty, timestamp=now, message="basic mapping")
+      s2.add(provider)
+      s2.commit()
+    except Exception, e:
+      app.logger.debug("******** ERROR CAUGHT **********" + e.message)
+      s2.close()
+      s2 = Session()
+    finally:
+      s2.close()
 
-    mail_addr = Address(sourceid=row.sourceid, addresstype='mailing',country=row.mailingcountry,region=row.mailingregion, county=row.mailingcounty, city=row.mailingcity, postalcode=row.mailingpostcode)
-    session.add(mail_addr)
-    session.commit()
+    try:
+      s2 = Session()
+      mail_addr = Address(sourceid=row.sourceid, addresstype='mailing',country=row.mailingcountry,region=row.mailingregion, county=row.mailingcounty, city=row.mailingcity, postalcode=row.mailingpostcode)
+      s2.add(mail_addr)
+      s2.commit()
+    except Exception, e:
+      app.logger.debug("Sourceid: " + str(row.sourceid) + " Error: " + e.message)
+      session.rollback()
+    finally:
+      s2.close()
 
-    practice_addr = Address(sourceid=row.sourceid, addresstype='practice',country=row.practicecountry,region=row.practiceregion, county=row.practicecounty, city=row.practicecity, postalcode=row.practicepostcode)
-    session.add(practice_addr)
-    session.commit()
+    try:
+      s2 = Session()
+      practice_addr = Address(sourceid=row.sourceid, addresstype='practice',country=row.practicecountry,region=row.practiceregion, county=row.practicecounty, city=row.practicecity, postalcode=row.practicepostcode)
+      s2.add(practice_addr)
+      s2.commit()
+    except Exception, e:
+      app.logger.debug("Sourceid: " + str(row.sourceid) + " Error: " + e.message)
+      s2.rollback()
+    finally:
+      s2.close()
 

@@ -8,6 +8,7 @@
           <td>Table Name</td>
           <td>Number of Entries</td>
           <td>View Link</td>
+          <td>Delete Link</td>
           </thead>
           <tbody>    
           {% for tab,tab_total in tables_data %}
@@ -15,6 +16,7 @@
                 <td>{{ tab[0] }}</td> 
                 <td>{{ tab_total[0] }}</td> 
                 <td><a href="{{ url_for('show_entries', table=tab[0])}}">View Entries</a>
+                <td><a href="{{ url_for('truncate_table', table=tab[0])}}">Delete Entries</a>
               </tr>
           {% endfor %}
         </tbody>

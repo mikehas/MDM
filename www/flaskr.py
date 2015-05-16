@@ -77,6 +77,25 @@ def show_tables():
     else:
       return render_template('show_tables.html', tables_data=tables_data)
 
+@app.route("/table/truncate")
+def truncate_table():
+    table = request.args.get('table')
+    
+    if table is not None:
+      connection = engine.connect()
+      result = connection.execute("delete from " + table)
+      connection.close()
+
+      flash("Truncated table: " + table)
+    else:
+      flash("No table selected for truncation")
+
+    tables_data = get_all_tables()
+    if tables_data is None:
+      return "Unable to show tables..."
+    else:
+      return render_template('show_tables.html', tables_data=tables_data)
+
 @app.route("/schema/setup")
 def schema_setup():
     mdm_schema.exec_sql('scripts/DB-setup.sql')
