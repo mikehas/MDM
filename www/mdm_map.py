@@ -35,11 +35,16 @@ def map_all():
 
   session = Session()
   #rawdata = session.query(RawData).limit(10)
-  rawdata = session.query(RawData).limit(1000)
+  #rawdata = session.query(RawData).limit(1000)
+  rawdata = session.query(RawData).all()
+
+  mapped = 0
+  errors = []
 
   for i, row in enumerate(rawdata):
     now = time.strftime('%Y-%m-%d %H:%M:%S') 
-    app.logger.debug("Sourceid: " + str(row.sourceid) + " Processing...")
+    if i % 1000 == 0:
+      app.logger.debug("Sourceid: " + str(row.sourceid) + " Processing...")
    
     try:
       s2 = Session()
@@ -48,6 +53,7 @@ def map_all():
       s2.commit()
     except Exception, e:
       app.logger.debug("******** ERROR CAUGHT **********" + e.message)
+      errors.append(['medical_provider',row.sourceid, e.message])
       s2.close()
       s2 = Session()
     finally:
@@ -60,6 +66,7 @@ def map_all():
       s2.commit()
     except Exception, e:
       app.logger.debug("Sourceid: " + str(row.sourceid) + " Error: " + e.message)
+      errors.append(['mailing_address',row.sourceid, e.message])
       session.rollback()
     finally:
       s2.close()
@@ -71,7 +78,12 @@ def map_all():
       s2.commit()
     except Exception, e:
       app.logger.debug("Sourceid: " + str(row.sourceid) + " Error: " + e.message)
+      errors.append(['practice_address',row.sourceid, e.message])
       s2.rollback()
     finally:
       s2.close()
+
+    mapped = mapped + 1
+
+  return mapped, errors
 
