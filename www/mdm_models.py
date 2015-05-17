@@ -58,7 +58,7 @@ class Address(Base):
   unit = Column(String)
 
 class Phone(Base):
-  __tablename__ = 'phones'
+  __tablename__ = 'Phones'
 
   sourceid = Column(Integer, primary_key=True)
   country = Column(String)
