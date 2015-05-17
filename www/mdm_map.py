@@ -4,15 +4,34 @@ from mdm_models import *
 from flaskr import app
 from sqlalchemy.exc import SQLAlchemyError, IntegrityError, InvalidRequestError, DBAPIError
 import time
+import string
+import re
 
 def map_specialty(specialty):
   pass
 
-def map_address(addr):
-  pass
+def clean_address(addr):
+  if addr.country is not None:
+    addr.country = addr.country.upper()
+  if addr.region is not None:
+    addr.region = addr.region.upper()
+  if addr.county is not None:
+    addr.county = addr.county.upper()
+  if addr.city is not None:
+    addr.city = addr.city.upper()
+  if addr.street is not None:
+    addr.street = addr.street.upper()
+  if addr.unit is not None:
+    addr.unit = addr.unit.upper()
+  return addr
 
 def map_phone(phone):
   pass
+
+def clean_name(name):
+  nameList = re.sub(ur"\p{P}+", "", name).upper().split(' ')
+  nameList.sort()
+  return string.join(nameList, ' ')
 
 def map_to_medical_provider(row):
   return 
@@ -34,8 +53,8 @@ def map_all():
 
   session = Session()
   #rawdata = session.query(RawData).limit(10)
-  #rawdata = session.query(RawData).limit(1000)
-  rawdata = session.query(RawData).all()
+  rawdata = session.query(RawData).limit(1000)
+  #rawdata = session.query(RawData).all()
 
   mapped = 0
   errors = []
@@ -47,7 +66,7 @@ def map_all():
    
     try:
       s2 = Session()
-      provider = MedicalProvider(sourceid=row.sourceid, providertype=row.providertype, name=row.name, gender=row.gender, dateofbirth=row.dateofbirth, issoleproprietor=row.issoleproprietor, primaryspeciality=row.primaryspecialty, secondaryspeciality=row.secondaryspecialty, timestamp=now, message="basic mapping")
+      provider = MedicalProvider(sourceid=row.sourceid, providertype=row.providertype, name=clean_name(row.name), gender=row.gender, dateofbirth=row.dateofbirth, issoleproprietor=row.issoleproprietor, primaryspeciality=row.primaryspecialty, secondaryspeciality=row.secondaryspecialty, timestamp=now, message="basic mapping")
       s2.add(provider)
       s2.commit()
     except Exception, e:
@@ -61,7 +80,7 @@ def map_all():
     try:
       s2 = Session()
       mail_addr = Address(sourceid=row.sourceid, addresstype='mailing',country=row.mailingcountry,region=row.mailingregion, county=row.mailingcounty, city=row.mailingcity, postalcode=row.mailingpostcode)
-      s2.add(mail_addr)
+      s2.add(clean_address(mail_addr))
       s2.commit()
     except Exception, e:
       app.logger.debug("Sourceid: " + str(row.sourceid) + " Error: " + e.message)
@@ -73,7 +92,7 @@ def map_all():
     try:
       s2 = Session()
       practice_addr = Address(sourceid=row.sourceid, addresstype='practice',country=row.practicecountry,region=row.practiceregion, county=row.practicecounty, city=row.practicecity, postalcode=row.practicepostcode)
-      s2.add(practice_addr)
+      s2.add(clean_address(practice_addr))
       s2.commit()
     except Exception, e:
       app.logger.debug("Sourceid: " + str(row.sourceid) + " Error: " + e.message)

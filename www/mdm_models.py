@@ -4,7 +4,7 @@ from sqlalchemy.ext.declarative import declarative_base
 from mdm_db import Base, Session
 
 class RawData(Base):
-  __tablename__ = 'rawdata'
+  __tablename__ = 'RawData'
 
   sourceid = Column(Integer, primary_key=True)
   providertype = Column(String)
@@ -31,7 +31,7 @@ class RawData(Base):
   secondaryspecialty = Column(String)
 
 class MedicalProvider(Base):
-  __tablename__ = 'medicalprovider'
+  __tablename__ = 'MedicalProvider'
  
   sourceid = Column(Integer, primary_key=True)
   providertype = Column(String)
@@ -45,7 +45,7 @@ class MedicalProvider(Base):
   message = Column(String) 
 
 class Address(Base):
-  __tablename__ = 'address'
+  __tablename__ = 'Address'
 
   sourceid = Column(String, primary_key=True)
   addresstype = Column(String, primary_key=True)

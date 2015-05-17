@@ -26,7 +26,7 @@ create table RawData (
 	MailingCountry varchar(16),
 	PracticeStreet varchar(64),
 	PracticeUnit varchar(64),
-	PracticeCity varchar(32),
+	PracticeCity varchar(64),
 	PracticeRegion varchar(16),
 	PracticePostCode varchar(16),
 	PracticeCounty varchar(32),
