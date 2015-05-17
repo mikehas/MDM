@@ -56,4 +56,16 @@ class Address(Base):
   postalcode = Column(String)
   street = Column(String)
   unit = Column(String)
- 
+
+class Phone(Base):
+  __tablename__ = 'phones'
+
+  sourceid = Column(Integer, primary_key=True)
+  country = Column(String)
+  area = Column(String)
+  exchange = Column(String)
+  subscriber = Column(String)
+  ext = Column(String)
+
+
+

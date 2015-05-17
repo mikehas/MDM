@@ -82,6 +82,18 @@ def map_all():
     finally:
       s2.close()
 
+    try:
+      s2 = Session()
+      phone = Phone(sourceid=row.sourceid, exchange=row.phone)
+      s2.add(phone)
+      s2.commit()
+    except Exception, e:
+      app.logger.debug("Sourceid: " + str(row.sourceid) + " Error: " + e.message)
+      errors.append(['phone',row.sourceid, e.message])
+      s2.rollback()
+    finally:
+      s2.close()
+
     mapped = mapped + 1
 
   return mapped, errors
