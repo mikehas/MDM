@@ -38,8 +38,8 @@
 
 <div class="metanav">
   <ul id="jMenu">
-      <li><a href=".">Home</a></li>
-      <li><a href=".">Schema</a>
+      <li><a href="{{ url_for('home') }}">Home</a></li>
+      <li><a href="{{ url_for('show_tables') }}">Schema</a>
         <ul>
           <li><a href="{{ url_for('schema_setup') }}">Setup</a></li>
           <li><a href="{{ url_for('schema_cleanup') }}">Cleanup</a></li>
