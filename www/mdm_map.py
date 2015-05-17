@@ -1,4 +1,3 @@
-from mdm_mysql import get_cursor
 from pprint import pprint
 from mdm_db import Session
 from mdm_models import *
