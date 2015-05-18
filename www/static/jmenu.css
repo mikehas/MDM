@@ -1,0 +1,15 @@
+
+.jMenu{display:table;margin:0;padding:0;list-style:none;}
+.jMenu li{display:table-cell;background-color:#FFF;margin:0;list-style:none}
+.jMenu li a{padding:10px 15px;display:block;background-color:transparent;text-transform:uppercase;cursor:pointer;font-size:14px}
+.jMenu li a:hover{background-color:#BCF3FF}
+
+.jMenu li:hover>a{background-color:#BCF3FF}
+
+.jMenu li ul{display:none;position:absolute;z-index:9999;padding:0;margin:0;list-style:none}
+.jMenu li ul li{width: 150px;background-color:#FFF;display:block;border-bottom:1px solid #484548;padding:0;list-style:none;position:relative}
+.jMenu li ul li a{font-size:14px;text-transform:none;display:block;padding:7px;border-top:1px solid transparent;border-bottom:1px solid transparent}
+.jMenu li ul li a.isParent{background-color:#fafafa}
+
+.jMenu li ul li a:hover{background-color:#BCF3FF;border-top:1px solid #322f32;border-bottom:1px solid #322f32}
+

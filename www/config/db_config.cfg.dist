@@ -1,0 +1,6 @@
+[db]
+USER = root
+PASSWORD = 
+DB = my_db
+HOST = localhost
+

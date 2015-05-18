@@ -1,0 +1,83 @@
+<!doctype html>
+<head>
+    <title>Master Data Management | The Rolling Pebbles</title>
+    <script type="text/javascript" language="javascript" src="{{ url_for('static', filename='jquery.js') }}"></script>
+
+    <!-- Data Tables -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='dataTables.foundation.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='foundation.min.css') }}" />
+    <script type="text/javascript" language="javascript" src="{{ url_for('static', filename='jquery.dataTables.min.js') }}"></script>
+    <script type="text/javascript" language="javascript" src="{{ url_for('static', filename='dataTables.foundation.js') }}"></script>
+
+    <!-- Menu -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='jmenu.css') }}" media="screen" />
+    <script type="text/javascript" src="{{ url_for('static', filename='jMenu.jquery.min.js') }}"></script>
+
+    <script>
+      $(document).ready(function(){
+      // simple jMenu plugin called
+      $("#jMenu").jMenu();
+   
+      // more complex jMenu plugin called
+      $("#jMenu").jMenu({
+        ulWidth : 'auto',
+        effects : {
+          effectSpeedOpen : 300,
+          effectTypeClose : 'slide'
+        },
+        animatedText : false
+      });
+    });
+    </script>
+    {% block localhead %}{% endblock %}
+
+</head>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+<div class="page">
+  <h1>MDM | Medical Providers</h1>
+
+<div class="metanav">
+  <ul id="jMenu">
+      <li><a href="{{ url_for('home') }}">Home</a></li>
+      <li><a href="{{ url_for('show_tables') }}">Schema</a>
+        <ul>
+          <li><a href="{{ url_for('schema_setup') }}">Setup</a></li>
+          <li><a href="{{ url_for('schema_cleanup') }}">Cleanup</a></li>
+          <li><a href="{{ url_for('schema_refresh') }}">Refresh</a></li>
+        </ul>
+      </li>
+      <li><a href=".">Data</a>
+        <ul>
+          <li><a href="{{ url_for('data_load') }}">Load RawData</a></li>
+          <li><a href="{{ url_for('data_map') }}">Map RawData</a></li>
+        </ul>
+      </li>
+      <li><a href="{{ url_for('show_tables') }}">Browse Tables</a></li>
+      <li><a href="{{ url_for('show_entries', table='MasteredMedicalProvider') }}">Mastered Records</a></li>
+      <li>
+        <a href=".">Utilities</a>
+        <ul>
+          <li><a href=".">Misc 2</a></li>
+          <li><a href=".">Misc 2</a></li>
+        </ul>
+      </li>
+
+
+   </ul>
+ </div>
+     <div class="login-link">
+      {% if not session.logged_in %}
+        <a href="{{ url_for('login') }}">log in</a>
+      {% else %}
+        <a href="{{ url_for('logout') }}">log out</a>
+      {% endif %}
+    </div>
+   <div class="content_wrapper">
+        <div class="content">
+          {% for message in get_flashed_messages() %}
+            <div class="flash">{{ message }}</div>
+          {% endfor %}
+          {% block body %}{% endblock %}
+        </div>
+    </div>
+</div>

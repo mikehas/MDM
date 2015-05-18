@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+{% block localhead %}
+  <script type="text/javascript"> 
+      $(document).ready(function() {
+        $('#dtable').DataTable();
+      });
+  </script>
+{% endblock %}
+{% block body %}
+  {% if session.logged_in %}
+		<table id="dtable" class="display">
+        <thead>
+		{% for header in columns %}
+            <td>{{ header[0] }}</td>
+        {% endfor %}
+        </thead>
+        <tbody>    
+		{% for entry in entries %}
+            <tr>
+            {% for col in entry %}
+			<td>{{ col }}</td>
+            {% endfor %}
+            </tr>
+        {% endfor %}
+        </tbody>
+        </table>
+    {% else %}
+        <li><em>Unbelievable.  No entries here so far</em>
+	{% endif %}
+  </ul>
+{% endblock %}

@@ -1,0 +1,7 @@
+DEBUG=True
+
+USERNAME = 'admin'
+PASSWORD = 'admin'
+
+SECRET_KEY = 'asdfasdlfasodfiuweoriuweoir91028120948'
+
