@@ -85,7 +85,67 @@ select * from rawdata r where r.name like "%zvi%"; -- name
 select * from rawdata r where r.name like "%ABOM%"; -- title
 select * from rawdata r where r.name like "% ABRA %"; -- name
 
+select * from rawdata r where r.name like "%,%";
+describe rawdata;
 
 
+describe address;
+describe phones;
+describe specialty;
 
+select * from rawdata r
+where r.PrimarySpecialty not in (select s.code from specialty s)
+;
 
+select r.SecondarySpecialty from rawdata r
+where r.SecondarySpecialty not in (select s.code from specialty s where s.code is not null)
+and r.SecondarySpecialty is not null
+;
+
+select r.SecondarySpecialty from rawdata r
+where r.SecondarySpecialty not in (select s.code from specialty s where s.code is not null)
+and r.SecondarySpecialty is not null
+;
+
+select * from specialty where code like '%204R00000X%';
+
+like "% ABRA %"; -- name;
+
+-- Are thre multiple
+select * from rawdata r, rawdata r2 
+where r.providertype = r2.providertype
+and r.name = r2.name
+and r.gender = r2.gender
+and r.isSoleProprietor = r2.isSoleProprietor
+and r.mailingstreet = r2.mailingstreet;
+
+-- Are there records from non US countries? Yes
+select * from rawdata where practicecountry != 'USA' and practicecountry;
+
+-- Are thre records with the same telephone in different countries?
+select * from rawdata r, rawdata r2 
+where r.phone = r2.phone
+and r.mailingcountry = 'USA'
+and r2.mailingcountry != 'USA'
+;
+
+select * from rawdata r
+where CHAR_LENGTH(r.phone) = 10;
+
+-- Organizations without practice addresses
+select * from rawdata r
+where r.practicestreet is null
+and r.mailingunit is null
+and r.providertype = 'Organization';
+
+-- Example of org
+select * from rawdata r
+where r.name = 'Henry M Asin';
+
+-- are there extended postal codes without hyphens - NO
+select * from rawdata r
+where CHAR_LENGTH(r.mailingpostcode) > 5
+and r.mailingpostcode not like '%-%';
+
+select * from rawdata
+where sourceid = 301
