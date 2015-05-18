@@ -43,13 +43,13 @@
         <ul>
           <li><a href="{{ url_for('schema_setup') }}">Setup</a></li>
           <li><a href="{{ url_for('schema_cleanup') }}">Cleanup</a></li>
-          <li><a href="{{ url_for('schema_refresh') }}">Refresh</a></li>
+          <li><a href="{{ url_for('schema_refresh') }}">Recreate</a></li>
         </ul>
       </li>
       <li><a href=".">Data</a>
         <ul>
           <li><a href="{{ url_for('data_load') }}">Load RawData</a></li>
-          <li><a href="{{ url_for('data_map') }}">Map RawData</a></li>
+          <li><a href="{{ url_for('data_map') }}">Clean & Map RawData</a></li>
         </ul>
       </li>
       <li><a href="{{ url_for('show_tables') }}">Browse Tables</a></li>
