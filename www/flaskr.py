@@ -141,6 +141,7 @@ def schema_refresh():
 @app.route("/data/load")
 def data_load():
     mdm_schema.exec_sql('scripts/Specialties.sql')
+    mdm_schema.exec_sql('scripts/SpecialtiesNUCC.sql')
     mdm_schema.exec_sql('scripts/RawData.sql')
     tables_data = get_all_tables()
     flash("Specialty and RawData tables loaded with rawdata.")
