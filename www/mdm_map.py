@@ -6,6 +6,7 @@ from sqlalchemy.exc import SQLAlchemyError, IntegrityError, InvalidRequestError,
 import time
 import string
 import re
+import mdm_schema
 
 def map_specialty(specialty):
   pass
@@ -101,6 +102,7 @@ def map_all():
     finally:
       s2.close()
 
+    '''
     try:
       s2 = Session()
       phone = Phone(sourceid=row.sourceid, exchange=row.phone)
@@ -112,8 +114,12 @@ def map_all():
       s2.rollback()
     finally:
       s2.close()
+    '''
 
     mapped = mapped + 1
+
+  app.logger.debug("Chunking and mapping phones...")
+  mdm_schema.exec_sql('scripts/MapPhones.sql')
 
   return mapped, errors
 
