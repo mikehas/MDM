@@ -54,8 +54,8 @@ def map_all():
 
   session = Session()
   #rawdata = session.query(RawData).limit(10)
-  rawdata = session.query(RawData).limit(1000)
-  #rawdata = session.query(RawData).all()
+  #rawdata = session.query(RawData).limit(1000)
+  rawdata = session.query(RawData).all()
 
   mapped = 0
   errors = []
@@ -81,8 +81,9 @@ def map_all():
     try:
       s2 = Session()
       mail_addr = Address(sourceid=row.sourceid, addresstype='mailing',country=row.mailingcountry,region=row.mailingregion, county=row.mailingcounty, city=row.mailingcity, postalcode=row.mailingpostcode)
-      s2.add(clean_address(mail_addr))
-      s2.commit()
+      if mail_addr.country is not None and mail_addr.region is not None and mail_addr.county is not None and mail_addr.city is not None and mail_addr.postalcode is not None:
+        s2.add(clean_address(mail_addr))
+        s2.commit()
     except Exception, e:
       app.logger.debug("Sourceid: " + str(row.sourceid) + " Error: " + e.message)
       errors.append(['mailing_address',row.sourceid, e.message])
@@ -93,8 +94,9 @@ def map_all():
     try:
       s2 = Session()
       practice_addr = Address(sourceid=row.sourceid, addresstype='practice',country=row.practicecountry,region=row.practiceregion, county=row.practicecounty, city=row.practicecity, postalcode=row.practicepostcode)
-      s2.add(clean_address(practice_addr))
-      s2.commit()
+      if practice_addr.country is not None and practice_addr.region is not None and practice_addr.county is not None and practice_addr.city is not None and practice_addr.postalcode is not None:
+        s2.add(clean_address(practice_addr))
+        s2.commit()
     except Exception, e:
       app.logger.debug("Sourceid: " + str(row.sourceid) + " Error: " + e.message)
       errors.append(['practice_address',row.sourceid, e.message])
