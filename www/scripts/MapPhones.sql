@@ -18,7 +18,9 @@
 
 -- Grab all the SourceIDs that were mapped to MedicalProvider
 INSERT INTO Phones (SourceID)
-SELECT SourceID FROM MedicalProvider;
+SELECT MedicalProvider.SourceID 
+FROM MedicalProvider JOIN RawData ON MedicalProvider.SourceID = RawData.SourceID
+WHERE Phone IS NOT NULL;
 
 -- Update all the Phones with '(805) 555-5555' format
 Update Phones, RawData
@@ -51,4 +53,13 @@ Exchange = SUBSTRING(Phone,4,3),
 Subscriber = SUBSTRING(Phone,7,4)
 WHERE Phones.SourceID = RawData.SourceID
 AND Phone REGEXP '^[[:digit:]]{10}$';
+
+DELETE 
+FROM Phones
+WHERE 
+Country IS NULL AND
+Area IS NULL AND
+Exchange IS NULL AND
+Subscriber IS NULL AND
+Ext IS NULL;
 
