@@ -79,11 +79,9 @@ def get_all_tables():
 
     table_totals = []
     for i, table in enumerate(tables):
-      app.logger.debug('Table: ' + table[0])
       connection = engine.connect()
       data = connection.execute("SELECT COUNT(*) FROM " + table[0])
       count = data.fetchall()
-      app.logger.debug(count)
       table_totals.append(count[0])
       connection.close()
 
@@ -118,31 +116,31 @@ def truncate_table():
 
 @app.route("/schema/setup")
 def schema_setup():
-    mdm_schema.exec_sql('scripts/DB-setup.sql')
+    mdm_schema.exec_sqlfile(app, 'scripts/DB-setup.sql')
     tables_data = get_all_tables()
     flash('All tables created')
     return render_template('show_tables.html', tables_data=tables_data)
 
 @app.route("/schema/cleanup")
 def schema_cleanup():
-    mdm_schema.exec_sql('scripts/DB-cleanup.sql')
+    mdm_schema.exec_sqlfile(app, 'scripts/DB-cleanup.sql')
     tables_data = get_all_tables()
     flash('All tables deleted.')
     return render_template('show_tables.html', tables_data=tables_data)
 
 @app.route("/schema/refresh")
 def schema_refresh():
-    mdm_schema.exec_sql('scripts/DB-cleanup.sql')
-    mdm_schema.exec_sql('scripts/DB-setup.sql')
+    mdm_schema.exec_sqlfile(app, 'scripts/DB-cleanup.sql')
+    mdm_schema.exec_sqlfile(app, 'scripts/DB-setup.sql')
     tables_data = get_all_tables()
     flash('All tables recreated.')
     return render_template('show_tables.html', tables_data=tables_data)
 
 @app.route("/data/load")
 def data_load():
-    mdm_schema.exec_sql('scripts/Specialties.sql')
-    mdm_schema.exec_sql('scripts/SpecialtiesNUCC.sql')
-    mdm_schema.exec_sql('scripts/RawData.sql')
+    mdm_schema.exec_sqlfile(app, 'scripts/Specialties.sql')
+    mdm_schema.exec_sqlfile(app, 'scripts/SpecialtiesNUCC.sql')
+    mdm_schema.exec_sqlfile(app, 'scripts/RawData.sql')
     tables_data = get_all_tables()
     flash("Specialty and RawData tables loaded with rawdata.")
     return render_template('show_tables.html', tables_data=tables_data)
@@ -152,15 +150,13 @@ def data_map():
     mapped, errors = mdm_map.map_all()
     flash(str(mapped - len(errors)) + " records mapped to MDM tables")
     return render_template('mapping_results.html', errors=errors)
-'''
-@app.route("/test/alchemy")
-def test_alchemy():
-    session = Session()
-    rows = session.query(RawData).filter(RawData.sourceid.in_([1,2,3])).all()
-    for row in rows:
-      app.logger.debug(row.sourceid)
-'''
 
+@app.route("/data/match_rules")
+def data_match_rules():
+    tables_data = get_all_tables()
+    flash("Select and modify the matching rules you would like to be executed.")
+    return render_template('match_rules.html', tables_data=tables_data)
+  
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     error = None

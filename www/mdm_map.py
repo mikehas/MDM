@@ -1,7 +1,7 @@
+from flaskr import app
 from pprint import pprint
 from mdm_db import Session
 from mdm_models import *
-from flaskr import app
 from sqlalchemy.exc import SQLAlchemyError, IntegrityError, InvalidRequestError, DBAPIError
 import time
 import string
@@ -54,8 +54,8 @@ def map_all():
 
   session = Session()
   #rawdata = session.query(RawData).limit(10)
-  #rawdata = session.query(RawData).limit(1000)
-  rawdata = session.query(RawData).all()
+  rawdata = session.query(RawData).limit(1000)
+  #rawdata = session.query(RawData).all()
 
   mapped = 0
   errors = []
@@ -121,7 +121,7 @@ def map_all():
     mapped = mapped + 1
 
   app.logger.debug("Chunking and mapping phones...")
-  mdm_schema.exec_sql('scripts/MapPhones.sql')
+  mdm_schema.exec_sql(app, 'scripts/MapPhones.sql')
 
   return mapped, errors
 
