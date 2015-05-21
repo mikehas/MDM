@@ -6,6 +6,7 @@ from logging.handlers import RotatingFileHandler
 
 import mdm_schema
 import mdm_map
+import mdm_match
 from mdm_db import engine
 
 # create application
@@ -156,6 +157,12 @@ def data_match_rules():
     tables_data = get_all_tables()
     flash("Select and modify the matching rules you would like to be executed.")
     return render_template('match_rules.html', tables_data=tables_data)
+
+@app.route("/data/match")
+def data_match():
+    tables_data = get_all_tables()
+    matched, errors = mdm_match.match_all(app)
+    return render_template('matching_results.html', tables_data=tables_data)
   
 @app.route('/login', methods=['GET', 'POST'])
 def login():

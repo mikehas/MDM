@@ -1,13 +1,12 @@
 from flaskr import app
 from pprint import pprint
-from mdm_db import Session
+from mdm_db import Session, safe_commit
 from mdm_models import *
 from sqlalchemy.exc import SQLAlchemyError, IntegrityError, InvalidRequestError, DBAPIError
 import time
 import string
 import re
 import mdm_schema
-from functools import wraps
 
 def map_specialty(specialty):
   pass
@@ -52,27 +51,10 @@ def nullify(row):
   return row
 
 
-def safe_commit(f):
-  @wraps(f)
-  def wrapped(*args, **kwds): 
-    try:
-      o = f(*args, **kwds)
-      if o is not None:
-        s = Session()
-        s.add(o)
-        s.commit()
-    except Exception, e:
-      app.logger.error(f.__name__ + " " + e.message)
-    finally:
-      try: 
-        s.close()
-      except UnboundLocalError: 
-        pass
-  return wrapped
 
 @safe_commit
 def map_provider(app, row, now):
-  provider = MedicalProvider(sourceid=row.sourceid, providertype=row.providertype, name=clean_name(row.name), gender=row.gender, dateofbirth=row.dateofbirth, issoleproprietor=row.issoleproprietor, primaryspeciality=row.primaryspecialty, secondaryspeciality=row.secondaryspecialty, timestamp=now, message="basic mapping")
+  provider = MedicalProvider(sourceid=row.sourceid, providertype=row.providertype, name=clean_name(row.name), gender=row.gender, dateofbirth=row.dateofbirth, issoleproprietor=row.issoleproprietor, primaryspecialty=row.primaryspecialty, secondaryspecialty=row.secondaryspecialty, timestamp=now, message="basic mapping")
   return provider
 
 @safe_commit
