@@ -7,6 +7,7 @@ import time
 import string
 import re
 import mdm_schema
+from functools import wraps
 
 def map_specialty(specialty):
   pass
@@ -50,8 +51,44 @@ def nullify(row):
       row[i] = 'NULL'
   return row
 
-def map_all():
 
+def safe_commit(f):
+  @wraps(f)
+  def wrapped(*args, **kwds): 
+    try:
+      o = f(*args, **kwds)
+      if o is not None:
+        s = Session()
+        s.add(o)
+        s.commit()
+    except Exception, e:
+      app.logger.error(f.__name__ + " " + e.message)
+    finally:
+      try: 
+        s.close()
+      except UnboundLocalError: 
+        pass
+  return wrapped
+
+@safe_commit
+def map_provider(app, row, now):
+  provider = MedicalProvider(sourceid=row.sourceid, providertype=row.providertype, name=clean_name(row.name), gender=row.gender, dateofbirth=row.dateofbirth, issoleproprietor=row.issoleproprietor, primaryspeciality=row.primaryspecialty, secondaryspeciality=row.secondaryspecialty, timestamp=now, message="basic mapping")
+  return provider
+
+@safe_commit
+def map_address(app, row, now):
+  mail_addr = Address(sourceid=row.sourceid, addresstype='mailing',country=row.mailingcountry,region=row.mailingregion, county=row.mailingcounty, city=row.mailingcity, postalcode=row.mailingpostcode)
+  if mail_addr.country is not None and mail_addr.region is not None and mail_addr.county is not None and mail_addr.city is not None and mail_addr.postalcode is not None:
+    return mail_addr
+
+@safe_commit
+def map_practice_address(app, row, now):
+  practice_addr = Address(sourceid=row.sourceid, addresstype='practice',country=row.practicecountry,region=row.practiceregion, county=row.practicecounty, city=row.practicecity, postalcode=row.practicepostcode)
+
+  if practice_addr.country is not None and practice_addr.region is not None and practice_addr.county is not None and practice_addr.city is not None and practice_addr.postalcode is not None:
+    return clean_address(practice_addr)
+
+def map_all():
   session = Session()
   #rawdata = session.query(RawData).limit(10)
   rawdata = session.query(RawData).limit(1000)
@@ -65,58 +102,9 @@ def map_all():
     if i % 1000 == 0:
       app.logger.debug("Sourceid: " + str(row.sourceid) + " Processing...")
    
-    try:
-      s2 = Session()
-      provider = MedicalProvider(sourceid=row.sourceid, providertype=row.providertype, name=clean_name(row.name), gender=row.gender, dateofbirth=row.dateofbirth, issoleproprietor=row.issoleproprietor, primaryspeciality=row.primaryspecialty, secondaryspeciality=row.secondaryspecialty, timestamp=now, message="basic mapping")
-      s2.add(provider)
-      s2.commit()
-    except Exception, e:
-      app.logger.debug("******** ERROR CAUGHT **********" + e.message)
-      errors.append(['medical_provider',row.sourceid, e.message])
-      s2.close()
-      s2 = Session()
-    finally:
-      s2.close()
-
-    try:
-      s2 = Session()
-      mail_addr = Address(sourceid=row.sourceid, addresstype='mailing',country=row.mailingcountry,region=row.mailingregion, county=row.mailingcounty, city=row.mailingcity, postalcode=row.mailingpostcode)
-      if mail_addr.country is not None and mail_addr.region is not None and mail_addr.county is not None and mail_addr.city is not None and mail_addr.postalcode is not None:
-        s2.add(clean_address(mail_addr))
-        s2.commit()
-    except Exception, e:
-      app.logger.debug("Sourceid: " + str(row.sourceid) + " Error: " + e.message)
-      errors.append(['mailing_address',row.sourceid, e.message])
-      session.rollback()
-    finally:
-      s2.close()
-
-    try:
-      s2 = Session()
-      practice_addr = Address(sourceid=row.sourceid, addresstype='practice',country=row.practicecountry,region=row.practiceregion, county=row.practicecounty, city=row.practicecity, postalcode=row.practicepostcode)
-      if practice_addr.country is not None and practice_addr.region is not None and practice_addr.county is not None and practice_addr.city is not None and practice_addr.postalcode is not None:
-        s2.add(clean_address(practice_addr))
-        s2.commit()
-    except Exception, e:
-      app.logger.debug("Sourceid: " + str(row.sourceid) + " Error: " + e.message)
-      errors.append(['practice_address',row.sourceid, e.message])
-      s2.rollback()
-    finally:
-      s2.close()
-
-    '''
-    try:
-      s2 = Session()
-      phone = Phone(sourceid=row.sourceid, exchange=row.phone)
-      s2.add(phone)
-      s2.commit()
-    except Exception, e:
-      app.logger.debug("Sourceid: " + str(row.sourceid) + " Error: " + e.message)
-      errors.append(['phone',row.sourceid, e.message])
-      s2.rollback()
-    finally:
-      s2.close()
-    '''
+    map_provider(app, row, now)
+    map_address(app, row, now)
+    map_practice_address(app, row, now)
 
     mapped = mapped + 1
 
