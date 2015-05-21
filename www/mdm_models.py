@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String
+from sqlalchemy import Column, Integer, String, DateTime
 from sqlalchemy.ext.declarative import declarative_base
 
 from mdm_db import Base, Session
@@ -6,7 +6,7 @@ from mdm_db import Base, Session
 class RawData(Base):
   __tablename__ = 'RawData'
 
-  sourceid = Column(Integer, primary_key=True)
+  sourceid = Column(Integer, primary_key=True, autoincrement=False)
   providertype = Column(String)
   name = Column(String)
   gender = Column(String)
@@ -67,5 +67,55 @@ class Phone(Base):
   subscriber = Column(String)
   ext = Column(String)
 
+class MasteredProvider(Base):
+  __tablename__ = 'MasteredMedicalProvider'
+
+  masterid = Column(Integer, primary_key=True, autoincrement=True)
+  providertype = Column(String)
+  name = Column(String)
+  gender = Column(String)
+  dateofbirth = Column(String)
+  issoleproprietor = Column(String)
+
+class Matched(Base):
+  __tablename__ = 'Matched'
+
+  sourceid = Column(Integer, primary_key=True)
+  masterid = Column(Integer, primary_key=True)
+  timestamp = Column(DateTime)
+  matchrule = Column(String)
+  message = Column(String)
+
+class MatchedMailingAddress(Base):
+  __tablename__ = 'MatchedMailingAddress'
+
+  sourceid = Column(Integer, primary_key=True)
+  masterid = Column(Integer, primary_key=True)
+  addresstype = Column(String)
+
+class MatchedPhone(Base):
+  __tablename__ = 'MatchedPhone'
+
+  sourceid = Column(Integer, primary_key=True)
+  masterid = Column(Integer, primary_key=True)
+
+class MatchedPracticeAddress(Base):
+  __tablename__ = 'MatchedPracticeAddress'
+
+  sourceid = Column(Integer, primary_key=True)
+  masterid = Column(Integer, primary_key=True)
+  addresstype = Column(String)
+
+class MatchedPrimarySpeciality(Base):
+  __tablename__ = 'MatchedPrimarySpecialities'
+
+  masterid = Column(Integer, primary_key=True)
+  specialty = Column(String, primary_key=True)
+
+class MatchedSecondarySpeciality(Base):
+  __tablename__ = 'MatchedSecondarySpecialities'
+
+  masterid = Column(Integer, primary_key=True)
+  specialty = Column(String, primary_key=True)
 
 
