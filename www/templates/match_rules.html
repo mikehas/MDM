@@ -1,0 +1,92 @@
+{% extends "layout.html" %}
+{% block localhead %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='jquery-ui.css') }}" />
+    <script type="text/javascript" language="javascript" src="{{ url_for('static', filename='jquery-ui.js') }}"></script>
+  <style>
+    #sortable { list-style-type: none; margin: 0; padding: 0; width: 100%; }
+    #sortable li { margin: 0 3px 3px 3px; font-size: 1.3em; height: 55px; }
+    #sortable li span { margin-left: -1.3em; }
+    #sortable li .li_left { width:85%; height: 30px; display:inline-block; }
+    #sortable li .li_left input { margin: 5px 10px 0px 5px; height: 40px; font-size: 1.2em; width: 125px}
+    #sortable li .li_right { float:right; width:auto; height: 30px; display:inline-block;}
+    .deletebutton { margin:none; }
+    #sortable li { background-color:#ccc;margin: 10px 0 10px 0;}
+  </style>
+  <script type="text/javascript"> 
+      $(document).ready(function() {
+        $('#dtable').DataTable();
+        $( "#sortable" ).sortable({
+          revert: true
+        });
+        $( "#sortable" ).disableSelection();
+/*
+        $( "#addbutton" ).on('click', append_li(function() {
+            $('.deletebutton').on('click', function() {
+              $(this).closest('li').remove();
+            });
+          }));
+
+        def append_li() {
+          $('#rules ul').append(
+            $('<li>').append(
+              $('<div>'.attr('class','li_container').append)(
+                $('<div>'.attr('class','li_left').append)(
+                  $('<div>'.attr('class','li_right').append)(
+                    $('<input>').attr('name','title').attr('value','New Rule').attr('type','text')
+          )))));    
+        }
+*/
+        $("#addbutton").on('click', function(){
+            $('#rules ul').append(
+              $('<li>').append(
+                $('<div>').attr('class','li_container').append(
+                  $('<div>').attr('class','li_left').append(
+                    $('<input>').attr('name','title').attr('value','New Rule').attr('type','text')
+                  )
+                  ,$('<div>').attr('class','li_right').append(
+                    $('<button>').attr('class','deletebutton').on('click',function() {
+                        $(this).closest('li').remove();
+                        }).text('delete')
+                    )
+                  )
+                )
+              );
+            });
+
+/*
+        function append_li(callback) {
+
+          var ru = $('#rules ul').append('<li class="ui-state-default"><div class="li_container"><div class="li_left"><input name="title" value="New Rule" type="text"></input></div><div class="li_right"><button class="deletebutton"> delete </button></div></li>');
+          callback()
+        }
+        */
+
+        $('.deletebutton').on('click', function() {
+              $(this).closest('li').remove();
+              });
+        $( "#sortable ul li" ).append('<button> delete </button>');
+
+      });
+  </script>
+{% endblock %}
+{% block body %}
+  {% if session.logged_in %}
+
+<div id=rules>
+  <ul id="sortable">
+    <li class="ui-state-default"><div class="li_container"><div class="li_left"><input name="title" value="Rule 1" type="text"></input></div><div class="li_right"><button class="deletebutton"> delete </button></div></li>
+    <li class="ui-state-default"><div class="li_container"><div class="li_left"><input name="title" value="Rule 2" type="text"></input></div><div class="li_right"><button class="deletebutton"> delete </button></div></li>
+    <li class="ui-state-default"><div class="li_container"><div class="li_left"><input name="title" value="Rule 3" type="text"></input></div><div class="li_right"><button class="deletebutton"> delete </button></div></li>
+  </ul>
+</div>
+<div class='rule-controls'>
+<button id="addbutton" >Add Rule</button>
+<button id="loadbutton" >Load Defaults</button>
+<button id="savebutton" >Save Rules</button>
+</div>
+ 
+  {% else %}
+    <p> You are not logged in. </p>
+	{% endif %}
+  </ul>
+{% endblock %}
