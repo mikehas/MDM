@@ -8,6 +8,9 @@ import mdm_schema
 import mdm_map
 import mdm_match
 from mdm_db import engine
+import json
+from mdm_models import RawData, Phone
+import re
 
 # create application
 app = Flask(__name__)
@@ -17,7 +20,10 @@ app.config.from_envvar("FLASKR_SETTINGS", silent=False)
 
 @app.teardown_appcontext
 def shutdown_session(exception=None):
+  try:
       Session.remove()
+  except NameError, e:
+      app.logger.info(e)
 
 # app urls
 
@@ -154,9 +160,17 @@ def data_map():
 
 @app.route("/data/match_rules")
 def data_match_rules():
-    tables_data = get_all_tables()
+    data = RawData.__table__.columns
+    cols = []
+    for item in data:
+      cols.append(str(item).split('.')[1])
+
+    data = Phone.__table__.columns
+    for item in data:
+      cols.append(str(item).split('.')[1])
+
     flash("Select and modify the matching rules you would like to be executed.")
-    return render_template('match_rules.html', tables_data=tables_data)
+    return render_template('match_rules.html', columns=cols)
 
 @app.route("/data/match")
 def data_match():
