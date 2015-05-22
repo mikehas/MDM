@@ -4,40 +4,29 @@
     <script type="text/javascript" language="javascript" src="{{ url_for('static', filename='jquery-ui.js') }}"></script>
   <style>
     #sortable { list-style-type: none; margin: 0; padding: 0; width: 100%; }
-    #sortable li { margin: 0 3px 3px 3px; font-size: 1.3em; height: 55px; }
+    #sortable li { margin: 0 3px 3px 3px; font-size: 1.3em;  }
     #sortable li span { margin-left: -1.3em; }
-    #sortable li .li_left { width:85%; height: 30px; display:inline-block; }
+    #sortable li .li_container { height: 300px; }
+    #sortable li .li_left {float:left; width:10%; height: 30px; display:block }
+    #sortable li .rule {float:left; width:70%; clear:none; display:block}
     #sortable li .li_left input { margin: 5px 10px 0px 5px; height: 40px; font-size: 1.2em; width: 125px}
-    #sortable li .li_right { float:right; width:auto; height: 30px; display:inline-block;}
-    .deletebutton { margin:none; }
+    #sortable li .li_right { float:right; width:auto; height: 30px; display:block}
+    .deletebutton { margin:none; height: 300px}
     #sortable li { background-color:#ccc;margin: 10px 0 10px 0;}
+    .rule ul li select {width:125px;}
+    .content { width: 100%; overflow:visible !important }
   </style>
   <script type="text/javascript"> 
       $(document).ready(function() {
         $('#dtable').DataTable();
+
         $( "#sortable" ).sortable({
           revert: true
         });
-        $( "#sortable" ).disableSelection();
-/*
-        $( "#addbutton" ).on('click', append_li(function() {
-            $('.deletebutton').on('click', function() {
-              $(this).closest('li').remove();
-            });
-          }));
 
-        def append_li() {
-          $('#rules ul').append(
-            $('<li>').append(
-              $('<div>'.attr('class','li_container').append)(
-                $('<div>'.attr('class','li_left').append)(
-                  $('<div>'.attr('class','li_right').append)(
-                    $('<input>').attr('name','title').attr('value','New Rule').attr('type','text')
-          )))));    
-        }
-*/
         $("#addbutton").on('click', function(){
-            $('#rules ul').append(
+          var cols = ['sourceid', 'providertype', 'name', 'mailing address'];
+          $('#rules > ul').append(
               $('<li>').append(
                 $('<div>').attr('class','li_container').append(
                   $('<div>').attr('class','li_left').append(
@@ -53,36 +42,63 @@
               );
             });
 
-/*
-        function append_li(callback) {
-
-          var ru = $('#rules ul').append('<li class="ui-state-default"><div class="li_container"><div class="li_left"><input name="title" value="New Rule" type="text"></input></div><div class="li_right"><button class="deletebutton"> delete </button></div></li>');
-          callback()
-        }
-        */
-
         $('.deletebutton').on('click', function() {
               $(this).closest('li').remove();
               });
-        $( "#sortable ul li" ).append('<button> delete </button>');
+        $( "#sortable .li_right" ).append(
+            $('<button>').attr('class','deletebutton').text('delete').on('click',function() {
+                        $(this).closest('li').remove();
+                        }).text('delete')
 
+        );
+/*
+        var cols = ['sourceid', 'providertype', 'name'];
+        def add_selectors(obj)
+
+        $.each(cols, function(i, val){
+            alert(val);
+        });
+
+        */
       });
+
   </script>
 {% endblock %}
 {% block body %}
   {% if session.logged_in %}
 
-<div id=rules>
-  <ul id="sortable">
-    <li class="ui-state-default"><div class="li_container"><div class="li_left"><input name="title" value="Rule 1" type="text"></input></div><div class="li_right"><button class="deletebutton"> delete </button></div></li>
-    <li class="ui-state-default"><div class="li_container"><div class="li_left"><input name="title" value="Rule 2" type="text"></input></div><div class="li_right"><button class="deletebutton"> delete </button></div></li>
-    <li class="ui-state-default"><div class="li_container"><div class="li_left"><input name="title" value="Rule 3" type="text"></input></div><div class="li_right"><button class="deletebutton"> delete </button></div></li>
-  </ul>
-</div>
 <div class='rule-controls'>
 <button id="addbutton" >Add Rule</button>
 <button id="loadbutton" >Load Defaults</button>
 <button id="savebutton" >Save Rules</button>
+</div>
+<div id=rules>
+  <ul id="sortable">
+    <li class="ui-state-default">
+    <div class="li_container">
+      <div class="li_left">
+        <input name="title" value="Rule 1" type="text"></input>
+      </div>
+      <div class="rule">
+        <ul>
+          <li>SourceId<select>
+            <option value = "ignore">ignore</option>
+            <option value = "null">is null</option>
+            <option value = "not null">not null</option>
+            <option value = "exact">exact match</option>
+            <option value = "exact">fuzzy match</option>
+          </select>
+          </li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+      </div>
+      <div class="li_right">
+      </div>
+    </div>
+    </li>
+  </ul>
 </div>
  
   {% else %}

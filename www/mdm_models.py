@@ -39,9 +39,9 @@ class MedicalProvider(Base):
   gender = Column(String)
   dateofbirth = Column(String)
   issoleproprietor = Column(String)
-  primaryspeciality = Column(String)
-  secondaryspeciality = Column(String)
-  timestamp = Column(String)
+  primaryspecialty = Column(String)
+  secondaryspecialty = Column(String)
+  timestamp = Column(DateTime)
   message = Column(String) 
 
 class Address(Base):
@@ -106,14 +106,14 @@ class MatchedPracticeAddress(Base):
   masterid = Column(Integer, primary_key=True)
   addresstype = Column(String)
 
-class MatchedPrimarySpeciality(Base):
-  __tablename__ = 'MatchedPrimarySpecialities'
+class MatchedPrimarySpecialty(Base):
+  __tablename__ = 'MatchedPrimarySpecialties'
 
   masterid = Column(Integer, primary_key=True)
   specialty = Column(String, primary_key=True)
 
-class MatchedSecondarySpeciality(Base):
-  __tablename__ = 'MatchedSecondarySpecialities'
+class MatchedSecondarySpecialty(Base):
+  __tablename__ = 'MatchedSecondarySpecialties'
 
   masterid = Column(Integer, primary_key=True)
   specialty = Column(String, primary_key=True)

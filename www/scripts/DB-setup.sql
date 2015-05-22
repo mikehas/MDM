@@ -43,13 +43,13 @@ create table MedicalProvider (
 	Gender char(1),
 	DateOfBirth varchar(32),
 	isSoleProprietor char(1),
-	PrimarySpeciality char(10),
-	SecondarySpeciality char(10),
+	PrimarySpecialty char(10),
+	SecondarySpecialty char(10),
 	Timestamp datetime,
 	Message varchar(128),
 	Constraint MP_RD FOREIGN KEY (SourceID) REFERENCES RawData(SourceID),
-	Constraint MP_SPP FOREIGN KEY (PrimarySpeciality) REFERENCES Specialty(Code),
-	Constraint MP_SPS FOREIGN KEY (SecondarySpeciality) REFERENCES Specialty(Code)
+	Constraint MP_SPP FOREIGN KEY (PrimarySpecialty) REFERENCES Specialty(Code),
+	Constraint MP_SPS FOREIGN KEY (SecondarySpecialty) REFERENCES Specialty(Code)
 );
 
 create table Address (
@@ -122,19 +122,19 @@ create table MatchedPracticeAddress (
 	Constraint MPA_MMP foreign key (SourceID, AddressType) references Address(SourceID, AddressType)
 );
 
-create table MatchedPrimarySpecialities (
+create table MatchedPrimarySpecialties (
 	MasterID int,
-	Speciality char(10),
-	Primary key(MasterID, Speciality),
+	Specialty char(10),
+	Primary key(MasterID, Specialty),
 	Constraint MPS_MMP foreign key (MasterID) references MasteredMedicalProvider(MasterID),
-	Constraint MPS_S foreign key (Speciality) references Specialty(Code)
+	Constraint MPS_S foreign key (Specialty) references Specialty(Code)
 );
 
-create table MatchedSecondarySpecialities (
+create table MatchedSecondarySpecialties (
 	MasterID int,
-	Speciality char(10),
-	Primary key(MasterID, Speciality),
+	Specialty char(10),
+	Primary key(MasterID, Specialty),
 	Constraint MSS_MMP foreign key (MasterID) references MasteredMedicalProvider(MasterID),
-	Constraint MSS_S foreign key (Speciality) references Specialty(Code)
+	Constraint MSS_S foreign key (Specialty) references Specialty(Code)
 );
 

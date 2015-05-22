@@ -7,7 +7,7 @@ h2              { font-size: 1.2em; }
 .page           { margin: 2em auto; width: 95%; border: 5px solid #ccc;
                   padding: 0.8em; background: white; }
 .content_wrapper{ width: 100%}
-.content        { width: 100%; overflow-x:scroll; }
+.content        { width: 100%; overflow-x:scroll; overflow-y:visible }
 .entries        { list-style: none; margin: 0; padding: 0; }
 .entries li     { margin: 0.8em 1.2em; }
 .entries li h2  { margin-left: -1em; }
