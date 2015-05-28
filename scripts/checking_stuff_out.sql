@@ -148,4 +148,35 @@ where CHAR_LENGTH(r.mailingpostcode) > 5
 and r.mailingpostcode not like '%-%';
 
 select * from rawdata
-where sourceid = 301
+where sourceid = 301;
+
+describe Specialty;
+
+select max(id) from specialty;
+
+describe phone;
+select name, practicecity, practiceregion, practicecountry, phone from rawdata r where r.Phone in 
+('06221173399',
+ '552433430980',
+ '(39)3407624851',
+ '011526566113656'
+);
+
+show table status;
+
+describe MasteredMedicalProvider;
+describe Matched;
+describe MatchedMailingAddress;
+
+describe MatchedPrimarySpecialities;
+describe Specialty;
+describe MatchedSecondarySpecialities;
+describe address;
+
+ALTER TABLE MasteredMedicalProvider AUTO_INCREMENT = 1;
+
+select * from phones p1, phones p2 where
+ p1.area = p2.area
+and p1.exchange = p2.exchange
+and p1.subscriber = p2.subscriber;
+

@@ -16,10 +16,12 @@ def match_practice_address(app, masterid, sourceid):
  
 def match_mastered_provider(app, row, now):
   s = Session()
+  
   m = MasteredProvider(providertype=row.providertype,name=row.name,gender=row.gender,dateofbirth=row.dateofbirth,issoleproprietor=row.issoleproprietor) 
+
   s.add(m)
   s.flush()
-
+  
   match = Matched(sourceid=row.sourceid,masterid=m.masterid,timestamp=now,matchrule='transfer',message='<insert message here>')
   s.add(match)
   s.flush()
@@ -49,8 +51,9 @@ def match_all(app):
   session = Session()
 
   #providers = session.query(MedicalProvider).limit(10)
+  providers = session.query(MedicalProvider).limit(100)
   #providers = session.query(MedicalProvider).limit(1000)
-  providers = session.query(MedicalProvider).all()
+  #providers = session.query(MedicalProvider).all()
 
   matched = 0
   errors = []
@@ -58,7 +61,7 @@ def match_all(app):
   for i, row in enumerate(providers):
     now = time.strftime('%Y-%m-%d %H:%M:%S') 
     if i % 1000 == 0:
-      app.logger.info("Sourceid: " + str(row.sourceid) + " Processing...")
+      app.logger.info("Sourceid: " + str(row.sourceid) + " Matching rocessing...")
    
     match_mastered_provider(app, row, now)
 
