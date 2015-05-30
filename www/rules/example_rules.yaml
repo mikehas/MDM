@@ -23,4 +23,5 @@ Rules:
       match_threshold: 4
 
 
-
+# All Columns
+# MedicalProviders, PrimarySpecialty, SecondarySpecialty, PracticeAddress, MailingAddress, Phone, 

@@ -9,7 +9,7 @@ import mdm_map
 import mdm_match
 from mdm_db import engine
 import json
-from mdm_models import RawData, Phone
+from mdm_models import *
 import re
 
 # create application
@@ -158,16 +158,25 @@ def data_map():
     flash(str(mapped - len(errors)) + " records mapped to MDM tables")
     return render_template('mapping_results.html', errors=errors)
 
+def getAttributesToMatch(columns, ignore_columns, prefix):
+    cols = []
+    for item in columns:
+      col = str(item).split('.')[1]
+      if col not in ignore_columns:
+        cols.append(col if prefix is None else (prefix + col))
+    return cols
+
 @app.route("/data/match_rules")
 def data_match_rules():
-    data = RawData.__table__.columns
+    #MedicalProviders, Address, Phone
+    
+    ignore_cols = ['sourceid', 'addresstype', 'providertype', 'timestamp', 'message']
     cols = []
-    for item in data:
-      cols.append(str(item).split('.')[1])
 
-    data = Phone.__table__.columns
-    for item in data:
-      cols.append(str(item).split('.')[1])
+    cols.extend(getAttributesToMatch(MedicalProvider.__table__.columns, ignore_cols, None))
+    cols.extend(getAttributesToMatch(Address.__table__.columns, ignore_cols, 'Practice '))
+    cols.extend(getAttributesToMatch(Address.__table__.columns, ignore_cols, 'Mailing '))
+    cols.extend(getAttributesToMatch(Phone.__table__.columns, ignore_cols, None))
 
     flash("Select and modify the matching rules you would like to be executed.")
     return render_template('match_rules.html', columns=cols)
