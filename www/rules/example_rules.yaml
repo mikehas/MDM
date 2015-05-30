@@ -1,0 +1,26 @@
+--- 
+Rules:
+ - title: rule1
+   match_cols:
+    - match_col: MasteredProvider.name
+      match_type: exact
+
+ - title: rule2
+   match_cols:
+    - match_col: rawdata.name
+      match_type: fuzzy
+      match_threshold: 5
+    - match_col: rawdata.phone
+      match_type: fuzzy
+      match_threshold: 4
+
+ - title: rule3
+   match_cols:
+    - match_col: rawdata.name
+      match_type: exact
+    - match_col: rawdata.phone
+      match_type: fuzzy
+      match_threshold: 4
+
+
+
