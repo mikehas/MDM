@@ -176,7 +176,7 @@ def data_match_rules():
     cols.extend(getAttributesToMatch(MedicalProvider.__table__.columns, ignore_cols, None))
     cols.extend(getAttributesToMatch(Address.__table__.columns, ignore_cols, 'Practice '))
     cols.extend(getAttributesToMatch(Address.__table__.columns, ignore_cols, 'Mailing '))
-    cols.extend(getAttributesToMatch(Phone.__table__.columns, ignore_cols, None))
+    cols.append('Phone');
 
     flash("Select and modify the matching rules you would like to be executed.")
     return render_template('match_rules.html', columns=cols)

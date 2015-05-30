@@ -66,6 +66,7 @@ class Phone(Base):
   exchange = Column(String)
   subscriber = Column(String)
   ext = Column(String)
+  cleanphone = Column(String)
 
 class MasteredProvider(Base):
   __tablename__ = 'MasteredMedicalProvider'

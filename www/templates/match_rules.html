@@ -58,8 +58,6 @@
 
         );
 
-
-        //var cols = ['sourceid', 'providertype', 'name', 'abby'];
         var cols = {{ columns|safe }}
 
         $('.rule').each(function(){
@@ -70,9 +68,10 @@
            var html = '<ul>'
            $.each(cols, function(i, val){
               html += '<li class="item">' + val + '<br /><select>' +  
-           ' <option value = "ignore">ignore</option>' +
            ' <option value = "exact">exact match</option>' +
+           ' <option value = "ignore">ignore</option>' +
            ' <option value = "exact">fuzzy match</option>' +
+           ' <option value = "exact">do not differ</option>' +
            '</select></li>'
            })
            html += '</ul>'
