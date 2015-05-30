@@ -3,6 +3,7 @@ from mdm_db import Session, safe_commit
 from mdm_models import *
 from sqlalchemy.exc import SQLAlchemyError, IntegrityError, InvalidRequestError, DBAPIError
 import time
+from nltk.metrics.distance import edit_distance
 
 @safe_commit
 def match_mailing_address(app, masterid, sourceid):
