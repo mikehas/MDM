@@ -54,14 +54,11 @@ Subscriber = SUBSTRING(Phone,7,4)
 WHERE Phones.SourceID = RawData.SourceID
 AND Phone REGEXP '^[[:digit:]]{10}$';
 
-DELETE 
-FROM Phones
-WHERE 
-Country IS NULL AND
-Area IS NULL AND
-Exchange IS NULL AND
-Subscriber IS NULL AND
-Ext IS NULL;
-
 Update Phones
 Set CleanPhone = CONCAT(Area, "-", Exchange, "-", Subscriber);
+
+UPDATE Phones, RawData
+Set CleanPhone = RawData.Phone
+WHERE Phones.SourceID = RawData.SourceID
+AND Phones.CleanPhone IS NULL;
+
