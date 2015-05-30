@@ -1,4 +1,4 @@
-INSERT IGNORE INTO SPECIALTY (ID, Code, Description) VALUES
+INSERT IGNORE INTO Specialty (ID, Code, Description) VALUES
 (100001, "101Y00000X","NUCC - Behavioral Health & Social Service Providers, Counselor, "),
 (100002, "101YA0400X","NUCC - Behavioral Health & Social Service Providers, Counselor, Addiction (Substance Use Disorder)"),
 (100003, "101YM0800X","NUCC - Behavioral Health & Social Service Providers, Counselor, Mental Health"),
