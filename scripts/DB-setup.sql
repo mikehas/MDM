@@ -73,6 +73,7 @@ create table Phones (
 	Exchange varchar(6),
 	Subscriber varchar(6),
 	Ext varchar(6),
+   CleanPhone varchar(12),
 	Constraint P_MP foreign key (SourceID) references MedicalProvider(SourceID)
 );
 

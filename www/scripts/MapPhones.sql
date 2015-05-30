@@ -63,3 +63,5 @@ Exchange IS NULL AND
 Subscriber IS NULL AND
 Ext IS NULL;
 
+Update Phones
+Set CleanPhone = CONCAT(Area, "-", Exchange, "-", Subscriber);
