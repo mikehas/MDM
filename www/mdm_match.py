@@ -168,22 +168,39 @@ def match_to_mastered_providers(app, mp, rules, now):
         m = mmp
 
   if m is not None:
-    match = Matched(sourceid=mp.sourceid,masterid=m.masterid,timestamp=now,\
-          matchrule=matchingRule.title,message='Applied rule!')
-    s.add(match)
-
+    fieldsSurvived = None
     #do survivorship here
     #need to figure out how to get back to original rawdata name...
     if (m.name is None and mp.name is not None) or\
           len(mp.name) > len(m.name):
       m.name = mp.name
+      if fieldsSurvived is None:
+        fieldsSurvived = "Survived: name"
+      else:
+        fieldsSurvived = fieldsSurvived + ", name"
     if m.gender is None:
       m.gender = mp.gender
+      if fieldsSurvived is None:
+        fieldsSurvived = "Survived: gender"
+      else:
+        fieldsSurvived = fieldsSurvived + ", gender"
     if (m.dateofbirth is None and mp.dateofbirth is not None) or\
           len(mp.dateofbirth) > len(m.dateofbirth):
       m.dateofbirth = mp.dateofbirth
+      if fieldsSurvived is None:
+        fieldsSurvived = "Survived: dateofbirth"
+      else:
+        fieldsSurvived = fieldsSurvived + ", dateofbirth"
     if m.issoleproprietor is None:
       m.issoleproprietor = mp.issoleproprietor
+      if fieldsSurvived is None:
+        fieldsSurvived = "Survived: issoleproprietor"
+      else:
+        fieldsSurvived = fieldsSurvived + ", issoleproprietor"
+
+    match = Matched(sourceid=mp.sourceid,masterid=m.masterid,timestamp=now,\
+          matchrule=matchingRule.title,message=fieldsSurvived)
+    s.add(match)
 
   else:
     #no matches found! Insert new mastered provider
