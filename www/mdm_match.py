@@ -208,11 +208,14 @@ def match_to_mastered_providers(app, mp, rules, now):
           specialty=mp.secondaryspecialty)
     s.add(match_second_specialty)
 
-  match_mailing_address(app, m.masterid, mp.sourceid)
-  match_practice_address(app, m.masterid, mp.sourceid)
+  if s.query(s.query(Address).filter_by(sourceid=mp.sourceid,addresstype="mailing").exists()).scalar() == 1:
+    match_mailing_address(app, m.masterid, mp.sourceid)
+  if s.query(s.query(Address).filter_by(sourceid=mp.sourceid,addresstype="practice").exists()).scalar() == 1:
+    match_practice_address(app, m.masterid, mp.sourceid)
 
-  match_phone = MatchedPhone(sourceid=mp.sourceid, masterid=m.masterid)
-  s.add(match_phone)
+  if s.query(s.query(Phone).filter_by(sourceid=mp.sourceid).exists()).scalar() == 1:
+    match_phone = MatchedPhone(sourceid=mp.sourceid, masterid=m.masterid)
+    s.add(match_phone)
 
   s.commit()
   s.close()
