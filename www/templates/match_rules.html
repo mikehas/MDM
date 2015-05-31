@@ -6,14 +6,14 @@
     #sortable { list-style-type: none; margin: 0; padding: 0; width: 100%; }
     #sortable li { margin: 0 3px 3px 3px; font-size: 1.3em;  }
     #sortable li span { margin-left: -1.3em; }
-    #sortable li .li_container { height: 325px; }
+    #sortable li .rule { height: 325px; }
     .deletebutton { margin:none; height: 325px}
-    #sortable li .li_left {float:left; width:125px; height: 30px; display:block }
-    #sortable li .rule {float:left; width:80%; clear:none; display:block}
-    #sortable li .rule ul li {list-style-type: none; margin: 0; padding: 0;}
-    #sortable li .rule .item {font-size: 11.5pt;float:left; text-align:center; margin-right: 5px}
-    #sortable li .rule ul li select {width:130px;}
-    #sortable li .li_left input { margin: 5px 10px 0px 5px; height: 40px; font-size: 1.2em; width: 125px}
+    #sortable li .rule_title {float:left; width:125px; height: 30px; display:block }
+    #sortable li .rule_cols {float:left; width:80%; clear:none; display:block}
+    #sortable li .rule_cols ul li {list-style-type: none; margin: 0; padding: 0;}
+    #sortable li .rule_cols .item {font-size: 11.5pt;float:left; text-align:center; margin-right: 5px}
+    #sortable li .rule_cols ul li select {width:130px;}
+    #sortable li .rule_title input { margin: 5px 10px 0px 5px; height: 40px; font-size: 1.2em; width: 125px}
     #sortable li .li_right { float:right; width:auto; margin: 0 0 0 15px ;height: 30px; display:block}
     #sortable li { background-color:#ccc;margin: 5px 0 0 0;}
     .content { width: 100%; overflow:visible !important }
@@ -28,15 +28,14 @@
         });
 
         $("#addbutton").on('click', function(){
-          var cols = ['sourceid', 'providertype', 'name', 'mailing address'];
           $('#rules > ul').append(
               $('<li>').append(
-                $('<div>').attr('class','li_container').append(
-                  $('<div>').attr('class','li_left').append(
+                $('<div>').attr('class','rule').append(
+                  $('<div>').attr('class','rule_title').append(
                     $('<input>').attr('name','title').attr('value','New Rule').attr('type','text')
                   )
                   ,
-                  $('<div>').attr('class','rule').append(create_selections())
+                  $('<div>').attr('class','rule_cols').append(create_selections())
                   ,
                   $('<div>').attr('class','li_right').append(
                     $('<button>').attr('class','deletebutton').on('click',function() {
@@ -60,14 +59,14 @@
 
         var cols = {{ columns|safe }}
 
-        $('.rule').each(function(){
+        $('.rule_cols').each(function(){
           $(this).append(create_selections());
         });
 
         function create_selections(){
            var html = '<ul>'
            $.each(cols, function(i, val){
-              html += '<li class="item">' + val + '<br /><select>' +  
+               html += '<li class="item">' + val + '<br /><select name="' + val + '">' +  
            ' <option value = "exact">exact match</option>' +
            ' <option value = "ignore">ignore</option>' +
            ' <option value = "exact">fuzzy match</option>' +
@@ -77,6 +76,19 @@
            html += '</ul>'
            return html;
         }
+
+        function append_index_to_inputs(form, callback) {
+            $.each(form.find( '.rule' ), function(i){
+                $.each($( this ).find( 'select, input' ), function(j) {
+                  $( this ).attr('name', i + "_" + $( this ).attr('name'));
+                });
+            });
+            callback()
+        }
+
+        $( "#savebutton" ).click(function() {
+            append_index_to_inputs( $( "#rules"), function(){$( "#rulesform" ).submit()})
+        });
 
       });
 
@@ -90,14 +102,15 @@
 <button id="loadbutton" >Load Defaults</button>
 <button id="savebutton" >Save Rules</button>
 </div>
+<form id="rulesform" action={{ url_for('data_match_rules_save') }} method="post">
 <div id=rules>
   <ul id="sortable">
     <li class="ui-state-default">
-    <div class="li_container">
-      <div class="li_left">
+    <div class="rule">
+      <div class="rule_title">
         <input name="title" value="Rule 1" type="text"></input>
       </div>
-      <div class="rule">
+      <div class="rule_cols">
       </div>
       <div class="li_right">
       </div>
@@ -106,6 +119,7 @@
     </li>
   </ul>
 </div>
+</form>
  
   {% else %}
     <p> You are not logged in. </p>

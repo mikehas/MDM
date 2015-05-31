@@ -11,6 +11,9 @@ from mdm_db import engine
 import json
 from mdm_models import *
 import re
+from pprint import pprint, pformat
+import mdm_rules
+import yaml
 
 # create application
 app = Flask(__name__)
@@ -180,6 +183,15 @@ def data_match_rules():
 
     flash("Select and modify the matching rules you would like to be executed.")
     return render_template('match_rules.html', columns=cols)
+
+@app.route("/data/match_rules/save", methods = ['POST'])
+def data_match_rules_save():
+  app.logger.info(pformat(request.form))
+  rules_form = request.form
+
+  mdm_rules.write_yaml(app, "rules/example_rules2.yaml", rules_form)
+
+  return render_template('show_rules.html', rules_yaml = rules_form)
 
 @app.route("/data/match")
 def data_match():
