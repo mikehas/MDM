@@ -58,7 +58,8 @@ def matches_mastered_provider(s, mp, mmp, rule):
   m_prefix = "mailing "
 
   for col_match in rule["match_cols"]:
-    col_name = col_match["match_col"]
+    col_name = col_match["match_col"].lower()
+    matchtype = col_match["match_type"]
     threshold = col_match["match_threshold"] if hasattr(col_match, "match_threshold") else 0
 
     if col_name.startswith(p_prefix):
@@ -73,13 +74,13 @@ def matches_mastered_provider(s, mp, mmp, rule):
       if len(mmp_paddress) == 0:
         if not attributeMatches(None,\
               getattr(mp_paddress, att_name) if mp_paddress is not None else None,\
-              col_match["match_type"], threshold):
+              matchtype, threshold):
           return False
       else:
         for m, paddr in mmp_paddresses:
           if not attributeMatches(getattr(paddr, att_name),\
                 getattr(mp_paddress, att_name) if mp_paddress is not None else None,\
-                col_match["match_type"], threshold):
+                matchtype, threshold):
             return False
 
     elif col_name.startswith(m_prefix):
@@ -94,60 +95,60 @@ def matches_mastered_provider(s, mp, mmp, rule):
       if len(mmp_maddress) == 0:
         if not attributeMatches(None,\
               getattr(mp_maddress, att_name) if mp_maddress is not None else None,\
-              col_match["match_type"], threshold):
+              matchtype, threshold):
           return False
       else:
         for m, maddr in mmp_maddresses:
           if not attributeMatches(getattr(maddr, att_name),\
                 getattr(mp_maddress, att_name) if mp_maddress is not None else None,\
-                col_match["match_type"], threshold):
+                matchtype, threshold):
             return False
 
     elif col_name == "phone":
       if len(mmp_phones) == 0:
         if not attributeMatches(None,\
               getattr(mp_phone, att_name) if mp_phone is not None else None,\
-              col_match["match_type"], threshold):
+              matchtype, threshold):
           return False
       else:
         for m, phone in mmp_phones:
           if not attributeMatches(phone.cleanphone,\
                 mp_phone.cleanphone if mp_phone is not None else None,\
-                col_match["match_type"], threshold):
+                matchtype, threshold):
             return False
 
     elif col_name == "primaryspecialty":
       if len(mmp_pspecialties) == 0:
         if not attributeMatches(None, mp.primaryspecialty,\
-              col_match["match_type"], threshold):
+              matchtype, threshold):
           return False
       else:
         for specialty_match in mmp_pspecialties:
           if not attributeMatches(specialty_match.specialty, mp.primaryspecialty,\
-                col_match["match_type"], threshold):
+                matchtype, threshold):
             return False
 
     elif col_name == "secondaryspecialty":
       if len(mmp_sspecialties) == 0:
         if not attributeMatches(None, mp.secondaryspecialty,\
-              col_match["match_type"], threshold):
+              matchtype, threshold):
           return False
       else:
         for specialty_match in mmp_sspecialties:
           if not attributeMatches(specialty_match.specialty, mp.secondaryspecialty,\
-                col_match["match_type"], threshold):
+                matchtype, threshold):
             return False
 
     else:
       valid = False
       for att in MasteredProvider.__table__.columns:
-        if att_name == str(col_name):
+        if col_name == str(att):
           valid = True
           break
       if not valid:
         return False
       if not attributeMatches(getattr(mmp, col_name), getattr(mp, col_name),\
-            col_match["match_type"], threshold):
+            matchtype, threshold):
         return False
 
   return True
