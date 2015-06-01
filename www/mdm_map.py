@@ -35,7 +35,7 @@ def clean_name(name):
   return string.join(nameList, ' ')
 
 def map_to_medical_provider(row):
-  return 
+  return
 
 def is_match(row1, row2):
   match = True
@@ -73,18 +73,18 @@ def map_practice_address(app, row, now):
 def map_all():
   session = Session()
   #rawdata = session.query(RawData).limit(10)
-  rawdata = session.query(RawData).limit(100)
-  #rawdata = session.query(RawData).limit(1000)
+  #rawdata = session.query(RawData).limit(100)
+  rawdata = session.query(RawData).limit(1000)
   #rawdata = session.query(RawData).all()
 
   mapped = 0
   errors = []
 
   for i, row in enumerate(rawdata):
-    now = time.strftime('%Y-%m-%d %H:%M:%S') 
+    now = time.strftime('%Y-%m-%d %H:%M:%S')
     if i % 1000 == 0:
       app.logger.debug("Sourceid: " + str(row.sourceid) + " Processing...")
-   
+
     map_provider(app, row, now)
     map_address(app, row, now)
     map_practice_address(app, row, now)

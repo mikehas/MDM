@@ -101,7 +101,7 @@ create table MatchedPhone (
 	MasterID int,
 	SourceID int,
 	Primary key (SourceID, MasterID),
-	Constraint MPH_MP foreign key (SourceID) references MedicalProvider(SourceID),
+	Constraint MPH_P foreign key (SourceID) references Phones(SourceID),
 	Constraint MPH_MMP foreign key (MasterID) references MasteredMedicalProvider(MasterID)
 );
 
@@ -110,8 +110,8 @@ create table MatchedMailingAddress (
 	SourceID int,
 	AddressType varchar(16),
 	Primary key (MasterID, SourceID, AddressType),
-	Constraint MMA_MP foreign key (SourceID) references MedicalProvider(SourceID),
-	Constraint MMA_MMP foreign key (SourceID, AddressType) references Address(SourceID, AddressType)
+	Constraint MMA_MA foreign key (SourceID, AddressType) references Address(SourceID, AddressType),
+	Constraint MMA_MMP foreign key (MasterID) references MasteredMedicalProvider(MasterID)
 );
 
 create table MatchedPracticeAddress (
@@ -119,8 +119,8 @@ create table MatchedPracticeAddress (
 	SourceID int,
 	AddressType varchar(16),
 	Primary key (MasterID, SourceID, AddressType),
-	Constraint MPA_MP foreign key (SourceID) references MedicalProvider(SourceID),
-	Constraint MPA_MMP foreign key (SourceID, AddressType) references Address(SourceID, AddressType)
+	Constraint MPA_PA foreign key (SourceID, AddressType) references Address(SourceID, AddressType),
+	Constraint MPA_MMP foreign key (MasterID) references MasteredMedicalProvider(MasterID)
 );
 
 create table MatchedPrimarySpecialties (

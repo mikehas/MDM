@@ -8,11 +8,6 @@ from mdm_rules import load_rules
 import pprint
 
 @safe_commit
-def match_mailing_address(app, masterid, sourceid):
-  match_mailing_address = MatchedMailingAddress(sourceid=sourceid, masterid=masterid, addresstype='mailing')
-  return match_mailing_address
-
-@safe_commit
 def match_practice_address(app, masterid, sourceid):
   match_practice_address = MatchedPracticeAddress(sourceid=sourceid, masterid=masterid, addresstype='practice')
   return match_practice_address
@@ -251,9 +246,14 @@ def match_to_mastered_providers(app, mp, rules, now):
     s.add(match_second_specialty)
 
   if s.query(s.query(Address).filter_by(sourceid=mp.sourceid,addresstype="mailing").exists()).scalar() == 1:
-    match_mailing_address(app, m.masterid, mp.sourceid)
+    match_mailing_address = MatchedMailingAddress(sourceid=mp.sourceid, masterid=m.masterid,\
+          addresstype='mailing')
+    s.add(match_mailing_address)
+
   if s.query(s.query(Address).filter_by(sourceid=mp.sourceid,addresstype="practice").exists()).scalar() == 1:
-    match_practice_address(app, m.masterid, mp.sourceid)
+    match_practice_address = MatchedPracticeAddress(sourceid=mp.sourceid, masterid=m.masterid,\
+          addresstype='practice')
+    s.add(match_practice_address)
 
   if s.query(s.query(Phone).filter_by(sourceid=mp.sourceid).exists()).scalar() == 1:
     match_phone = MatchedPhone(sourceid=mp.sourceid, masterid=m.masterid)
@@ -266,9 +266,9 @@ def match_all(app):
   session = Session()
 
   #providers = session.query(MedicalProvider).limit(10)
-  providers = session.query(MedicalProvider).limit(100)
+  #providers = session.query(MedicalProvider).limit(100)
   #providers = session.query(MedicalProvider).limit(1000)
-  #providers = session.query(MedicalProvider).all()
+  providers = session.query(MedicalProvider).all()
 
   #load rules here
   rules = load_rules("rules/example_rules.yaml").get("Rules")
