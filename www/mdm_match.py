@@ -285,7 +285,7 @@ def match_all(app):
   session = Session()
 
   #load rules here
-  rules = load_rules("rules/example_rules.yaml").get("Rules")
+  rules = load_rules("rules/example_rules.yaml")["Rules"]
 
   app.logger.debug("Matching: match rules loaded")
   pprint.pprint(rules)
