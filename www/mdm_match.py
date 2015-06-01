@@ -4,6 +4,8 @@ from mdm_models import *
 from sqlalchemy.exc import SQLAlchemyError, IntegrityError, InvalidRequestError, DBAPIError
 import time
 from nltk.metrics.distance import edit_distance
+from mdm_rules import load_rules
+import pprint
 
 @safe_commit
 def match_mailing_address(app, masterid, sourceid):
@@ -33,9 +35,9 @@ def attributeMatches(val1, val2, mode="exact", threshold=0):
 def matches_mastered_provider(s, mp, mmp, rule):
   mp_phone = s.query(Phone).filter_by(sourceid=mp.sourceid).all()
   mp_phone = mp_phone[0] if len(mp_phone) == 1 else None
-  mp_paddress = s.query(Address).filter_by(sourceid=mp.sourceid, addresstype='practice').all()
+  mp_paddress = s.query(Address).filter_by(sourceid=mp.sourceid, addresstype="practice").all()
   mp_paddress = mp_paddress[0] if len(mp_paddress) == 1 else None
-  mp_maddress = s.query(Address).filter_by(sourceid=mp.sourceid, addresstype='mailing').all()
+  mp_maddress = s.query(Address).filter_by(sourceid=mp.sourceid, addresstype="mailing").all()
   mp_maddress = mp_maddress[0] if len(mp_maddress) == 1 else None
 
   mmp_phones = s.query(MatchedPhone, Phone).\
@@ -60,7 +62,7 @@ def matches_mastered_provider(s, mp, mmp, rule):
   for col_match in rule["match_cols"]:
     col_name = col_match["match_col"].lower()
     matchtype = col_match["match_type"].lower()
-    threshold = col_match["match_threshold"] if hasattr(col_match, "match_threshold") else 0
+    threshold = col_match.get("match_threshold", 0)
 
     if col_name.startswith(p_prefix):
       att_name = col_name[len(p_prefix):]
@@ -163,10 +165,12 @@ def match_to_mastered_providers(app, mp, rules, now):
   #if no rules or no masteredProviders, we just push all through
   for mmp in masteredProviders:
     for rule in rules:
-      if matches_mastered_provider(s, mp, mmp, rule):
-        matched = True
-        matchingRule = rule
-        m = mmp
+      has_type = rule.get("has_type", None)
+      if has_type is None or has_type.lower() == mp.providertype:
+        if matches_mastered_provider(s, mp, mmp, rule):
+          matched = True
+          matchingRule = rule
+          m = mmp
 
   if m is not None:
     fieldsSurvived = None
@@ -248,7 +252,10 @@ def match_all(app):
   #providers = session.query(MedicalProvider).all()
 
   #load rules here
-  rules = []
+  rules = load_rules("rules/example_rules.yaml").get("Rules")
+
+  app.logger.debug("match rules loaded")
+  pprint.pprint(rules)
 
   matched = 0
   errors = []

@@ -32,7 +32,7 @@ class RawData(Base):
 
 class MedicalProvider(Base):
   __tablename__ = 'MedicalProvider'
- 
+
   sourceid = Column(Integer, primary_key=True)
   providertype = Column(String)
   name = Column(String)
@@ -42,12 +42,12 @@ class MedicalProvider(Base):
   primaryspecialty = Column(String)
   secondaryspecialty = Column(String)
   timestamp = Column(DateTime)
-  message = Column(String) 
+  message = Column(String)
 
 class Address(Base):
   __tablename__ = 'Address'
 
-  sourceid = Column(String, primary_key=True)
+  sourceid = Column(Integer, primary_key=True)
   addresstype = Column(String, primary_key=True)
   country = Column(String)
   region = Column(String)
