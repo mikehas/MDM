@@ -59,7 +59,7 @@ def matches_mastered_provider(s, mp, mmp, rule):
 
   for col_match in rule["match_cols"]:
     col_name = col_match["match_col"].lower()
-    matchtype = col_match["match_type"]
+    matchtype = col_match["match_type"].lower()
     threshold = col_match["match_threshold"] if hasattr(col_match, "match_threshold") else 0
 
     if col_name.startswith(p_prefix):
