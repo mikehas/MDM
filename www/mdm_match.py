@@ -219,7 +219,7 @@ def match_to_mastered_providers(app, mp, rules, now):
         fieldsSurvived = fieldsSurvived + ", issoleproprietor"
 
     match = Matched(sourceid=mp.sourceid,masterid=m.masterid,timestamp=now,\
-          matchrule=matchingRule.title,message=fieldsSurvived)
+          matchrule=matchingRule["title"],message=fieldsSurvived)
     s.add(match)
 
   else:
@@ -284,7 +284,8 @@ def match_all(app):
     if i % 1000 == 0:
       app.logger.info("Sourceid: " + str(row.sourceid) + " Matching processing...")
 
-    match_to_mastered_providers(app, row, rules, now)
+    if session.query(session.query(Matched).filter_by(sourceid=row.sourceid).exists()).scalar() == 0:
+      match_to_mastered_providers(app, row, rules, now)
 
     matched = matched + 1
 
