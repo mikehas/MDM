@@ -1,3 +1,4 @@
+import math
 from pprint import pprint
 from mdm_db import Session, safe_commit
 from mdm_models import *
@@ -34,6 +35,7 @@ def matches_mastered_provider(s, mp_obj, mmp_obj, rule):
   mp_maddress = mp_obj["mp_maddress"]
 
   mmp = mmp_obj["mmp"]
+  mmp_names = mmp_obj["mmp_names"]
   mmp_phones = mmp_obj["mmp_phones"]
   mmp_paddresses = mmp_obj["mmp_paddresses"]
   mmp_maddresses = mmp_obj["mmp_maddresses"]
@@ -63,7 +65,7 @@ def matches_mastered_provider(s, mp_obj, mmp_obj, rule):
               matchtype, threshold):
           return False
       else:
-        for m, paddr in mmp_paddresses:
+        for paddr in mmp_paddresses:
           if not attributeMatches(getattr(paddr, att_name),\
                 getattr(mp_paddress, att_name) if mp_paddress is not None else None,\
                 matchtype, threshold):
@@ -84,23 +86,28 @@ def matches_mastered_provider(s, mp_obj, mmp_obj, rule):
               matchtype, threshold):
           return False
       else:
-        for m, maddr in mmp_maddresses:
+        for maddr in mmp_maddresses:
           if not attributeMatches(getattr(maddr, att_name),\
                 getattr(mp_maddress, att_name) if mp_maddress is not None else None,\
                 matchtype, threshold):
             return False
 
-    elif col_name == "phone":
-      if len(mmp_phones) == 0:
-        if not attributeMatches(None,\
-              getattr(mp_phone, att_name) if mp_phone is not None else None,\
-              matchtype, threshold):
+    elif col_name == "name":
+      if len(mmp_names) == 0:
+        if not attributeMatches(None, mp.name, matchtype, threshold):
           return False
       else:
-        for m, phone in mmp_phones:
-          if not attributeMatches(phone.cleanphone,\
-                mp_phone.cleanphone if mp_phone is not None else None,\
-                matchtype, threshold):
+        for mmp_name in mmp_names:
+          if not attributeMatches(mmp_name, mp.name, matchtype, threshold):
+            return False
+
+    elif col_name == "phone":
+      if len(mmp_phones) == 0:
+        if not attributeMatches(None, mp_phone, matchtype, threshold):
+          return False
+      else:
+        for phone in mmp_phones:
+          if not attributeMatches(phone, mp_phone, matchtype, threshold):
             return False
 
     elif col_name == "primaryspecialty":
@@ -109,8 +116,8 @@ def matches_mastered_provider(s, mp_obj, mmp_obj, rule):
               matchtype, threshold):
           return False
       else:
-        for specialty_match in mmp_pspecialties:
-          if not attributeMatches(specialty_match.specialty, mp.primaryspecialty,\
+        for specialty in mmp_pspecialties:
+          if not attributeMatches(specialty, mp.primaryspecialty,\
                 matchtype, threshold):
             return False
 
@@ -120,8 +127,8 @@ def matches_mastered_provider(s, mp_obj, mmp_obj, rule):
               matchtype, threshold):
           return False
       else:
-        for specialty_match in mmp_sspecialties:
-          if not attributeMatches(specialty_match.specialty, mp.secondaryspecialty,\
+        for specialty in mmp_sspecialties:
+          if not attributeMatches(specialty, mp.secondaryspecialty,\
                 matchtype, threshold):
             return False
 
@@ -140,33 +147,39 @@ def matches_mastered_provider(s, mp_obj, mmp_obj, rule):
   return True
 
 def get_mp_object(s, mp):
-  mp_phone = s.query(Phone).filter_by(sourceid=mp.sourceid).all()
+  mp_rawname = s.query(RawData.name).filter_by(sourceid=mp.sourceid).one()
+  mp_rawname = mp_rawname[0]
+  mp_phone = s.query(Phone.cleanphone).filter_by(sourceid=mp.sourceid).all()
   mp_phone = mp_phone[0] if len(mp_phone) == 1 else None
   mp_paddress = s.query(Address).filter_by(sourceid=mp.sourceid, addresstype="practice").all()
   mp_paddress = mp_paddress[0] if len(mp_paddress) == 1 else None
   mp_maddress = s.query(Address).filter_by(sourceid=mp.sourceid, addresstype="mailing").all()
   mp_maddress = mp_maddress[0] if len(mp_maddress) == 1 else None
-  return {"mp": mp, "mp_phone": mp_phone, "mp_paddress": mp_paddress, "mp_maddress": mp_maddress}
+  return {"mp": mp, "mp_rawname": mp_rawname, "mp_phone": mp_phone,\
+        "mp_paddress": mp_paddress, "mp_maddress": mp_maddress}
 
 def get_mmp_object(s, mmp):
-  mmp_phones = s.query(MatchedPhone, Phone).\
+  mmp_names = s.query(MedicalProvider.name).\
+        filter(mmp.masterid == Matched.masterid,\
+               Matched.sourceid == MedicalProvider.sourceid).all()
+  mmp_phones = s.query(Phone.cleanphone).\
         filter(MatchedPhone.masterid == mmp.masterid,\
                Phone.sourceid == MatchedPhone.sourceid).all()
-  mmp_paddresses = s.query(MatchedPracticeAddress, Address).\
+  mmp_paddresses = s.query(Address).\
         filter(MatchedPracticeAddress.masterid == mmp.masterid,\
                Address.sourceid == MatchedPracticeAddress.sourceid,\
                Address.addresstype == 'practice').all()
-  mmp_maddresses = s.query(MatchedMailingAddress, Address).\
+  mmp_maddresses = s.query(Address).\
         filter(MatchedMailingAddress.masterid == mmp.masterid,\
                Address.sourceid == MatchedMailingAddress.sourceid,\
                Address.addresstype == 'mailing').all()
-  mmp_pspecialties =  s.query(MatchedPrimarySpecialty).\
+  mmp_pspecialties =  s.query(MatchedPrimarySpecialty.specialty).\
         filter(MatchedPrimarySpecialty.masterid == mmp.masterid).all()
-  mmp_sspecialties =  s.query(MatchedSecondarySpecialty).\
+  mmp_sspecialties =  s.query(MatchedSecondarySpecialty.specialty).\
         filter(MatchedSecondarySpecialty.masterid == mmp.masterid).all()
-  return {"mmp": mmp, "mmp_phones": mmp_phones, "mmp_paddresses": mmp_paddresses,\
-        "mmp_maddresses":mmp_maddresses, "mmp_pspecialties": mmp_pspecialties,\
-        "mmp_sspecialties": mmp_sspecialties}
+  return {"mmp": mmp, "mmp_names": mmp_names, "mmp_phones": mmp_phones,\
+        "mmp_paddresses": mmp_paddresses, "mmp_maddresses":mmp_maddresses,\
+        "mmp_pspecialties": mmp_pspecialties, "mmp_sspecialties": mmp_sspecialties}
 
 def match_to_mastered_providers(app, mp, rules, now):
   s = Session()
@@ -183,17 +196,18 @@ def match_to_mastered_providers(app, mp, rules, now):
       has_type = rule.get("has_type", None)
       if has_type is None or has_type.lower() == mp.providertype:
         if matches_mastered_provider(s, mp_obj, mmp_obj, rule):
-          matched = True
           matchingRule = rule
           m = mmp
+          break
+    if m is not None:
+      break
 
   if m is not None:
     fieldsSurvived = None
     #do survivorship here
-    #need to figure out how to get back to original rawdata name...
     if (m.name is None and mp.name is not None) or\
           len(mp.name) > len(m.name):
-      m.name = mp.name
+      m.name = mp_obj["mp_rawname"]
       if fieldsSurvived is None:
         fieldsSurvived = "Survived: name"
       else:
@@ -224,7 +238,7 @@ def match_to_mastered_providers(app, mp, rules, now):
 
   else:
     #no matches found! Insert new mastered provider
-    m = MasteredProvider(providertype=mp.providertype,name=mp.name,\
+    m = MasteredProvider(providertype=mp.providertype,name=mp_obj["mp_rawname"],\
           gender=mp.gender,dateofbirth=mp.dateofbirth,\
           issoleproprietor=mp.issoleproprietor)
     s.add(m)
@@ -245,17 +259,22 @@ def match_to_mastered_providers(app, mp, rules, now):
           specialty=mp.secondaryspecialty)
     s.add(match_second_specialty)
 
-  if s.query(s.query(Address).filter_by(sourceid=mp.sourceid,addresstype="mailing").exists()).scalar() == 1:
+  if s.query(s.query(Address)\
+        .filter_by(sourceid=mp.sourceid,addresstype="mailing").exists())\
+        .scalar() == 1:
     match_mailing_address = MatchedMailingAddress(sourceid=mp.sourceid, masterid=m.masterid,\
           addresstype='mailing')
     s.add(match_mailing_address)
 
-  if s.query(s.query(Address).filter_by(sourceid=mp.sourceid,addresstype="practice").exists()).scalar() == 1:
+  if s.query(s.query(Address)\
+        .filter_by(sourceid=mp.sourceid,addresstype="practice").exists())\
+        .scalar() == 1:
     match_practice_address = MatchedPracticeAddress(sourceid=mp.sourceid, masterid=m.masterid,\
           addresstype='practice')
     s.add(match_practice_address)
 
-  if s.query(s.query(Phone).filter_by(sourceid=mp.sourceid).exists()).scalar() == 1:
+  if s.query(s.query(Phone).filter_by(sourceid=mp.sourceid).exists())\
+        .scalar() == 1:
     match_phone = MatchedPhone(sourceid=mp.sourceid, masterid=m.masterid)
     s.add(match_phone)
 
@@ -265,29 +284,34 @@ def match_to_mastered_providers(app, mp, rules, now):
 def match_all(app):
   session = Session()
 
-  #providers = session.query(MedicalProvider).limit(10)
-  #providers = session.query(MedicalProvider).limit(100)
-  #providers = session.query(MedicalProvider).limit(1000)
-  providers = session.query(MedicalProvider).all()
-
   #load rules here
   rules = load_rules("rules/example_rules.yaml").get("Rules")
 
-  app.logger.debug("match rules loaded")
+  app.logger.debug("Matching: match rules loaded")
   pprint.pprint(rules)
 
   matched = 0
   errors = []
 
-  for i, row in enumerate(providers):
-    now = time.strftime('%Y-%m-%d %H:%M:%S')
-    if i % 1000 == 0:
-      app.logger.info("Sourceid: " + str(row.sourceid) + " Matching processing...")
+  #grab only providers not already matched
+  providers = session.query(MedicalProvider)\
+        .filter(~MedicalProvider.sourceid.in_(session.query(Matched.sourceid)))
+  providers_count = providers.count()
+  chunk_size = min(providers_count, 1000)
 
-    if session.query(session.query(Matched).filter_by(sourceid=row.sourceid).exists()).scalar() == 0:
-      match_to_mastered_providers(app, row, rules, now)
-
-    matched = matched + 1
+  if providers_count > 0:
+    app.logger.info("Matching: starting on "+str(providers_count)+" providers in "+\
+          str(providers_count/chunk_size +\
+            (1 if providers_count % chunk_size != 0 else 0))+\
+          " chunks of "+str(chunk_size))
+    for start in xrange(0, providers_count, chunk_size):
+      app.logger.info("Matching: processing chunk #"+str(start/chunk_size + 1))
+      end = min(start + chunk_size, providers_count)
+      providers_chunk = providers[start:end]
+      for provider in providers_chunk:
+        now = time.strftime('%Y-%m-%d %H:%M:%S')
+        match_to_mastered_providers(app, provider, rules, now)
+        matched = matched + 1
 
   return matched, errors
 

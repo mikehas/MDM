@@ -87,12 +87,11 @@ create table MasteredMedicalProvider (
 );
 
 create table Matched (
-	SourceID int,
-	MasterID int,
+	SourceID int primary key,
+	MasterID int NOT NULL,
 	Timestamp datetime,
 	MatchRule varchar(32),
 	Message varchar(128),
-	Primary key (SourceID, MasterID),
 	Constraint M_MP foreign key (SourceID) references MedicalProvider(SourceID),
 	Constraint M_MMP foreign key (MasterID) references MasteredMedicalProvider(MasterID)
 );

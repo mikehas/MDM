@@ -7,6 +7,7 @@ Rules:
       match_type: exact
 
  - title: rule2
+   has_type: organization
    match_cols:
     - match_col: name
       match_type: fuzzy
@@ -16,7 +17,10 @@ Rules:
       match_threshold: 4
 
  - title: rule3
+   has_type: individual
    match_cols:
+    - match_col: dateofbirth
+      match_type: do not differ
     - match_col: name
       match_type: exact
     - match_col: phone

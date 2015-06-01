@@ -73,8 +73,8 @@ def map_practice_address(app, row, now):
 def map_all():
   session = Session()
   #rawdata = session.query(RawData).limit(10)
-  #rawdata = session.query(RawData).limit(100)
-  rawdata = session.query(RawData).limit(1000)
+  rawdata = session.query(RawData).limit(100)
+  #rawdata = session.query(RawData).limit(1000)
   #rawdata = session.query(RawData).all()
 
   mapped = 0
