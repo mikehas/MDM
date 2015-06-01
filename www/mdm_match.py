@@ -32,29 +32,18 @@ def attributeMatches(val1, val2, mode="exact", threshold=0):
 # mp - Medical Provider
 # mmp - Mastered Medical Provider
 # rule - rule object
-def matches_mastered_provider(s, mp, mmp, rule):
-  mp_phone = s.query(Phone).filter_by(sourceid=mp.sourceid).all()
-  mp_phone = mp_phone[0] if len(mp_phone) == 1 else None
-  mp_paddress = s.query(Address).filter_by(sourceid=mp.sourceid, addresstype="practice").all()
-  mp_paddress = mp_paddress[0] if len(mp_paddress) == 1 else None
-  mp_maddress = s.query(Address).filter_by(sourceid=mp.sourceid, addresstype="mailing").all()
-  mp_maddress = mp_maddress[0] if len(mp_maddress) == 1 else None
+def matches_mastered_provider(s, mp_obj, mmp_obj, rule):
+  mp = mp_obj["mp"]
+  mp_phone = mp_obj["mp_phone"]
+  mp_paddress = mp_obj["mp_paddress"]
+  mp_maddress = mp_obj["mp_maddress"]
 
-  mmp_phones = s.query(MatchedPhone, Phone).\
-        filter(MatchedPhone.masterid == mmp.masterid,\
-               Phone.sourceid == MatchedPhone.sourceid).all()
-  mmp_paddresses = s.query(MatchedPracticeAddress, Address).\
-        filter(MatchedPracticeAddress.masterid == mmp.masterid,\
-               Address.sourceid == MatchedPracticeAddress.sourceid,\
-               Address.addresstype == 'practice').all()
-  mmp_maddresses = s.query(MatchedMailingAddress, Address).\
-        filter(MatchedMailingAddress.masterid == mmp.masterid,\
-               Address.sourceid == MatchedMailingAddress.sourceid,\
-               Address.addresstype == 'mailing').all()
-  mmp_pspecialties =  s.query(MatchedPrimarySpecialty).\
-        filter(MatchedPrimarySpecialty.masterid == mmp.masterid).all()
-  mmp_sspecialties =  s.query(MatchedSecondarySpecialty).\
-        filter(MatchedSecondarySpecialty.masterid == mmp.masterid).all()
+  mmp = mmp_obj["mmp"]
+  mmp_phones = mmp_obj["mmp_phones"]
+  mmp_paddresses = mmp_obj["mmp_paddresses"]
+  mmp_maddresses = mmp_obj["mmp_maddresses"]
+  mmp_pspecialties = mmp_obj["mmp_pspecialties"]
+  mmp_sspecialties = mmp_obj["mmp_sspecialties"]
 
   p_prefix = "practice "
   m_prefix = "mailing "
@@ -62,7 +51,7 @@ def matches_mastered_provider(s, mp, mmp, rule):
   for col_match in rule["match_cols"]:
     col_name = col_match["match_col"].lower()
     matchtype = col_match["match_type"].lower()
-    threshold = col_match.get("match_threshold", 0)
+    threshold = 0 if matchtype == "exact" else col_match["match_threshold"]
 
     if col_name.startswith(p_prefix):
       att_name = col_name[len(p_prefix):]
@@ -155,19 +144,50 @@ def matches_mastered_provider(s, mp, mmp, rule):
 
   return True
 
+def get_mp_object(s, mp):
+  mp_phone = s.query(Phone).filter_by(sourceid=mp.sourceid).all()
+  mp_phone = mp_phone[0] if len(mp_phone) == 1 else None
+  mp_paddress = s.query(Address).filter_by(sourceid=mp.sourceid, addresstype="practice").all()
+  mp_paddress = mp_paddress[0] if len(mp_paddress) == 1 else None
+  mp_maddress = s.query(Address).filter_by(sourceid=mp.sourceid, addresstype="mailing").all()
+  mp_maddress = mp_maddress[0] if len(mp_maddress) == 1 else None
+  return {"mp": mp, "mp_phone": mp_phone, "mp_paddress": mp_paddress, "mp_maddress": mp_maddress}
+
+def get_mmp_object(s, mmp):
+  mmp_phones = s.query(MatchedPhone, Phone).\
+        filter(MatchedPhone.masterid == mmp.masterid,\
+               Phone.sourceid == MatchedPhone.sourceid).all()
+  mmp_paddresses = s.query(MatchedPracticeAddress, Address).\
+        filter(MatchedPracticeAddress.masterid == mmp.masterid,\
+               Address.sourceid == MatchedPracticeAddress.sourceid,\
+               Address.addresstype == 'practice').all()
+  mmp_maddresses = s.query(MatchedMailingAddress, Address).\
+        filter(MatchedMailingAddress.masterid == mmp.masterid,\
+               Address.sourceid == MatchedMailingAddress.sourceid,\
+               Address.addresstype == 'mailing').all()
+  mmp_pspecialties =  s.query(MatchedPrimarySpecialty).\
+        filter(MatchedPrimarySpecialty.masterid == mmp.masterid).all()
+  mmp_sspecialties =  s.query(MatchedSecondarySpecialty).\
+        filter(MatchedSecondarySpecialty.masterid == mmp.masterid).all()
+  return {"mmp": mmp, "mmp_phones": mmp_phones, "mmp_paddresses": mmp_paddresses,\
+        "mmp_maddresses":mmp_maddresses, "mmp_pspecialties": mmp_pspecialties,\
+        "mmp_sspecialties": mmp_sspecialties}
+
 def match_to_mastered_providers(app, mp, rules, now):
   s = Session()
 
+  mp_obj = get_mp_object(s, mp)
   masteredProviders = s.query(MasteredProvider).filter_by(providertype=mp.providertype).all()
   matchingRule = None
   m = None
 
   #if no rules or no masteredProviders, we just push all through
   for mmp in masteredProviders:
+    mmp_obj = get_mmp_object(s, mmp)
     for rule in rules:
       has_type = rule.get("has_type", None)
       if has_type is None or has_type.lower() == mp.providertype:
-        if matches_mastered_provider(s, mp, mmp, rule):
+        if matches_mastered_provider(s, mp_obj, mmp_obj, rule):
           matched = True
           matchingRule = rule
           m = mmp
@@ -241,7 +261,6 @@ def match_to_mastered_providers(app, mp, rules, now):
 
   s.commit()
   s.close()
-
 
 def match_all(app):
   session = Session()
