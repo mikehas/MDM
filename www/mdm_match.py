@@ -195,6 +195,9 @@ def match_to_mastered_providers(app, s, mp_obj, mmp_objs, rules, now):
       else:
         fieldsSurvived = fieldsSurvived + ", issoleproprietor"
 
+    if fieldsSurvived is None:
+      fieldsSurvived = "Survived: none"
+
     match = Matched(sourceid=mp.sourceid,masterid=m.masterid,timestamp=now,\
           matchrule=matchingRule["title"],message=fieldsSurvived)
     s.add(match)

@@ -75,8 +75,8 @@ def map_all():
     session.add(provider)
     session.flush()
 
-    if row.mailingcountry is not None and row.mailingregion is not None and\
-          row.mailingcounty is not None and row.mailingcity is not None and\
+    if row.mailingcountry is not None or row.mailingregion is not None or\
+          row.mailingcounty is not None or row.mailingcity is not None or\
           row.mailingpostcode is not None:
       mail_addr = clean_address(\
             Address(sourceid=row.sourceid, addresstype='mailing',\
@@ -85,8 +85,8 @@ def map_all():
             postalcode=row.mailingpostcode))
       session.add(mail_addr)
 
-    if row.practicecountry is not None and row.practiceregion is not None and\
-          row.practicecounty is not None and row.practicecity is not None and\
+    if row.practicecountry is not None or row.practiceregion is not None or\
+          row.practicecounty is not None or row.practicecity is not None or\
           row.practicepostcode is not None:
       practice_addr = clean_address(\
             Address(sourceid=row.sourceid, addresstype='practice',\
