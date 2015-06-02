@@ -168,27 +168,27 @@ def match_to_mastered_providers(app, s, mp_obj, mmp_objs, rules, now):
   if m is not None:
     fieldsSurvived = None
     #do survivorship here
-    if (m.name is None and mp.name is not None) or\
-          len(mp.name) > len(m.name):
+    if mp.name is not None and (m.name is None or\
+          len(mp.name) > len(m.name)):
       m.name = mp_obj["mp_rawname"]
       if fieldsSurvived is None:
         fieldsSurvived = "Survived: name"
       else:
         fieldsSurvived = fieldsSurvived + ", name"
-    if m.gender is None:
+    if m.gender is None and mp.gender is not None:
       m.gender = mp.gender
       if fieldsSurvived is None:
         fieldsSurvived = "Survived: gender"
       else:
         fieldsSurvived = fieldsSurvived + ", gender"
-    if (m.dateofbirth is None and mp.dateofbirth is not None) or\
-          len(mp.dateofbirth) > len(m.dateofbirth):
+    if mp.dateofbirth is not None and (m.dateofbirth is None or\
+          len(mp.dateofbirth) > len(m.dateofbirth)):
       m.dateofbirth = mp.dateofbirth
       if fieldsSurvived is None:
         fieldsSurvived = "Survived: dateofbirth"
       else:
         fieldsSurvived = fieldsSurvived + ", dateofbirth"
-    if m.issoleproprietor is None:
+    if m.issoleproprietor is None and mp.issoleproprietor is not None:
       m.issoleproprietor = mp.issoleproprietor
       if fieldsSurvived is None:
         fieldsSurvived = "Survived: issoleproprietor"
