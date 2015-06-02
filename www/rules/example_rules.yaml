@@ -1,32 +1,101 @@
 --- 
 Rules:
- - title: rule1
-   has_type: organization
-   match_cols:
-    - match_col: name
-      match_type: exact
-
- - title: rule2
+ - title: OrgNameOnly
    has_type: organization
    match_cols:
     - match_col: name
       match_type: fuzzy
-      match_threshold: 5
-    - match_col: phone
+      match_threshold: 2
+
+ - title: OrgNamePhone
+   has_type: organization
+   match_cols:
+    - match_col: name
       match_type: fuzzy
       match_threshold: 4
+    - match_col: phone
+      match_type: exact
 
- - title: rule3
+ - title: IndivNamePhone
    has_type: individual
    match_cols:
     - match_col: dateofbirth
       match_type: do not differ
     - match_col: name
-      match_type: exact
-    - match_col: phone
       match_type: fuzzy
       match_threshold: 4
+    - match_col: phone
+      match_type: exact
 
+ - title: namePAddr1
+   match_cols:
+    - match_col: name
+      match_type: fuzzy
+      match_threshold: 4
+    - match_col: practice postalcode
+      match_type: exact
+    - match_col: practice street
+      match_type: fuzzy
+      match_threshold: 4
+    - match_col: practice unit
+      match_type: fuzzy
+      match_threshold: 4
+    - match_col: practice country
+      match_type: exact
+
+ - title: namePAddr2
+   match_cols:
+    - match_col: name
+      match_type: fuzzy
+      match_threshold: 4
+    - match_col: practice street
+      match_type: fuzzy
+      match_threshold: 4
+    - match_col: practice city
+      match_type: fuzzy
+      match_threshold: 2
+    - match_col: practice county
+      match_type: fuzzy
+      match_threshold: 2
+    - match_col: practice region
+      match_type: exact
+    - match_col: practice country
+      match_type: exact
+
+ - title: nameMAddr1
+   match_cols:
+    - match_col: name
+      match_type: fuzzy
+      match_threshold: 4
+    - match_col: mailing postalcode
+      match_type: exact
+    - match_col: mailing street
+      match_type: fuzzy
+      match_threshold: 4
+    - match_col: mailing unit
+      match_type: fuzzy
+      match_threshold: 4
+    - match_col: mailing country
+      match_type: exact
+
+ - title: nameMAddr2
+   match_cols:
+    - match_col: name
+      match_type: fuzzy
+      match_threshold: 4
+    - match_col: mailing street
+      match_type: fuzzy
+      match_threshold: 4
+    - match_col: mailing city
+      match_type: fuzzy
+      match_threshold: 2
+    - match_col: mailing county
+      match_type: fuzzy
+      match_threshold: 2
+    - match_col: mailing region
+      match_type: exact
+    - match_col: mailing country
+      match_type: exact
 
 # All Columns
 # MedicalProviders, PrimarySpecialty, SecondarySpecialty, PracticeAddress, MailingAddress, Phone, 

@@ -77,22 +77,26 @@ def map_all():
 
     if row.mailingcountry is not None or row.mailingregion is not None or\
           row.mailingcounty is not None or row.mailingcity is not None or\
-          row.mailingpostcode is not None:
+          row.mailingpostcode is not None or row.mailingstreet is not None or\
+          row.mailingunit is not None:
       mail_addr = clean_address(\
             Address(sourceid=row.sourceid, addresstype='mailing',\
             country=row.mailingcountry,region=row.mailingregion,\
             county=row.mailingcounty, city=row.mailingcity,\
-            postalcode=row.mailingpostcode))
+            postalcode=row.mailingpostcode, street=row.mailingstreet,\
+            unit=row.mailingunit))
       session.add(mail_addr)
 
     if row.practicecountry is not None or row.practiceregion is not None or\
           row.practicecounty is not None or row.practicecity is not None or\
-          row.practicepostcode is not None:
+          row.practicepostcode is not None or row.practicestreet is not None or\
+          row.practiceunit is not None:
       practice_addr = clean_address(\
             Address(sourceid=row.sourceid, addresstype='practice',\
             country=row.practicecountry,region=row.practiceregion,\
             county=row.practicecounty, city=row.practicecity,\
-            postalcode=row.practicepostcode))
+            postalcode=row.practicepostcode, street=row.practicestreet,\
+            unit=row.practiceunit))
       session.add(practice_addr)
 
     mapped = mapped + 1

@@ -61,17 +61,21 @@ def matches_mastered_provider(app, s, mp_obj, mmp_obj, rule):
       if not valid:
         app.logger.debug(col_name+" is not a valid attribute")
         return False
-      if len(mmp_paddress) == 0:
+      if len(mmp_paddresses) == 0:
         if not attributeMatches(None,\
               getattr(mp_paddress, att_name) if mp_paddress is not None else None,\
               matchtype, threshold):
           return False
       else:
+        foundMatch = False
         for paddr in mmp_paddresses:
-          if not attributeMatches(getattr(paddr, att_name),\
+          if attributeMatches(getattr(paddr, att_name),\
                 getattr(mp_paddress, att_name) if mp_paddress is not None else None,\
                 matchtype, threshold):
-            return False
+            foundMatch = True
+            break
+        if not foundMatch:
+          return False
 
     elif col_name.startswith(m_prefix):
       att_name = col_name[len(m_prefix):]
@@ -83,35 +87,47 @@ def matches_mastered_provider(app, s, mp_obj, mmp_obj, rule):
       if not valid:
         app.logger.debug(col_name+" is not a valid attribute")
         return False
-      if len(mmp_maddress) == 0:
+      if len(mmp_maddresses) == 0:
         if not attributeMatches(None,\
               getattr(mp_maddress, att_name) if mp_maddress is not None else None,\
               matchtype, threshold):
           return False
       else:
+        foundMatch = False
         for maddr in mmp_maddresses:
-          if not attributeMatches(getattr(maddr, att_name),\
+          if attributeMatches(getattr(maddr, att_name),\
                 getattr(mp_maddress, att_name) if mp_maddress is not None else None,\
                 matchtype, threshold):
-            return False
+            foundMatch = True
+            break
+        if not foundMatch:
+          return False
 
     elif col_name == "name":
       if len(mmp_names) == 0:
         if not attributeMatches(None, mp.name, matchtype, threshold):
           return False
       else:
+        foundMatch = False
         for mmp_name in mmp_names:
-          if not attributeMatches(mmp_name, mp.name, matchtype, threshold):
-            return False
+          if attributeMatches(mmp_name, mp.name, matchtype, threshold):
+            foundMatch = True
+            break
+        if not foundMatch:
+          return False
 
     elif col_name == "phone":
       if len(mmp_phones) == 0:
         if not attributeMatches(None, mp_phone, matchtype, threshold):
           return False
       else:
+        foundMatch = False
         for phone in mmp_phones:
-          if not attributeMatches(phone, mp_phone, matchtype, threshold):
-            return False
+          if attributeMatches(phone, mp_phone, matchtype, threshold):
+            foundMatch = True
+            break
+        if not foundMatch:
+          return False
 
     elif col_name == "primaryspecialty":
       if len(mmp_pspecialties) == 0:
@@ -119,10 +135,14 @@ def matches_mastered_provider(app, s, mp_obj, mmp_obj, rule):
               matchtype, threshold):
           return False
       else:
+        foundMatch = False
         for specialty in mmp_pspecialties:
-          if not attributeMatches(specialty, mp.primaryspecialty,\
+          if attributeMatches(specialty, mp.primaryspecialty,\
                 matchtype, threshold):
-            return False
+            foundMatch = True
+            break
+        if not foundMatch:
+          return False
 
     elif col_name == "secondaryspecialty":
       if len(mmp_sspecialties) == 0:
@@ -130,10 +150,14 @@ def matches_mastered_provider(app, s, mp_obj, mmp_obj, rule):
               matchtype, threshold):
           return False
       else:
+        foundMatch = False
         for specialty in mmp_sspecialties:
-          if not attributeMatches(specialty, mp.secondaryspecialty,\
+          if attributeMatches(specialty, mp.secondaryspecialty,\
                 matchtype, threshold):
-            return False
+            foundMatch = True
+            break
+        if not foundMatch:
+          return False
 
     else:
       valid = False
@@ -226,16 +250,28 @@ def match_to_mastered_providers(app, s, mp_obj, mmp_objs, rules, now):
 
   #link phone, addrs, and specialties to matched* lookup tables and cached data
   if mp.primaryspecialty is not None:
-    match_primary_specialty = MatchedPrimarySpecialty(masterid=m.masterid,\
-          specialty=mp.primaryspecialty)
-    s.add(match_primary_specialty)
-    m_obj["mmp_pspecialties"].append(mp.primaryspecialty)
+    found = False
+    for specialty in m_obj["mmp_pspecialties"]:
+      if mp.primaryspecialty == specialty:
+        found = True
+        break
+    if not found:
+      match_primary_specialty = MatchedPrimarySpecialty(masterid=m.masterid,\
+            specialty=mp.primaryspecialty)
+      s.add(match_primary_specialty)
+      m_obj["mmp_pspecialties"].append(mp.primaryspecialty)
 
   if mp.secondaryspecialty is not None:
-    match_second_specialty = MatchedSecondarySpecialty(masterid=m.masterid,\
-          specialty=mp.secondaryspecialty)
-    s.add(match_second_specialty)
-    m_obj["mmp_sspecialties"].append(mp.secondaryspecialty)
+    found = False
+    for specialty in m_obj["mmp_sspecialties"]:
+      if mp.secondaryspecialty == specialty:
+        found = True
+        break
+    if not found:
+      match_second_specialty = MatchedSecondarySpecialty(masterid=m.masterid,\
+            specialty=mp.secondaryspecialty)
+      s.add(match_second_specialty)
+      m_obj["mmp_sspecialties"].append(mp.secondaryspecialty)
 
   if mp_obj["mp_maddress"] is not None:
     match_mailing_address = MatchedMailingAddress(sourceid=mp.sourceid, masterid=m.masterid,\
