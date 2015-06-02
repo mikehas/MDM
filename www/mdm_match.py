@@ -310,10 +310,9 @@ def match_all(app):
   errors = []
 
   #grab only providers not already matched
-  providers = session.query(MedicalProvider)\
-        .filter(~MedicalProvider.sourceid.in_(session.query(Matched.sourceid)))
+  providers = session.query(MedicalProvider)
   providers_count = providers.count()
-  chunk_size = min(providers_count, 1000)
+  chunk_size = min(providers_count, 50)
 
   if providers_count > 0:
     app.logger.info("Matching: starting on "+str(providers_count)+" providers in "+\
@@ -335,6 +334,9 @@ def match_all(app):
       for mp_obj in mp_objs:
         now = time.strftime('%Y-%m-%d %H:%M:%S')
 
+        if session.query(session.query(Matched).\
+              filter_by(sourceid=mp_obj["mp"].sourceid).exists()).scalar() == 1:
+          continue
         mmp_objs = None
         if mp_obj["mp"].providertype.lower() == 'individual':
           mmp_objs = individualMMP_objects
