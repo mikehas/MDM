@@ -28,7 +28,7 @@ def attributeMatches(val1, val2, mode="exact", threshold=0):
 # mp - Medical Provider
 # mmp - Mastered Medical Provider
 # rule - rule object
-def matches_mastered_provider(s, mp_obj, mmp_obj, rule):
+def matches_mastered_provider(app, s, mp_obj, mmp_obj, rule):
   mp = mp_obj["mp"]
   mp_phone = mp_obj["mp_phone"]
   mp_paddress = mp_obj["mp_paddress"]
@@ -48,16 +48,18 @@ def matches_mastered_provider(s, mp_obj, mmp_obj, rule):
   for col_match in rule["match_cols"]:
     col_name = col_match["match_col"].lower()
     matchtype = col_match["match_type"].lower()
-    threshold = 0 if matchtype == "exact" else col_match["match_threshold"]
+    threshold = 0 if matchtype == "exact" or matchtype == "do not differ"\
+          else col_match["match_threshold"]
 
     if col_name.startswith(p_prefix):
       att_name = col_name[len(p_prefix):]
       valid = False
       for att in Address.__table__.columns:
-        if att_name == str(att):
+        if att_name == str(att).split(".")[1]:
           valid = True
           break
       if not valid:
+        app.logger.debug(col_name+" is not a valid attribute")
         return False
       if len(mmp_paddress) == 0:
         if not attributeMatches(None,\
@@ -75,10 +77,11 @@ def matches_mastered_provider(s, mp_obj, mmp_obj, rule):
       att_name = col_name[len(m_prefix):]
       valid = False
       for att in Address.__table__.columns:
-        if att_name == str(att):
+        if att_name == str(att).split(".")[1]:
           valid = True
           break
       if not valid:
+        app.logger.debug(col_name+" is not a valid attribute")
         return False
       if len(mmp_maddress) == 0:
         if not attributeMatches(None,\
@@ -135,10 +138,11 @@ def matches_mastered_provider(s, mp_obj, mmp_obj, rule):
     else:
       valid = False
       for att in MasteredProvider.__table__.columns:
-        if col_name == str(att):
+        if col_name == str(att).split(".")[1]:
           valid = True
           break
       if not valid:
+        app.logger.debug(col_name+" is not a valid attribute")
         return False
       if not attributeMatches(getattr(mmp, col_name), getattr(mp, col_name),\
             matchtype, threshold):
@@ -156,8 +160,8 @@ def match_to_mastered_providers(app, s, mp_obj, mmp_objs, rules, now):
   for mmp_obj in mmp_objs:
     for rule in rules:
       has_type = rule.get("has_type", None)
-      if has_type is None or has_type.lower() == mp.providertype:
-        if matches_mastered_provider(s, mp_obj, mmp_obj, rule):
+      if has_type is None or has_type.lower() == mp.providertype.lower():
+        if matches_mastered_provider(app, s, mp_obj, mmp_obj, rule):
           matchingRule = rule
           m_obj = mmp_obj
           m = mmp_obj["mmp"]
