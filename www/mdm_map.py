@@ -50,31 +50,11 @@ def nullify(row):
       row[i] = 'NULL'
   return row
 
-
-
-@safe_commit
-def map_provider(app, row, now):
-  provider = MedicalProvider(sourceid=row.sourceid, providertype=row.providertype, name=clean_name(row.name), gender=row.gender, dateofbirth=row.dateofbirth, issoleproprietor=row.issoleproprietor, primaryspecialty=row.primaryspecialty, secondaryspecialty=row.secondaryspecialty, timestamp=now, message="basic mapping")
-  return provider
-
-@safe_commit
-def map_address(app, row, now):
-  mail_addr = Address(sourceid=row.sourceid, addresstype='mailing',country=row.mailingcountry,region=row.mailingregion, county=row.mailingcounty, city=row.mailingcity, postalcode=row.mailingpostcode)
-  if mail_addr.country is not None and mail_addr.region is not None and mail_addr.county is not None and mail_addr.city is not None and mail_addr.postalcode is not None:
-    return mail_addr
-
-@safe_commit
-def map_practice_address(app, row, now):
-  practice_addr = Address(sourceid=row.sourceid, addresstype='practice',country=row.practicecountry,region=row.practiceregion, county=row.practicecounty, city=row.practicecity, postalcode=row.practicepostcode)
-
-  if practice_addr.country is not None and practice_addr.region is not None and practice_addr.county is not None and practice_addr.city is not None and practice_addr.postalcode is not None:
-    return clean_address(practice_addr)
-
 def map_all():
   session = Session()
   #rawdata = session.query(RawData).limit(10)
-  rawdata = session.query(RawData).limit(100)
-  #rawdata = session.query(RawData).limit(1000)
+  #rawdata = session.query(RawData).limit(100)
+  rawdata = session.query(RawData).limit(1000)
   #rawdata = session.query(RawData).all()
 
   mapped = 0
@@ -85,11 +65,40 @@ def map_all():
     if i % 1000 == 0:
       app.logger.debug("Sourceid: " + str(row.sourceid) + " Processing...")
 
-    map_provider(app, row, now)
-    map_address(app, row, now)
-    map_practice_address(app, row, now)
+    provider = MedicalProvider(sourceid=row.sourceid,\
+          providertype=row.providertype, name=clean_name(row.name),\
+          gender=row.gender, dateofbirth=row.dateofbirth,\
+          issoleproprietor=row.issoleproprietor,\
+          primaryspecialty=row.primaryspecialty,\
+          secondaryspecialty=row.secondaryspecialty,\
+          timestamp=now, message="basic mapping")
+    session.add(provider)
+    session.flush()
+
+    if row.mailingcountry is not None and row.mailingregion is not None and\
+          row.mailingcounty is not None and row.mailingcity is not None and\
+          row.mailingpostcode is not None:
+      mail_addr = clean_address(\
+            Address(sourceid=row.sourceid, addresstype='mailing',\
+            country=row.mailingcountry,region=row.mailingregion,\
+            county=row.mailingcounty, city=row.mailingcity,\
+            postalcode=row.mailingpostcode))
+      session.add(mail_addr)
+
+    if row.practicecountry is not None and row.practiceregion is not None and\
+          row.practicecounty is not None and row.practicecity is not None and\
+          row.practicepostcode is not None:
+      practice_addr = clean_address(\
+            Address(sourceid=row.sourceid, addresstype='practice',\
+            country=row.practicecountry,region=row.practiceregion,\
+            county=row.practicecounty, city=row.practicecity,\
+            postalcode=row.practicepostcode))
+      session.add(practice_addr)
 
     mapped = mapped + 1
+
+  session.commit()
+  session.close()
 
   app.logger.debug("Chunking and mapping phones...")
   mdm_schema.exec_sql(app, 'scripts/MapPhones.sql')

@@ -146,58 +146,21 @@ def matches_mastered_provider(s, mp_obj, mmp_obj, rule):
 
   return True
 
-def get_mp_object(s, mp):
-  mp_rawname = s.query(RawData.name).filter_by(sourceid=mp.sourceid).one()
-  mp_rawname = mp_rawname[0]
-  mp_phone = s.query(Phone.cleanphone).filter_by(sourceid=mp.sourceid).all()
-  mp_phone = mp_phone[0] if len(mp_phone) == 1 else None
-  mp_paddress = s.query(Address).filter_by(sourceid=mp.sourceid, addresstype="practice").all()
-  mp_paddress = mp_paddress[0] if len(mp_paddress) == 1 else None
-  mp_maddress = s.query(Address).filter_by(sourceid=mp.sourceid, addresstype="mailing").all()
-  mp_maddress = mp_maddress[0] if len(mp_maddress) == 1 else None
-  return {"mp": mp, "mp_rawname": mp_rawname, "mp_phone": mp_phone,\
-        "mp_paddress": mp_paddress, "mp_maddress": mp_maddress}
-
-def get_mmp_object(s, mmp):
-  mmp_names = s.query(MedicalProvider.name).\
-        filter(mmp.masterid == Matched.masterid,\
-               Matched.sourceid == MedicalProvider.sourceid).all()
-  mmp_phones = s.query(Phone.cleanphone).\
-        filter(MatchedPhone.masterid == mmp.masterid,\
-               Phone.sourceid == MatchedPhone.sourceid).all()
-  mmp_paddresses = s.query(Address).\
-        filter(MatchedPracticeAddress.masterid == mmp.masterid,\
-               Address.sourceid == MatchedPracticeAddress.sourceid,\
-               Address.addresstype == 'practice').all()
-  mmp_maddresses = s.query(Address).\
-        filter(MatchedMailingAddress.masterid == mmp.masterid,\
-               Address.sourceid == MatchedMailingAddress.sourceid,\
-               Address.addresstype == 'mailing').all()
-  mmp_pspecialties =  s.query(MatchedPrimarySpecialty.specialty).\
-        filter(MatchedPrimarySpecialty.masterid == mmp.masterid).all()
-  mmp_sspecialties =  s.query(MatchedSecondarySpecialty.specialty).\
-        filter(MatchedSecondarySpecialty.masterid == mmp.masterid).all()
-  return {"mmp": mmp, "mmp_names": mmp_names, "mmp_phones": mmp_phones,\
-        "mmp_paddresses": mmp_paddresses, "mmp_maddresses":mmp_maddresses,\
-        "mmp_pspecialties": mmp_pspecialties, "mmp_sspecialties": mmp_sspecialties}
-
-def match_to_mastered_providers(app, mp, rules, now):
-  s = Session()
-
-  mp_obj = get_mp_object(s, mp)
-  masteredProviders = s.query(MasteredProvider).filter_by(providertype=mp.providertype).all()
+def match_to_mastered_providers(app, s, mp_obj, mmp_objs, rules, now):
+  mp = mp_obj["mp"]
   matchingRule = None
+  m_obj = None
   m = None
 
   #if no rules or no masteredProviders, we just push all through
-  for mmp in masteredProviders:
-    mmp_obj = get_mmp_object(s, mmp)
+  for mmp_obj in mmp_objs:
     for rule in rules:
       has_type = rule.get("has_type", None)
       if has_type is None or has_type.lower() == mp.providertype:
         if matches_mastered_provider(s, mp_obj, mmp_obj, rule):
           matchingRule = rule
-          m = mmp
+          m_obj = mmp_obj
+          m = mmp_obj["mmp"]
           break
     if m is not None:
       break
@@ -244,42 +207,92 @@ def match_to_mastered_providers(app, mp, rules, now):
     s.add(m)
     s.flush()
 
+    #add our new mmp_obj to our cached collection
+    m_obj = {"mmp": m, "mmp_names": [mp.name], "mmp_phones": [],\
+        "mmp_paddresses": [], "mmp_maddresses": [],\
+        "mmp_pspecialties": [], "mmp_sspecialties": []}
+    mmp_objs.append(m_obj)
+
     match = Matched(sourceid=mp.sourceid,masterid=m.masterid,timestamp=now,\
           matchrule='Transfer',message='First record of its kind so far...')
     s.add(match)
 
-  #link phone, addrs, and specialties to matched* lookup tables
+  #link phone, addrs, and specialties to matched* lookup tables and cached data
   if mp.primaryspecialty is not None:
     match_primary_specialty = MatchedPrimarySpecialty(masterid=m.masterid,\
           specialty=mp.primaryspecialty)
     s.add(match_primary_specialty)
+    m_obj["mmp_pspecialties"].append(mp.primaryspecialty)
 
   if mp.secondaryspecialty is not None:
     match_second_specialty = MatchedSecondarySpecialty(masterid=m.masterid,\
           specialty=mp.secondaryspecialty)
     s.add(match_second_specialty)
+    m_obj["mmp_sspecialties"].append(mp.secondaryspecialty)
 
-  if s.query(s.query(Address)\
-        .filter_by(sourceid=mp.sourceid,addresstype="mailing").exists())\
-        .scalar() == 1:
+  if mp_obj["mp_maddress"] is not None:
     match_mailing_address = MatchedMailingAddress(sourceid=mp.sourceid, masterid=m.masterid,\
           addresstype='mailing')
     s.add(match_mailing_address)
+    m_obj["mmp_maddresses"].append(mp_obj["mp_maddress"])
 
-  if s.query(s.query(Address)\
-        .filter_by(sourceid=mp.sourceid,addresstype="practice").exists())\
-        .scalar() == 1:
+  if mp_obj["mp_paddress"] is not None:
     match_practice_address = MatchedPracticeAddress(sourceid=mp.sourceid, masterid=m.masterid,\
           addresstype='practice')
     s.add(match_practice_address)
+    m_obj["mmp_paddresses"].append(mp_obj["mp_paddress"])
 
-  if s.query(s.query(Phone).filter_by(sourceid=mp.sourceid).exists())\
-        .scalar() == 1:
+  if mp_obj["mp_phone"] is not None:
     match_phone = MatchedPhone(sourceid=mp.sourceid, masterid=m.masterid)
     s.add(match_phone)
+    m_obj["mmp_phones"].append(mp_obj["mp_phone"])
 
-  s.commit()
-  s.close()
+def get_mp_object(s, mp):
+  mp_rawname = s.query(RawData.name).filter_by(sourceid=mp.sourceid).one()
+  mp_rawname = mp_rawname[0]
+  mp_phone = s.query(Phone.cleanphone).filter_by(sourceid=mp.sourceid).all()
+  mp_phone = mp_phone[0] if len(mp_phone) == 1 else None
+  mp_paddress = s.query(Address).filter_by(sourceid=mp.sourceid, addresstype="practice").all()
+  mp_paddress = mp_paddress[0] if len(mp_paddress) == 1 else None
+  mp_maddress = s.query(Address).filter_by(sourceid=mp.sourceid, addresstype="mailing").all()
+  mp_maddress = mp_maddress[0] if len(mp_maddress) == 1 else None
+  return {"mp": mp, "mp_rawname": mp_rawname, "mp_phone": mp_phone,\
+        "mp_paddress": mp_paddress, "mp_maddress": mp_maddress}
+
+def get_mp_objects(s, mps):
+  mp_objs = []
+  for mp in mps:
+    mp_objs.append(get_mp_object(s, mp))
+  return mp_objs
+
+def get_mmp_object(s, mmp):
+  mmp_names = s.query(MedicalProvider.name).\
+        filter(mmp.masterid == Matched.masterid,\
+               Matched.sourceid == MedicalProvider.sourceid).all()
+  mmp_phones = s.query(Phone.cleanphone).\
+        filter(MatchedPhone.masterid == mmp.masterid,\
+               Phone.sourceid == MatchedPhone.sourceid).all()
+  mmp_paddresses = s.query(Address).\
+        filter(MatchedPracticeAddress.masterid == mmp.masterid,\
+               Address.sourceid == MatchedPracticeAddress.sourceid,\
+               Address.addresstype == 'practice').all()
+  mmp_maddresses = s.query(Address).\
+        filter(MatchedMailingAddress.masterid == mmp.masterid,\
+               Address.sourceid == MatchedMailingAddress.sourceid,\
+               Address.addresstype == 'mailing').all()
+  mmp_pspecialties =  s.query(MatchedPrimarySpecialty.specialty).\
+        filter(MatchedPrimarySpecialty.masterid == mmp.masterid).all()
+  mmp_sspecialties =  s.query(MatchedSecondarySpecialty.specialty).\
+        filter(MatchedSecondarySpecialty.masterid == mmp.masterid).all()
+  return {"mmp": mmp, "mmp_names": mmp_names, "mmp_phones": mmp_phones,\
+        "mmp_paddresses": mmp_paddresses, "mmp_maddresses": mmp_maddresses,\
+        "mmp_pspecialties": mmp_pspecialties, "mmp_sspecialties": mmp_sspecialties}
+
+def get_mmp_objects(s, mmps):
+  mmp_objs = []
+  for mmp in mmps:
+    mmp_objs.append(get_mmp_object(s, mmp))
+  return mmp_objs
 
 def match_all(app):
   session = Session()
@@ -304,14 +317,34 @@ def match_all(app):
           str(providers_count/chunk_size +\
             (1 if providers_count % chunk_size != 0 else 0))+\
           " chunks of "+str(chunk_size))
+
+    individualMMP_objects = get_mmp_objects(session,\
+          session.query(MasteredProvider)\
+          .filter_by(providertype='individual').all())
+    organizationMMP_objects = get_mmp_objects(session,\
+          session.query(MasteredProvider)\
+          .filter_by(providertype='organization').all())
     for start in xrange(0, providers_count, chunk_size):
       app.logger.info("Matching: processing chunk #"+str(start/chunk_size + 1))
       end = min(start + chunk_size, providers_count)
       providers_chunk = providers[start:end]
-      for provider in providers_chunk:
+      mp_objs = get_mp_objects(session, providers_chunk)
+      for mp_obj in mp_objs:
         now = time.strftime('%Y-%m-%d %H:%M:%S')
-        match_to_mastered_providers(app, provider, rules, now)
+
+        mmp_objs = None
+        if mp_obj["mp"].providertype.lower() == 'individual':
+          mmp_objs = individualMMP_objects
+        elif mp_obj["mp"].providertype.lower() == 'organization':
+          mmp_objs = organizationMMP_objects
+        else:
+          raise Exception("Medical provider not individual or organization: "+\
+                mp_obj["mp"].providertype)
+
+        match_to_mastered_providers(app, session, mp_obj, mmp_objs, rules, now)
         matched = matched + 1
 
+  session.commit()
+  session.close()
   return matched, errors
 
