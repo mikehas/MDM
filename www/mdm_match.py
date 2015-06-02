@@ -322,10 +322,10 @@ def match_all(app):
 
     individualMMP_objects = get_mmp_objects(session,\
           session.query(MasteredProvider)\
-          .filter_by(providertype='individual').all())
+          .filter_by(providertype='Individual').all())
     organizationMMP_objects = get_mmp_objects(session,\
           session.query(MasteredProvider)\
-          .filter_by(providertype='organization').all())
+          .filter_by(providertype='Organization').all())
     for start in xrange(0, providers_count, chunk_size):
       app.logger.info("Matching: processing chunk #"+str(start/chunk_size + 1))
       end = min(start + chunk_size, providers_count)
@@ -338,9 +338,9 @@ def match_all(app):
               filter_by(sourceid=mp_obj["mp"].sourceid).exists()).scalar() == 1:
           continue
         mmp_objs = None
-        if mp_obj["mp"].providertype.lower() == 'individual':
+        if mp_obj["mp"].providertype == 'Individual':
           mmp_objs = individualMMP_objects
-        elif mp_obj["mp"].providertype.lower() == 'organization':
+        elif mp_obj["mp"].providertype == 'Organization':
           mmp_objs = organizationMMP_objects
         else:
           raise Exception("Medical provider not individual or organization: "+\
