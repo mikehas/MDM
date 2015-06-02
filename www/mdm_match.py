@@ -312,7 +312,7 @@ def match_all(app):
   #grab only providers not already matched
   providers = session.query(MedicalProvider)
   providers_count = providers.count()
-  chunk_size = min(providers_count, 50)
+  chunk_size = min(providers_count, 1000)
 
   if providers_count > 0:
     app.logger.info("Matching: starting on "+str(providers_count)+" providers in "+\
