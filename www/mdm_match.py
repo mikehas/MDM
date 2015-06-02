@@ -53,14 +53,6 @@ def matches_mastered_provider(app, s, mp_obj, mmp_obj, rule):
 
     if col_name.startswith(p_prefix):
       att_name = col_name[len(p_prefix):]
-      valid = False
-      for att in Address.__table__.columns:
-        if att_name == str(att).split(".")[1]:
-          valid = True
-          break
-      if not valid:
-        app.logger.debug(col_name+" is not a valid attribute")
-        return False
       if len(mmp_paddresses) == 0:
         if not attributeMatches(None,\
               getattr(mp_paddress, att_name) if mp_paddress is not None else None,\
@@ -79,14 +71,6 @@ def matches_mastered_provider(app, s, mp_obj, mmp_obj, rule):
 
     elif col_name.startswith(m_prefix):
       att_name = col_name[len(m_prefix):]
-      valid = False
-      for att in Address.__table__.columns:
-        if att_name == str(att).split(".")[1]:
-          valid = True
-          break
-      if not valid:
-        app.logger.debug(col_name+" is not a valid attribute")
-        return False
       if len(mmp_maddresses) == 0:
         if not attributeMatches(None,\
               getattr(mp_maddress, att_name) if mp_maddress is not None else None,\
@@ -159,20 +143,51 @@ def matches_mastered_provider(app, s, mp_obj, mmp_obj, rule):
         if not foundMatch:
           return False
 
-    else:
-      valid = False
-      for att in MasteredProvider.__table__.columns:
-        if col_name == str(att).split(".")[1]:
-          valid = True
-          break
-      if not valid:
-        app.logger.debug(col_name+" is not a valid attribute")
-        return False
-      if not attributeMatches(getattr(mmp, col_name), getattr(mp, col_name),\
-            matchtype, threshold):
-        return False
+    elif not attributeMatches(getattr(mmp, col_name), getattr(mp, col_name),\
+        matchtype, threshold):
+      return False
 
   return True
+
+def get_applicable_rules(rules, mp_obj):
+  newrules = []
+
+  mp = mp_obj["mp"]
+  mp_phone = mp_obj["mp_phone"]
+  mp_paddress = mp_obj["mp_paddress"]
+  mp_maddress = mp_obj["mp_maddress"]
+
+  p_prefix = "practice "
+  m_prefix = "mailing "
+
+  for rule in rules:
+    applicable = True
+
+    has_type = rule.get("has_type", None)
+    if has_type is None or has_type.lower() == mp.providertype.lower():
+      for col_match in rule["match_cols"]:
+        col_name = col_match["match_col"].lower()
+        matchtype = col_match["match_type"].lower()
+        if matchtype == "do not differ":
+          continue
+
+        if (col_name.startswith(p_prefix) and (mp_paddress is None or\
+              getattr(mp_paddress, col_name[len(p_prefix):]) is None)) or\
+           (col_name.startswith(m_prefix) and (mp_maddress is None or\
+              getattr(mp_maddress, col_name[len(m_prefix):]) is None)) or\
+           (col_name == "phone" and mp_phone is None) or\
+           (not col_name.startswith(p_prefix) and\
+            not col_name.startswith(m_prefix) and\
+            col_name != "phone" and getattr(mp, col_name) is None):
+             applicable = False
+             break
+    else:
+      applicable = False
+
+    if applicable:
+      newrules.append(rule)
+
+  return newrules
 
 def match_to_mastered_providers(app, s, mp_obj, mmp_objs, rules, now):
   mp = mp_obj["mp"]
@@ -180,16 +195,16 @@ def match_to_mastered_providers(app, s, mp_obj, mmp_objs, rules, now):
   m_obj = None
   m = None
 
+  applicable_rules = get_applicable_rules(rules, mp_obj)
+
   #if no rules or no masteredProviders, we just push all through
   for mmp_obj in mmp_objs:
-    for rule in rules:
-      has_type = rule.get("has_type", None)
-      if has_type is None or has_type.lower() == mp.providertype.lower():
-        if matches_mastered_provider(app, s, mp_obj, mmp_obj, rule):
-          matchingRule = rule
-          m_obj = mmp_obj
-          m = mmp_obj["mmp"]
-          break
+    for rule in applicable_rules:
+      if matches_mastered_provider(app, s, mp_obj, mmp_obj, rule):
+        matchingRule = rule
+        m_obj = mmp_obj
+        m = mmp_obj["mmp"]
+        break
     if m is not None:
       break
 
@@ -337,17 +352,66 @@ def get_mmp_objects(s, mmps):
     mmp_objs.append(get_mmp_object(s, mmp))
   return mmp_objs
 
+def check_rules(app, rules):
+  p_prefix = "practice "
+  m_prefix = "mailing "
+
+  for rule in rules:
+    for col_match in rule["match_cols"]:
+      col_name = col_match["match_col"].lower()
+
+      if col_name == "name" or col_name == "phone" or\
+          col_name == "primaryspecialty" or col_name == "secondaryspecialty":
+        continue
+
+      if col_name.startswith(p_prefix):
+        att_name = col_name[len(p_prefix):]
+        valid = False
+        for att in Address.__table__.columns:
+          if att_name == str(att).split(".")[1]:
+            valid = True
+            break
+        if not valid:
+          app.logger.debug(col_name+" is not a valid attribute")
+          return False
+
+      elif col_name.startswith(m_prefix):
+        att_name = col_name[len(m_prefix):]
+        valid = False
+        for att in Address.__table__.columns:
+          if att_name == str(att).split(".")[1]:
+            valid = True
+            break
+        if not valid:
+          app.logger.debug(col_name+" is not a valid attribute")
+          return False
+
+      else:
+        valid = False
+        for att in MasteredProvider.__table__.columns:
+          if col_name == str(att).split(".")[1]:
+            valid = True
+            break
+        if not valid:
+          app.logger.debug(col_name+" is not a valid attribute")
+          return False
+
+  return True
+
 def match_all(app):
   session = Session()
+
+  matched = 0
+  errors = []
 
   #load rules here
   rules = load_rules("rules/example_rules.yaml")["Rules"]
 
   app.logger.debug("Matching: match rules loaded")
   pprint.pprint(rules)
-
-  matched = 0
-  errors = []
+  if not check_rules(app, rules):
+    errors.append("Invalid rules")
+    return matched, errors
 
   #grab only providers not already matched
   providers = session.query(MedicalProvider)
