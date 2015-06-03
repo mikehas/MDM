@@ -192,37 +192,45 @@ def get_applicable_rules(rules, mp_obj):
 
   return newrules
 
-def threaded_check_match_mastered_provider(app, s, mp_obj, mmp_obj, rules):
+def threaded_check_match_mastered_provider(app, s, mp_obj, mmp_objs, rules):
   matchingRule = None
   m_obj = None
   m = None
 
-  for rule in rules:
-    if matches_mastered_provider(app, s, mp_obj, mmp_obj, rule):
-      matchingRule = rule
-      m_obj = mmp_obj
-      m = mmp_obj["mmp"]
-      break
+  for mmp_obj in mmp_objs:
+    for rule in rules:
+      if matches_mastered_provider(app, s, mp_obj, mmp_obj, rule):
+        matchingRule = rule
+        m_obj = mmp_obj
+        m = mmp_obj["mmp"]
+        break
 
   return (matchingRule, m_obj, m)
 
 def find_matching_mastered_provider(app, pool, s, mp_obj, mmp_objs, rules):
   match_calls = []
   matches = []
+  num_threads = 4
+  min_size = 100
+  num_mmp = len(mmp_objs)
+  chunk_size = num_mmp / num_threads if num_mmp > min_size else num_mmp
 
   def match_result_callback(result):
     if result[0] is not None:
       matches.append(result)
 
   #if no rules or no masteredProviders, we just push all through
-  if len(rules) > 0:
-    app.logger.debug("Spawning matching on source id "+str(mp_obj["mp"].sourceid)+\
-        " "+mp_obj["mp"].providertype+" against "+str(len(mmp_objs))+" mastered "+\
-        mp_obj["mp"].providertype+" providers")
-    for mmp_obj in mmp_objs:
+  if len(rules) > 0 and num_mmp > 0:
+    app.logger.debug("Spawning "+str(num_threads)+" matching threads on source id "+\
+        str(mp_obj["mp"].sourceid)+" "+mp_obj["mp"].providertype+" against "+\
+        str(len(mmp_objs))+" mastered "+mp_obj["mp"].providertype+" providers")
+    for start in xrange(0, num_mmp, chunk_size):
+      end = min(start + chunk_size, num_mmp)
+      mmp_objs_chunk = mmp_objs[start:end]
       match_calls.append(\
           pool.apply_async(threaded_check_match_mastered_provider,\
-            (app, s, mp_obj, mmp_obj, rules), callback=match_result_callback))
+            (app, s, mp_obj, mmp_objs_chunk, rules),\
+            callback=match_result_callback))
     for match_call in match_calls:
       match_call.wait()
 
