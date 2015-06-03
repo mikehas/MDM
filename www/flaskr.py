@@ -2,7 +2,7 @@ from flaskext.mysql import MySQL
 from flask import Flask, request, session, g, redirect, url_for, \
      abort, render_template, flash
 import logging
-from logging.handlers import RotatingFileHandler 
+from logging.handlers import RotatingFileHandler
 
 import mdm_schema
 import mdm_map
@@ -39,7 +39,7 @@ def get_columns(table):
 @app.route("/")
 def home():
     return render_template('home.html')
- 
+
 @app.route("/view")
 def show_entries():
     table = request.args.get('table')
@@ -48,7 +48,7 @@ def show_entries():
       table = 'RawData'
     if limit == None:
       limit = '1000'
- 
+
     connection = engine.connect()
     data = connection.execute("SELECT * from " + table + " limit " + limit )
     connection.close()
@@ -67,7 +67,7 @@ def show_record():
       table = 'RawData'
     if sourceid == None:
       sourceid = 1
- 
+
     connection = engine.connect()
     data = connection.execute("SELECT * from " + table + " where sourceid = " + str(sourceid))
     connection.close()
@@ -108,7 +108,7 @@ def show_tables():
 @app.route("/table/truncate")
 def truncate_table():
     table = request.args.get('table')
-    
+
     if table is not None:
       connection = engine.connect()
       result = connection.execute("delete from " + table)
@@ -172,7 +172,7 @@ def getAttributesToMatch(columns, ignore_columns, prefix):
 @app.route("/data/match_rules")
 def data_match_rules():
     #MedicalProviders, Address, Phone
-    
+
     ignore_cols = ['sourceid', 'addresstype', 'providertype', 'timestamp', 'message']
     cols = []
 
@@ -198,7 +198,7 @@ def data_match():
     tables_data = get_all_tables()
     matched, errors = mdm_match.match_all(app)
     return render_template('matching_results.html', tables_data=tables_data)
-  
+
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     error = None
@@ -210,14 +210,14 @@ def login():
         else:
             session['logged_in'] = True
             flash('You were logged in')
-            return redirect(url_for('show_entries'))
+            return redirect(url_for('show_tables'))
     return render_template('login.html', error=error)
 
 @app.route('/logout')
 def logout():
     session.pop('logged_in', None)
     flash('You were logged out')
-    return redirect(url_for('show_entries'))
+    return redirect(url_for('show_tables'))
 
 if __name__ == "__main__":
   handler = RotatingFileHandler('logs/mdm.log', maxBytes=10000, backupCount=1)
