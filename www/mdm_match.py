@@ -320,7 +320,10 @@ def get_mp_object(s, mp):
 def get_mp_objects(s, mps):
   mp_objs = []
   for mp in mps:
-    mp_objs.append(get_mp_object(s, mp))
+    #don't get medicalproviders already matched
+    if s.query(s.query(Matched).\
+        filter_by(sourceid=mp.sourceid).exists()).scalar() == 0:
+      mp_objs.append(get_mp_object(s, mp))
   return mp_objs
 
 def get_mmp_object(s, mmp):
@@ -438,9 +441,6 @@ def match_all(app):
       for mp_obj in mp_objs:
         now = time.strftime('%Y-%m-%d %H:%M:%S')
 
-        if session.query(session.query(Matched).\
-              filter_by(sourceid=mp_obj["mp"].sourceid).exists()).scalar() == 1:
-          continue
         mmp_objs = None
         if mp_obj["mp"].providertype == 'Individual':
           mmp_objs = individualMMP_objects
