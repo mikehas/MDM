@@ -211,7 +211,7 @@ def find_matching_mastered_provider(app, pool, s, mp_obj, mmp_objs, rules):
   match_calls = []
   matches = []
   num_threads = 4
-  min_size = 100
+  min_size = 1000
   num_mmp = len(mmp_objs)
   chunk_size = num_mmp / num_threads if num_mmp > min_size else num_mmp
 
@@ -285,11 +285,10 @@ def match_to_mastered_providers(app, pool, s, mp_obj, mmp_objs, rules, now):
 
   else:
     #no matches found! Insert new mastered provider
-    m = MasteredProvider(providertype=mp.providertype,name=mp_obj["mp_rawname"],\
-          gender=mp.gender,dateofbirth=mp.dateofbirth,\
+    m = MasteredProvider(masterid=mp.sourceid,providertype=mp.providertype,\
+          name=mp_obj["mp_rawname"],gender=mp.gender,dateofbirth=mp.dateofbirth,\
           issoleproprietor=mp.issoleproprietor)
     s.add(m)
-    s.flush()
 
     #add our new mmp_obj to our cached collection
     m_obj = {"mmp": m, "mmp_names": [mp.name], "mmp_phones": [],\
