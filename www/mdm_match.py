@@ -223,7 +223,7 @@ def find_matching_mastered_provider(app, pool, s, mp_obj, mmp_objs, rules):
     for match_call in match_calls:
       match_call.wait()
 
-  return (None, None, None) if len(matches) == 0 else match[0]
+  return (None, None, None) if len(matches) == 0 else matches[0]
 
 
 def match_to_mastered_providers(app, pool, s, mp_obj, mmp_objs, rules, now):
