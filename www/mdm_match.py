@@ -216,6 +216,9 @@ def find_matching_mastered_provider(app, pool, s, mp_obj, mmp_objs, rules):
 
   #if no rules or no masteredProviders, we just push all through
   if len(rules) > 0:
+    app.logger.debug("Spawning matching on source id "+str(mp_obj["mp"].sourceid)+\
+        " "+mp_obj["mp"].providertype+" against "+str(len(mmp_objs))+" mastered "+\
+        mp_obj["mp"].providertype+" providers")
     for mmp_obj in mmp_objs:
       match_calls.append(\
           pool.apply_async(threaded_check_match_mastered_provider,\
