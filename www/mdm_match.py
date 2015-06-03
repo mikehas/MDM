@@ -1,5 +1,8 @@
 import math
 from pprint import pprint
+import threading
+import weakref
+from multiprocessing.pool import ThreadPool
 from mdm_db import Session, safe_commit
 from mdm_models import *
 from sqlalchemy.exc import SQLAlchemyError, IntegrityError, InvalidRequestError, DBAPIError
@@ -189,24 +192,48 @@ def get_applicable_rules(rules, mp_obj):
 
   return newrules
 
-def match_to_mastered_providers(app, s, mp_obj, mmp_objs, rules, now):
-  mp = mp_obj["mp"]
+def threaded_check_match_mastered_provider(app, s, mp_obj, mmp_obj, rules):
   matchingRule = None
   m_obj = None
   m = None
 
-  applicable_rules = get_applicable_rules(rules, mp_obj)
+  for rule in rules:
+    if matches_mastered_provider(app, s, mp_obj, mmp_obj, rule):
+      matchingRule = rule
+      m_obj = mmp_obj
+      m = mmp_obj["mmp"]
+      break
+
+  return (matchingRule, m_obj, m)
+
+def find_matching_mastered_provider(app, pool, s, mp_obj, mmp_objs, rules):
+  match_calls = []
+  matches = []
+
+  def match_result_callback(result):
+    if result[0] is not None:
+      matches.append(result)
 
   #if no rules or no masteredProviders, we just push all through
-  for mmp_obj in mmp_objs:
-    for rule in applicable_rules:
-      if matches_mastered_provider(app, s, mp_obj, mmp_obj, rule):
-        matchingRule = rule
-        m_obj = mmp_obj
-        m = mmp_obj["mmp"]
-        break
-    if m is not None:
-      break
+  if len(rules) > 0:
+    for mmp_obj in mmp_objs:
+      match_calls.append(\
+          pool.apply_async(threaded_check_match_mastered_provider,\
+            (app, s, mp_obj, mmp_obj, rules), callback=match_result_callback))
+    for match_call in match_calls:
+      match_call.wait()
+
+  return (None, None, None) if len(matches) == 0 else match[0]
+
+
+def match_to_mastered_providers(app, pool, s, mp_obj, mmp_objs, rules, now):
+  mp = mp_obj["mp"]
+
+  applicable_rules = get_applicable_rules(rules, mp_obj)
+  match = find_matching_mastered_provider(app, pool, s, mp_obj, mmp_objs, rules)
+  matchingRule = match[0]
+  m_obj = match[1]
+  m = match[2]
 
   if m is not None:
     fieldsSurvived = None
@@ -416,6 +443,11 @@ def match_all(app):
     errors.append("Invalid rules")
     return matched, errors
 
+  if not hasattr(threading.current_thread(), "_children"):
+    threading.current_thread()._children = weakref.WeakKeyDictionary()
+  #threadpool for multithreading
+  pool = ThreadPool()
+
   #grab only providers not already matched
   providers = session.query(MedicalProvider)
   providers_count = providers.count()
@@ -450,7 +482,7 @@ def match_all(app):
           raise Exception("Medical provider not individual or organization: "+\
                 mp_obj["mp"].providertype)
 
-        match_to_mastered_providers(app, session, mp_obj, mmp_objs, rules, now)
+        match_to_mastered_providers(app, pool, session, mp_obj, mmp_objs, rules, now)
         matched = matched + 1
 
   session.commit()
