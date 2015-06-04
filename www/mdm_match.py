@@ -525,7 +525,7 @@ def match_all(app):
       for mp_obj in mp_objs:
         now = time.strftime('%Y-%m-%d %H:%M:%S')
         if matched % 1000 == 0:
-          app.logger.info(now+"Matching: processing #"+str(matched))
+          app.logger.info(now+"Matching: processing #"+str(matched + 1))
 
         mmp_objs = None
         if mp_obj["mp"].providertype == 'Individual':
