@@ -10,22 +10,22 @@ Rules:
  - title: OrgNamePhone
    has_type: organization
    match_cols:
+    - match_col: phone
+      match_type: exact
     - match_col: name
       match_type: fuzzy
       match_threshold: 4
-    - match_col: phone
-      match_type: exact
 
  - title: IndivNamePhone
    has_type: individual
    match_cols:
+    - match_col: phone
+      match_type: exact
     - match_col: dateofbirth
       match_type: do not differ
     - match_col: name
       match_type: fuzzy
       match_threshold: 4
-    - match_col: phone
-      match_type: exact
 
  - title: OrgNamePAddr1
    has_type: organization
@@ -33,6 +33,8 @@ Rules:
     - match_col: name
       match_type: fuzzy
       match_threshold: 4
+    - match_col: practice country
+      match_type: exact
     - match_col: practice postalcode
       match_type: exact
     - match_col: practice street
@@ -41,8 +43,6 @@ Rules:
     - match_col: practice unit
       match_type: fuzzy
       match_threshold: 4
-    - match_col: practice country
-      match_type: exact
 
  - title: OrgNamePAddr2
    has_type: organization
@@ -50,19 +50,19 @@ Rules:
     - match_col: name
       match_type: fuzzy
       match_threshold: 4
-    - match_col: practice street
-      match_type: fuzzy
-      match_threshold: 4
+    - match_col: practice region
+      match_type: exact
+    - match_col: practice country
+      match_type: exact
     - match_col: practice city
       match_type: fuzzy
       match_threshold: 2
     - match_col: practice county
       match_type: fuzzy
       match_threshold: 2
-    - match_col: practice region
-      match_type: exact
-    - match_col: practice country
-      match_type: exact
+    - match_col: practice street
+      match_type: fuzzy
+      match_threshold: 4
 
  - title: OrgNameMAddr1
    has_type: organization
@@ -72,14 +72,14 @@ Rules:
       match_threshold: 4
     - match_col: mailing postalcode
       match_type: exact
+    - match_col: mailing country
+      match_type: exact
     - match_col: mailing street
       match_type: fuzzy
       match_threshold: 4
     - match_col: mailing unit
       match_type: fuzzy
       match_threshold: 4
-    - match_col: mailing country
-      match_type: exact
 
  - title: OrgNameMAddr2
    has_type: organization
@@ -87,19 +87,19 @@ Rules:
     - match_col: name
       match_type: fuzzy
       match_threshold: 4
-    - match_col: mailing street
-      match_type: fuzzy
-      match_threshold: 4
+    - match_col: mailing region
+      match_type: exact
+    - match_col: mailing country
+      match_type: exact
     - match_col: mailing city
       match_type: fuzzy
       match_threshold: 2
     - match_col: mailing county
       match_type: fuzzy
       match_threshold: 2
-    - match_col: mailing region
-      match_type: exact
-    - match_col: mailing country
-      match_type: exact
+    - match_col: mailing street
+      match_type: fuzzy
+      match_threshold: 4
 
 # All Columns
 # MedicalProviders, PrimarySpecialty, SecondarySpecialty, PracticeAddress, MailingAddress, Phone, 
