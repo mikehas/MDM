@@ -54,43 +54,7 @@ def matches_mastered_provider(mp_obj, mmp_obj, rule):
     threshold = 0 if matchtype == "exact" or matchtype == "do not differ"\
           else col_match["match_threshold"]
 
-    if col_name.startswith(p_prefix):
-      att_name = col_name[len(p_prefix):]
-      if len(mmp_paddresses) == 0:
-        if not attributeMatches(None,\
-              getattr(mp_paddress, att_name) if mp_paddress is not None else None,\
-              matchtype, threshold):
-          return False
-      else:
-        foundMatch = False
-        for paddr in mmp_paddresses:
-          if attributeMatches(getattr(paddr, att_name),\
-                getattr(mp_paddress, att_name) if mp_paddress is not None else None,\
-                matchtype, threshold):
-            foundMatch = True
-            break
-        if not foundMatch:
-          return False
-
-    elif col_name.startswith(m_prefix):
-      att_name = col_name[len(m_prefix):]
-      if len(mmp_maddresses) == 0:
-        if not attributeMatches(None,\
-              getattr(mp_maddress, att_name) if mp_maddress is not None else None,\
-              matchtype, threshold):
-          return False
-      else:
-        foundMatch = False
-        for maddr in mmp_maddresses:
-          if attributeMatches(getattr(maddr, att_name),\
-                getattr(mp_maddress, att_name) if mp_maddress is not None else None,\
-                matchtype, threshold):
-            foundMatch = True
-            break
-        if not foundMatch:
-          return False
-
-    elif col_name == "name":
+    if col_name == "name":
       if len(mmp_names) == 0:
         if not attributeMatches(None, mp.name, matchtype, threshold):
           return False
@@ -145,6 +109,44 @@ def matches_mastered_provider(mp_obj, mmp_obj, rule):
             break
         if not foundMatch:
           return False
+
+    elif col_name.startswith(p_prefix):
+      att_name = col_name[len(p_prefix):]
+      if len(mmp_paddresses) == 0:
+        if not attributeMatches(None,\
+              getattr(mp_paddress, att_name) if mp_paddress is not None else None,\
+              matchtype, threshold):
+          return False
+      else:
+        foundMatch = False
+        for paddr in mmp_paddresses:
+          if attributeMatches(getattr(paddr, att_name),\
+                getattr(mp_paddress, att_name) if mp_paddress is not None else None,\
+                matchtype, threshold):
+            foundMatch = True
+            break
+        if not foundMatch:
+          return False
+
+    elif col_name.startswith(m_prefix):
+      att_name = col_name[len(m_prefix):]
+      if len(mmp_maddresses) == 0:
+        if not attributeMatches(None,\
+              getattr(mp_maddress, att_name) if mp_maddress is not None else None,\
+              matchtype, threshold):
+          return False
+      else:
+        foundMatch = False
+        for maddr in mmp_maddresses:
+          if attributeMatches(getattr(maddr, att_name),\
+                getattr(mp_maddress, att_name) if mp_maddress is not None else None,\
+                matchtype, threshold):
+            foundMatch = True
+            break
+        if not foundMatch:
+          return False
+
+
 
     elif not attributeMatches(getattr(mmp, col_name), getattr(mp, col_name),\
         matchtype, threshold):
@@ -207,11 +209,13 @@ def threaded_check_match_mastered_provider(mp_obj, mmp_objs, rules):
 
   return (matchingRule, m_obj, m)
 
-def find_matching_mastered_provider(app, pool, mp_obj, mmp_objs, rules):
+def find_matching_mastered_provider(app, mp_obj, mmp_objs, rules):
+  #threadpool for multithreading
+  pool = None
   match_calls = []
   matches = []
   num_threads = 4
-  min_size = 2000
+  min_size = 4000
   num_mmp = len(mmp_objs)
   chunk_size = (num_mmp / num_threads + 1) if num_mmp >= min_size else num_mmp
 
@@ -221,15 +225,19 @@ def find_matching_mastered_provider(app, pool, mp_obj, mmp_objs, rules):
 
   #if no rules or no masteredProviders, we just push all through
   if len(rules) > 0 and num_mmp > 0:
-    app.logger.info("Spawning "+(str(num_threads) if num_mmp >= min_size else "1")+\
-        " matching threads of max chunk_size "+str(chunk_size)+" on source id "+\
-        str(mp_obj["mp"].sourceid)+" "+mp_obj["mp"].providertype+" against "+\
-        str(len(mmp_objs))+" mastered "+mp_obj["mp"].providertype+" providers")
+    #if mp_obj["mp"].sourceid % 1000 == 0:
+    #  app.logger.info("Spawning "+(str(num_threads) if num_mmp >= min_size else "1")+\
+    #      " matching threads of max chunk_size "+str(chunk_size)+" on source id "+\
+    #      str(mp_obj["mp"].sourceid)+" "+mp_obj["mp"].providertype+" against "+\
+    #      str(len(mmp_objs))+" mastered "+mp_obj["mp"].providertype+\
+    #      " providers with "+len(rules)+" rules")
     if chunk_size == num_mmp:
       #Single-thread: do it yourself
       match_result_callback(\
           threaded_check_match_mastered_provider(mp_obj, mmp_objs, rules))
     else:
+      pool = ThreadPool()
+
       for start in xrange(0, num_mmp, chunk_size):
         end = min(start + chunk_size, num_mmp)
         mmp_objs_chunk = mmp_objs[start:end]
@@ -237,17 +245,23 @@ def find_matching_mastered_provider(app, pool, mp_obj, mmp_objs, rules):
             pool.apply_async(threaded_check_match_mastered_provider,\
               (mp_obj, mmp_objs_chunk, rules),\
               callback=match_result_callback))
+
       for match_call in match_calls:
         match_call.wait()
+        if len(matches) > 0:
+          pool.terminate()
+          pool.join()
+          break
 
   return (None, None, None) if len(matches) == 0 else matches[0]
 
 
-def match_to_mastered_providers(app, pool, s, mp_obj, mmp_objs, rules, now):
+def match_to_mastered_providers(app, s, mp_obj, mmp_objs, rules, now):
   mp = mp_obj["mp"]
 
   applicable_rules = get_applicable_rules(rules, mp_obj)
-  match = find_matching_mastered_provider(app, pool, mp_obj, mmp_objs, rules)
+  match = find_matching_mastered_provider(app, mp_obj, mmp_objs,\
+      applicable_rules)
   matchingRule = match[0]
   m_obj = match[1]
   m = match[2]
@@ -407,6 +421,10 @@ def check_rules(app, rules):
     if "match_cols" not in rule:
       return False
 
+    if "has_type" in rule and (rule["has_type"].lower() != 'individual' and\
+        rule["has_type"].lower() != 'organization'):
+      return False
+
     for col_match in rule["match_cols"]:
       if "match_col" not in col_match or "match_type" not in col_match:
         return False
@@ -479,8 +497,6 @@ def match_all(app):
 
   if not hasattr(threading.current_thread(), "_children"):
     threading.current_thread()._children = weakref.WeakKeyDictionary()
-  #threadpool for multithreading
-  pool = ThreadPool()
 
   #grab only providers not already matched
   providers = session.query(MedicalProvider)
@@ -508,6 +524,8 @@ def match_all(app):
       mp_objs = get_mp_objects(session, providers_chunk)
       for mp_obj in mp_objs:
         now = time.strftime('%Y-%m-%d %H:%M:%S')
+        if matched % 1000 == 0:
+          app.logger.info(now+"Matching: processing #"+str(matched))
 
         mmp_objs = None
         if mp_obj["mp"].providertype == 'Individual':
@@ -518,14 +536,11 @@ def match_all(app):
           raise Exception("Medical provider not individual or organization: "+\
                 mp_obj["mp"].providertype)
 
-        match_to_mastered_providers(app, pool, session, mp_obj, mmp_objs, rules, now)
+        match_to_mastered_providers(app, session, mp_obj, mmp_objs, rules, now)
         matched = matched + 1
 
     now = time.strftime('[%Y-%m-%d %H:%M:%S]')
-    app.logger.info(now+"Matching done: "+matched+" medical providers matched")
-
-  pool.close()
-  pool.join()
+    app.logger.info(now+"Matching done: "+str(matched)+" medical providers matched")
 
   session.commit()
   session.close()
