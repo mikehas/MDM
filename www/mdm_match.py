@@ -11,11 +11,6 @@ from nltk.metrics.distance import edit_distance
 from mdm_rules import load_rules
 import pprint
 
-@safe_commit
-def match_practice_address(app, masterid, sourceid):
-  match_practice_address = MatchedPracticeAddress(sourceid=sourceid, masterid=masterid, addresstype='practice')
-  return match_practice_address
-
 # val1, val2 are the values to compare
 # mode is the matching mode (ignore, exact, fuzzy, do not differ)
 def attributeMatches(val1, val2, mode="exact", threshold=0):
@@ -31,7 +26,7 @@ def attributeMatches(val1, val2, mode="exact", threshold=0):
 # mp - Medical Provider
 # mmp - Mastered Medical Provider
 # rule - rule object
-def matches_mastered_provider(app, s, mp_obj, mmp_obj, rule):
+def matches_mastered_provider(mp_obj, mmp_obj, rule):
   mp = mp_obj["mp"]
   mp_phone = mp_obj["mp_phone"]
   mp_paddress = mp_obj["mp_paddress"]
@@ -192,14 +187,14 @@ def get_applicable_rules(rules, mp_obj):
 
   return newrules
 
-def threaded_check_match_mastered_provider(app, s, mp_obj, mmp_objs, rules):
+def threaded_check_match_mastered_provider(mp_obj, mmp_objs, rules):
   matchingRule = None
   m_obj = None
   m = None
 
   for mmp_obj in mmp_objs:
     for rule in rules:
-      if matches_mastered_provider(app, s, mp_obj, mmp_obj, rule):
+      if matches_mastered_provider(mp_obj, mmp_obj, rule):
         matchingRule = rule
         m_obj = mmp_obj
         m = mmp_obj["mmp"]
@@ -207,7 +202,7 @@ def threaded_check_match_mastered_provider(app, s, mp_obj, mmp_objs, rules):
 
   return (matchingRule, m_obj, m)
 
-def find_matching_mastered_provider(app, pool, s, mp_obj, mmp_objs, rules):
+def find_matching_mastered_provider(app, pool, mp_obj, mmp_objs, rules):
   match_calls = []
   matches = []
   num_threads = 4
@@ -229,7 +224,7 @@ def find_matching_mastered_provider(app, pool, s, mp_obj, mmp_objs, rules):
       mmp_objs_chunk = mmp_objs[start:end]
       match_calls.append(\
           pool.apply_async(threaded_check_match_mastered_provider,\
-            (app, s, mp_obj, mmp_objs_chunk, rules),\
+            (mp_obj, mmp_objs_chunk, rules),\
             callback=match_result_callback))
     for match_call in match_calls:
       match_call.wait()
@@ -241,7 +236,7 @@ def match_to_mastered_providers(app, pool, s, mp_obj, mmp_objs, rules, now):
   mp = mp_obj["mp"]
 
   applicable_rules = get_applicable_rules(rules, mp_obj)
-  match = find_matching_mastered_provider(app, pool, s, mp_obj, mmp_objs, rules)
+  match = find_matching_mastered_provider(app, pool, mp_obj, mmp_objs, rules)
   matchingRule = match[0]
   m_obj = match[1]
   m = match[2]
@@ -285,10 +280,11 @@ def match_to_mastered_providers(app, pool, s, mp_obj, mmp_objs, rules, now):
 
   else:
     #no matches found! Insert new mastered provider
-    m = MasteredProvider(masterid=mp.sourceid,providertype=mp.providertype,\
-          name=mp_obj["mp_rawname"],gender=mp.gender,dateofbirth=mp.dateofbirth,\
+    m = MasteredProvider(providertype=mp.providertype,name=mp_obj["mp_rawname"],\
+          gender=mp.gender,dateofbirth=mp.dateofbirth,\
           issoleproprietor=mp.issoleproprietor)
     s.add(m)
+    s.flush()
 
     #add our new mmp_obj to our cached collection
     m_obj = {"mmp": m, "mmp_names": [mp.name], "mmp_phones": [],\
