@@ -16,12 +16,15 @@ import pprint
 def attributeMatches(val1, val2, mode="exact", threshold=0):
   if mode == "ignore":
     return True
-  if mode == "exact" or mode == "fuzzy":
+  if mode == "exact":
+    return val1 is not None and val2 is not None and\
+        val1 == val2
+  if mode == "fuzzy":
     return val1 is not None and val2 is not None and\
         abs(len(val1) - len(val2)) <= threshold and\
         edit_distance(val1,val2) <= threshold
   if mode == "do not differ":
-    return val1 is None or val2 is None or edit_distance(val1,val2) == 0
+    return val1 is None or val2 is None or val1 == val2
   return False
 
 # s - SQLAlchemy session
@@ -401,8 +404,24 @@ def check_rules(app, rules):
   m_prefix = "mailing "
 
   for rule in rules:
+    if "match_cols" not in rule:
+      return False
+
     for col_match in rule["match_cols"]:
+      if "match_col" not in col_match or "match_type" not in col_match:
+        return False
+
       col_name = col_match["match_col"].lower()
+      matchtype = col_match["match_type"].lower()
+
+      if (matchtype == "ignore" or matchtype == "exact" or\
+          matchtype == "do not differ") and\
+          "match_threshold" in col_match:
+        return False
+      if matchtype == "fuzzy" and\
+          ("match_threshold" not in col_match or\
+           col_match["match_threshold"] < 1):
+        return False
 
       if col_name == "name" or col_name == "phone" or\
           col_name == "primaryspecialty" or col_name == "secondaryspecialty":
