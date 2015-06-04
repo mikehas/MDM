@@ -35,8 +35,8 @@ def exec_sqlfile(app, sql_file):
       result = connection.execute(sql)
       connection.close()
 
-      app.logger.debug(sql)
-      app.logger.debug(result)
+      #app.logger.debug(sql)
+      #app.logger.debug(result)
 
     return result
 

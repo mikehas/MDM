@@ -13,24 +13,24 @@ def map_specialty(specialty):
 
 def clean_address(addr):
   if addr.country is not None:
-    addr.country = addr.country.upper()
+    addr.country = addr.country.strip().upper()
   if addr.region is not None:
-    addr.region = addr.region.upper()
+    addr.region = addr.region.strip().upper()
   if addr.county is not None:
-    addr.county = addr.county.upper()
+    addr.county = addr.county.strip().upper()
   if addr.city is not None:
-    addr.city = addr.city.upper()
+    addr.city = addr.city.strip().upper()
   if addr.street is not None:
-    addr.street = addr.street.upper()
+    addr.street = addr.street.strip().upper()
   if addr.unit is not None:
-    addr.unit = addr.unit.upper()
+    addr.unit = addr.unit.strip().upper()
   return addr
 
 def map_phone(phone):
   pass
 
 def clean_name(name):
-  nameList = re.sub(ur"\p{P}+", "", name).upper().split(' ')
+  nameList = re.sub(ur"\p{P}+", "", name.strip()).upper().split(' ')
   nameList.sort()
   return string.join(nameList, ' ')
 
@@ -54,8 +54,8 @@ def map_all():
   session = Session()
   #rawdata = session.query(RawData).limit(10)
   #rawdata = session.query(RawData).limit(100)
-  rawdata = session.query(RawData).limit(1000)
-  #rawdata = session.query(RawData).all()
+  #rawdata = session.query(RawData).limit(1000)
+  rawdata = session.query(RawData).all()
 
   mapped = 0
   errors = []

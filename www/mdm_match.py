@@ -207,7 +207,7 @@ def threaded_check_match_mastered_provider(mp_obj, mmp_objs, rules):
 def find_matching_mastered_provider(app, pool, mp_obj, mmp_objs, rules):
   match_calls = []
   matches = []
-  num_threads = 4
+  num_threads = 2
   min_size = 1000
   num_mmp = len(mmp_objs)
   chunk_size = num_mmp / num_threads if num_mmp > min_size else num_mmp
@@ -460,7 +460,7 @@ def match_all(app):
   #grab only providers not already matched
   providers = session.query(MedicalProvider)
   providers_count = providers.count()
-  chunk_size = min(providers_count, 1000)
+  chunk_size = min(providers_count, 60000)
 
   if providers_count > 0:
     app.logger.info("Matching: starting on "+str(providers_count)+" providers in "+\
