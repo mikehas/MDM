@@ -15,6 +15,8 @@ from pprint import pprint, pformat
 import mdm_rules
 import yaml
 
+import cProfile
+
 # create application
 app = Flask(__name__)
 
@@ -196,7 +198,8 @@ def data_match_rules_save():
 @app.route("/data/match")
 def data_match():
     tables_data = get_all_tables()
-    matched, errors = mdm_match.match_all(app)
+    #matched, errors = mdm_match.match_all(app)
+    cProfile.runctx('mdm_match.match_all(app)', {"mdm_match": mdm_match}, {"app": app})
     return render_template('matching_results.html', tables_data=tables_data)
 
 @app.route('/login', methods=['GET', 'POST'])

@@ -11,6 +11,9 @@ from nltk.metrics.distance import edit_distance
 from mdm_rules import load_rules
 import pprint
 
+p_prefix = "practice "
+m_prefix = "mailing "
+
 # val1, val2 are the values to compare
 # mode is the matching mode (ignore, exact, fuzzy, do not differ)
 def attributeMatches(val1, val2, mode="exact", threshold=0):
@@ -45,12 +48,9 @@ def matches_mastered_provider(mp_obj, mmp_obj, rule):
   mmp_pspecialties = mmp_obj["mmp_pspecialties"]
   mmp_sspecialties = mmp_obj["mmp_sspecialties"]
 
-  p_prefix = "practice "
-  m_prefix = "mailing "
-
   for col_match in rule["match_cols"]:
-    col_name = col_match["match_col"].lower()
-    matchtype = col_match["match_type"].lower()
+    col_name = col_match["match_col"]
+    matchtype = col_match["match_type"]
     threshold = 0 if matchtype == "exact" or matchtype == "do not differ"\
           else col_match["match_threshold"]
 
@@ -162,17 +162,14 @@ def get_applicable_rules(rules, mp_obj):
   mp_paddress = mp_obj["mp_paddress"]
   mp_maddress = mp_obj["mp_maddress"]
 
-  p_prefix = "practice "
-  m_prefix = "mailing "
-
   for rule in rules:
     applicable = True
 
     has_type = rule.get("has_type", None)
-    if has_type is None or has_type.lower() == mp.providertype.lower():
+    if has_type is None or has_type == mp.providertype.lower():
       for col_match in rule["match_cols"]:
-        col_name = col_match["match_col"].lower()
-        matchtype = col_match["match_type"].lower()
+        col_name = col_match["match_col"]
+        matchtype = col_match["match_type"]
         if matchtype == "do not differ":
           continue
 
@@ -194,77 +191,22 @@ def get_applicable_rules(rules, mp_obj):
 
   return newrules
 
-def threaded_check_match_mastered_provider(mp_obj, mmp_objs, rules):
+def match_to_mastered_providers(app, s, mp_obj, mmp_objs, rules, now):
+  mp = mp_obj["mp"]
+
   matchingRule = None
   m_obj = None
   m = None
 
-  for mmp_obj in mmp_objs:
-    for rule in rules:
-      if matches_mastered_provider(mp_obj, mmp_obj, rule):
-        matchingRule = rule
-        m_obj = mmp_obj
-        m = mmp_obj["mmp"]
-        break
-
-  return (matchingRule, m_obj, m)
-
-def find_matching_mastered_provider(app, mp_obj, mmp_objs, rules):
-  #threadpool for multithreading
-  pool = None
-  match_calls = []
-  matches = []
-  num_threads = 4
-  min_size = 4000
-  num_mmp = len(mmp_objs)
-  chunk_size = (num_mmp / num_threads + 1) if num_mmp >= min_size else num_mmp
-
-  def match_result_callback(result):
-    if result[0] is not None:
-      matches.append(result)
-
-  #if no rules or no masteredProviders, we just push all through
-  if len(rules) > 0 and num_mmp > 0:
-    #if mp_obj["mp"].sourceid % 1000 == 0:
-    #  app.logger.info("Spawning "+(str(num_threads) if num_mmp >= min_size else "1")+\
-    #      " matching threads of max chunk_size "+str(chunk_size)+" on source id "+\
-    #      str(mp_obj["mp"].sourceid)+" "+mp_obj["mp"].providertype+" against "+\
-    #      str(len(mmp_objs))+" mastered "+mp_obj["mp"].providertype+\
-    #      " providers with "+len(rules)+" rules")
-    if chunk_size == num_mmp:
-      #Single-thread: do it yourself
-      match_result_callback(\
-          threaded_check_match_mastered_provider(mp_obj, mmp_objs, rules))
-    else:
-      pool = ThreadPool()
-
-      for start in xrange(0, num_mmp, chunk_size):
-        end = min(start + chunk_size, num_mmp)
-        mmp_objs_chunk = mmp_objs[start:end]
-        match_calls.append(\
-            pool.apply_async(threaded_check_match_mastered_provider,\
-              (mp_obj, mmp_objs_chunk, rules),\
-              callback=match_result_callback))
-
-      for match_call in match_calls:
-        match_call.wait()
-        if len(matches) > 0:
-          pool.terminate()
-          pool.join()
-          break
-
-  return (None, None, None) if len(matches) == 0 else matches[0]
-
-
-def match_to_mastered_providers(app, s, mp_obj, mmp_objs, rules, now):
-  mp = mp_obj["mp"]
-
   applicable_rules = get_applicable_rules(rules, mp_obj)
-  match = find_matching_mastered_provider(app, mp_obj, mmp_objs,\
-      applicable_rules)
-  matchingRule = match[0]
-  m_obj = match[1]
-  m = match[2]
+  if len(applicable_rules) > 0 and len(mmp_objs) > 0:
+    for mmp_obj in mmp_objs:
+      for rule in applicable_rules:
+        if matches_mastered_provider(mp_obj, mmp_obj, rule):
+          matchingRule = rule
+          m_obj = mmp_obj
+          m = mmp_obj["mmp"]
+          break
 
   if m is not None:
     fieldsSurvived = None
@@ -414,16 +356,15 @@ def get_mmp_objects(s, mmps):
   return mmp_objs
 
 def check_rules(app, rules):
-  p_prefix = "practice "
-  m_prefix = "mailing "
-
   for rule in rules:
     if "match_cols" not in rule:
       return False
 
-    if "has_type" in rule and (rule["has_type"].lower() != 'individual' and\
-        rule["has_type"].lower() != 'organization'):
-      return False
+    if "has_type" in rule:
+      rule["has_type"] = rule["has_type"].lower()
+      if rule["has_type"] != 'individual' and\
+        rule["has_type"] != 'organization':
+        return False
 
     for col_match in rule["match_cols"]:
       if "match_col" not in col_match or "match_type" not in col_match:
