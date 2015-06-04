@@ -207,10 +207,10 @@ def threaded_check_match_mastered_provider(mp_obj, mmp_objs, rules):
 def find_matching_mastered_provider(app, pool, mp_obj, mmp_objs, rules):
   match_calls = []
   matches = []
-  num_threads = 2
-  min_size = 1000
+  num_threads = 4
+  min_size = 2000
   num_mmp = len(mmp_objs)
-  chunk_size = num_mmp / num_threads if num_mmp > min_size else num_mmp
+  chunk_size = (num_mmp / num_threads + 1) if num_mmp >= min_size else num_mmp
 
   def match_result_callback(result):
     if result[0] is not None:
@@ -218,19 +218,24 @@ def find_matching_mastered_provider(app, pool, mp_obj, mmp_objs, rules):
 
   #if no rules or no masteredProviders, we just push all through
   if len(rules) > 0 and num_mmp > 0:
-    app.logger.debug("Spawning "+(str(num_threads) if num_mmp > min_size else "1")+\
-        " matching threads on source id "+\
+    app.logger.info("Spawning "+(str(num_threads) if num_mmp >= min_size else "1")+\
+        " matching threads of max chunk_size "+str(chunk_size)+" on source id "+\
         str(mp_obj["mp"].sourceid)+" "+mp_obj["mp"].providertype+" against "+\
         str(len(mmp_objs))+" mastered "+mp_obj["mp"].providertype+" providers")
-    for start in xrange(0, num_mmp, chunk_size):
-      end = min(start + chunk_size, num_mmp)
-      mmp_objs_chunk = mmp_objs[start:end]
-      match_calls.append(\
-          pool.apply_async(threaded_check_match_mastered_provider,\
-            (mp_obj, mmp_objs_chunk, rules),\
-            callback=match_result_callback))
-    for match_call in match_calls:
-      match_call.wait()
+    if chunk_size == num_mmp:
+      #Single-thread: do it yourself
+      match_result_callback(\
+          threaded_check_match_mastered_provider(mp_obj, mmp_objs, rules))
+    else:
+      for start in xrange(0, num_mmp, chunk_size):
+        end = min(start + chunk_size, num_mmp)
+        mmp_objs_chunk = mmp_objs[start:end]
+        match_calls.append(\
+            pool.apply_async(threaded_check_match_mastered_provider,\
+              (mp_obj, mmp_objs_chunk, rules),\
+              callback=match_result_callback))
+      for match_call in match_calls:
+        match_call.wait()
 
   return (None, None, None) if len(matches) == 0 else matches[0]
 
@@ -411,7 +416,7 @@ def check_rules(app, rules):
             valid = True
             break
         if not valid:
-          app.logger.debug(col_name+" is not a valid attribute")
+          app.logger.error(col_name+" is not a valid attribute")
           return False
 
       elif col_name.startswith(m_prefix):
@@ -422,7 +427,7 @@ def check_rules(app, rules):
             valid = True
             break
         if not valid:
-          app.logger.debug(col_name+" is not a valid attribute")
+          app.logger.error(col_name+" is not a valid attribute")
           return False
 
       else:
@@ -432,7 +437,7 @@ def check_rules(app, rules):
             valid = True
             break
         if not valid:
-          app.logger.debug(col_name+" is not a valid attribute")
+          app.logger.error(col_name+" is not a valid attribute")
           return False
 
   return True
@@ -446,10 +451,11 @@ def match_all(app):
   #load rules here
   rules = load_rules("rules/example_rules.yaml")["Rules"]
 
-  app.logger.debug("Matching: match rules loaded")
+  now = time.strftime('[%Y-%m-%d %H:%M:%S]')
+  app.logger.info(now+"Matching: match rules loaded")
   pprint.pprint(rules)
   if not check_rules(app, rules):
-    errors.append("Invalid rules")
+    app.logger.error("Matching: invalid rules")
     return matched, errors
 
   if not hasattr(threading.current_thread(), "_children"):
@@ -463,10 +469,11 @@ def match_all(app):
   chunk_size = min(providers_count, 60000)
 
   if providers_count > 0:
-    app.logger.info("Matching: starting on "+str(providers_count)+" providers in "+\
-          str(providers_count/chunk_size +\
+    now = time.strftime('[%Y-%m-%d %H:%M:%S]')
+    app.logger.info(now+"Matching: starting on "+str(providers_count)+\
+        " providers in "+str(providers_count/chunk_size +\
             (1 if providers_count % chunk_size != 0 else 0))+\
-          " chunks of "+str(chunk_size))
+        " chunks of "+str(chunk_size))
 
     individualMMP_objects = get_mmp_objects(session,\
           session.query(MasteredProvider)\
@@ -475,7 +482,8 @@ def match_all(app):
           session.query(MasteredProvider)\
           .filter_by(providertype='Organization').all())
     for start in xrange(0, providers_count, chunk_size):
-      app.logger.info("Matching: processing chunk #"+str(start/chunk_size + 1))
+      now = time.strftime('[%Y-%m-%d %H:%M:%S]')
+      app.logger.info(now+"Matching: processing chunk #"+str(start/chunk_size + 1))
       end = min(start + chunk_size, providers_count)
       providers_chunk = providers[start:end]
       mp_objs = get_mp_objects(session, providers_chunk)
@@ -493,6 +501,9 @@ def match_all(app):
 
         match_to_mastered_providers(app, pool, session, mp_obj, mmp_objs, rules, now)
         matched = matched + 1
+
+    now = time.strftime('[%Y-%m-%d %H:%M:%S]')
+    app.logger.info(now+"Matching done: "+matched+" medical providers matched")
 
   pool.close()
   pool.join()
