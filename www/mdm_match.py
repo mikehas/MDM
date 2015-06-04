@@ -17,7 +17,9 @@ def attributeMatches(val1, val2, mode="exact", threshold=0):
   if mode == "ignore":
     return True
   if mode == "exact" or mode == "fuzzy":
-    return val1 is not None and val2 is not None and edit_distance(val1,val2) <= threshold
+    return val1 is not None and val2 is not None and\
+        abs(len(val1) - len(val2)) <= threshold and\
+        edit_distance(val1,val2) <= threshold
   if mode == "do not differ":
     return val1 is None or val2 is None or edit_distance(val1,val2) == 0
   return False
@@ -216,7 +218,8 @@ def find_matching_mastered_provider(app, pool, mp_obj, mmp_objs, rules):
 
   #if no rules or no masteredProviders, we just push all through
   if len(rules) > 0 and num_mmp > 0:
-    app.logger.debug("Spawning "+str(num_threads)+" matching threads on source id "+\
+    app.logger.debug("Spawning "+(str(num_threads) if num_mmp > min_size else "1")+\
+        " matching threads on source id "+\
         str(mp_obj["mp"].sourceid)+" "+mp_obj["mp"].providertype+" against "+\
         str(len(mmp_objs))+" mastered "+mp_obj["mp"].providertype+" providers")
     for start in xrange(0, num_mmp, chunk_size):
@@ -490,6 +493,9 @@ def match_all(app):
 
         match_to_mastered_providers(app, pool, session, mp_obj, mmp_objs, rules, now)
         matched = matched + 1
+
+  pool.close()
+  pool.join()
 
   session.commit()
   session.close()
