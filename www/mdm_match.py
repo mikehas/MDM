@@ -439,7 +439,6 @@ def match_all(app):
   if not hasattr(threading.current_thread(), "_children"):
     threading.current_thread()._children = weakref.WeakKeyDictionary()
 
-  #grab only providers not already matched
   providers = session.query(MedicalProvider)
   providers_count = providers.count()
   chunk_size = min(providers_count, 60000)

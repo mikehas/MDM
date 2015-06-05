@@ -56,8 +56,8 @@ def map_all():
   #rawdata = session.query(RawData).limit(100)
   #rawdata = session.query(RawData).limit(1000)
   #rawdata = session.query(RawData).limit(10000)
-  rawdata = session.query(RawData).limit(20000)
-  #rawdata = session.query(RawData).all()
+  #rawdata = session.query(RawData).limit(20000)
+  rawdata = session.query(RawData).all()
 
   mapped = 0
   errors = []
