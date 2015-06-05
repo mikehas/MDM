@@ -379,6 +379,7 @@ def check_rules(app, rules):
         return False
       if matchtype == "fuzzy" and\
           ("match_threshold" not in col_match or\
+           not isinstance(col_match["match_threshold"], (int, long)) or\
            col_match["match_threshold"] < 1):
         return False
 
