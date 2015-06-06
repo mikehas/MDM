@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+{% block localhead %}
+  <script type="text/javascript"> 
+  </script>
+{% endblock %}
+{% block body %}
+  {% if session.logged_in %}
+  <h2> Saved Rules File: {{ rules_file }}</h2>
+  <br/><br/>
+    <p>
+    {% for line in rules_lines %}
+      {{ line|safe }}<br />
+    {% endfor %}
+    </p>
+  {% else %}
+    <p> You are not logged in. </p>
+	{% endif %}
+  </ul>
+{% endblock %}

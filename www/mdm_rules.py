@@ -32,27 +32,37 @@ def write_yaml(app, f, rules_form):
   for i, val in enumerate(rules):
     match_cols = []
     fuzzy_vals = []
+    has_type = None
+    title = None
     for col, mode in rules_form.items():
       mode = mode.encode('ascii')
-      if (str(i) + '_') in col[0:2] and '_title' not in col:
+      app.logger.debug(col + ", "  + mode)
+      if (str(i) + '_') in col[0:2]:
         if ('match_threshold' in strip_name(col)):
           add_to_col = re.sub(r'.*match_threshold_[0-9]+_', '', col)
           app.logger.debug("fuzzy val colname: " + add_to_col)
           fuzzy_vals.append((add_to_col, mode))
+        elif ('_has_type' in col):
+          has_type = mode
+        elif ('title' in col):
+          app.logger.debug("found title: " + mode)
+          title = mode
         elif mode != 'ignore':
-          #app.logger.debug("column: " + col + " mode: " + mode)
           col_dict = OrderedDict()
           col_dict['match_col'] = strip_name(col)
           col_dict['match_type'] = mode
           match_cols.append(col_dict)
 
+    # Append Fuzzy Vals to appropriate column
     for fcol, fval in fuzzy_vals:
       for coldict in match_cols:
         if coldict['match_col'] == fcol:
           coldict['match_threshold'] = fval
+
            
     rule = OrderedDict()
-    rule['title'] = strip_name(val)
+    rule['title'] = title
+    rule['has_type'] = has_type
     rule['match_cols'] = match_cols
     r.append(rule)
 

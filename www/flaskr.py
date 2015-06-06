@@ -14,6 +14,7 @@ import re
 from pprint import pprint, pformat
 import mdm_rules
 import yaml
+import time
 
 import cProfile
 
@@ -191,9 +192,16 @@ def data_match_rules_save():
   app.logger.info(pformat(request.form))
   rules_form = request.form
 
-  mdm_rules.write_yaml(app, "rules/example_rules2.yaml", rules_form)
+  timestamp = time.strftime("%Y%m%d-%H%M%S")
+  filename = "rules/ruleset_" + timestamp + " .yaml"
+  mdm_rules.write_yaml(app, filename, rules_form)
 
-  return render_template('show_rules.html', rules_yaml = rules_form)
+  f = open(filename, 'r+')
+  lines = f.readlines()
+  for i, l in enumerate(lines):
+    lines[i] = re.sub(' ', '&nbsp;', l)
+
+  return render_template('show_rules.html', rules_file = filename, rules_lines = lines)
 
 @app.route("/data/match")
 def data_match():
@@ -224,7 +232,7 @@ def logout():
 
 if __name__ == "__main__":
   handler = RotatingFileHandler('logs/mdm.log', maxBytes=10000, backupCount=1)
-  handler.setLevel(logging.INFO)
+  handler.setLevel(logging.DEBUG)
   app.logger.addHandler(handler)
 
   app.run()
