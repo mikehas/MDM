@@ -55,7 +55,6 @@
           );
 
           $.each($('#rules > ul > li').last().find('select'), function(i){
-            alert($(this).attr('name'));
             $(this).change( function(){
               if ($(this).val() === 'fuzzy') {
                 $(this).closest('li').append("<input class='fuzzyvalue' name='match_threshold' type='text'></input>");
