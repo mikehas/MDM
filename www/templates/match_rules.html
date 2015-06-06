@@ -8,12 +8,14 @@
     #sortable li span { margin-left: -1.3em; }
     #sortable li .rule { height: 325px; }
     .deletebutton { margin:none; height: 325px}
-    #sortable li .rule_title {float:left; width:125px; height: 30px; display:block }
+    #sortable li .rule_title {float:left; width:125px; height: 30px; display:block; text-align: center; }
     #sortable li .rule_cols {float:left; width:80%; clear:none; display:block}
     #sortable li .rule_cols ul li {list-style-type: none; margin: 0; padding: 0;}
     #sortable li .rule_cols .item {font-size: 11.5pt;float:left; text-align:center; margin-right: 5px}
-    #sortable li .rule_cols ul li select {width:130px;}
+    #sortable li .rule_cols ul li select {width:140px;}
+    #sortable li .rule_cols ul li input.fuzzyvalue {float: right; width:30px; margin-left: 5px;}
     #sortable li .rule_title input { margin: 5px 10px 0px 5px; height: 40px; font-size: 1.2em; width: 125px}
+    #sortable li .has_type { margin: 5px 10px 0px 5px; height: 40px; width: 125px}
     #sortable li .li_right { float:right; width:auto; margin: 0 0 0 15px ;height: 30px; display:block}
     #sortable li { background-color:#ccc;margin: 5px 0 0 0;}
     .content { width: 100%; overflow:visible !important }
@@ -33,6 +35,12 @@
                 $('<div>').attr('class','rule').append(
                   $('<div>').attr('class','rule_title').append(
                     $('<input>').attr('name','title').attr('value','New Rule').attr('type','text')
+                  ).append(
+                   '<label>Applies To:</label><select class="has_type" name="has_type">' +
+                   ' <option value = "organization">organization</option>' +
+                   ' <option value = "individual">individual</option>' +
+                   ' <option value = "both">both</option>' +
+                   '</select>'
                   )
                   ,
                   $('<div>').attr('class','rule_cols').append(create_selections())
@@ -44,8 +52,20 @@
                     )
                   )
                 )
-              );
+          );
+
+          $.each($('#rules > ul > li').last().find('select'), function(i){
+            alert($(this).attr('name'));
+            $(this).change( function(){
+              if ($(this).val() === 'fuzzy') {
+                $(this).closest('li').append("<input class='fuzzyvalue' name='match_threshold' type='text'></input>");
+                }else 
+              if ($(this).val() != 'fuzzy') {
+                $(this).closest('li').find('.fuzzyvalue').remove();
+              }
             });
+          });
+        });
 
         $('.deletebutton').on('click', function() {
               $(this).closest('li').remove();
@@ -67,20 +87,28 @@
            var html = '<ul>'
            $.each(cols, function(i, val){
                html += '<li class="item">' + val + '<br /><select name="' + val + '">' +  
-           ' <option value = "exact">exact match</option>' +
            ' <option value = "ignore">ignore</option>' +
-           ' <option value = "exact">fuzzy match</option>' +
-           ' <option value = "exact">do not differ</option>' +
+           ' <option value = "exact">exact match</option>' +
+           ' <option value = "fuzzy">fuzzy match</option>' +
+           ' <option value = "do notdiffer">do not differ</option>' +
            '</select></li>'
            })
            html += '</ul>'
+           
+
            return html;
         }
 
         function append_index_to_inputs(form, callback) {
             $.each(form.find( '.rule' ), function(i){
                 $.each($( this ).find( 'select, input' ), function(j) {
-                  $( this ).attr('name', i + "_" + $( this ).attr('name'));
+                  if ($(this).attr('name') === 'match_threshold') {
+                  $( this ).attr('name', i + "_" + $( this ).attr('name') +
+                    '_' + $(this).prev().attr('name'));
+                  }
+                  else{
+                    $( this ).attr('name', i + "_" + $( this ).attr('name'));
+                  }
                 });
             });
             callback()
@@ -105,18 +133,6 @@
 <form id="rulesform" action={{ url_for('data_match_rules_save') }} method="post">
 <div id=rules>
   <ul id="sortable">
-    <li class="ui-state-default">
-    <div class="rule">
-      <div class="rule_title">
-        <input name="title" value="Rule 1" type="text"></input>
-      </div>
-      <div class="rule_cols">
-      </div>
-      <div class="li_right">
-      </div>
-      <div class="break"></div>
-    </div>
-    </li>
   </ul>
 </div>
 </form>
