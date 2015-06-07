@@ -193,7 +193,7 @@ def data_match_rules_save():
   rules_form = request.form
 
   timestamp = time.strftime("%Y%m%d-%H%M%S")
-  filename = "rules/ruleset_" + timestamp + " .yaml"
+  filename = "rules/ruleset_" + timestamp + ".yaml"
   mdm_rules.write_yaml(app, filename, rules_form)
 
   f = open(filename, 'r+')
