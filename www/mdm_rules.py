@@ -36,12 +36,14 @@ def write_yaml(app, f, rules_form):
     title = None
     for col, mode in rules_form.items():
       mode = mode.encode('ascii')
+      mode = mode.lower()
+      col = col.lower()
       app.logger.debug(col + ", "  + mode)
       if (str(i) + '_') in col[0:2]:
         if ('match_threshold' in strip_name(col)):
           add_to_col = re.sub(r'.*match_threshold_[0-9]+_', '', col)
           app.logger.debug("fuzzy val colname: " + add_to_col)
-          fuzzy_vals.append((add_to_col, mode))
+          fuzzy_vals.append((add_to_col, int(mode)))
         elif ('_has_type' in col):
           if mode != 'both':
             has_type = mode
