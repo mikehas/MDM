@@ -51,12 +51,12 @@ def show_entries():
     table = request.args.get('table')
     limit = request.args.get('limit')
     if table == None:
-      table = 'RawData'
-    if limit == None:
-      limit = '1000'
+      return redirect(url_for('show_tables'))
+    #if limit == None:
+    #  limit = '1000'
 
     connection = engine.connect()
-    data = connection.execute("SELECT * from " + table + " limit " + limit )
+    data = connection.execute("SELECT * from " + table) #+ " limit " + limit )
     connection.close()
 
     if data is None:
@@ -210,7 +210,7 @@ def data_match_rules_save():
 @app.route("/data/match_rules/select")
 def data_match_rules_select():
   rules_dir = 'rules'
-  files = [ f for f in listdir(rules_dir) if isfile(join(rules_dir,f)) ]   
+  files = [ f for f in listdir(rules_dir) if isfile(join(rules_dir,f)) ]
   return render_template('select_rules.html', files = files)
 
 @app.route("/data/match_rules/delete")
@@ -224,7 +224,7 @@ def data_match_rules_delete():
     flash("Rule file " + rules_file + " deleted.")
     os.unlink(file_name)
 
-  files = [ f for f in listdir(rules_dir) if isfile(join(rules_dir,f)) ]   
+  files = [ f for f in listdir(rules_dir) if isfile(join(rules_dir,f)) ]
   return render_template('select_rules.html', files = files)
 
 
