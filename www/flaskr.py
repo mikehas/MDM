@@ -232,11 +232,18 @@ def data_match_rules_view():
 def data_match():
     tables_data = get_all_tables()
     rules_file = request.cookies.get('rules_file')
+
+    if rules_file == None:
+      rules_file = 'default_rules.yaml'
+
     #matched, errors = mdm_match.match_all(app)
     #cProfile.runctx('mdm_match.match_all(app, rules_file)', {"mdm_match": mdm_match}, {"app": app})
+
     mdm_match.match_all(app, rules_file)
     flash('Matching using ' + rules_file + ' complete.')
-    return render_template('show_tables.html')
+
+    tables_data = get_all_tables()
+    return render_template('show_tables.html', tables_data = tables_data)
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
