@@ -213,6 +213,21 @@ def data_match_rules_select():
   files = [ f for f in listdir(rules_dir) if isfile(join(rules_dir,f)) ]   
   return render_template('select_rules.html', files = files)
 
+@app.route("/data/match_rules/delete")
+def data_match_rules_delete():
+  rules_dir = 'rules'
+  rules_file = request.args['rules_file']
+  if rules_file == "default_rules.yaml":
+    flash("Please do not try to delete the default rules file!!!.")
+  elif rules_file != None:
+    file_name = os.path.join(rules_dir, rules_file)
+    flash("Rule file " + rules_file + " deleted.")
+    os.unlink(file_name)
+
+  files = [ f for f in listdir(rules_dir) if isfile(join(rules_dir,f)) ]   
+  return render_template('select_rules.html', files = files)
+
+
 @app.route("/data/match_rules/view", methods=['GET'])
 def data_match_rules_view():
   rules_dir = 'rules'

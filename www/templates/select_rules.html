@@ -19,6 +19,7 @@
           <td>select</td>
           <td>filename</td>
           <td>view</td>
+          <td>delete</td>
         </thead>
         <tbody>    
         {% for file in files %}
@@ -26,6 +27,7 @@
               <td><input type="radio" name='rules_file' value='{{ file }}'></td>
               <td>{{ file }}</td>
               <td><a href="{{ url_for('data_match_rules_view', rules_file=file)}}">view file contents</a></td>
+              <td><a href="{{ url_for('data_match_rules_delete', rules_file=file)}}">delete file</a></td>
             </tr>
             {% else %}
             <p>No rules found</p>
