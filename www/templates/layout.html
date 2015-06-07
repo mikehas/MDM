@@ -12,6 +12,7 @@
     <!-- Menu -->
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='jmenu.css') }}" media="screen" />
     <script type="text/javascript" src="{{ url_for('static', filename='jMenu.jquery.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js-cookie/src/js.cookie.js') }}"></script>
 
     <script>
       $(document).ready(function(){
@@ -51,6 +52,7 @@
           <li><a href="{{ url_for('data_load') }}">Load RawData</a></li>
           <li><a href="{{ url_for('data_map') }}">Clean & Map RawData</a></li>
           <li><a href="{{ url_for('data_match_rules') }}">Match Rules Builder</a></li>
+          <li><a href="{{ url_for('data_match_rules_select') }}">Select Rules Set</a></li>
           <li><a href="{{ url_for('data_match') }}">Run Match Rules</a></li>
         </ul>
       </li>

@@ -421,14 +421,17 @@ def check_rules(app, rules):
 
   return True
 
-def match_all(app):
+def match_all(app, rules_file):
   session = Session()
 
   matched = 0
   errors = []
 
   #load rules here
-  rules = load_rules("rules/example_rules.yaml")["Rules"]
+  rules_path = "rules/" + rules_file
+  rules = load_rules(rules_path)["Rules"]
+
+  app.logger.info("Using Rules File: " + rules_path)
 
   now = time.strftime('[%Y-%m-%d %H:%M:%S]')
   app.logger.info(now+"Matching: match rules loaded")
@@ -441,7 +444,9 @@ def match_all(app):
     threading.current_thread()._children = weakref.WeakKeyDictionary()
 
   providers = session.query(MedicalProvider)
-  providers_count = providers.count()
+  #providers_count = providers.count()
+  #limiting matching to 2000 providers
+  providers_count = 2000
   chunk_size = min(providers_count, 60000)
 
   if providers_count > 0:

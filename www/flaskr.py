@@ -15,6 +15,9 @@ from pprint import pprint, pformat
 import mdm_rules
 import yaml
 import time
+import os
+from os import listdir
+from os.path import isfile, join
 
 import cProfile
 
@@ -193,7 +196,7 @@ def data_match_rules_save():
   rules_form = request.form
 
   timestamp = time.strftime("%Y%m%d-%H%M%S")
-  filename = "rules/ruleset_" + timestamp + ".yaml"
+  filename = "rules/ruleset_" + timestamp.strip(' ') + ".yaml"
   mdm_rules.write_yaml(app, filename, rules_form)
 
   f = open(filename, 'r+')
@@ -201,14 +204,39 @@ def data_match_rules_save():
   for i, l in enumerate(lines):
     lines[i] = re.sub(' ', '&nbsp;', l)
 
+  flash('Saved Rules File: ' + filename)
+  return render_template('show_rules.html', rules_file = filename, rules_lines = lines)
+
+@app.route("/data/match_rules/select")
+def data_match_rules_select():
+  rules_dir = 'rules'
+  files = [ f for f in listdir(rules_dir) if isfile(join(rules_dir,f)) ]   
+  return render_template('select_rules.html', files = files)
+
+@app.route("/data/match_rules/view", methods=['GET'])
+def data_match_rules_view():
+  rules_dir = 'rules'
+  rules_file = request.args['rules_file']
+  filename = os.path.join(rules_dir, rules_file)
+
+  f = open(filename, 'r+')
+  lines = f.readlines()
+
+  for i, l in enumerate(lines):
+    lines[i] = re.sub(' ', '&nbsp;', l)
+
+  flash('Viewing File: ' + filename)
   return render_template('show_rules.html', rules_file = filename, rules_lines = lines)
 
 @app.route("/data/match")
 def data_match():
     tables_data = get_all_tables()
+    rules_file = request.cookies.get('rules_file')
     #matched, errors = mdm_match.match_all(app)
-    cProfile.runctx('mdm_match.match_all(app)', {"mdm_match": mdm_match}, {"app": app})
-    return render_template('matching_results.html', tables_data=tables_data)
+    #cProfile.runctx('mdm_match.match_all(app, rules_file)', {"mdm_match": mdm_match}, {"app": app})
+    mdm_match.match_all(app, rules_file)
+    flash('Matching using ' + rules_file + ' complete.')
+    return render_template('show_tables.html')
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():

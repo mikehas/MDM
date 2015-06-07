@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+{% block localhead %}
+  <script type='text/javascript'>
+    $(document).ready(function() {
+        $("#saveselectionbutton").on('click', function(){
+          selection = $('input[name=rules_file]:checked').val()
+          alert("Matching will use the " +  selection + " rule set." );
+          Cookies.set("rules_file", selection);
+        });
+    });
+    
+  </script>
+{% endblock %}
+{% block body %}
+  {% if session.logged_in %}
+    <button id="saveselectionbutton" >Use Selected Rules File</button>
+		<table id="selectrules">
+        <thead>
+          <td>select</td>
+          <td>filename</td>
+          <td>view</td>
+        </thead>
+        <tbody>    
+        {% for file in files %}
+            <tr>
+              <td><input type="radio" name='rules_file' value='{{ file }}'></td>
+              <td>{{ file }}</td>
+              <td><a href="{{ url_for('data_match_rules_view', rules_file=file)}}">view file contents</a></td>
+            </tr>
+            {% else %}
+            <p>No rules found</p>
+        {% endfor %}
+        </tbody>
+    </table>
+  {% else %}
+    <p> You are not logged in. </p>
+	{% endif %}
+  </ul>
+{% endblock %}
