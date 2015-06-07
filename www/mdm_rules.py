@@ -43,7 +43,8 @@ def write_yaml(app, f, rules_form):
           app.logger.debug("fuzzy val colname: " + add_to_col)
           fuzzy_vals.append((add_to_col, mode))
         elif ('_has_type' in col):
-          has_type = mode
+          if mode != 'both':
+            has_type = mode
         elif ('title' in col):
           app.logger.debug("found title: " + mode)
           title = mode
@@ -59,12 +60,14 @@ def write_yaml(app, f, rules_form):
         if coldict['match_col'] == fcol:
           coldict['match_threshold'] = fval
 
-           
+
     rule = OrderedDict()
     rule['title'] = title
-    rule['has_type'] = has_type
+    if has_type is not None:
+      rule['has_type'] = has_type
     rule['match_cols'] = match_cols
-    r.append(rule)
+    if len(match_cols) > 0:
+      r.append(rule)
 
   rules_dict = {'Rules': r}
 
