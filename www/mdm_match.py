@@ -254,7 +254,7 @@ def match_to_mastered_providers(app, s, mp_obj, mmp_objs, rules, now):
     s.flush()
 
     #add our new mmp_obj to our cached collection
-    m_obj = {"mmp": m, "mmp_names": [mp.name], "mmp_phones": [],\
+    m_obj = {"mmp": m, "mmp_names": [], "mmp_phones": [],\
         "mmp_paddresses": [], "mmp_maddresses": [],\
         "mmp_pspecialties": [], "mmp_sspecialties": []}
     mmp_objs.append(m_obj)
@@ -262,6 +262,10 @@ def match_to_mastered_providers(app, s, mp_obj, mmp_objs, rules, now):
     match = Matched(sourceid=mp.sourceid,masterid=m.masterid,timestamp=now,\
           matchrule='Transfer',message='First record of its kind so far...')
     s.add(match)
+
+  #save names!
+  if mp.name is not None:
+    m_obj["mmp_names"].append(mp.name)
 
   #link phone, addrs, and specialties to matched* lookup tables and cached data
   if mp.primaryspecialty is not None:
