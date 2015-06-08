@@ -213,8 +213,8 @@ def data_match_rules_select():
   rules_dir = 'rules'
   rules_file = request.cookies.get('rules_file')
 
-  if rules_file == None:
-    rules_file == "default_rules.yaml"
+  if rules_file is None:
+    rules_file = "default_rules.yaml"
 
   flash("Matching is set to use the " + rules_file + " file.")
 
@@ -273,7 +273,7 @@ def data_match():
 def data_names_split():
     split_names = mdm_names.split_names(app)
     return render_template('show_split_names.html', entries=split_names)
-    
+
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     error = None
