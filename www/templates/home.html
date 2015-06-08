@@ -7,6 +7,19 @@
   </script>
 {% endblock %}
 {% block body %}
+<div style="margin: 25px auto; width: 500px; text-align: center">
+  <h2>Team:</h2>
+  The Rolling Pebbles
+
+  <br/>
+  <br/>
+  <h2>Group Members:</h2>
+  Michael Haskell<br/>
+  Sam Wu<br/>
+  Nicole Martin<br/>
+  Cody Hunt<br/>
+</div>
+<img src="{{ url_for('static', filename='heart_mdm.JPG') }}" />
   {% if session.logged_in %}
   {% else %}
     <p> You are not logged in. </p>
