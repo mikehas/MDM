@@ -226,7 +226,7 @@ def data_match_rules_delete():
   rules_dir = 'rules'
   rules_file = request.args['rules_file']
   if rules_file == "default_rules.yaml":
-    flash("Please do not try to delete the default rules file!!!.")
+    flash("Please do not try to delete the default rules file!!!")
   elif rules_file != None:
     file_name = os.path.join(rules_dir, rules_file)
     flash("Rule file " + rules_file + " deleted.")
