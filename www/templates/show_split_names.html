@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+{% block localhead %}
+  <script type="text/javascript"> 
+      $(document).ready(function() {
+        $('#dtable').DataTable();
+      });
+  </script>
+{% endblock %}
+{% block body %}
+  {% if session.logged_in %}
+		<table class="display">
+        <thead>
+          <td>raw</td>
+          <td>prefix</td>
+          <td>first</td>
+          <td>middle</td>
+          <td>last</td>
+          <td>suffix</td>
+          <td>credentials</td>
+          <td>unknown</td>
+        </thead>
+        <tbody>    
+        {% for entry in entries %}
+            <tr>
+            {% for col in entry %}
+              <td>{{ col|safe }}</td>
+            {% endfor %}
+            </tr>
+            {% else %}
+            <p>No entries here so far</p>
+        {% endfor %}
+        </tbody>
+    </table>
+  {% else %}
+    <p> You are not logged in. </p>
+	{% endif %}
+  </ul>
+{% endblock %}
