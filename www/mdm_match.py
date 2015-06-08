@@ -440,13 +440,10 @@ def match_all(app, rules_file):
     app.logger.error("Matching: invalid rules")
     return matched, errors
 
-  if not hasattr(threading.current_thread(), "_children"):
-    threading.current_thread()._children = weakref.WeakKeyDictionary()
-
   providers = session.query(MedicalProvider)
-  #providers_count = providers.count()
+  providers_count = providers.count()
   #limiting matching to 2000 providers
-  providers_count = 2000
+  #providers_count = 2000
   chunk_size = min(providers_count, 60000)
 
   if providers_count > 0:
