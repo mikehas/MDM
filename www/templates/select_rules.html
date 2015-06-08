@@ -4,8 +4,8 @@
     $(document).ready(function() {
         $("#saveselectionbutton").on('click', function(){
           selection = $('input[name=rules_file]:checked').val()
-          alert("Matching will use the " +  selection + " rule set." );
           Cookies.set("rules_file", selection);
+          window.location.href = "{{ url_for('data_match_rules_select') }}"
         });
     });
     

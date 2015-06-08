@@ -18,6 +18,7 @@ import time
 import os
 from os import listdir
 from os.path import isfile, join
+import mdm_names
 
 import cProfile
 
@@ -52,11 +53,11 @@ def show_entries():
     limit = request.args.get('limit')
     if table == None:
       return redirect(url_for('show_tables'))
-    #if limit == None:
-    #  limit = '1000'
+    if limit == None:
+      limit = '2000'
 
     connection = engine.connect()
-    data = connection.execute("SELECT * from " + table) #+ " limit " + limit )
+    data = connection.execute("SELECT * from " + table + " limit " + limit )
     connection.close()
 
     if data is None:
@@ -187,7 +188,7 @@ def data_match_rules():
     cols.extend(getAttributesToMatch(Address.__table__.columns, ignore_cols, 'Mailing '))
     cols.append('Phone');
 
-    flash("Select and modify the matching rules you would like to be executed.")
+    flash("Click 'Add' to create a new matching rule. When complete, click 'Save Rules'.")
     return render_template('match_rules.html', columns=cols)
 
 @app.route("/data/match_rules/save", methods = ['POST'])
@@ -210,6 +211,13 @@ def data_match_rules_save():
 @app.route("/data/match_rules/select")
 def data_match_rules_select():
   rules_dir = 'rules'
+  rules_file = request.cookies.get('rules_file')
+
+  if rules_file == None:
+    rules_file == "default_rules.yaml"
+
+  flash("Matching is set to use the " + rules_file + " file.")
+
   files = [ f for f in listdir(rules_dir) if isfile(join(rules_dir,f)) ]
   return render_template('select_rules.html', files = files)
 
@@ -260,6 +268,12 @@ def data_match():
     tables_data = get_all_tables()
     return render_template('show_tables.html', tables_data = tables_data)
 
+
+@app.route("/data/names/split")
+def data_names_split():
+    split_names = mdm_names.split_names(app)
+    return render_template('show_split_names.html', entries=split_names)
+    
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     error = None

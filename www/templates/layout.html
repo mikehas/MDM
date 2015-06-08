@@ -36,6 +36,13 @@
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
 <div class="page">
   <h1>MDM | Medical Providers</h1>
+     <div class="login-link">
+      {% if not session.logged_in %}
+        <a href="{{ url_for('login') }}">log in</a>
+      {% else %}
+        <a href="{{ url_for('logout') }}">log out</a>
+      {% endif %}
+    </div>
 
 <div class="metanav">
   <ul id="jMenu">
@@ -58,6 +65,7 @@
       </li>
       <li><a href="{{ url_for('show_tables') }}">Browse Tables</a></li>
       <li><a href="{{ url_for('show_entries', table='MasteredMedicalProvider') }}">Mastered Records</a></li>
+      <li><a href="{{ url_for('data_names_split') }}">Mastered Names Split</a></li>
       <li>
         <a href=".">Utilities</a>
         <ul>
@@ -69,13 +77,6 @@
 
    </ul>
  </div>
-     <div class="login-link">
-      {% if not session.logged_in %}
-        <a href="{{ url_for('login') }}">log in</a>
-      {% else %}
-        <a href="{{ url_for('logout') }}">log out</a>
-      {% endif %}
-    </div>
    <div class="content_wrapper">
         <div class="content">
           {% for message in get_flashed_messages() %}

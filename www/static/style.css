@@ -24,5 +24,9 @@ h2              { font-size: 1.2em; }
   float: right;
   display: block;
 }
+#login {
+  width: 400px;
+  margin: 10px auto;
+}
 
 
