@@ -52,10 +52,10 @@ def split_names(app):
 
   # Credential Regex to match consonants strings of 3 or more
   cred_r = re.compile(r'(^[B-DF-HJ-NP-TV-XZ]{3,}$)')
-  cred_r2 = re.compile(r'(?:.*\s|^)(M D|D D S)(?:\s.*|$)')
+  cred_r2 = re.compile(r'(?:.*\s|^)(PA- C|MSN F|P A|R EEG\/EP|APN C|F N P|P C|A M D|D P M|M D|D D S|PHARM D|PSY D|O D|D O|C N P|AT C|P L|L M S W|L AC|M ED|PA C|P A C|M DIV|R PH|R N N P|COTA \/L|PA -C|RN C|O\. D\.|D C|R EP T|M\. D\.|NCAC I|M S|M OF ED|M B B S|PH D)(?:\s.*|$)')
 
   session = Session()
-  data = session.query(MasteredProvider.name).limit(1000)
+  data = session.query(MasteredProvider.name).all()
   session.close()
   
   output = []
@@ -72,13 +72,18 @@ def split_names(app):
     first = []
     middle = []
 
+    # Merge N E L S O N
+    name = re.sub('N E L S O N', 'NELSON',name)
+    name = re.sub('N E A L O N', 'NEALON',name)
+
     # Deal with M D, D D S
     name = re.sub(r'[><]', '', name)
-    credential = cred_r2.match(name)
-    if credential != None:
+    credential = cred_r2.match(name.upper())
+    while credential != None:
       c = credential.group(1)
-      name = re.sub(c, '', name)
+      name = re.sub(c.upper(), '', name.upper())
       credentials.append(re.sub(' ','', c))
+      credential = cred_r2.match(name)
 
     s = name.split()
     
@@ -87,7 +92,6 @@ def split_names(app):
       w = clean_rgx.sub('', w).upper()
       credential = cred_r.match(w)
       if credential is not None:
-        app.logger.debug(credential.group())
         credentials.append(credential.group())
         to_del.append(i)
       elif cred_d.get(w) is not None:
@@ -115,8 +119,19 @@ def split_names(app):
     # delete used words
     to_del, s = delete_used(to_del, s)
 
+    # Remove tokens with numbers or non-names
+    for i, w in enumerate(s):
+      w = clean_rgx.sub('', w).upper()
+      if bool(re.search(r'\d', w)) or bool(re.search(r'ADDRESS|LOCATION', w)):
+        to_del.append(i)
+    to_del, s = delete_used(to_del, s)
+    
     # Deal with 2 word names
-    if len(s) == 2:
+    if len(s) == 1:
+      last.append(s[0])
+      to_del.append(0)
+    # Deal with 2 word names
+    elif len(s) == 2:
       if len(s[0]) == 1:
         first.append(s[0])
         last.append(s[1])
@@ -150,6 +165,15 @@ def split_names(app):
 
     to_del, s = delete_used(to_del, s)
 
+    # Default behavior for long names
+    if len(s) > 0:
+      app.logger.debug("Cleaning up long names..." + s[0])
+      first.append(s[0])
+      last.extend(s[1:-1])
+      to_del.extend(range(0,len(s)))
+
+    to_del, s = delete_used(to_del, s)
+
     row = [''] * 8
     row[0] = r[0]
     row[1] = ' '.join(prefixes)
@@ -158,7 +182,8 @@ def split_names(app):
     row[4] = ' '.join(last)
     row[5] = ' '.join(suffixes)
     row[6] = ' '.join(credentials)
-    row[7] = ' '.join(s)
+    row[7] = ' '.join(s) #unknowns
+
     output.append(row)
 
   return output
