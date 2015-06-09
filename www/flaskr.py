@@ -7,7 +7,7 @@ from logging.handlers import RotatingFileHandler
 import mdm_schema
 import mdm_map
 import mdm_match
-from mdm_db import engine
+from mdm_db import engine, Session
 import json
 from mdm_models import *
 import re
