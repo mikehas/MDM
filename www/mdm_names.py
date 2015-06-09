@@ -83,13 +83,6 @@ class OrderedSet(collections.MutableSet):
             return len(self) == len(other) and list(self) == list(other)
         return set(self) == set(other)
 
-            
-if __name__ == '__main__':
-    s = OrderedSet('abracadaba')
-    t = OrderedSet('simsalabim')
-    print(s | t)
-    print(s & t)
-    print(s - t)
 BAD_CHARS = '[- .,;:/\r\n>]'
 
 def create_dict_from_file(file_name):
@@ -108,6 +101,56 @@ def delete_used(to_del, s):
       del s[i]
     to_del = []
     return to_del, s
+
+def clean(obj):
+  return '' if obj is None else str(obj)
+
+def get_phone(app, session, m_id):
+  phone = session.query(Phone.cleanphone).join(MatchedPhone, MatchedPhone.sourceid == Phone.sourceid).filter(MatchedPhone.masterid == m_id).first()
+  if phone is None:
+    phone = ['']
+  return phone
+
+def get_primary_specialty(app, session, m_id):
+  result = session.query(MatchedPrimarySpecialty.specialty).filter(MatchedPrimarySpecialty.masterid == m_id).first()
+  if result is None:
+    result = ['']
+  return result
+
+def get_secondary_specialty(app, session, m_id):
+  result = session.query(MatchedSecondarySpecialty.specialty).filter(MatchedSecondarySpecialty.masterid == m_id).first()
+  if result is None:
+    result = ['']
+  return result
+
+def save_names(app, f_name):
+  f = open(f_name, 'w+')
+  session = Session()
+  m_ids = session.query(MasteredProvider.masterid).order_by(MasteredProvider.masterid).all()
+  types = session.query(MasteredProvider.providertype).order_by(MasteredProvider.masterid).all()
+  names = split_names(app)
+  genders = session.query(MasteredProvider.gender).order_by(MasteredProvider.masterid).all()
+  dobs = session.query(MasteredProvider.dateofbirth).order_by(MasteredProvider.masterid).all()
+  proprietors = session.query(MasteredProvider.issoleproprietor).order_by(MasteredProvider.masterid).all()
+
+  columns = ['Master ID', 'Provider Type', 'Name Prefix', 'First Name', 'Middle Name', 'Last Name', 'Name Suffix', 'Medical Credential', 'Gender', 'Date of Birth', 'Is Sole Proprietor', 'Primary Phone', 'Primary Specialty', 'Secondary Specialty']
+
+  f.write('\t'.join(columns)+'\n')
+  for m_id, m_type, name, gender, dob, proprietor  in \
+   zip(m_ids, types, names, genders, dobs, proprietors):
+
+    phone = get_phone(app, session, clean(m_id[0]))
+    p_special = get_primary_specialty(app, session, clean(m_id[0]))
+    s_special = get_secondary_specialty(app, session, clean(m_id[0]))
+
+    f.write(clean(m_id[0]) + '\t' + clean(m_type[0]) + '\t' + name[1] +\
+      '\t' + name[2] + '\t' + name[3] + '\t' + name[4] + '\t' + name[5] +\
+      '\t' + name[6] + '\t' + clean(gender[0]) + '\t' + clean(dob[0]) +\
+      '\t' + clean(proprietor[0]) + '\t' + clean(phone[0]) + '\t' + clean(p_special[0]) +\
+      '\t' + clean(s_special[0]) + '\n' )
+  f.close()
+
+  return names
 
 def split_names(app):
   cred_d = create_dict_from_file("name_terms/credentials.txt")
@@ -242,7 +285,7 @@ def split_names(app):
     to_del, s = delete_used(to_del, s)
 
     row = [''] * 7
-    row[0] = int(m_id[0])
+    row[0] = str(m_id[0])
     row[1] = ' '.join(prefixes)
     row[2] = ' '.join(first)
     row[3] = ' '.join(middle)

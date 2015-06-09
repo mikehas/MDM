@@ -66,14 +66,7 @@
       <li><a href="{{ url_for('show_tables') }}">Browse Tables</a></li>
       <li><a href="{{ url_for('show_entries', table='MasteredMedicalProvider') }}">Mastered Records</a></li>
       <li><a href="{{ url_for('data_names_split') }}">Mastered Names Split</a></li>
-      <li>
-        <a href=".">Utilities</a>
-        <ul>
-          <li><a href=".">Export Data</a></li>
-          <li><a href=".">View Logs</a></li>
-        </ul>
-      </li>
-
+      <li><a href="{{ url_for('data_names_save') }}">Output Mastered Records</a></li>
 
    </ul>
  </div>

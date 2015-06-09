@@ -268,6 +268,13 @@ def data_match():
     tables_data = get_all_tables()
     return render_template('show_tables.html', tables_data = tables_data)
 
+@app.route("/data/mastered/save")
+def data_names_save():
+    file_name = 'output/mastered_names.tsv'
+    mdm_names.save_names(app, file_name)
+
+    flash('Mastered names saved to a tab separated file here: ' + file_name)
+    return render_template('home.html')
 
 @app.route("/data/names/split")
 def data_names_split():
