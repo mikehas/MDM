@@ -1,7 +1,5 @@
 import math
 from pprint import pprint
-import threading
-import weakref
 from multiprocessing.pool import ThreadPool
 from mdm_db import Session, safe_commit
 from mdm_models import *
@@ -231,7 +229,10 @@ def match_to_mastered_providers(app, s, mp_obj, mmp_objs, rules, now):
         fieldsSurvived = "Survived: dateofbirth"
       else:
         fieldsSurvived = fieldsSurvived + ", dateofbirth"
-    if m.issoleproprietor is None and mp.issoleproprietor is not None:
+    if ((m.issoleproprietor is None or m.issoleproprietor == 'X') and\
+          (mp.issoleproprietor is not None and mp.issoleproprietor != 'X')) or\
+       (mp.issoleproprietor is not None and mp.issoleproprietor == 'Y' and\
+          (m.issoleproprietor is None or m.issoleproprietor != 'Y')):
       m.issoleproprietor = mp.issoleproprietor
       if fieldsSurvived is None:
         fieldsSurvived = "Survived: issoleproprietor"

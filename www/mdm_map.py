@@ -70,8 +70,11 @@ def map_all():
 
     provider = MedicalProvider(sourceid=row.sourceid,\
           providertype=row.providertype, name=clean_name(row.name),\
-          gender=row.gender, dateofbirth=row.dateofbirth,\
-          issoleproprietor=row.issoleproprietor,\
+          gender=(None if row.providertype.lower() == 'organization' else row.gender),\
+          dateofbirth=row.dateofbirth,\
+          issoleproprietor=(None if row.providertype.lower() == 'organization'\
+            else ('X' if row.providertype.lower() == 'individual' and\
+              row.issoleproprietor is None else row.issoleproprietor)),\
           primaryspecialty=row.primaryspecialty,\
           secondaryspecialty=row.secondaryspecialty,\
           timestamp=now, message="basic mapping")
