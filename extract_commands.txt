@@ -1,0 +1,8 @@
+Address:
+select SourceID, AddressType, Street, Unit, City, Region, PostalCode, County, Country from address;
+
+Audit:
+select SourceID, MasterID, MatchRule, Message from matched;
+
+Crosswalk:
+select MasterID, SourceID from matched;
