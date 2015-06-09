@@ -1,6 +1,7 @@
 import re
 from mdm_models import *
 from mdm_db import Session, safe_commit
+import collections
 
 '''
 First Name, Last Name
@@ -24,6 +25,71 @@ Medical Cred, First Name, Middle Initial, Last Name, Name Suffix (Jr)
 Ivonne De L Fraga Berrios
 FirstName, First Name, Middle Initial, Last Name, Lastname
 '''
+
+class OrderedSet(collections.MutableSet):
+    def __init__(self, iterable=None):
+        self.end = end = [] 
+        end += [None, end, end]         # sentinel node for doubly linked list
+        self.map = {}                   # key --> [key, prev, next]
+        if iterable is not None:
+            self |= iterable
+
+    def __len__(self):
+        return len(self.map)
+
+    def __contains__(self, key):
+        return key in self.map
+
+    def add(self, key):
+        if key not in self.map:
+            end = self.end
+            curr = end[1]
+            curr[2] = end[1] = self.map[key] = [key, curr, end]
+
+    def discard(self, key):
+        if key in self.map:        
+            key, prev, next = self.map.pop(key)
+            prev[2] = next
+            next[1] = prev
+
+    def __iter__(self):
+        end = self.end
+        curr = end[2]
+        while curr is not end:
+            yield curr[0]
+            curr = curr[2]
+
+    def __reversed__(self):
+        end = self.end
+        curr = end[1]
+        while curr is not end:
+            yield curr[0]
+            curr = curr[1]
+
+    def pop(self, last=True):
+        if not self:
+            raise KeyError('set is empty')
+        key = self.end[1][0] if last else self.end[2][0]
+        self.discard(key)
+        return key
+
+    def __repr__(self):
+        if not self:
+            return '%s()' % (self.__class__.__name__,)
+        return '%s(%r)' % (self.__class__.__name__, list(self))
+
+    def __eq__(self, other):
+        if isinstance(other, OrderedSet):
+            return len(self) == len(other) and list(self) == list(other)
+        return set(self) == set(other)
+
+            
+if __name__ == '__main__':
+    s = OrderedSet('abracadaba')
+    t = OrderedSet('simsalabim')
+    print(s | t)
+    print(s & t)
+    print(s - t)
 BAD_CHARS = '[- .,;:/\r\n>]'
 
 def create_dict_from_file(file_name):
@@ -55,13 +121,15 @@ def split_names(app):
   cred_r2 = re.compile(r'(?:.*\s|^)(PA- C|MSN F|P A|R EEG\/EP|APN C|F N P|P C|A M D|D P M|M D|D D S|PHARM D|PSY D|O D|D O|C N P|AT C|P L|L M S W|L AC|M ED|PA C|P A C|M DIV|R PH|R N N P|COTA \/L|PA -C|RN C|O\. D\.|D C|R EP T|M\. D\.|NCAC I|M S|M OF ED|M B B S|PH D)(?:\s.*|$)')
 
   session = Session()
-  data = session.query(MasteredProvider.name).all()
+  data = session.query(MasteredProvider.name).order_by(MasteredProvider.masterid).all()
+  m_ids = session.query(MasteredProvider.masterid).order_by(MasteredProvider.masterid).all()
+
   session.close()
   
   output = []
   clean_rgx = re.compile(BAD_CHARS)
 
-  for r in data:
+  for m_id, r in zip(m_ids, data):
     name = r[0].strip()
     name = re.sub(' - ', '-', name)
     credentials = []
@@ -167,22 +235,20 @@ def split_names(app):
 
     # Default behavior for long names
     if len(s) > 0:
-      app.logger.debug("Cleaning up long names..." + s[0])
       first.append(s[0])
       last.extend(s[1:-1])
       to_del.extend(range(0,len(s)))
 
     to_del, s = delete_used(to_del, s)
 
-    row = [''] * 8
-    row[0] = r[0]
+    row = [''] * 7
+    row[0] = int(m_id[0])
     row[1] = ' '.join(prefixes)
     row[2] = ' '.join(first)
     row[3] = ' '.join(middle)
     row[4] = ' '.join(last)
     row[5] = ' '.join(suffixes)
-    row[6] = ' '.join(credentials)
-    row[7] = ' '.join(s) #unknowns
+    row[6] = ' '.join(OrderedSet(credentials))
 
     output.append(row)
 
